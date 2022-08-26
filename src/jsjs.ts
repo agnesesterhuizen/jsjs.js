@@ -1,12 +1,31 @@
-import { newJSLexer } from "./lexer";
+import { Program } from "./ast";
+import { Interpreter, InterpreterError } from "./interpreter";
+import { newJSLexer } from "./js-lexer";
+import { JSValue } from "./js-types";
+import { ParseError, Parser } from "./Parser";
+import { Result } from "./types";
 
-const fs = require("fs");
+type JSJSError = ParseError | InterpreterError;
 
-const src = fs.readFileSync("jsjs.js", "utf8");
+export class JSJS {
+  lexer = newJSLexer();
+  parser = new Parser();
+  interpreter = new Interpreter();
 
-const l = newJSLexer();
-const res = l.getTokens(src);
+  parse(source: string): Result<Program, JSJSError> {
+    const tokensResult = this.lexer.getTokens(source);
+    if (tokensResult.isErr()) {
+      return Result.err(tokensResult.error());
+    }
 
-console.log(JSON.stringify(res, null, 2));
+    return this.parser.parse(tokensResult.unwrap());
+  }
 
-export {};
+  run(source: string): Result<JSValue, JSJSError> {
+    const parseResult = this.parse(source);
+    if (parseResult.isErr()) return parseResult.mapErr();
+
+    const ast = parseResult.unwrap();
+    return this.interpreter.run(ast);
+  }
+}
