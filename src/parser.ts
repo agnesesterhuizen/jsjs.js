@@ -1,5 +1,6 @@
-import { Expression, Operator, OPERATOR_PRECEDENCE, Program, Statement } from "./ast";
+import { Expression, getOperatorFromToken, Operator, OPERATOR_PRECEDENCE, Program, Statement } from "./ast";
 import { JSToken, JSTokenType } from "./js-lexer";
+import { Token } from "./lexer";
 import { Option, Result } from "./types";
 
 export type ParseError = {
@@ -7,9 +8,9 @@ export type ParseError = {
   message?: string;
 };
 
-const unexpectedToken = (token: JSToken): ParseError => ({
+const unexpectedToken = (expected: JSTokenType, actual: JSToken): ParseError => ({
   type: "unexpected_token",
-  message: `unexpected token: ${token.value}`,
+  message: `unexpected token: expected ${expected}, got ${actual.value}`,
 });
 
 const todo = (feature: string): ParseError => ({
@@ -25,7 +26,7 @@ export class Parser {
     const token = this.tokens[this.index];
     if (!token) return Result.err({ type: "unexpected_token", message: `expected: ${type}, got eof` });
 
-    if (token.type !== type) return Result.err(unexpectedToken(token));
+    if (token.type !== type) return Result.err(unexpectedToken(type, token));
 
     this.index++;
     return Result.ok(token);
@@ -37,9 +38,15 @@ export class Parser {
 
     const token = tokenResult.unwrap();
 
-    if (token.value !== value) return Result.err(unexpectedToken(token));
+    if (token.value !== value) return Result.err(unexpectedToken(type, token));
 
     return Result.ok(token);
+  }
+
+  nextToken(): JSToken {
+    const token = this.tokens[this.index];
+    this.index++;
+    return token;
   }
 
   peekNextToken(): JSToken {
@@ -95,7 +102,7 @@ export class Parser {
     const { value } = booleanTokenResult.unwrap();
 
     if (value !== "true" && value !== "false") {
-      return Result.err(unexpectedToken(booleanTokenResult.unwrap()));
+      return Result.err(unexpectedToken("keyword", booleanTokenResult.unwrap()));
     }
 
     return Result.ok({
@@ -111,7 +118,7 @@ export class Parser {
     const { value } = keyword.unwrap();
 
     if (value !== "function") {
-      return Result.err(unexpectedToken(keyword.unwrap()));
+      return Result.err(unexpectedToken("keyword", keyword.unwrap()));
     }
 
     const identifier: Option<string> = Option.none();
@@ -162,7 +169,7 @@ export class Parser {
       const colon = this.expect("colon");
       if (colon.isErr()) return colon.mapErr();
 
-      const value = this.parseExpression(Option.none());
+      const value = this.parseExpression(0);
       if (value.isErr()) return value.mapErr();
 
       properties[identifier.unwrap().value] = value.unwrap();
@@ -188,7 +195,7 @@ export class Parser {
     const elements = [];
 
     while (!this.nextTokenIsType("right_bracket")) {
-      const value = this.parseExpression(Option.none());
+      const value = this.parseExpression(0);
       if (value.isErr()) return value.mapErr();
 
       elements.push(value.unwrap());
@@ -222,178 +229,175 @@ export class Parser {
         this.index--;
         return this.parseFunctionExpression();
       default:
-        return Result.err(unexpectedToken(token));
+        return Result.err(unexpectedToken("keyword", token));
     }
   }
 
-  parseExpression(left: Option<Expression>, currentPrecedence = 1): Result<Expression, ParseError> {
-    // console.log("\nparseExpression", this.tokens[this.index], { currentPrecedence });
+  parsePrimary(): Result<Expression, ParseError> {
+    if (this.peekNextToken()?.type === "left_paren") {
+      this.expect("left_paren");
+      const expression = this.parseExpression();
+      this.expect("right_paren");
+      return expression;
+    }
 
-    if (!left.hasValue()) {
-      const token = this.tokens[this.index];
-      switch (token.type) {
-        case "left_paren": {
-          this.index++;
-          const res = this.parseExpression(Option.none());
-          if (res.isErr()) return res.mapErr();
+    const token = this.nextToken();
 
-          const leftParenResult = this.expect("right_paren");
-          if (leftParenResult.isErr()) return leftParenResult.mapErr();
+    switch (token.type) {
+      case "identifier": {
+        let left: Expression = { type: "identifier", value: token.value };
 
-          left.setValue(res.unwrap());
-          break;
+        if (this.peekNextToken()?.type === "dot") {
+          this.nextToken();
+          const right = this.expect("identifier");
+          if (right.isErr()) return right.mapErr();
+
+          left = {
+            type: "member",
+            object: left,
+            property: { type: "identifier", value: right.unwrap().value },
+            computed: false,
+          };
+        } else if (this.peekNextToken().type === "left_bracket") {
+          this.nextToken();
+
+          const property = this.parseExpression(0);
+          if (property.isErr()) return property.mapErr();
+
+          this.expect("right_brace");
+          this.nextToken();
+
+          left = {
+            type: "member",
+            object: left,
+            property: property.unwrap(),
+            computed: true,
+          };
         }
-        case "number": {
-          const res = this.parseNumber();
-          if (res.isErr()) return res.mapErr();
-          left.setValue(res.unwrap());
-          break;
+
+        if (this.peekNextToken()?.type === "equals") {
+          this.nextToken();
+
+          const value = this.parseExpression();
+          if (value.isErr()) return value.mapErr();
+
+          return Result.ok({
+            type: "assignment",
+            operator: "=",
+            left,
+            right: value.unwrap(),
+          });
         }
-        case "string": {
-          const res = this.parseString();
-          if (res.isErr()) return res.mapErr();
-          left.setValue(res.unwrap());
-          break;
-        }
-        case "identifier": {
-          const res = this.parseIdentifier();
-          if (res.isErr()) return res.mapErr();
-          left.setValue(res.unwrap());
-          break;
-        }
-        case "keyword":
-          if (token.value === "true" || token.value === "false" || token.value === "function") {
-            const res = this.parseKeywordExpression();
-            if (res.isErr()) return res.mapErr();
-            left.setValue(res.unwrap());
-            break;
+
+        if (this.peekNextToken()?.type === "left_paren") {
+          this.nextToken();
+          const args: Expression[] = [];
+          while (this.peekNextToken().type !== "right_paren") {
+            const arg = this.parseExpression(0);
+            if (arg.isErr()) return arg.mapErr();
+            args.push(arg.unwrap());
+
+            if (this.peekNextToken().type !== "right_paren") {
+              this.expect("comma");
+            }
           }
 
-          return Result.err(unexpectedToken(token));
+          this.expect("right_paren");
 
-        case "left_brace": {
-          const res = this.parseObjectExpression();
-          if (res.isErr()) return res.mapErr();
-          left.setValue(res.unwrap());
-          break;
+          left = { type: "call", function: left, arguments: args };
         }
 
-        case "left_bracket": {
-          const res = this.parseArrayExpression();
-          if (res.isErr()) return res.mapErr();
-          left.setValue(res.unwrap());
-          break;
+        return Result.ok(left);
+      }
+      case "number": {
+        return Result.ok({ type: "number", value: parseFloat(token.value) });
+      }
+
+      case "string": {
+        return Result.ok({ type: "string", value: token.value });
+      }
+
+      case "keyword": {
+        if (token.value === "true" || token.value === "false") {
+          return Result.ok({ type: "boolean", value: token.value === "true" });
         }
 
-        default:
-          return Result.err(unexpectedToken(token));
-      }
-    }
+        if (token.value === "function") {
+          let id = Option.none<string>();
 
-    if (
-      this.nextTokenIsType("semicolon") ||
-      this.nextTokenIsType("right_paren") ||
-      this.nextTokenIsType("right_brace") ||
-      this.nextTokenIsType("right_bracket") ||
-      this.nextTokenIsType("colon") ||
-      this.nextTokenIsType("comma")
-    ) {
-      return Result.ok(left.unwrap());
-    }
+          if (this.peekNextToken()?.type === "identifier") {
+            let idToken = this.expect("identifier");
+            if (idToken.isErr()) return idToken.mapErr();
+            id = Option.some(idToken.unwrap().value);
+          }
 
-    if (this.nextTokenIsType("dot")) {
-      this.index++;
-      const rightResult = this.expect("identifier");
-      if (rightResult.isErr()) return rightResult.mapErr();
+          const parameters: string[] = [];
 
-      left.setValue({
-        type: "member",
-        object: left.unwrap(),
-        property: { type: "identifier", value: rightResult.unwrap().value },
-        computed: false,
-      });
-    }
+          this.expect("left_paren");
 
-    if (this.nextTokenIsType("left_bracket")) {
-      this.index++;
+          while (this.peekNextToken()?.type !== "right_paren") {
+            const param = this.expect("identifier");
+            if (param.isErr()) return param.mapErr();
+            parameters.push(param.unwrap().value);
 
-      const property = this.parseExpression(Option.none());
-      if (property.isErr()) return property.mapErr();
+            if (this.peekNextToken()?.type !== "right_paren") {
+              this.expect("comma");
+            }
+          }
 
-      const rightBracket = this.expect("right_bracket");
-      if (rightBracket.isErr()) return rightBracket.mapErr();
+          this.expect("right_paren");
 
-      left.setValue({
-        type: "member",
-        object: left.unwrap(),
-        property: property.unwrap(),
-        computed: true,
-      });
-    }
+          const body = this.parseBlockStatement();
+          if (body.isErr()) return body.mapErr();
 
-    if (this.nextTokenIsType("equals")) {
-      this.index++;
+          return Result.ok({ type: "function", identifier: id, parameters, body: body.unwrap() });
+        }
 
-      const right = this.parseExpression(Option.none());
-      if (right.isErr()) return right.mapErr();
-
-      return Result.ok({
-        type: "assignment",
-        operator: "=",
-        left: left.unwrap(),
-        right: right.unwrap(),
-      });
-    }
-
-    if (this.nextTokenIsType("left_paren")) {
-      this.index++;
-
-      const args = [];
-
-      while (!this.nextTokenIsType("right_paren")) {
-        const argResult = this.parseExpression(Option.none());
-        if (argResult.isErr()) return argResult;
-
-        args.push(argResult.unwrap());
-
-        if (this.nextTokenIsType("comma")) this.index++;
+        throw new Error(`unexpected token: ${token.type}: ${token.value}`);
       }
 
-      const rightParenResult = this.expect("right_paren");
-      if (rightParenResult.isErr()) return rightParenResult.mapErr();
+      case "left_brace": {
+        this.index--;
+        return this.parseObjectExpression();
+      }
 
-      left.setValue({ type: "call", function: left.unwrap(), arguments: args });
+      case "left_bracket": {
+        this.index--;
+        return this.parseArrayExpression();
+      }
+
+      default:
+        throw new Error(`unexpected token: ${token.type}: ${token.value}`);
     }
+  }
 
-    if (this.nextTokenIsType("plus") || this.nextTokenIsType("asterisk")) {
-      console.log("be, left", left);
+  isOperatorTokenType(token: JSToken) {
+    return token.type === "plus" || token.type === "asterisk";
+  }
 
-      const operatorToken = this.tokens[this.index];
+  parseExpression(precedence = 0): Result<Expression, ParseError> {
+    let leftResult = this.parsePrimary();
+    if (leftResult.isErr()) return leftResult.mapErr();
+    let left = leftResult.unwrap();
 
-      const operator = operatorToken.value as Operator;
-      const precedence = OPERATOR_PRECEDENCE[operator];
-      console.log({ operator, currentPrecedence, precedence });
+    while (this.isOperatorTokenType(this.peekNextToken())) {
+      const operatorToken = this.peekNextToken()!;
+      const operator = getOperatorFromToken(operatorToken);
+      const operatorPrecedence = OPERATOR_PRECEDENCE[operator];
 
-      if (precedence > currentPrecedence) {
-        console.log("higher prec");
-        this.index++;
-        const right = this.parseExpression(Option.none(), precedence);
-        if (right.isErr()) return right;
+      // Only parse next operator if its precedence is higher or equal
+      if (operatorPrecedence > precedence) {
+        this.nextToken(); // consume the operator
+        const right = this.parseExpression(operatorPrecedence);
+        if (right.isErr()) return right.mapErr();
 
-        console.log("right", right);
-
-        return Result.ok({
-          type: "binary",
-          operator: operatorToken.value as Operator,
-          left: left.unwrap(),
-          right: right.unwrap(),
-        });
+        left = { type: "binary", operator, left, right: right.unwrap() };
       } else {
-        console.log("lower prec");
+        break;
       }
     }
 
-    return Result.ok(left.unwrap());
+    return Result.ok(left);
   }
 
   parseVariableDeclaration(): Result<Statement, ParseError> {
@@ -407,7 +411,7 @@ export class Parser {
     }
 
     if (keywordToken.value !== "var") {
-      return Result.err(unexpectedToken(keywordToken));
+      return Result.err(unexpectedToken("keyword", keywordToken));
     }
 
     const identifierResult = this.expect("identifier");
@@ -428,7 +432,7 @@ export class Parser {
     const equalsResult = this.expect("equals");
     if (equalsResult.isErr()) return equalsResult.mapErr();
 
-    const valueResult = this.parseExpression(Option.none());
+    const valueResult = this.parseExpression(0);
     if (valueResult.isErr()) return valueResult.mapErr();
 
     return Result.ok({
@@ -460,7 +464,7 @@ export class Parser {
   }
 
   parseExpressionStatement(): Result<Statement, ParseError> {
-    const expressionResult = this.parseExpression(Option.none());
+    const expressionResult = this.parseExpression(0);
     if (expressionResult.isErr()) return expressionResult.mapErr();
 
     const semicolonTokenResult = this.expect("semicolon");
@@ -511,7 +515,7 @@ export class Parser {
     const leftParen = this.expect("left_paren");
     if (leftParen.isErr()) return leftParen.mapErr();
 
-    const condition = this.parseExpression(Option.none());
+    const condition = this.parseExpression(0);
     if (condition.isErr()) return condition.mapErr();
 
     const rightParen = this.expect("right_paren");
@@ -544,7 +548,7 @@ export class Parser {
     const leftParen = this.expect("left_paren");
     if (leftParen.isErr()) return leftParen.mapErr();
 
-    const condition = this.parseExpression(Option.none());
+    const condition = this.parseExpression(0);
     if (condition.isErr()) return condition.mapErr();
 
     const rightParen = this.expect("right_paren");
@@ -560,7 +564,7 @@ export class Parser {
     const returnResult = this.expectWithValue("keyword", "return");
     if (returnResult.isErr()) return returnResult.mapErr();
 
-    const expressionResult = this.parseExpression(Option.none());
+    const expressionResult = this.parseExpression(0);
     if (expressionResult.isErr()) return expressionResult.mapErr();
 
     const semicolonTokenResult = this.expect("semicolon");
@@ -611,14 +615,14 @@ export class Parser {
           return this.parseReturnStatement();
         }
 
-        return Result.err(unexpectedToken(token));
+        return Result.err(unexpectedToken("keyword", token));
       case "left_brace": {
         const result = this.parseBlockStatement();
         if (result.isErr()) return result;
         return result;
       }
       default:
-        return Result.err(unexpectedToken(token));
+        return Result.err(unexpectedToken("keyword", token));
     }
   }
 

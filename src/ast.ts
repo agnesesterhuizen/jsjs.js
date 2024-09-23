@@ -1,6 +1,13 @@
+import { JSToken } from "./js-lexer";
 import { Option } from "./types";
 
 export type Operator = "+" | "*";
+
+export const getOperatorFromToken = (token: JSToken): Operator => {
+  if (token.type === "plus") return "+";
+  if (token.type === "asterisk") return "*";
+  throw "not an operator: " + token.type;
+};
 
 export const OPERATOR_PRECEDENCE: Record<Operator, number> = {
   "+": 1,
