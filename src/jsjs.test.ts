@@ -401,4 +401,220 @@ describe("parser", () => {
       },
       right: { type: "number", value: 3 },
     }));
+  test("parses basic class declaration", () => {
+    testStatement("class X {}", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [],
+    });
+  });
+  test("parses class property without initial value", () => {
+    testStatement("class X { x; }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [{ name: "x" }],
+      methods: [],
+    });
+  });
+  test("parses class property with initial value: number", () => {
+    testStatement("class X { x = 123; }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [{ name: "x", value: { type: "number", value: 123 } }],
+      methods: [],
+    });
+  });
+  test("parses class property with initial value: string", () => {
+    testStatement(`class X { x = "test"; }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [{ name: "x", value: { type: "string", value: "test" } }],
+      methods: [],
+    });
+  });
+  test("parses class property with initial value: expression", () => {
+    testStatement("class X { x = 1 + a; }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        {
+          name: "x",
+          value: {
+            type: "binary",
+            operator: "+",
+            left: {
+              type: "number",
+              value: 1,
+            },
+            right: {
+              type: "identifier",
+              value: "a",
+            },
+          },
+        },
+      ],
+      methods: [],
+    });
+  });
+  test("parses class with mixed properties", () => {
+    testStatement(`class X { x = 1; y = "hi"; z; expr = 1 + a; }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        {
+          name: "x",
+          value: {
+            type: "number",
+            value: 1,
+          },
+        },
+        {
+          name: "y",
+          value: {
+            type: "string",
+            value: "hi",
+          },
+        },
+        {
+          name: "z",
+          value: undefined,
+        },
+        {
+          name: "expr",
+          value: {
+            type: "binary",
+            operator: "+",
+            left: {
+              type: "number",
+              value: 1,
+            },
+            right: {
+              type: "identifier",
+              value: "a",
+            },
+          },
+        },
+      ],
+      methods: [],
+    });
+  });
+  test("parses class method", () => {
+    testStatement("class X { y() {} }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [],
+          },
+        },
+      ],
+    });
+  });
+  test("parses class method with parameters", () => {
+    testStatement("class X { y(a,b, c) {} }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: ["a", "b", "c"],
+          body: {
+            type: "block",
+            body: [],
+          },
+        },
+      ],
+    });
+  });
+  test("parses class method with body", () => {
+    testStatement(`class X { y() { console.log("hello"); } }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [
+              {
+                type: "expression",
+                expression: {
+                  type: "call",
+                  function: {
+                    type: "member",
+                    object: {
+                      type: "identifier",
+                      value: "console",
+                    },
+                    property: {
+                      type: "identifier",
+                      value: "log",
+                    },
+                    computed: false,
+                  },
+                  arguments: [
+                    {
+                      type: "string",
+                      value: "hello",
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+  });
+  test("parses class method with body and parameters", () => {
+    testStatement(`class X { y(message) { console.log(message); } }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: ["message"],
+          body: {
+            type: "block",
+            body: [
+              {
+                type: "expression",
+                expression: {
+                  type: "call",
+                  function: {
+                    type: "member",
+                    object: {
+                      type: "identifier",
+                      value: "console",
+                    },
+                    property: {
+                      type: "identifier",
+                      value: "log",
+                    },
+                    computed: false,
+                  },
+                  arguments: [
+                    {
+                      type: "identifier",
+                      value: "message",
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+  });
 });

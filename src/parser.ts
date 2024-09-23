@@ -1,6 +1,13 @@
-import { Expression, getOperatorFromToken, Operator, OPERATOR_PRECEDENCE, Program, Statement } from "./ast";
+import {
+  ClassMethodDeclaration,
+  ClassPropertyDeclaration,
+  Expression,
+  getOperatorFromToken,
+  OPERATOR_PRECEDENCE,
+  Program,
+  Statement,
+} from "./ast";
 import { JSToken, JSTokenType } from "./js-lexer";
-import { Token } from "./lexer";
 import { Option, Result } from "./types";
 
 export type ParseError = {
@@ -41,6 +48,10 @@ export class Parser {
     if (token.value !== value) return Result.err(unexpectedToken(type, token));
 
     return Result.ok(token);
+  }
+
+  backup(level = 1) {
+    this.index -= level;
   }
 
   nextToken(): JSToken {
@@ -560,6 +571,104 @@ export class Parser {
     return Result.ok({ type: "while", condition: condition.unwrap(), body: body.unwrap() });
   }
 
+  parseClassMethodDeclaration(): Result<ClassMethodDeclaration, ParseError> {
+    const id = this.expect("identifier");
+    if (id.isErr()) return id.mapErr();
+
+    const leftParen = this.expect("left_paren");
+    if (leftParen.isErr()) return leftParen.mapErr();
+
+    const params: string[] = [];
+
+    // get method params
+    while (this.peekNextToken()?.type !== "right_paren") {
+      const param = this.expect("identifier");
+      if (param.isErr()) return id.mapErr();
+
+      params.push(param.unwrap().value);
+
+      if (this.peekNextToken()?.type !== "right_paren") {
+        this.expect("comma");
+      }
+    }
+
+    this.expect("right_paren");
+
+    // get method body
+    const body = this.parseBlockStatement();
+    if (body.isErr()) return body.mapErr();
+
+    return Result.ok({
+      name: id.unwrap().value,
+      parameters: params,
+      body: body.unwrap(),
+    });
+  }
+
+  parseClassPropertyDeclaration(): Result<ClassPropertyDeclaration, ParseError> {
+    const id = this.expect("identifier");
+    if (id.isErr()) return id.mapErr();
+
+    // property without initial value
+    if (this.peekNextToken()?.type === "semicolon") {
+      this.nextToken();
+      return Result.ok({
+        name: id.unwrap().value,
+      });
+    }
+
+    const equals = this.expect("equals");
+    if (equals.isErr()) return equals.mapErr();
+
+    const value = this.parseExpression(0);
+    if (value.isErr()) return value.mapErr();
+
+    this.expect("semicolon");
+
+    return Result.ok({
+      name: id.unwrap().value,
+      value: value.unwrap(),
+    });
+  }
+
+  parseClassDeclarationStatement(): Result<Statement, ParseError> {
+    const classKeyword = this.expectWithValue("keyword", "class");
+    if (classKeyword.isErr()) return classKeyword.mapErr();
+
+    const className = this.expect("identifier");
+    if (className.isErr()) return className.mapErr();
+
+    const leftBrace = this.expect("left_brace");
+    if (leftBrace.isErr()) return leftBrace.mapErr();
+
+    const properties: ClassPropertyDeclaration[] = [];
+    const methods: ClassMethodDeclaration[] = [];
+
+    while (this.peekNextToken()?.type !== "right_brace") {
+      const id = this.expect("identifier");
+      if (id.isErr()) return id.mapErr();
+
+      if (this.peekNextToken()?.type === "left_paren") {
+        this.backup();
+        const method = this.parseClassMethodDeclaration();
+        if (method.isErr()) return method.mapErr();
+        methods.push(method.unwrap());
+      } else if (this.peekNextToken()?.type === "semicolon" || this.peekNextToken()?.type === "equals") {
+        this.backup();
+        const prop = this.parseClassPropertyDeclaration();
+        if (prop.isErr()) return prop.mapErr();
+        properties.push(prop.unwrap());
+      } else {
+        return Result.err(unexpectedToken("keyword", this.tokens[this.index]));
+      }
+    }
+
+    const rightBrace = this.expect("right_brace");
+    if (rightBrace.isErr()) return rightBrace.mapErr();
+
+    return Result.ok({ type: "class_declaration", identifier: className.unwrap().value, properties, methods });
+  }
+
   parseReturnStatement(): Result<Statement, ParseError> {
     const returnResult = this.expectWithValue("keyword", "return");
     if (returnResult.isErr()) return returnResult.mapErr();
@@ -613,6 +722,10 @@ export class Parser {
 
         if (token.value === "return") {
           return this.parseReturnStatement();
+        }
+
+        if (token.value === "class") {
+          return this.parseClassDeclarationStatement();
         }
 
         return Result.err(unexpectedToken("keyword", token));

@@ -14,6 +14,17 @@ export const OPERATOR_PRECEDENCE: Record<Operator, number> = {
   "*": 2,
 };
 
+export type ClassPropertyDeclaration = {
+  name: string;
+  value?: Expression;
+};
+
+export type ClassMethodDeclaration = {
+  name: string;
+  parameters: string[];
+  body: Statement;
+};
+
 export type Expression =
   | { type: "number"; value: number }
   | { type: "string"; value: string }
@@ -51,6 +62,12 @@ export type Statement =
       identifier: string;
       parameters: string[];
       body: Statement;
+    }
+  | {
+      type: "class_declaration";
+      identifier: string;
+      properties: ClassPropertyDeclaration[];
+      methods: ClassMethodDeclaration[];
     }
   | {
       type: "block";
