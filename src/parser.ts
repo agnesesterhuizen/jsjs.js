@@ -227,7 +227,7 @@ export class Parser {
   }
 
   parseExpression(left: Option<Expression>, currentPrecedence = 1): Result<Expression, ParseError> {
-    console.log("\nparseExpression", this.tokens[this.index], { currentPrecedence });
+    // console.log("\nparseExpression", this.tokens[this.index], { currentPrecedence });
 
     if (!left.hasValue()) {
       const token = this.tokens[this.index];
@@ -393,7 +393,6 @@ export class Parser {
       }
     }
 
-    console.log("def", left);
     return Result.ok(left.unwrap());
   }
 

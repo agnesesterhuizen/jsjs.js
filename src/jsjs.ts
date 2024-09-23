@@ -26,6 +26,9 @@ export class JSJS {
     if (parseResult.isErr()) return parseResult.mapErr();
 
     const ast = parseResult.unwrap();
+
+    console.log({ ast });
+
     return this.interpreter.run(ast);
   }
 }

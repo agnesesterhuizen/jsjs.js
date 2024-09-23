@@ -284,6 +284,10 @@ export class Interpreter {
             const result = JSObject.number((leftValue as JSNumber).value + (rightValue as JSNumber).value);
             return Result.ok(result);
           }
+          case "*": {
+            const result = JSObject.number((leftValue as JSNumber).value * (rightValue as JSNumber).value);
+            return Result.ok(result);
+          }
           default:
             assertNotReached(expression);
           // return Result.err(todo(`binary expression with "${expression.operator}" operater`));

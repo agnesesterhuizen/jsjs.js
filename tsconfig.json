@@ -1,1 +1,5 @@
-{ "compilerOptions": { "types": ["bun-types"] } }
+{
+  "compilerOptions": {
+    "target": "es2017"
+  }
+}
