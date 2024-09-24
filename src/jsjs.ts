@@ -1,24 +1,21 @@
 import { Program } from "./ast";
 import { Interpreter, InterpreterError } from "./interpreter";
-import { newJSLexer } from "./js-lexer";
 import { JSValue } from "./js-types";
-import { ParseError, Parser } from "./Parser";
+import { Lexer } from "./lexer";
+import { ParseError, Parser } from "./parser";
 import { Result } from "./types";
 
 type JSJSError = ParseError | InterpreterError;
 
 export class JSJS {
-  lexer = newJSLexer();
+  lexer = new Lexer();
   parser = new Parser();
   interpreter = new Interpreter();
 
   parse(source: string): Result<Program, JSJSError> {
-    const tokensResult = this.lexer.getTokens(source);
-    if (tokensResult.isErr()) {
-      return Result.err(tokensResult.error());
-    }
+    const tokens = this.lexer.run(source);
 
-    return this.parser.parse(tokensResult.unwrap());
+    return this.parser.parse(tokens);
   }
 
   run(source: string): Result<JSValue, JSJSError> {

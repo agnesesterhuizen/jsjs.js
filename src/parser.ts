@@ -7,7 +7,7 @@ import {
   Program,
   Statement,
 } from "./ast";
-import { JSToken, JSTokenType } from "./js-lexer";
+import { Token, TokenType } from "./lexer";
 import { Option, Result } from "./types";
 
 export type ParseError = {
@@ -15,7 +15,7 @@ export type ParseError = {
   message?: string;
 };
 
-const unexpectedToken = (expected: JSTokenType, actual: JSToken): ParseError => ({
+const unexpectedToken = (expected: TokenType, actual: Token): ParseError => ({
   type: "unexpected_token",
   message: `unexpected token: expected ${expected}, got ${actual.value}`,
 });
@@ -27,9 +27,9 @@ const todo = (feature: string): ParseError => ({
 
 export class Parser {
   index = 0;
-  tokens: JSToken[] = [];
+  tokens: Token[] = [];
 
-  expect(type: JSTokenType): Result<JSToken, ParseError> {
+  expect(type: TokenType): Result<Token, ParseError> {
     const token = this.tokens[this.index];
     if (!token) return Result.err({ type: "unexpected_token", message: `expected: ${type}, got eof` });
 
@@ -39,7 +39,7 @@ export class Parser {
     return Result.ok(token);
   }
 
-  expectWithValue(type: JSTokenType, value: string): Result<JSToken, ParseError> {
+  expectWithValue(type: TokenType, value: string): Result<Token, ParseError> {
     const tokenResult = this.expect(type);
     if (tokenResult.isErr()) return tokenResult;
 
@@ -54,17 +54,17 @@ export class Parser {
     this.index -= level;
   }
 
-  nextToken(): JSToken {
+  nextToken(): Token {
     const token = this.tokens[this.index];
     this.index++;
     return token;
   }
 
-  peekNextToken(): JSToken {
+  peekNextToken(): Token {
     return this.tokens[this.index];
   }
 
-  nextTokenIsType(type: JSTokenType): boolean {
+  nextTokenIsType(type: TokenType): boolean {
     const nextToken = this.tokens[this.index];
     if (!nextToken) return false;
     return nextToken.type === type;
@@ -382,7 +382,7 @@ export class Parser {
     }
   }
 
-  isOperatorTokenType(token: JSToken) {
+  isOperatorTokenType(token: Token) {
     if (!token) return false;
     return token.type === "plus" || token.type === "asterisk";
   }
@@ -753,7 +753,7 @@ export class Parser {
     }
   }
 
-  parse(tokens: JSToken[]): Result<Program, ParseError> {
+  parse(tokens: Token[]): Result<Program, ParseError> {
     this.tokens = tokens;
     this.index = 0;
 
