@@ -70,7 +70,7 @@ export const newJSLexer = () => {
   lexer.match(/^".*"/, (text) => ({ type: "string", value: text.slice(1, -1) }));
   lexer.match(/^`(.|\n)*`/, (text) => ({ type: "string", value: text.slice(1, -1) }));
   lexer.match(/^'.*'/, (text) => ({ type: "string", value: text.slice(1, -1) }));
-  lexer.match(/^function|^return|^for|^const|^let|^var|^true|^false|^if|^else|^while|^class/, () => "keyword");
+  lexer.match(/^function|^return|^for|^const|^let|^var|^true|^false|^if|^else|^while|^class|^static/, () => "keyword");
   lexer.match(/^[$_a-zA-Z][$_0-9a-zA-Z]*/, () => "identifier");
 
   return lexer;

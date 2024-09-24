@@ -275,8 +275,8 @@ export class Parser {
           const property = this.parseExpression(0);
           if (property.isErr()) return property.mapErr();
 
-          this.expect("right_brace");
-          this.nextToken();
+          const rightBracket = this.expect("right_bracket");
+          if (rightBracket.isErr()) return rightBracket.mapErr();
 
           left = {
             type: "member",
@@ -383,6 +383,7 @@ export class Parser {
   }
 
   isOperatorTokenType(token: JSToken) {
+    if (!token) return false;
     return token.type === "plus" || token.type === "asterisk";
   }
 
@@ -571,7 +572,7 @@ export class Parser {
     return Result.ok({ type: "while", condition: condition.unwrap(), body: body.unwrap() });
   }
 
-  parseClassMethodDeclaration(): Result<ClassMethodDeclaration, ParseError> {
+  parseClassMethodDeclaration(isStatic: boolean): Result<ClassMethodDeclaration, ParseError> {
     const id = this.expect("identifier");
     if (id.isErr()) return id.mapErr();
 
@@ -602,10 +603,11 @@ export class Parser {
       name: id.unwrap().value,
       parameters: params,
       body: body.unwrap(),
+      static: isStatic,
     });
   }
 
-  parseClassPropertyDeclaration(): Result<ClassPropertyDeclaration, ParseError> {
+  parseClassPropertyDeclaration(isStatic: boolean): Result<ClassPropertyDeclaration, ParseError> {
     const id = this.expect("identifier");
     if (id.isErr()) return id.mapErr();
 
@@ -614,6 +616,7 @@ export class Parser {
       this.nextToken();
       return Result.ok({
         name: id.unwrap().value,
+        static: isStatic,
       });
     }
 
@@ -628,6 +631,7 @@ export class Parser {
     return Result.ok({
       name: id.unwrap().value,
       value: value.unwrap(),
+      static: isStatic,
     });
   }
 
@@ -645,17 +649,27 @@ export class Parser {
     const methods: ClassMethodDeclaration[] = [];
 
     while (this.peekNextToken()?.type !== "right_brace") {
+      let peek = this.peekNextToken();
+      let isStatic = false;
+
+      if (peek?.type === "keyword" && peek.value === "static") {
+        isStatic = true;
+        this.nextToken();
+      }
+
       const id = this.expect("identifier");
       if (id.isErr()) return id.mapErr();
 
-      if (this.peekNextToken()?.type === "left_paren") {
+      peek = this.peekNextToken();
+
+      if (peek?.type === "left_paren" || (peek?.type === "keyword" && peek?.value === "static")) {
         this.backup();
-        const method = this.parseClassMethodDeclaration();
+        const method = this.parseClassMethodDeclaration(isStatic);
         if (method.isErr()) return method.mapErr();
         methods.push(method.unwrap());
-      } else if (this.peekNextToken()?.type === "semicolon" || this.peekNextToken()?.type === "equals") {
+      } else if (peek?.type === "semicolon" || peek?.type === "equals") {
         this.backup();
-        const prop = this.parseClassPropertyDeclaration();
+        const prop = this.parseClassPropertyDeclaration(isStatic);
         if (prop.isErr()) return prop.mapErr();
         properties.push(prop.unwrap());
       } else {

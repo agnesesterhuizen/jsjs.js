@@ -121,7 +121,7 @@ describe("parser", () => {
       property: { type: "identifier", value: "b" },
       computed: false,
     }));
-  test("parses computer member expression", () =>
+  test("parses computed member expression", () =>
     textExpression("a[0];", {
       type: "member",
       object: { type: "identifier", value: "a" },
@@ -413,7 +413,7 @@ describe("parser", () => {
     testStatement("class X { x; }", {
       type: "class_declaration",
       identifier: "X",
-      properties: [{ name: "x" }],
+      properties: [{ name: "x", static: false }],
       methods: [],
     });
   });
@@ -421,7 +421,7 @@ describe("parser", () => {
     testStatement("class X { x = 123; }", {
       type: "class_declaration",
       identifier: "X",
-      properties: [{ name: "x", value: { type: "number", value: 123 } }],
+      properties: [{ name: "x", value: { type: "number", value: 123 }, static: false }],
       methods: [],
     });
   });
@@ -429,7 +429,15 @@ describe("parser", () => {
     testStatement(`class X { x = "test"; }`, {
       type: "class_declaration",
       identifier: "X",
-      properties: [{ name: "x", value: { type: "string", value: "test" } }],
+      properties: [{ name: "x", value: { type: "string", value: "test" }, static: false }],
+      methods: [],
+    });
+  });
+  test("parses static class property", () => {
+    testStatement(`class X { static x = "test"; }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [{ name: "x", value: { type: "string", value: "test" }, static: true }],
       methods: [],
     });
   });
@@ -452,6 +460,7 @@ describe("parser", () => {
               value: "a",
             },
           },
+          static: false,
         },
       ],
       methods: [],
@@ -468,6 +477,7 @@ describe("parser", () => {
             type: "number",
             value: 1,
           },
+          static: false,
         },
         {
           name: "y",
@@ -475,10 +485,12 @@ describe("parser", () => {
             type: "string",
             value: "hi",
           },
+          static: false,
         },
         {
           name: "z",
           value: undefined,
+          static: false,
         },
         {
           name: "expr",
@@ -494,6 +506,7 @@ describe("parser", () => {
               value: "a",
             },
           },
+          static: false,
         },
       ],
       methods: [],
@@ -512,6 +525,7 @@ describe("parser", () => {
             type: "block",
             body: [],
           },
+          static: false,
         },
       ],
     });
@@ -529,6 +543,7 @@ describe("parser", () => {
             type: "block",
             body: [],
           },
+          static: false,
         },
       ],
     });
@@ -571,6 +586,7 @@ describe("parser", () => {
               },
             ],
           },
+          static: false,
         },
       ],
     });
@@ -613,6 +629,25 @@ describe("parser", () => {
               },
             ],
           },
+          static: false,
+        },
+      ],
+    });
+  });
+  test("parses static class method", () => {
+    testStatement(`class X { static y() {} }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [],
+          },
+          static: true,
         },
       ],
     });

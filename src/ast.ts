@@ -17,12 +17,14 @@ export const OPERATOR_PRECEDENCE: Record<Operator, number> = {
 export type ClassPropertyDeclaration = {
   name: string;
   value?: Expression;
+  static: boolean;
 };
 
 export type ClassMethodDeclaration = {
   name: string;
   parameters: string[];
   body: Statement;
+  static: boolean;
 };
 
 export type Expression =
