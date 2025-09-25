@@ -114,13 +114,13 @@ export class Interpreter {
       case "identifier":
         return Result.ok(this.lookupVariable(expression.value));
       case "call": {
-        const identifierResult = this.executeExpression(expression.function);
+        const identifierResult = this.executeExpression(expression.func);
         if (identifierResult.isErr()) return identifierResult;
 
         const value = identifierResult.unwrap();
 
         if (value.type !== "function") {
-          return Result.err({ type: "type_error", message: `TODO: x is not a function` });
+          return Result.err({ type: "type_error", message: "TODO: x is not a function" });
         }
 
         const functionValue = value as JSFunction;
@@ -133,7 +133,7 @@ export class Interpreter {
             const result = this.executeExpression(arg);
             if (result.isErr()) return result;
             const parameter = functionValue.parameters[i];
-            this.declareVariable(parameter, result.unwrap());
+            this.declareVariable(parameter.name, result.unwrap());
           }
 
           try {
@@ -178,7 +178,7 @@ export class Interpreter {
           return Result.ok(object.getProperty(property.unwrap()));
         } else {
           if (expression.property.type !== "identifier") {
-            return Result.err(todo(`executeExpression: member expression with computed properties`));
+            return Result.err(todo("executeExpression: member expression with computed properties"));
           }
 
           return Result.ok(object.getProperty(JSObject.string(expression.property.value)));
@@ -186,7 +186,7 @@ export class Interpreter {
       }
 
       case "function": {
-        return Result.ok(JSObject.function(expression.parameters, expression.body));
+        return Result.ok(JSObject.func(expression.parameters, expression.body));
       }
 
       case "object": {
@@ -235,7 +235,7 @@ export class Interpreter {
 
           const object = this.lookupVariable(memberExpression.object.value);
           if (object.type === "undefined" || object.type === "null") {
-            return Result.err(typeError(`Cannot set properties of ${object.type})`));
+            return Result.err(typeError("Cannot set properties of " + object.type));
           }
 
           let property: JSValue;
@@ -276,7 +276,7 @@ export class Interpreter {
         const leftValue = left.unwrap();
 
         if (rightValue.type !== "number" || leftValue.type !== "number") {
-          return Result.err(todo(`non numeric binary expression`));
+          return Result.err(todo("non numeric binary expression"));
         }
 
         switch (expression.operator) {
@@ -288,15 +288,23 @@ export class Interpreter {
             const result = JSObject.number((leftValue as JSNumber).value * (rightValue as JSNumber).value);
             return Result.ok(result);
           }
+          case "!==":
+          case "!=":
+          case "===":
+          case "==": {
+            todo("comparison operation");
+            break;
+          }
+
           default:
-            assertNotReached(expression);
-          // return Result.err(todo(`binary expression with "${expression.operator}" operater`));
+            todo(expression.operator);
+          // assertNotReached(expression);
         }
         break;
       }
 
       default:
-        assertNotReached(expression);
+        todo(expression.type);
     }
   }
 
@@ -329,7 +337,7 @@ export class Interpreter {
       }
 
       case "function_declaration": {
-        const func = JSObject.function(statement.parameters, statement.body);
+        const func = JSObject.func(statement.parameters, statement.body);
         this.declareVariable(statement.identifier, func);
         return Result.ok(JSObject.undefined());
       }
@@ -351,7 +359,7 @@ export class Interpreter {
       }
 
       default:
-        assertNotReached(statement);
+        todo(statement.type);
     }
   }
 
@@ -364,7 +372,7 @@ export class Interpreter {
       if (result.isErr()) return result.mapErr();
     }
 
-    // host "var" declarations
+    // hoist "var" declarations
     for (const statement of statements) {
       if (statement.type !== "variable_declaration") continue;
       if (statement.declarationType !== "var") continue;

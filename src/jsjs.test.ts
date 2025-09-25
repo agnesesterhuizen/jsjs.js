@@ -11,7 +11,7 @@ const expectObjectsToMatch = (a: object, b: object) => {
 
 const textExpression = (source: string, expression: Expression) => {
   const p = new JSJS();
-  const ast = p.parse(source);
+  const ast = p.parse("TEST", source);
 
   if (ast.isErr()) {
     console.error(ast.error());
@@ -29,7 +29,7 @@ const textExpression = (source: string, expression: Expression) => {
 
 const testStatement = (source: string, statement: Statement) => {
   const p = new JSJS();
-  const ast = p.parse(source);
+  const ast = p.parse("TEST", source);
 
   if (ast.isErr()) {
     console.error(ast.error());
@@ -49,6 +49,8 @@ describe("parser", () => {
   test("parses number literal", () => textExpression("123;", { type: "number", value: 123 }));
   test("parses empty string literal", () => textExpression('"";', { type: "string", value: "" }));
   test("parses string literal", () => textExpression('"hello";', { type: "string", value: "hello" }));
+  test("parses string literal, single quotes", () => textExpression("'hello';", { type: "string", value: "hello" }));
+  // test("parses string literal, backticks", () => textExpression("`hello`;", { type: "string", value: "hello" }));
   test("parses boolean literal: true", () => textExpression("true;", { type: "boolean", value: true }));
   test("parses boolean literal: false", () => textExpression("false;", { type: "boolean", value: false }));
   test("parses identifier literal: false", () => textExpression("test;", { type: "identifier", value: "test" }));
@@ -73,6 +75,7 @@ describe("parser", () => {
       declarationType: "var",
       identifier: "x",
       value: Option.none(),
+      varType: "var",
     });
   });
   test("parses variable declaration", () => {
@@ -81,6 +84,16 @@ describe("parser", () => {
       declarationType: "var",
       identifier: "x",
       value: Option.some({ type: "number", value: 1 }),
+      varType: "var",
+    });
+  });
+  test("parses const declaration", () => {
+    testStatement("const x = 1;", {
+      type: "variable_declaration",
+      declarationType: "var",
+      identifier: "x",
+      value: Option.some({ type: "number", value: 1 }),
+      varType: "const",
     });
   });
   test("parses assignment expression - identifier", () =>
@@ -121,6 +134,18 @@ describe("parser", () => {
       property: { type: "identifier", value: "b" },
       computed: false,
     }));
+  test("parses member expression - nested", () =>
+    textExpression("a.b.c;", {
+      type: "member",
+      object: {
+        type: "member",
+        object: { type: "identifier", value: "a" },
+        property: { type: "identifier", value: "b" },
+        computed: false,
+      },
+      property: { type: "identifier", value: "c" },
+      computed: false,
+    }));
   test("parses computed member expression", () =>
     textExpression("a[0];", {
       type: "member",
@@ -128,16 +153,61 @@ describe("parser", () => {
       property: { type: "number", value: 0 },
       computed: true,
     }));
+  test("parses computed member expression - object property as key", () =>
+    textExpression("this.a[b.c];", {
+      type: "member",
+      object: {
+        type: "member",
+        object: {
+          type: "identifier",
+          value: "this",
+        },
+        property: {
+          type: "identifier",
+          value: "a",
+        },
+        computed: false,
+      },
+      property: {
+        type: "member",
+        object: { type: "identifier", value: "b" },
+        property: { type: "identifier", value: "c" },
+        computed: false,
+      },
+      computed: true,
+    }));
+
+  test("parses object expression", () =>
+    textExpression("({});", {
+      type: "object",
+      properties: {},
+    }));
+
+  test("parses object expression - with properties", () =>
+    textExpression('({ a: 1, b: "test" });', {
+      type: "object",
+      properties: {
+        a: {
+          type: "number",
+          value: 1,
+        },
+        b: {
+          type: "string",
+          value: "test",
+        },
+      },
+    }));
+
   test("parses call expression - no args", () =>
     textExpression("a();", {
       type: "call",
-      function: { type: "identifier", value: "a" },
+      func: { type: "identifier", value: "a" },
       arguments: [],
     }));
   test("parses call expression", () =>
     textExpression('a(1,b,"test");', {
       type: "call",
-      function: { type: "identifier", value: "a" },
+      func: { type: "identifier", value: "a" },
       arguments: [
         { type: "number", value: 1 },
         { type: "identifier", value: "b" },
@@ -147,7 +217,7 @@ describe("parser", () => {
   test("parses call member expression", () =>
     textExpression("a.b();", {
       type: "call",
-      function: {
+      func: {
         type: "member",
         object: { type: "identifier", value: "a" },
         property: { type: "identifier", value: "b" },
@@ -155,90 +225,207 @@ describe("parser", () => {
       },
       arguments: [],
     }));
-  test("parses basic function expression", () =>
-    textExpression("(function(){});", {
-      type: "function",
-      identifier: Option.none(),
-      parameters: [],
-      body: {
-        type: "block",
-        body: [],
-      },
-    }));
-  test("parses named function expression", () =>
-    textExpression("(function test(){});", {
-      type: "function",
-      identifier: Option.some("test"),
-      parameters: [],
-      body: {
-        type: "block",
-        body: [],
-      },
-    }));
-  test("parses function expression with single parameter", () =>
-    textExpression("(function(a){});", {
-      type: "function",
-      identifier: Option.none(),
-      parameters: ["a"],
-      body: {
-        type: "block",
-        body: [],
-      },
-    }));
-  test("parses function expression with parameters", () =>
-    textExpression("(function(a,b,c){});", {
-      type: "function",
-      identifier: Option.none(),
-      parameters: ["a", "b", "c"],
-      body: {
-        type: "block",
-        body: [],
-      },
-    }));
-  test("parses function expression with body - single statement", () =>
-    textExpression("(function(){ 123; });", {
-      type: "function",
-      identifier: Option.none(),
-      parameters: [],
-      body: {
-        type: "block",
-        body: [{ type: "expression", expression: { type: "number", value: 123 } }],
-      },
-    }));
-  test("parses function expression with body", () =>
-    textExpression('(function(){ 123; test; "hello"; });', {
-      type: "function",
-      identifier: Option.none(),
-      parameters: [],
-      body: {
-        type: "block",
-        body: [
-          { type: "expression", expression: { type: "number", value: 123 } },
-          { type: "expression", expression: { type: "identifier", value: "test" } },
-          { type: "expression", expression: { type: "string", value: "hello" } },
+  describe("function expression", () => {
+    test("parses basic function expression", () =>
+      textExpression("(function(){});", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [],
+        body: {
+          type: "block",
+          body: [],
+        },
+      }));
+    test("parses named function expression", () =>
+      textExpression("(function test(){});", {
+        type: "function",
+        identifier: Option.some("test"),
+        parameters: [],
+        body: {
+          type: "block",
+          body: [],
+        },
+      }));
+    test("parses function expression with single parameter", () =>
+      textExpression("(function(a){});", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [{ name: "a" }],
+        body: {
+          type: "block",
+          body: [],
+        },
+      }));
+    test("parses function expression with parameters", () =>
+      textExpression("(function(a,b,c){});", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [],
+        },
+      }));
+    test("parses function expression with body - single statement", () =>
+      textExpression("(function(){ 123; });", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [],
+        body: {
+          type: "block",
+          body: [{ type: "expression", expression: { type: "number", value: 123 } }],
+        },
+      }));
+    test("parses function expression with body", () =>
+      textExpression('(function(){ 123; test; "hello"; });', {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [],
+        body: {
+          type: "block",
+          body: [
+            { type: "expression", expression: { type: "number", value: 123 } },
+            { type: "expression", expression: { type: "identifier", value: "test" } },
+            { type: "expression", expression: { type: "string", value: "hello" } },
+          ],
+        },
+      }));
+    test("parses function expression", () =>
+      textExpression('(function(a,b,c){ 123; test; "hello";});', {
+        type: "function",
+        identifier: Option.none(),
+        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [
+            { type: "expression", expression: { type: "number", value: 123 } },
+            { type: "expression", expression: { type: "identifier", value: "test" } },
+            { type: "expression", expression: { type: "string", value: "hello" } },
+          ],
+        },
+      }));
+  });
+  describe("arrow function expression", () => {
+    test("parses basic function expression", () =>
+      textExpression("(() => {});", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [],
+        body: {
+          type: "block",
+          body: [],
+        },
+      }));
+    test("parses arrow function expression with basic expression return", () =>
+      textExpression("(() => (1));", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [],
+        body: {
+          type: "expression",
+          expression: {
+            type: "number",
+            value: 1,
+          },
+        },
+      }));
+    test("parses arrow function expression with spread parameters", () =>
+      textExpression("((...a) => {});", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [
+          {
+            name: "a",
+            spread: true,
+          },
         ],
-      },
-    }));
-  test("parses function expression", () =>
-    textExpression('(function(a,b,c){ 123; test; "hello";});', {
-      type: "function",
-      identifier: Option.none(),
-      parameters: ["a", "b", "c"],
-      body: {
-        type: "block",
-        body: [
-          { type: "expression", expression: { type: "number", value: 123 } },
-          { type: "expression", expression: { type: "identifier", value: "test" } },
-          { type: "expression", expression: { type: "string", value: "hello" } },
-        ],
-      },
-    }));
-  test("parses binary expression", () =>
-    textExpression("1+2;", {
-      type: "binary",
-      operator: "+",
-      left: { type: "number", value: 1 },
-      right: { type: "number", value: 2 },
+        body: {
+          type: "block",
+          body: [],
+        },
+      }));
+    test("parses arrow function expression with object expression return", () =>
+      textExpression("(() => ({ a: 1 }));", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [],
+        body: {
+          type: "expression",
+          expression: {
+            type: "object",
+            properties: {
+              a: {
+                type: "number",
+                value: 1,
+              },
+            },
+          },
+        },
+      }));
+    test("parses function expression with single parameter", () =>
+      textExpression("((a) => {});", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: ["a"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [],
+        },
+      }));
+    test("parses function expression with parameters", () =>
+      textExpression("((a,b,c) => {});", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [],
+        },
+      }));
+    test("parses function expression with body - single statement", () =>
+      textExpression("(() => { 123; });", {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [],
+        body: {
+          type: "block",
+          body: [{ type: "expression", expression: { type: "number", value: 123 } }],
+        },
+      }));
+    test("parses function expression with body", () =>
+      textExpression('(() => { 123; test; "hello"; });', {
+        type: "function",
+        identifier: Option.none(),
+        parameters: [],
+        body: {
+          type: "block",
+          body: [
+            { type: "expression", expression: { type: "number", value: 123 } },
+            { type: "expression", expression: { type: "identifier", value: "test" } },
+            { type: "expression", expression: { type: "string", value: "hello" } },
+          ],
+        },
+      }));
+    test("parses function expression", () =>
+      textExpression('((a,b,c) => { 123; test; "hello";});', {
+        type: "function",
+        identifier: Option.none(),
+        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [
+            { type: "expression", expression: { type: "number", value: 123 } },
+            { type: "expression", expression: { type: "identifier", value: "test" } },
+            { type: "expression", expression: { type: "string", value: "hello" } },
+          ],
+        },
+      }));
+  });
+
+  test("parses not expression", () =>
+    textExpression("!1;", {
+      type: "not",
+      expression: { type: "number", value: 1 },
     }));
   // #endregion
   // #region statement tests
@@ -246,6 +433,11 @@ describe("parser", () => {
     testStatement("return 123;", {
       type: "return",
       expression: { type: "number", value: 123 },
+    });
+  });
+  test("parses return statement without expression", () => {
+    testStatement("return;", {
+      type: "return",
     });
   });
   test("parses basic function declaration statement", () => {
@@ -263,7 +455,7 @@ describe("parser", () => {
     testStatement("function x(a,b,c) { 123; }", {
       type: "function_declaration",
       identifier: "x",
-      parameters: ["a", "b", "c"],
+      parameters: ["a", "b", "c"].map((name) => ({ name })),
       body: {
         type: "block",
         body: [
@@ -362,51 +554,261 @@ describe("parser", () => {
       },
     });
   });
+  test("parses while statement with expression", () => {
+    testStatement("while (i >= 1) { 123; }", {
+      type: "while",
+      condition: {
+        type: "binary",
+        operator: ">=",
+        left: {
+          type: "identifier",
+          value: "i",
+        },
+        right: {
+          type: "number",
+          value: 1,
+        },
+      },
+      body: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: { type: "number", value: 123 },
+          },
+        ],
+      },
+    });
+  });
   // #endregion
-  // 1+2*3 => 1+(2*3)
-  test("parses binary expression with mixed precedence", () =>
-    textExpression("1+2*3;", {
-      type: "binary",
-      operator: "+",
-      left: { type: "number", value: 1 },
-      right: {
-        type: "binary",
-        operator: "*",
-        left: { type: "number", value: 2 },
-        right: { type: "number", value: 3 },
-      },
-    }));
-  // 1*2+3 => (1*2)+3
-  test("parses binary expression with mixed precedence", () =>
-    textExpression("1*2+3;", {
-      type: "binary",
-      operator: "+",
-      left: {
-        type: "binary",
-        operator: "*",
-        left: { type: "number", value: 1 },
-        right: { type: "number", value: 2 },
-      },
-      right: { type: "number", value: 3 },
-    }));
-  test("parses binary expression with same precedence", () =>
-    textExpression("1+2+3;", {
-      type: "binary",
-      operator: "+",
-      left: {
+
+  // test("switch statement", () => {
+  //   testStatement(
+  //     `switch(x) {
+  //       case "a": break;
+  //       case "b":
+  //         return 123;
+  //       default:
+  //         return;
+  //     }`,
+  //     {
+  //       type: "switch",
+  //       condition: {
+  //         type: "identifier",
+  //         value: "x",
+  //       },
+  //       cases: [
+  //         {
+  //           test: {
+  //             type: "string",
+  //             value: "a",
+  //           },
+  //           body: {
+  //             type: "break",
+  //           },
+  //         },
+  //         {
+  //           test: {
+  //             type: "string",
+  //             value: "b",
+  //           },
+  //           body: {
+  //             type: "return",
+  //             expression: {
+  //               type: "number",
+  //               value: 123,
+  //             },
+  //           },
+  //         },
+  //       ],
+  //       default: Option.some({
+  //         type: "return",
+  //       }),
+  //     }
+  //   );
+  // });
+
+  test("switch statement inside method", () => {
+    testStatement(
+      `class X {
+        y(expression) {
+          if (this.debug) {}
+          switch (expression.type) {
+            case "z":
+              return 1;
+          }
+        }
+      }`,
+      {
+        type: "class_declaration",
+        identifier: "X",
+        properties: [],
+        methods: [
+          {
+            name: "y",
+            parameters: [{ name: "expression" }],
+            body: {
+              type: "block",
+              body: [
+                {
+                  type: "if",
+                  condition: {
+                    type: "member",
+                    object: {
+                      type: "identifier",
+                      value: "this",
+                    },
+                    property: {
+                      type: "identifier",
+                      value: "debug",
+                    },
+                    computed: false,
+                  },
+                  ifBody: {
+                    type: "block",
+                    body: [],
+                  },
+                  elseBody: Option.none(),
+                },
+                {
+                  type: "switch",
+                  condition: {
+                    type: "member",
+                    object: {
+                      type: "identifier",
+                      value: "expression",
+                    },
+                    property: {
+                      type: "identifier",
+                      value: "type",
+                    },
+                    computed: false,
+                  },
+                  cases: [
+                    {
+                      test: {
+                        type: "string",
+                        value: "z",
+                      },
+                      body: {
+                        type: "return",
+                        expression: {
+                          type: "number",
+                          value: 1,
+                        },
+                      },
+                    },
+                  ],
+                  default: Option.none(),
+                },
+              ],
+            },
+            static: false,
+          },
+        ],
+      }
+    );
+  });
+
+  test("spread expression", () => {
+    textExpression("...a;", {
+      type: "spread",
+      expression: { type: "identifier", value: "a" },
+    });
+  });
+
+  describe("binary expression", () => {
+    test("parses binary expression", () =>
+      textExpression("1+2;", {
         type: "binary",
         operator: "+",
         left: { type: "number", value: 1 },
         right: { type: "number", value: 2 },
-      },
-      right: { type: "number", value: 3 },
-    }));
+      }));
+
+    test("parses binary comparison expression", () =>
+      textExpression("1 !== 2;", {
+        type: "binary",
+        operator: "!==",
+        left: { type: "number", value: 1 },
+        right: { type: "number", value: 2 },
+      }));
+
+    // 1+2*3 => 1+(2*3)
+    test("parses binary expression with mixed precedence", () =>
+      textExpression("1+2*3;", {
+        type: "binary",
+        operator: "+",
+        left: { type: "number", value: 1 },
+        right: {
+          type: "binary",
+          operator: "*",
+          left: { type: "number", value: 2 },
+          right: { type: "number", value: 3 },
+        },
+      }));
+
+    // 1*2+3 => (1*2)+3
+    test("parses binary expression with mixed precedence", () =>
+      textExpression("1*2+3;", {
+        type: "binary",
+        operator: "+",
+        left: {
+          type: "binary",
+          operator: "*",
+          left: { type: "number", value: 1 },
+          right: { type: "number", value: 2 },
+        },
+        right: { type: "number", value: 3 },
+      }));
+
+    test("parses binary expression with same precedence", () =>
+      textExpression("1+2+3;", {
+        type: "binary",
+        operator: "+",
+        left: {
+          type: "binary",
+          operator: "+",
+          left: { type: "number", value: 1 },
+          right: { type: "number", value: 2 },
+        },
+        right: { type: "number", value: 3 },
+      }));
+  });
+
   test("parses basic class declaration", () => {
     testStatement("class X {}", {
       type: "class_declaration",
       identifier: "X",
       properties: [],
       methods: [],
+    });
+  });
+  test("parses class declaration with super class", () => {
+    testStatement("class X extends Y {}", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [],
+      superClass: "Y",
+    });
+  });
+  test("parses class declaration with constructor", () => {
+    testStatement("class X { constructor() {} }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "constructor",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [],
+          },
+          static: false,
+        },
+      ],
     });
   });
   test("parses class property without initial value", () => {
@@ -538,7 +940,25 @@ describe("parser", () => {
       methods: [
         {
           name: "y",
-          parameters: ["a", "b", "c"],
+          parameters: ["a", "b", "c"].map((name) => ({ name })),
+          body: {
+            type: "block",
+            body: [],
+          },
+          static: false,
+        },
+      ],
+    });
+  });
+  test("parses class method with spread parameters", () => {
+    testStatement("class X { y(...a) {} }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: [{ name: "a", spread: true }],
           body: {
             type: "block",
             body: [],
@@ -549,7 +969,7 @@ describe("parser", () => {
     });
   });
   test("parses class method with body", () => {
-    testStatement(`class X { y() { console.log("hello"); } }`, {
+    testStatement(`class X { y() { console.log("hello") } }`, {
       type: "class_declaration",
       identifier: "X",
       properties: [],
@@ -564,7 +984,7 @@ describe("parser", () => {
                 type: "expression",
                 expression: {
                   type: "call",
-                  function: {
+                  func: {
                     type: "member",
                     object: {
                       type: "identifier",
@@ -599,7 +1019,7 @@ describe("parser", () => {
       methods: [
         {
           name: "y",
-          parameters: ["message"],
+          parameters: ["message"].map((name) => ({ name })),
           body: {
             type: "block",
             body: [
@@ -607,7 +1027,7 @@ describe("parser", () => {
                 type: "expression",
                 expression: {
                   type: "call",
-                  function: {
+                  func: {
                     type: "member",
                     object: {
                       type: "identifier",
@@ -634,6 +1054,30 @@ describe("parser", () => {
       ],
     });
   });
+
+  test("parses class arrow function property", () => {
+    testStatement(`class X { y = () => {}; }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        {
+          name: "y",
+          value: {
+            type: "function",
+            identifier: Option.none(),
+            parameters: [],
+            body: {
+              type: "block",
+              body: [],
+            },
+          },
+          static: false,
+        },
+      ],
+      methods: [],
+    });
+  });
+
   test("parses static class method", () => {
     testStatement(`class X { static y() {} }`, {
       type: "class_declaration",
@@ -652,4 +1096,33 @@ describe("parser", () => {
       ],
     });
   });
+  test("parses static class method with parameters", () => {
+    testStatement(`class X { static y(a,b,c) {} }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: ["a", "b", "c"].map((name) => ({ name })),
+          body: {
+            type: "block",
+            body: [],
+          },
+          static: true,
+        },
+      ],
+    });
+  });
+  test("parses new expression", () =>
+    textExpression("new X(123);", {
+      type: "new",
+      identifier: "X",
+      arguments: [
+        {
+          type: "number",
+          value: 123,
+        },
+      ],
+    }));
 });

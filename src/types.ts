@@ -37,7 +37,7 @@ export class Result<T, E> {
   unwrap(): T {
     if (!this._ok) {
       const errorString = JSON.stringify(this._error, null, 2);
-      const message = `attempt to unwrap result with error: ${errorString}`;
+      const message = "attempt to unwrap result with error: " + errorString;
       throw new Error(message);
     }
 

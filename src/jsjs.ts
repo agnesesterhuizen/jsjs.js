@@ -12,14 +12,14 @@ export class JSJS {
   parser = new Parser();
   interpreter = new Interpreter();
 
-  parse(source: string): Result<Program, JSJSError> {
-    const tokens = this.lexer.run(source);
+  parse(filename: string, source: string): Result<Program, JSJSError> {
+    const tokens = this.lexer.run(filename, source);
 
     return this.parser.parse(tokens);
   }
 
-  run(source: string): Result<JSValue, JSJSError> {
-    const parseResult = this.parse(source);
+  run(filename: string, source: string): Result<JSValue, JSJSError> {
+    const parseResult = this.parse(filename, source);
     if (parseResult.isErr()) return parseResult.mapErr();
 
     const ast = parseResult.unwrap();

@@ -1,4 +1,4 @@
-import { Statement } from "./ast";
+import { Statement, Parameter } from "./ast";
 import { Option } from "./types";
 
 export class JSObject {
@@ -57,7 +57,7 @@ export class JSObject {
     return object;
   }
 
-  static function(parameters: string[], body: Statement) {
+  static func(parameters: Parameter[], body: Statement) {
     const object = new JSFunction();
     object.parameters = parameters;
     object.body = Option.some(body);
@@ -153,7 +153,7 @@ export class JSFunction extends JSObject {
   isBuiltIn = false;
   builtInFunction: Option<BuiltInFunction> = Option.none();
   body: Option<Statement> = Option.none();
-  parameters: string[] = [];
+  parameters: Parameter[] = [];
 
   toString() {
     return "TODO: function string";
