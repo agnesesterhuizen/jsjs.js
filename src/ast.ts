@@ -1,5 +1,5 @@
-import { Token } from "./lexer";
-import { assertNotReached, Option } from "./types";
+import { Token } from "./lexer.ts";
+import { Option } from "./types.ts";
 
 export type Operator =
   | "+"
@@ -91,7 +91,12 @@ export type Expression =
   | { type: "identifier"; value: string }
   | { type: "object"; properties: Record<string, Expression> }
   | { type: "array"; elements: Expression[] }
-  | { type: "member"; object: Expression; property: Expression; computed: boolean }
+  | {
+      type: "member";
+      object: Expression;
+      property: Expression;
+      computed: boolean;
+    }
   | { type: "not"; expression: Expression }
   | { type: "binary"; left: Expression; right: Expression; operator: Operator }
   | { type: "call"; func: Expression; arguments: Expression[] }
@@ -156,9 +161,19 @@ export type Statement =
     }
   | { type: "return"; expression?: Expression }
   | { type: "break"; expression?: Expression }
-  | { type: "if"; condition: Expression; ifBody: Statement; elseBody: Option<Statement> }
+  | {
+      type: "if";
+      condition: Expression;
+      ifBody: Statement;
+      elseBody: Option<Statement>;
+    }
   | { type: "while"; condition: Expression; body: Statement }
-  | { type: "switch"; condition: Expression; cases: SwitchCase[]; default: Option<Statement> };
+  | {
+      type: "switch";
+      condition: Expression;
+      cases: SwitchCase[];
+      default: Option<Statement>;
+    };
 
 export type SwitchCase = {
   test: Expression;

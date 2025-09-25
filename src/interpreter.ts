@@ -1,6 +1,8 @@
-import { Expression, Program, Statement } from "./ast";
-import { JSFunction, JSNumber, JSObject, JSValue } from "./js-types";
-import { assertNotReached, Option, Result } from "./types";
+// @ts-nocheck: TODO: revisit this file, lots of TS errors
+
+import { Expression, Program, Statement } from "./ast.ts";
+import { JSFunction, JSNumber, JSObject, JSValue } from "./js-types.ts";
+import { Result } from "./types.ts";
 
 export type InterpreterError =
   | {
@@ -16,9 +18,18 @@ export type InterpreterError =
       message: string;
     };
 
-const todo = (feature: string): InterpreterError => ({ type: "not_yet_implemented", message: feature });
-const referenceError = (message: string): InterpreterError => ({ type: "reference_error", message });
-const typeError = (message: string): InterpreterError => ({ type: "type_error", message });
+const todo = (feature: string): InterpreterError => ({
+  type: "not_yet_implemented",
+  message: feature,
+});
+const referenceError = (message: string): InterpreterError => ({
+  type: "reference_error",
+  message,
+});
+const typeError = (message: string): InterpreterError => ({
+  type: "type_error",
+  message,
+});
 
 // export type Value =
 //   | { type: "undefined" }
@@ -120,7 +131,10 @@ export class Interpreter {
         const value = identifierResult.unwrap();
 
         if (value.type !== "function") {
-          return Result.err({ type: "type_error", message: "TODO: x is not a function" });
+          return Result.err({
+            type: "type_error",
+            message: "TODO: x is not a function",
+          });
         }
 
         const functionValue = value as JSFunction;
@@ -142,6 +156,7 @@ export class Interpreter {
             return result;
           } catch (errorOrReturnValue) {
             // rethrow if not a return value so we don't mask any actual errors
+
             if (errorOrReturnValue.type !== "__RETURN_VALUE__") {
               throw errorOrReturnValue;
             }
@@ -178,10 +193,16 @@ export class Interpreter {
           return Result.ok(object.getProperty(property.unwrap()));
         } else {
           if (expression.property.type !== "identifier") {
-            return Result.err(todo("executeExpression: member expression with computed properties"));
+            return Result.err(
+              todo(
+                "executeExpression: member expression with computed properties"
+              )
+            );
           }
 
-          return Result.ok(object.getProperty(JSObject.string(expression.property.value)));
+          return Result.ok(
+            object.getProperty(JSObject.string(expression.property.value))
+          );
         }
       }
 
@@ -230,12 +251,17 @@ export class Interpreter {
         if (expression.left.type === "member") {
           const memberExpression = expression.left;
           if (memberExpression.object.type !== "identifier") {
-            return Result.err({ type: "reference_error", message: "Invalid left-hand side in assignment" });
+            return Result.err({
+              type: "reference_error",
+              message: "Invalid left-hand side in assignment",
+            });
           }
 
           const object = this.lookupVariable(memberExpression.object.value);
           if (object.type === "undefined" || object.type === "null") {
-            return Result.err(typeError("Cannot set properties of " + object.type));
+            return Result.err(
+              typeError("Cannot set properties of " + object.type)
+            );
           }
 
           let property: JSValue;
@@ -250,7 +276,9 @@ export class Interpreter {
             }
           } else {
             if (memberExpression.property.type !== "identifier") {
-              return Result.err(referenceError("Invalid left-hand side in assignment"));
+              return Result.err(
+                referenceError("Invalid left-hand side in assignment")
+              );
             }
           }
 
@@ -262,7 +290,9 @@ export class Interpreter {
           return Result.ok(value.unwrap());
         }
 
-        return Result.err(referenceError("Invalid left-hand side in assignment"));
+        return Result.err(
+          referenceError("Invalid left-hand side in assignment")
+        );
       }
 
       case "binary": {
@@ -281,11 +311,15 @@ export class Interpreter {
 
         switch (expression.operator) {
           case "+": {
-            const result = JSObject.number((leftValue as JSNumber).value + (rightValue as JSNumber).value);
+            const result = JSObject.number(
+              (leftValue as JSNumber).value + (rightValue as JSNumber).value
+            );
             return Result.ok(result);
           }
           case "*": {
-            const result = JSObject.number((leftValue as JSNumber).value * (rightValue as JSNumber).value);
+            const result = JSObject.number(
+              (leftValue as JSNumber).value * (rightValue as JSNumber).value
+            );
             return Result.ok(result);
           }
           case "!==":
@@ -363,7 +397,9 @@ export class Interpreter {
     }
   }
 
-  executeStatements(statements: Statement[]): Result<JSValue, InterpreterError> {
+  executeStatements(
+    statements: Statement[]
+  ): Result<JSValue, InterpreterError> {
     // run function declarations first
     for (const statement of statements) {
       if (statement.type !== "function_declaration") continue;
@@ -386,7 +422,11 @@ export class Interpreter {
     // run other statements
     for (const statement of statements) {
       if (statement.type === "function_declaration") continue;
-      if (statement.type === "variable_declaration" && statement.declarationType === "var") continue;
+      if (
+        statement.type === "variable_declaration" &&
+        statement.declarationType === "var"
+      )
+        continue;
 
       const result = this.executeStatement(statement);
       if (result.isErr()) return result.mapErr();

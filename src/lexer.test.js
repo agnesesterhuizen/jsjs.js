@@ -1,38 +1,39 @@
-import { describe, expect, test } from "vitest";
-import { Lexer } from "./lexer";
+import { assertObjectMatch } from "jsr:@std/assert";
+import { describe, it } from "jsr:@std/testing/bdd";
+import { Lexer } from "./lexer.ts";
 
 describe("lexer", () => {
-  test("keyword", () => {
+  it("correctly lexes keywords", () => {
     const lexer = new Lexer();
     const src = `const`;
 
     const tokens = lexer.run("", src);
 
-    expect(tokens[0]).toMatchObject({
+    assertObjectMatch(tokens[0], {
       type: "keyword",
       value: "const",
     });
   });
 
-  test("identifier", () => {
+  it("correctly lexes identifier", () => {
     const lexer = new Lexer();
     const src = `abcd`;
 
     const tokens = lexer.run("", src);
 
-    expect(tokens[0]).toMatchObject({
+    assertObjectMatch(tokens[0], {
       type: "identifier",
       value: "abcd",
     });
   });
 
-  test("identifier that starts with keyword", () => {
+  it("correctly lexes identifier that starts with keyword", () => {
     const lexer = new Lexer();
     const src = `constructor`;
 
     const tokens = lexer.run("", src);
 
-    expect(tokens[0]).toMatchObject({
+    assertObjectMatch(tokens[0], {
       type: "identifier",
       value: "constructor",
     });

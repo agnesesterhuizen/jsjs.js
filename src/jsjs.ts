@@ -1,9 +1,9 @@
-import { Program } from "./ast";
-import { Interpreter, InterpreterError } from "./interpreter";
-import { JSValue } from "./js-types";
-import { Lexer } from "./lexer";
-import { ParseError, Parser } from "./parser";
-import { Result } from "./types";
+import { Program } from "./ast.ts";
+import { Interpreter, InterpreterError } from "./interpreter.ts";
+import { JSValue } from "./js-types.ts";
+import { Lexer } from "./lexer.ts";
+import { ParseError, Parser } from "./parser.ts";
+import { Result } from "./types.ts";
 
 type JSJSError = ParseError | InterpreterError;
 

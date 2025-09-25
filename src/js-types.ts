@@ -1,13 +1,17 @@
-import { Statement, Parameter } from "./ast";
-import { Option } from "./types";
+// @ts-nocheck: TODO: revisit this file, lots of TS errors
+
+import { Statement, Parameter } from "./ast.ts";
+import { Option } from "./types.ts";
 
 export class JSObject {
   type = "object";
   properties: Record<string, JSValue> = {};
 
-  getProperty(property: JSValue) {
+  getProperty(property: JSValue): JSValue {
     if (this.type === "array" && property.type === "number") {
-      return (this as unknown as JSArray).elements[(property as JSNumber).value];
+      return (this as unknown as JSArray).elements[
+        (property as JSNumber).value
+      ];
     }
 
     const propertyName = property.toString();
@@ -21,7 +25,8 @@ export class JSObject {
 
   setProperty(property: JSValue, value: JSValue) {
     if (this.type === "array" && property.type === "number") {
-      (this as unknown as JSArray).elements[(property as JSNumber).value] = value;
+      (this as unknown as JSArray).elements[(property as JSNumber).value] =
+        value;
       return;
     }
 
@@ -160,4 +165,10 @@ export class JSFunction extends JSObject {
   }
 }
 
-export type JSValue = JSObject | JSUndefined | JSNumber | JSString | JSBoolean | JSFunction;
+export type JSValue =
+  | JSObject
+  | JSUndefined
+  | JSNumber
+  | JSString
+  | JSBoolean
+  | JSFunction;

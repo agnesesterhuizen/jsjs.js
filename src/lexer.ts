@@ -1,6 +1,32 @@
-import { compile, Rules, Token as MooToken, keywords } from "moo";
+import moo from "npm:moo@^0.5.2";
 
-const rules = {
+// Extract the needed functions from the moo object
+const { compile, keywords } = moo;
+
+// Define types for moo
+interface MooToken {
+  type: string;
+  value: string;
+  text: string;
+  toString(): string;
+  offset: number;
+  lineBreaks: number;
+  line: number;
+  col: number;
+}
+
+interface MooRule {
+  match?: RegExp | string;
+  value?: ((x: string) => unknown) | unknown;
+  type?: unknown;
+  lineBreaks?: boolean;
+}
+
+interface MooRules {
+  [key: string]: MooRule | MooRule[] | string | RegExp;
+}
+
+const rules: MooRules = {
   ws: { match: /[\s]+/, lineBreaks: true },
   identifier: {
     match: /[$_a-zA-Z][$_0-9a-zA-Z]*/,
@@ -29,11 +55,11 @@ const rules = {
     }),
   },
 
-  number: [/[-]?(?:[0-9]*[.])?[0-9]+/],
+  number: [/[-]?(?:[0-9]*[.])?[0-9]+/ as MooRule],
   string: [
-    { match: /".*"/, value: (x) => x.slice(1, -1) },
-    { match: /'.*'/, value: (x) => x.slice(1, -1) },
-    { match: /`.*`/, value: (x) => x.slice(1, -1) },
+    { match: /".*"/, value: (x: string) => x.slice(1, -1) },
+    { match: /'.*'/, value: (x: string) => x.slice(1, -1) },
+    { match: /`.*`/, value: (x: string) => x.slice(1, -1) },
   ],
   left_brace: "{",
   right_brace: "}",
@@ -77,11 +103,11 @@ export type TokenType = keyof typeof rules | "keyword";
 export type Token = MooToken & { type: TokenType; filename: string };
 
 export class Lexer {
-  lexer = compile(rules as Rules);
+  lexer = compile(rules);
 
   run(filename: string, src: string): Token[] {
     this.lexer.reset(src);
-    const tokens = Array.from(this.lexer)
+    const tokens = (Array.from(this.lexer) as MooToken[])
       .filter((t) => t.type !== "ws" && t.type !== "comment")
       .map((t) => ({ ...t, filename }));
     return tokens as Token[];

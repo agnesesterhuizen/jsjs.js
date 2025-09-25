@@ -1,12 +1,13 @@
-import { expect, describe, test } from "vitest";
-import { Expression, Program, Statement } from "./ast";
-import { JSJS } from "./jsjs";
-import { Option } from "./types";
+import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
+import { describe, it } from "jsr:@std/testing/bdd";
+import { Expression, Program, Statement } from "./ast.ts";
+import { JSJS } from "./jsjs.ts";
+import { Option } from "./types.ts";
 
 const expectObjectsToMatch = (a: object, b: object) => {
   const aString = JSON.stringify(a, null, 2);
   const bString = JSON.stringify(b, null, 2);
-  expect(aString).toBe(bString);
+  assertEquals(aString, bString);
 };
 
 const textExpression = (source: string, expression: Expression) => {
@@ -17,10 +18,10 @@ const textExpression = (source: string, expression: Expression) => {
     console.error(ast.error());
   }
 
-  expect(ast.isErr()).toBe(false);
+  assertEquals(ast.isErr(), false);
 
   const { body } = ast.unwrap() as Program;
-  expect(body.length).toBe(1);
+  assertEquals(body.length, 1);
 
   const expected: Statement = { type: "expression", expression };
 
@@ -35,33 +36,46 @@ const testStatement = (source: string, statement: Statement) => {
     console.error(ast.error());
   }
 
-  expect(ast.isErr()).toBe(false);
+  assertEquals(ast.isErr(), false);
 
   const { body } = ast.unwrap() as Program;
-  expect(body.length).toBe(1);
+  assertEquals(body.length, 1);
 
   expectObjectsToMatch(body[0], statement);
 };
 
 describe("parser", () => {
   // #region expression tests
-  test("parses expression in parens", () => textExpression("(123);", { type: "number", value: 123 }));
-  test("parses number literal", () => textExpression("123;", { type: "number", value: 123 }));
-  test("parses empty string literal", () => textExpression('"";', { type: "string", value: "" }));
-  test("parses string literal", () => textExpression('"hello";', { type: "string", value: "hello" }));
-  test("parses string literal, single quotes", () => textExpression("'hello';", { type: "string", value: "hello" }));
-  // test("parses string literal, backticks", () => textExpression("`hello`;", { type: "string", value: "hello" }));
-  test("parses boolean literal: true", () => textExpression("true;", { type: "boolean", value: true }));
-  test("parses boolean literal: false", () => textExpression("false;", { type: "boolean", value: false }));
-  test("parses identifier literal: false", () => textExpression("test;", { type: "identifier", value: "test" }));
-  test("parses object literal - empty", () => textExpression("({});", { type: "object", properties: {} }));
-  test("parses object literal", () =>
+  it("parses expression in parens", () =>
+    textExpression("(123);", { type: "number", value: 123 }));
+  it("parses number literal", () =>
+    textExpression("123;", { type: "number", value: 123 }));
+  it("parses empty string literal", () =>
+    textExpression('"";', { type: "string", value: "" }));
+  it("parses string literal", () =>
+    textExpression('"hello";', { type: "string", value: "hello" }));
+  it("parses string literal, single quotes", () =>
+    textExpression("'hello';", { type: "string", value: "hello" }));
+  // it("parses string literal, backticks", () => textExpression("`hello`;", { type: "string", value: "hello" }));
+  it("parses boolean literal: true", () =>
+    textExpression("true;", { type: "boolean", value: true }));
+  it("parses boolean literal: false", () =>
+    textExpression("false;", { type: "boolean", value: false }));
+  it("parses identifier literal: false", () =>
+    textExpression("test;", { type: "identifier", value: "test" }));
+  it("parses object literal - empty", () =>
+    textExpression("({});", { type: "object", properties: {} }));
+  it("parses object literal", () =>
     textExpression('({a: 123, b: "test"});', {
       type: "object",
-      properties: { a: { type: "number", value: 123 }, b: { type: "string", value: "test" } },
+      properties: {
+        a: { type: "number", value: 123 },
+        b: { type: "string", value: "test" },
+      },
     }));
-  test("parses array literal - empty", () => textExpression("([]);", { type: "array", elements: [] }));
-  test("parses array literal", () =>
+  it("parses array literal - empty", () =>
+    textExpression("([]);", { type: "array", elements: [] }));
+  it("parses array literal", () =>
     textExpression('([123, "test"]);', {
       type: "array",
       elements: [
@@ -69,7 +83,7 @@ describe("parser", () => {
         { type: "string", value: "test" },
       ],
     }));
-  test("parses variable declaration with no initial value", () => {
+  it("parses variable declaration with no initial value", () => {
     testStatement("var x;", {
       type: "variable_declaration",
       declarationType: "var",
@@ -78,7 +92,7 @@ describe("parser", () => {
       varType: "var",
     });
   });
-  test("parses variable declaration", () => {
+  it("parses variable declaration", () => {
     testStatement("var x = 1;", {
       type: "variable_declaration",
       declarationType: "var",
@@ -87,7 +101,7 @@ describe("parser", () => {
       varType: "var",
     });
   });
-  test("parses const declaration", () => {
+  it("parses const declaration", () => {
     testStatement("const x = 1;", {
       type: "variable_declaration",
       declarationType: "var",
@@ -96,14 +110,14 @@ describe("parser", () => {
       varType: "const",
     });
   });
-  test("parses assignment expression - identifier", () =>
+  it("parses assignment expression - identifier", () =>
     textExpression("x = 123;", {
       type: "assignment",
       operator: "=",
       left: { type: "identifier", value: "x" },
       right: { type: "number", value: 123 },
     }));
-  test("parses assignment expression - member", () =>
+  it("parses assignment expression - member", () =>
     textExpression("x.y = 123;", {
       type: "assignment",
       operator: "=",
@@ -115,7 +129,7 @@ describe("parser", () => {
       },
       right: { type: "number", value: 123 },
     }));
-  test("parses assignment expression - computed member", () =>
+  it("parses assignment expression - computed member", () =>
     textExpression("x[y] = 123;", {
       type: "assignment",
       operator: "=",
@@ -127,14 +141,14 @@ describe("parser", () => {
       },
       right: { type: "number", value: 123 },
     }));
-  test("parses member expression", () =>
+  it("parses member expression", () =>
     textExpression("a.b;", {
       type: "member",
       object: { type: "identifier", value: "a" },
       property: { type: "identifier", value: "b" },
       computed: false,
     }));
-  test("parses member expression - nested", () =>
+  it("parses member expression - nested", () =>
     textExpression("a.b.c;", {
       type: "member",
       object: {
@@ -146,14 +160,14 @@ describe("parser", () => {
       property: { type: "identifier", value: "c" },
       computed: false,
     }));
-  test("parses computed member expression", () =>
+  it("parses computed member expression", () =>
     textExpression("a[0];", {
       type: "member",
       object: { type: "identifier", value: "a" },
       property: { type: "number", value: 0 },
       computed: true,
     }));
-  test("parses computed member expression - object property as key", () =>
+  it("parses computed member expression - object property as key", () =>
     textExpression("this.a[b.c];", {
       type: "member",
       object: {
@@ -177,13 +191,13 @@ describe("parser", () => {
       computed: true,
     }));
 
-  test("parses object expression", () =>
+  it("parses object expression", () =>
     textExpression("({});", {
       type: "object",
       properties: {},
     }));
 
-  test("parses object expression - with properties", () =>
+  it("parses object expression - with properties", () =>
     textExpression('({ a: 1, b: "test" });', {
       type: "object",
       properties: {
@@ -198,13 +212,13 @@ describe("parser", () => {
       },
     }));
 
-  test("parses call expression - no args", () =>
+  it("parses call expression - no args", () =>
     textExpression("a();", {
       type: "call",
       func: { type: "identifier", value: "a" },
       arguments: [],
     }));
-  test("parses call expression", () =>
+  it("parses call expression", () =>
     textExpression('a(1,b,"test");', {
       type: "call",
       func: { type: "identifier", value: "a" },
@@ -214,7 +228,7 @@ describe("parser", () => {
         { type: "string", value: "test" },
       ],
     }));
-  test("parses call member expression", () =>
+  it("parses call member expression", () =>
     textExpression("a.b();", {
       type: "call",
       func: {
@@ -226,7 +240,7 @@ describe("parser", () => {
       arguments: [],
     }));
   describe("function expression", () => {
-    test("parses basic function expression", () =>
+    it("parses basic function expression", () =>
       textExpression("(function(){});", {
         type: "function",
         identifier: Option.none(),
@@ -236,7 +250,7 @@ describe("parser", () => {
           body: [],
         },
       }));
-    test("parses named function expression", () =>
+    it("parses named function expression", () =>
       textExpression("(function test(){});", {
         type: "function",
         identifier: Option.some("test"),
@@ -246,7 +260,7 @@ describe("parser", () => {
           body: [],
         },
       }));
-    test("parses function expression with single parameter", () =>
+    it("parses function expression with single parameter", () =>
       textExpression("(function(a){});", {
         type: "function",
         identifier: Option.none(),
@@ -256,7 +270,7 @@ describe("parser", () => {
           body: [],
         },
       }));
-    test("parses function expression with parameters", () =>
+    it("parses function expression with parameters", () =>
       textExpression("(function(a,b,c){});", {
         type: "function",
         identifier: Option.none(),
@@ -266,17 +280,19 @@ describe("parser", () => {
           body: [],
         },
       }));
-    test("parses function expression with body - single statement", () =>
+    it("parses function expression with body - single statement", () =>
       textExpression("(function(){ 123; });", {
         type: "function",
         identifier: Option.none(),
         parameters: [],
         body: {
           type: "block",
-          body: [{ type: "expression", expression: { type: "number", value: 123 } }],
+          body: [
+            { type: "expression", expression: { type: "number", value: 123 } },
+          ],
         },
       }));
-    test("parses function expression with body", () =>
+    it("parses function expression with body", () =>
       textExpression('(function(){ 123; test; "hello"; });', {
         type: "function",
         identifier: Option.none(),
@@ -285,12 +301,18 @@ describe("parser", () => {
           type: "block",
           body: [
             { type: "expression", expression: { type: "number", value: 123 } },
-            { type: "expression", expression: { type: "identifier", value: "test" } },
-            { type: "expression", expression: { type: "string", value: "hello" } },
+            {
+              type: "expression",
+              expression: { type: "identifier", value: "test" },
+            },
+            {
+              type: "expression",
+              expression: { type: "string", value: "hello" },
+            },
           ],
         },
       }));
-    test("parses function expression", () =>
+    it("parses function expression", () =>
       textExpression('(function(a,b,c){ 123; test; "hello";});', {
         type: "function",
         identifier: Option.none(),
@@ -299,14 +321,20 @@ describe("parser", () => {
           type: "block",
           body: [
             { type: "expression", expression: { type: "number", value: 123 } },
-            { type: "expression", expression: { type: "identifier", value: "test" } },
-            { type: "expression", expression: { type: "string", value: "hello" } },
+            {
+              type: "expression",
+              expression: { type: "identifier", value: "test" },
+            },
+            {
+              type: "expression",
+              expression: { type: "string", value: "hello" },
+            },
           ],
         },
       }));
   });
   describe("arrow function expression", () => {
-    test("parses basic function expression", () =>
+    it("parses basic function expression", () =>
       textExpression("(() => {});", {
         type: "function",
         identifier: Option.none(),
@@ -316,7 +344,7 @@ describe("parser", () => {
           body: [],
         },
       }));
-    test("parses arrow function expression with basic expression return", () =>
+    it("parses arrow function expression with basic expression return", () =>
       textExpression("(() => (1));", {
         type: "function",
         identifier: Option.none(),
@@ -329,7 +357,7 @@ describe("parser", () => {
           },
         },
       }));
-    test("parses arrow function expression with spread parameters", () =>
+    it("parses arrow function expression with spread parameters", () =>
       textExpression("((...a) => {});", {
         type: "function",
         identifier: Option.none(),
@@ -344,7 +372,7 @@ describe("parser", () => {
           body: [],
         },
       }));
-    test("parses arrow function expression with object expression return", () =>
+    it("parses arrow function expression with object expression return", () =>
       textExpression("(() => ({ a: 1 }));", {
         type: "function",
         identifier: Option.none(),
@@ -362,7 +390,7 @@ describe("parser", () => {
           },
         },
       }));
-    test("parses function expression with single parameter", () =>
+    it("parses function expression with single parameter", () =>
       textExpression("((a) => {});", {
         type: "function",
         identifier: Option.none(),
@@ -372,7 +400,7 @@ describe("parser", () => {
           body: [],
         },
       }));
-    test("parses function expression with parameters", () =>
+    it("parses function expression with parameters", () =>
       textExpression("((a,b,c) => {});", {
         type: "function",
         identifier: Option.none(),
@@ -382,17 +410,19 @@ describe("parser", () => {
           body: [],
         },
       }));
-    test("parses function expression with body - single statement", () =>
+    it("parses function expression with body - single statement", () =>
       textExpression("(() => { 123; });", {
         type: "function",
         identifier: Option.none(),
         parameters: [],
         body: {
           type: "block",
-          body: [{ type: "expression", expression: { type: "number", value: 123 } }],
+          body: [
+            { type: "expression", expression: { type: "number", value: 123 } },
+          ],
         },
       }));
-    test("parses function expression with body", () =>
+    it("parses function expression with body", () =>
       textExpression('(() => { 123; test; "hello"; });', {
         type: "function",
         identifier: Option.none(),
@@ -401,12 +431,18 @@ describe("parser", () => {
           type: "block",
           body: [
             { type: "expression", expression: { type: "number", value: 123 } },
-            { type: "expression", expression: { type: "identifier", value: "test" } },
-            { type: "expression", expression: { type: "string", value: "hello" } },
+            {
+              type: "expression",
+              expression: { type: "identifier", value: "test" },
+            },
+            {
+              type: "expression",
+              expression: { type: "string", value: "hello" },
+            },
           ],
         },
       }));
-    test("parses function expression", () =>
+    it("parses function expression", () =>
       textExpression('((a,b,c) => { 123; test; "hello";});', {
         type: "function",
         identifier: Option.none(),
@@ -415,32 +451,38 @@ describe("parser", () => {
           type: "block",
           body: [
             { type: "expression", expression: { type: "number", value: 123 } },
-            { type: "expression", expression: { type: "identifier", value: "test" } },
-            { type: "expression", expression: { type: "string", value: "hello" } },
+            {
+              type: "expression",
+              expression: { type: "identifier", value: "test" },
+            },
+            {
+              type: "expression",
+              expression: { type: "string", value: "hello" },
+            },
           ],
         },
       }));
   });
 
-  test("parses not expression", () =>
+  it("parses not expression", () =>
     textExpression("!1;", {
       type: "not",
       expression: { type: "number", value: 1 },
     }));
   // #endregion
   // #region statement tests
-  test("parses return statement", () => {
+  it("parses return statement", () => {
     testStatement("return 123;", {
       type: "return",
       expression: { type: "number", value: 123 },
     });
   });
-  test("parses return statement without expression", () => {
+  it("parses return statement without expression", () => {
     testStatement("return;", {
       type: "return",
     });
   });
-  test("parses basic function declaration statement", () => {
+  it("parses basic function declaration statement", () => {
     testStatement("function x() {}", {
       type: "function_declaration",
       identifier: "x",
@@ -451,7 +493,7 @@ describe("parser", () => {
       },
     });
   });
-  test("parses function declaration statement", () => {
+  it("parses function declaration statement", () => {
     testStatement("function x(a,b,c) { 123; }", {
       type: "function_declaration",
       identifier: "x",
@@ -470,7 +512,7 @@ describe("parser", () => {
       },
     });
   });
-  test("parses if statement", () => {
+  it("parses if statement", () => {
     testStatement("if (true) { 123; }", {
       type: "if",
       condition: { type: "boolean", value: true },
@@ -486,7 +528,7 @@ describe("parser", () => {
       elseBody: Option.none(),
     });
   });
-  test("parses if/else statement", () => {
+  it("parses if/else statement", () => {
     testStatement("if (true) { 123; } else { 234; }", {
       type: "if",
       condition: { type: "boolean", value: true },
@@ -510,7 +552,7 @@ describe("parser", () => {
       }),
     });
   });
-  test("parses if/else if statement", () => {
+  it("parses if/else if statement", () => {
     testStatement("if (true) { 123; } else if(false) { 234; }", {
       type: "if",
       condition: { type: "boolean", value: true },
@@ -539,7 +581,7 @@ describe("parser", () => {
       }),
     });
   });
-  test("parses while statement", () => {
+  it("parses while statement", () => {
     testStatement("while (true) { 123; }", {
       type: "while",
       condition: { type: "boolean", value: true },
@@ -554,7 +596,7 @@ describe("parser", () => {
       },
     });
   });
-  test("parses while statement with expression", () => {
+  it("parses while statement with expression", () => {
     testStatement("while (i >= 1) { 123; }", {
       type: "while",
       condition: {
@@ -582,7 +624,7 @@ describe("parser", () => {
   });
   // #endregion
 
-  // test("switch statement", () => {
+  // it("switch statement", () => {
   //   testStatement(
   //     `switch(x) {
   //       case "a": break;
@@ -628,7 +670,7 @@ describe("parser", () => {
   //   );
   // });
 
-  test("switch statement inside method", () => {
+  it("switch statement inside method", () => {
     testStatement(
       `class X {
         y(expression) {
@@ -710,7 +752,7 @@ describe("parser", () => {
     );
   });
 
-  test("spread expression", () => {
+  it("spread expression", () => {
     textExpression("...a;", {
       type: "spread",
       expression: { type: "identifier", value: "a" },
@@ -718,7 +760,7 @@ describe("parser", () => {
   });
 
   describe("binary expression", () => {
-    test("parses binary expression", () =>
+    it("parses binary expression", () =>
       textExpression("1+2;", {
         type: "binary",
         operator: "+",
@@ -726,7 +768,7 @@ describe("parser", () => {
         right: { type: "number", value: 2 },
       }));
 
-    test("parses binary comparison expression", () =>
+    it("parses binary comparison expression", () =>
       textExpression("1 !== 2;", {
         type: "binary",
         operator: "!==",
@@ -735,7 +777,7 @@ describe("parser", () => {
       }));
 
     // 1+2*3 => 1+(2*3)
-    test("parses binary expression with mixed precedence", () =>
+    it("parses binary expression with mixed precedence", () =>
       textExpression("1+2*3;", {
         type: "binary",
         operator: "+",
@@ -749,7 +791,7 @@ describe("parser", () => {
       }));
 
     // 1*2+3 => (1*2)+3
-    test("parses binary expression with mixed precedence", () =>
+    it("parses binary expression with mixed precedence", () =>
       textExpression("1*2+3;", {
         type: "binary",
         operator: "+",
@@ -762,7 +804,7 @@ describe("parser", () => {
         right: { type: "number", value: 3 },
       }));
 
-    test("parses binary expression with same precedence", () =>
+    it("parses binary expression with same precedence", () =>
       textExpression("1+2+3;", {
         type: "binary",
         operator: "+",
@@ -776,7 +818,7 @@ describe("parser", () => {
       }));
   });
 
-  test("parses basic class declaration", () => {
+  it("parses basic class declaration", () => {
     testStatement("class X {}", {
       type: "class_declaration",
       identifier: "X",
@@ -784,7 +826,7 @@ describe("parser", () => {
       methods: [],
     });
   });
-  test("parses class declaration with super class", () => {
+  it("parses class declaration with super class", () => {
     testStatement("class X extends Y {}", {
       type: "class_declaration",
       identifier: "X",
@@ -793,7 +835,7 @@ describe("parser", () => {
       superClass: "Y",
     });
   });
-  test("parses class declaration with constructor", () => {
+  it("parses class declaration with constructor", () => {
     testStatement("class X { constructor() {} }", {
       type: "class_declaration",
       identifier: "X",
@@ -811,7 +853,7 @@ describe("parser", () => {
       ],
     });
   });
-  test("parses class property without initial value", () => {
+  it("parses class property without initial value", () => {
     testStatement("class X { x; }", {
       type: "class_declaration",
       identifier: "X",
@@ -819,31 +861,37 @@ describe("parser", () => {
       methods: [],
     });
   });
-  test("parses class property with initial value: number", () => {
+  it("parses class property with initial value: number", () => {
     testStatement("class X { x = 123; }", {
       type: "class_declaration",
       identifier: "X",
-      properties: [{ name: "x", value: { type: "number", value: 123 }, static: false }],
+      properties: [
+        { name: "x", value: { type: "number", value: 123 }, static: false },
+      ],
       methods: [],
     });
   });
-  test("parses class property with initial value: string", () => {
+  it("parses class property with initial value: string", () => {
     testStatement(`class X { x = "test"; }`, {
       type: "class_declaration",
       identifier: "X",
-      properties: [{ name: "x", value: { type: "string", value: "test" }, static: false }],
+      properties: [
+        { name: "x", value: { type: "string", value: "test" }, static: false },
+      ],
       methods: [],
     });
   });
-  test("parses static class property", () => {
+  it("parses static class property", () => {
     testStatement(`class X { static x = "test"; }`, {
       type: "class_declaration",
       identifier: "X",
-      properties: [{ name: "x", value: { type: "string", value: "test" }, static: true }],
+      properties: [
+        { name: "x", value: { type: "string", value: "test" }, static: true },
+      ],
       methods: [],
     });
   });
-  test("parses class property with initial value: expression", () => {
+  it("parses class property with initial value: expression", () => {
     testStatement("class X { x = 1 + a; }", {
       type: "class_declaration",
       identifier: "X",
@@ -868,7 +916,7 @@ describe("parser", () => {
       methods: [],
     });
   });
-  test("parses class with mixed properties", () => {
+  it("parses class with mixed properties", () => {
     testStatement(`class X { x = 1; y = "hi"; z; expr = 1 + a; }`, {
       type: "class_declaration",
       identifier: "X",
@@ -914,7 +962,7 @@ describe("parser", () => {
       methods: [],
     });
   });
-  test("parses class method", () => {
+  it("parses class method", () => {
     testStatement("class X { y() {} }", {
       type: "class_declaration",
       identifier: "X",
@@ -932,7 +980,7 @@ describe("parser", () => {
       ],
     });
   });
-  test("parses class method with parameters", () => {
+  it("parses class method with parameters", () => {
     testStatement("class X { y(a,b, c) {} }", {
       type: "class_declaration",
       identifier: "X",
@@ -950,7 +998,7 @@ describe("parser", () => {
       ],
     });
   });
-  test("parses class method with spread parameters", () => {
+  it("parses class method with spread parameters", () => {
     testStatement("class X { y(...a) {} }", {
       type: "class_declaration",
       identifier: "X",
@@ -968,7 +1016,7 @@ describe("parser", () => {
       ],
     });
   });
-  test("parses class method with body", () => {
+  it("parses class method with body", () => {
     testStatement(`class X { y() { console.log("hello") } }`, {
       type: "class_declaration",
       identifier: "X",
@@ -1011,7 +1059,7 @@ describe("parser", () => {
       ],
     });
   });
-  test("parses class method with body and parameters", () => {
+  it("parses class method with body and parameters", () => {
     testStatement(`class X { y(message) { console.log(message); } }`, {
       type: "class_declaration",
       identifier: "X",
@@ -1055,7 +1103,7 @@ describe("parser", () => {
     });
   });
 
-  test("parses class arrow function property", () => {
+  it("parses class arrow function property", () => {
     testStatement(`class X { y = () => {}; }`, {
       type: "class_declaration",
       identifier: "X",
@@ -1078,7 +1126,7 @@ describe("parser", () => {
     });
   });
 
-  test("parses static class method", () => {
+  it("parses static class method", () => {
     testStatement(`class X { static y() {} }`, {
       type: "class_declaration",
       identifier: "X",
@@ -1096,7 +1144,7 @@ describe("parser", () => {
       ],
     });
   });
-  test("parses static class method with parameters", () => {
+  it("parses static class method with parameters", () => {
     testStatement(`class X { static y(a,b,c) {} }`, {
       type: "class_declaration",
       identifier: "X",
@@ -1114,7 +1162,7 @@ describe("parser", () => {
       ],
     });
   });
-  test("parses new expression", () =>
+  it("parses new expression", () =>
     textExpression("new X(123);", {
       type: "new",
       identifier: "X",

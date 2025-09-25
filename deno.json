@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "bundle": "deno bundle ./src/jsjs.ts -o dist/jsjs.js"
+  }
+}

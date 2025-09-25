@@ -9,9 +9,9 @@ import {
   Parameter,
   TOKEN_TO_OPERATOR,
   SwitchCase,
-} from "./ast";
-import { Token, TokenType } from "./lexer";
-import { Option, Result } from "./types";
+} from "./ast.ts";
+import { Token, TokenType } from "./lexer.ts";
+import { Option, Result } from "./types.ts";
 
 export type ParseError = {
   type: "syntax_error" | "unexpected_token" | "not_yet_implemented";
@@ -44,7 +44,11 @@ export class Parser {
 
   expect(type: TokenType): Result<Token, ParseError> {
     const token = this.tokens[this.index];
-    if (!token) return Result.err({ type: "unexpected_token", message: "expected: " + type + ", got eof" });
+    if (!token)
+      return Result.err({
+        type: "unexpected_token",
+        message: "expected: " + type + ", got eof",
+      });
 
     if (token.type !== type) return Result.err(unexpectedToken(type, token));
 
@@ -194,11 +198,14 @@ export class Parser {
     const leftBrace = this.expect("left_brace");
     if (leftBrace.isErr()) return leftBrace.mapErr();
 
-    const properties = {};
+    const properties: Record<string, Expression> = {};
 
     while (!this.nextTokenIsType("right_brace")) {
       const identifier = this.expect("identifier");
       if (identifier.isErr()) return identifier.mapErr();
+
+      const idToken = identifier.unwrap();
+      const id = idToken.value as string;
 
       if (this.peekNextToken().type === "colon") {
         const colon = this.expect("colon");
@@ -207,9 +214,9 @@ export class Parser {
         const value = this.parseExpression(0);
         if (value.isErr()) return value.mapErr();
 
-        properties[identifier.unwrap().value] = value.unwrap();
+        properties[id] = value.unwrap();
       } else {
-        properties[identifier.unwrap().value] = identifier.unwrap().value;
+        properties[id] = { type: "identifier", value: id };
       }
 
       if (this.nextTokenIsType("comma")) {
@@ -449,7 +456,12 @@ export class Parser {
           const body = this.parseBlockStatement();
           if (body.isErr()) return body.mapErr();
 
-          return Result.ok({ type: "function", identifier: id, parameters, body: body.unwrap() });
+          return Result.ok({
+            type: "function",
+            identifier: id,
+            parameters,
+            body: body.unwrap(),
+          });
         }
 
         if (token.value === "new") {
@@ -656,7 +668,10 @@ export class Parser {
       this.expect("semicolon");
     }
 
-    return Result.ok({ type: "expression", expression: expressionResult.unwrap() });
+    return Result.ok({
+      type: "expression",
+      expression: expressionResult.unwrap(),
+    });
   }
 
   parseFunctionDeclarationStatement(): Result<Statement, ParseError> {
@@ -726,7 +741,12 @@ export class Parser {
       }
     }
 
-    return Result.ok({ type: "if", condition: condition.unwrap(), ifBody: ifBody.unwrap(), elseBody });
+    return Result.ok({
+      type: "if",
+      condition: condition.unwrap(),
+      ifBody: ifBody.unwrap(),
+      elseBody,
+    });
   }
 
   parseWhileStatement(): Result<Statement, ParseError> {
@@ -745,7 +765,11 @@ export class Parser {
     const body = this.parseStatement();
     if (body.isErr()) return body;
 
-    return Result.ok({ type: "while", condition: condition.unwrap(), body: body.unwrap() });
+    return Result.ok({
+      type: "while",
+      condition: condition.unwrap(),
+      body: body.unwrap(),
+    });
   }
 
   parseParams(): Result<Parameter[], ParseError> {
@@ -778,7 +802,9 @@ export class Parser {
     return Result.ok(params);
   }
 
-  parseClassMethodDeclaration(isStatic: boolean): Result<ClassMethodDeclaration, ParseError> {
+  parseClassMethodDeclaration(
+    isStatic: boolean
+  ): Result<ClassMethodDeclaration, ParseError> {
     const id = this.expect("identifier");
     if (id.isErr()) return id.mapErr();
 
@@ -800,7 +826,9 @@ export class Parser {
     });
   }
 
-  parseClassPropertyDeclaration(isStatic: boolean): Result<ClassPropertyDeclaration, ParseError> {
+  parseClassPropertyDeclaration(
+    isStatic: boolean
+  ): Result<ClassPropertyDeclaration, ParseError> {
     const id = this.expect("identifier");
     if (id.isErr()) return id.mapErr();
 
@@ -837,7 +865,7 @@ export class Parser {
     const className = this.expect("identifier");
     if (className.isErr()) return className.mapErr();
 
-    let superClass: string;
+    let superClass: string | undefined;
 
     if (this.peekNextToken().type === "keyword") {
       const next = this.nextToken();
@@ -871,7 +899,10 @@ export class Parser {
 
       peek = this.peekNextToken();
 
-      if (peek?.type === "left_paren" || (peek?.type === "keyword" && peek?.value === "static")) {
+      if (
+        peek?.type === "left_paren" ||
+        (peek?.type === "keyword" && peek?.value === "static")
+      ) {
         this.backup();
         const method = this.parseClassMethodDeclaration(isStatic);
         if (method.isErr()) return method.mapErr();
@@ -916,7 +947,10 @@ export class Parser {
 
     const cases: SwitchCase[] = [];
 
-    while (this.peekNextToken()?.type === "keyword" && this.peekNextToken()?.text === "case") {
+    while (
+      this.peekNextToken()?.type === "keyword" &&
+      this.peekNextToken()?.text === "case"
+    ) {
       const c = this.expectWithValue("keyword", "case");
       if (c.isErr()) return c.mapErr();
 
@@ -936,7 +970,10 @@ export class Parser {
 
     let def: Option<Statement> = Option.none();
 
-    if (this.peekNextToken().type === "keyword" && this.peekNextToken()?.value === "default") {
+    if (
+      this.peekNextToken().type === "keyword" &&
+      this.peekNextToken()?.value === "default"
+    ) {
       this.expectWithValue("keyword", "default");
 
       const colon = this.expect("colon");
@@ -951,7 +988,12 @@ export class Parser {
     const rightBrace = this.expect("right_brace");
     if (rightBrace.isErr()) return rightBrace.mapErr();
 
-    return Result.ok({ type: "switch", condition: condition.unwrap(), cases, default: def });
+    return Result.ok({
+      type: "switch",
+      condition: condition.unwrap(),
+      cases,
+      default: def,
+    });
   }
 
   parseReturnStatement(): Result<Statement, ParseError> {
@@ -1000,11 +1042,19 @@ export class Parser {
       case "spread":
         return this.parseExpressionStatement();
       case "keyword":
-        if (token.value === "true" || token.value === "false" || token.value === "new") {
+        if (
+          token.value === "true" ||
+          token.value === "false" ||
+          token.value === "new"
+        ) {
           return this.parseExpressionStatement();
         }
 
-        if (token.value === "var" || token.value === "const" || token.value === "let") {
+        if (
+          token.value === "var" ||
+          token.value === "const" ||
+          token.value === "let"
+        ) {
           const statement = this.parseVariableDeclaration();
 
           if (this.peekNextToken()?.type === "semicolon") {
