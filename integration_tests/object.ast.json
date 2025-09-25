@@ -1,0 +1,2315 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "obj",
+      "value": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "string",
+            "value": "value1",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 1,
+              "column": 18
+            }
+          },
+          "y": {
+            "type": "number",
+            "value": 30,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 1,
+              "column": 31
+            }
+          },
+          "z": {
+            "type": "string",
+            "value": "data",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 1,
+              "column": 38
+            }
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 1,
+          "column": 13
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 1,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 2,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 2,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 2,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Initial object:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 2,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "obj",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 2,
+              "column": 32
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 2,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 3,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 3,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 3,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Object keys:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 3,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "Object",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 3,
+                  "column": 29
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "keys",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 3,
+                  "column": 36
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 3,
+                "column": 29
+              }
+            },
+            "arguments": [
+              {
+                "type": "identifier",
+                "value": "obj",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 3,
+                  "column": 41
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 3,
+              "column": 40
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 3,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 4,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 4,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 4,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Object values:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 4,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "Object",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 4,
+                  "column": 31
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "values",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 4,
+                  "column": 38
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 4,
+                "column": 31
+              }
+            },
+            "arguments": [
+              {
+                "type": "identifier",
+                "value": "obj",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 4,
+                  "column": 45
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 4,
+              "column": 44
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 4,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 6,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 6,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 6,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "obj.x:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 6,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "obj",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 6,
+                "column": 23
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "x",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 6,
+                "column": 27
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 6,
+              "column": 23
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 6,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 7,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 7,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 7,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "obj['y']:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 7,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "obj",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 7,
+                "column": 26
+              }
+            },
+            "property": {
+              "type": "string",
+              "value": "y",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 7,
+                "column": 30
+              }
+            },
+            "computed": true,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 7,
+              "column": 26
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 7,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "obj",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 9,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "w",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 9,
+              "column": 5
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 9,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "string",
+          "value": "new",
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 9,
+            "column": 9
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 9,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "obj",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 10,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "string",
+            "value": "v",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 10,
+              "column": 5
+            }
+          },
+          "computed": true,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 10,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "number",
+          "value": 75000,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 10,
+            "column": 12
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 10,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 11,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 11,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 11,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "After adding properties:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 11,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "obj",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 11,
+              "column": 41
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 11,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "identifier",
+        "value": "delete",
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 13,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "member",
+        "object": {
+          "type": "identifier",
+          "value": "obj",
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 13,
+            "column": 8
+          }
+        },
+        "property": {
+          "type": "identifier",
+          "value": "z",
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 13,
+            "column": 12
+          }
+        },
+        "computed": false,
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 13,
+          "column": 8
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 13,
+        "column": 8
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 14,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 14,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 14,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "After delete obj.z:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 14,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "obj",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 14,
+              "column": 36
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 14,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "target",
+      "value": {
+        "type": "object",
+        "properties": {
+          "a": {
+            "type": "number",
+            "value": 1,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 16,
+              "column": 21
+            }
+          },
+          "b": {
+            "type": "number",
+            "value": 2,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 16,
+              "column": 27
+            }
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 16,
+          "column": 16
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "source",
+      "value": {
+        "type": "object",
+        "properties": {
+          "b": {
+            "type": "number",
+            "value": 3,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 17,
+              "column": 21
+            }
+          },
+          "c": {
+            "type": "number",
+            "value": 4,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 17,
+              "column": 27
+            }
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 17,
+          "column": 16
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "merged",
+      "value": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "Object",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 18,
+              "column": 16
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "assign",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 18,
+              "column": 23
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 18,
+            "column": 16
+          }
+        },
+        "arguments": [
+          {
+            "type": "identifier",
+            "value": "target",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 18,
+              "column": 30
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "source",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 18,
+              "column": 38
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 18,
+          "column": 29
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 19,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 19,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 19,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Original target:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 19,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "target",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 19,
+              "column": 33
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 19,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 20,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 20,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 20,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Source object:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 20,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "source",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 20,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 20,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 21,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 21,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 21,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Merged result:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 21,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "merged",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 21,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 21,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "objA",
+      "value": {
+        "type": "object",
+        "properties": {
+          "a": {
+            "type": "string",
+            "value": "valueA",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 23,
+              "column": 19
+            }
+          },
+          "b": {
+            "type": "string",
+            "value": "valueB",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 23,
+              "column": 32
+            }
+          },
+          "c": {
+            "type": "number",
+            "value": 25,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 23,
+              "column": 45
+            }
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 23,
+          "column": 14
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 24,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 24,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 24,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Object.entries:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 24,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "Object",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 24,
+                  "column": 32
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "entries",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 24,
+                  "column": 39
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 24,
+                "column": 32
+              }
+            },
+            "arguments": [
+              {
+                "type": "identifier",
+                "value": "objA",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 24,
+                  "column": 47
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 24,
+              "column": 46
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 24,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 24,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "nested",
+      "value": {
+        "type": "object",
+        "properties": {
+          "level1": {
+            "type": "object",
+            "properties": {
+              "level2": {
+                "type": "object",
+                "properties": {
+                  "prop": {
+                    "type": "string",
+                    "value": "deep",
+                    "location": {
+                      "file": "./integration_tests/object.js",
+                      "line": 29,
+                      "column": 13
+                    }
+                  },
+                  "settings": {
+                    "type": "object",
+                    "properties": {
+                      "mode": {
+                        "type": "string",
+                        "value": "test",
+                        "location": {
+                          "file": "./integration_tests/object.js",
+                          "line": 31,
+                          "column": 15
+                        }
+                      },
+                      "lang": {
+                        "type": "string",
+                        "value": "js",
+                        "location": {
+                          "file": "./integration_tests/object.js",
+                          "line": 32,
+                          "column": 15
+                        }
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/object.js",
+                      "line": 30,
+                      "column": 17
+                    }
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 28,
+                  "column": 13
+                }
+              }
+            },
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 27,
+              "column": 11
+            }
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 26,
+          "column": 16
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 38,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 38,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 38,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Nested access:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 38,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "member",
+              "object": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "nested",
+                  "location": {
+                    "file": "./integration_tests/object.js",
+                    "line": 38,
+                    "column": 31
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "level1",
+                  "location": {
+                    "file": "./integration_tests/object.js",
+                    "line": 38,
+                    "column": 38
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 38,
+                  "column": 31
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "level2",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 38,
+                  "column": 45
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 38,
+                "column": 31
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "prop",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 38,
+                "column": 52
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 38,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 38,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 39,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 39,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 39,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Deep nested:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 39,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "member",
+              "object": {
+                "type": "member",
+                "object": {
+                  "type": "member",
+                  "object": {
+                    "type": "identifier",
+                    "value": "nested",
+                    "location": {
+                      "file": "./integration_tests/object.js",
+                      "line": 39,
+                      "column": 29
+                    }
+                  },
+                  "property": {
+                    "type": "identifier",
+                    "value": "level1",
+                    "location": {
+                      "file": "./integration_tests/object.js",
+                      "line": 39,
+                      "column": 36
+                    }
+                  },
+                  "computed": false,
+                  "location": {
+                    "file": "./integration_tests/object.js",
+                    "line": 39,
+                    "column": 29
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "level2",
+                  "location": {
+                    "file": "./integration_tests/object.js",
+                    "line": 39,
+                    "column": 43
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 39,
+                  "column": 29
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "settings",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 39,
+                  "column": 50
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 39,
+                "column": 29
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "mode",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 39,
+                "column": 59
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 39,
+              "column": 29
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 39,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "data",
+      "value": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 42,
+                  "column": 11
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 42,
+                  "column": 14
+                }
+              },
+              {
+                "type": "number",
+                "value": 3,
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 42,
+                  "column": 17
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 42,
+              "column": 10
+            }
+          },
+          "count": {
+            "type": "number",
+            "value": 3,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 43,
+              "column": 10
+            }
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 41,
+          "column": 14
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 41,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "data",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 45,
+                "column": 1
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "items",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 45,
+                "column": 6
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 45,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "push",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 45,
+              "column": 12
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 45,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "number",
+            "value": 4,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 45,
+              "column": 17
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 45,
+          "column": 16
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 45,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 46,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 46,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 46,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Object with array:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 46,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "data",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 46,
+              "column": 35
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 46,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 46,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 47,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 47,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 47,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Array in object length:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 47,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "data",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 47,
+                  "column": 40
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "items",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 47,
+                  "column": 45
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 47,
+                "column": 40
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "length",
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 47,
+                "column": 51
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 47,
+              "column": 40
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 47,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 47,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "empty",
+      "value": {
+        "type": "object",
+        "properties": {},
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 49,
+          "column": 15
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 49,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 50,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 50,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 50,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Empty object:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 50,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "empty",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 50,
+              "column": 30
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 50,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 50,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 51,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 51,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 51,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Empty object keys:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 51,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "Object",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 51,
+                  "column": 35
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "keys",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 51,
+                  "column": 42
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/object.js",
+                "line": 51,
+                "column": 35
+              }
+            },
+            "arguments": [
+              {
+                "type": "identifier",
+                "value": "empty",
+                "location": {
+                  "file": "./integration_tests/object.js",
+                  "line": 51,
+                  "column": 47
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 51,
+              "column": 46
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 51,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 51,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "empty",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 52,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "a",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 52,
+              "column": 7
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 52,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "string",
+          "value": "value",
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 52,
+            "column": 11
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 52,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 52,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 53,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 53,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 53,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "After adding to empty:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 53,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "empty",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 53,
+              "column": 39
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 53,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "x",
+      "value": {
+        "type": "string",
+        "value": "test",
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 55,
+          "column": 11
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "y",
+      "value": {
+        "type": "number",
+        "value": 42,
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 56,
+          "column": 11
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 56,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "shorthand",
+      "value": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "identifier",
+            "value": "x",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 57,
+              "column": 21
+            }
+          },
+          "y": {
+            "type": "identifier",
+            "value": "y",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 57,
+              "column": 24
+            }
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 57,
+          "column": 19
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 57,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 58,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 58,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object.js",
+            "line": 58,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Property shorthand:",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 58,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "shorthand",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 58,
+              "column": 36
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object.js",
+          "line": 58,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object.js",
+        "line": 58,
+        "column": 1
+      }
+    }
+  ]
+}

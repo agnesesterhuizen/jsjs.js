@@ -105,6 +105,29 @@ export class Interpreter {
 
           return keys;
         }),
+        values: JSObject.builtinFunction((obj: JSObject) => {
+          const values = JSObject.array(this, []);
+          values.elements = Object.values(obj.properties);
+          return values;
+        }),
+        entries: JSObject.builtinFunction((obj: JSObject) => {
+          const entries = JSObject.array(this, []);
+          entries.elements = Object.entries(obj.properties).map(
+            ([key, value]) =>
+              JSObject.array(this, [JSObject.string(key), value])
+          );
+          return entries;
+        }),
+        assign: JSObject.builtinFunction(
+          (target: JSObject, ...sources: JSObject[]) => {
+            for (const source of sources) {
+              for (const [key, value] of Object.entries(source.properties)) {
+                target.properties[key] = value;
+              }
+            }
+            return target;
+          }
+        ),
       }),
       Math: JSObject.object({
         random: JSObject.builtinFunction(() => {
@@ -516,6 +539,8 @@ export class Interpreter {
                 expression
               );
             }
+
+            property = JSObject.string(memberExpression.property.value);
           }
 
           const value = this.executeExpression(expression.right);

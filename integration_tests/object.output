@@ -1,0 +1,54 @@
+Initial object: {
+  "x": "value1",
+  "y": "30",
+  "z": "data"
+}
+Object keys: [ x, y, z ]
+Object values: [ value1, 30, data ]
+obj.x: value1
+obj['y']: 30
+After adding properties: {
+  "x": "value1",
+  "y": "30",
+  "z": "data",
+  "w": "new",
+  "v": "75000"
+}
+After delete obj.z: {
+  "x": "value1",
+  "y": "30",
+  "z": "data",
+  "w": "new",
+  "v": "75000"
+}
+Original target: {
+  "a": "1",
+  "b": "3",
+  "c": "4"
+}
+Source object: {
+  "b": "3",
+  "c": "4"
+}
+Merged result: {
+  "a": "1",
+  "b": "3",
+  "c": "4"
+}
+Object.entries: [ [ a, valueA ], [ b, valueB ], [ c, 25 ] ]
+Nested access: deep
+Deep nested: test
+Object with array: {
+  "items": "[ 1, 2, 3, 4 ]",
+  "count": "3"
+}
+Array in object length: 4
+Empty object: {}
+Empty object keys: [  ]
+After adding to empty: {
+  "a": "value"
+}
+Property shorthand: {
+  "x": "test",
+  "y": "42"
+}
