@@ -1,0 +1,12 @@
+123
+0.123
+str
+str
+str
+true
+false
+[ 1, 2, 3 ]
+{
+  "a": "1",
+  "b": "prop"
+}

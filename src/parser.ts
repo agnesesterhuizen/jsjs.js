@@ -9,9 +9,9 @@ import {
   Parameter,
   TOKEN_TO_OPERATOR,
   SwitchCase,
+  WithLocation,
 } from "./ast.ts";
 import { Token, TokenType } from "./lexer.ts";
-import { Option, Result } from "./types.ts";
 
 export type ParseError = {
   type: "syntax_error" | "unexpected_token" | "not_yet_implemented";
@@ -33,38 +33,57 @@ const unexpectedToken = (expected: TokenType, actual: Token): ParseError => {
   throw new Error(JSON.stringify(err));
 };
 
-const todo = (feature: string): ParseError => ({
-  type: "not_yet_implemented",
-  message: "feature not implemented: " + feature,
-});
+const syntaxError = (token: Token) => {
+  const err = {
+    type: "syntax_error",
+    message:
+      "const declaration must have initial value" +
+      " in " +
+      `${token.filename}:${token.line}:${token.col}`,
+  };
+
+  throw new Error(JSON.stringify(err));
+};
+
+function withLocation<T extends { type: string }>(
+  node: T,
+  token: Token
+): WithLocation<T> {
+  return {
+    ...node,
+    location: {
+      file: token.filename,
+      line: token.line,
+      column: token.col,
+    },
+  };
+}
 
 export class Parser {
   index = 0;
   tokens: Token[] = [];
 
-  expect(type: TokenType): Result<Token, ParseError> {
+  expect(type: TokenType): Token {
     const token = this.tokens[this.index];
-    if (!token)
-      return Result.err({
-        type: "unexpected_token",
-        message: "expected: " + type + ", got eof",
-      });
+    if (!token) {
+      unexpectedToken("eof", token);
+    }
 
-    if (token.type !== type) return Result.err(unexpectedToken(type, token));
+    if (token.type !== type) {
+      unexpectedToken(type, token);
+    }
 
     this.index++;
-    return Result.ok(token);
+    return token;
   }
 
-  expectWithValue(type: TokenType, value: string): Result<Token, ParseError> {
-    const tokenResult = this.expect(type);
-    if (tokenResult.isErr()) return tokenResult;
+  expectWithValue(type: TokenType, value: string): Token {
+    const token = this.expect(type);
+    if (token.value !== value) {
+      unexpectedToken(type, token);
+    }
 
-    const token = tokenResult.unwrap();
-
-    if (token.value !== value) return Result.err(unexpectedToken(type, token));
-
-    return Result.ok(token);
+    return token;
   }
 
   backup(level = 1) {
@@ -87,136 +106,127 @@ export class Parser {
     return nextToken.type === type;
   }
 
-  parseNumber(): Result<Expression, ParseError> {
-    const numberTokenResult = this.expect("number");
-    if (numberTokenResult.isErr()) return numberTokenResult.mapErr();
+  parseNumber(): Expression {
+    const token = this.expect("number");
 
-    const { value } = numberTokenResult.unwrap();
-
-    return Result.ok({
-      type: "number",
-      value: parseFloat(value),
-    });
+    return withLocation(
+      {
+        type: "number",
+        value: parseFloat(token.value),
+      },
+      token
+    );
   }
 
-  parseString(): Result<Expression, ParseError> {
-    const stringTokenResult = this.expect("string");
-    if (stringTokenResult.isErr()) return stringTokenResult.mapErr();
+  parseString(): Expression {
+    const token = this.expect("string");
 
-    const { value } = stringTokenResult.unwrap();
-
-    return Result.ok({
-      type: "string",
-      value,
-    });
+    return withLocation(
+      {
+        type: "string",
+        value: token.value,
+      },
+      token
+    );
   }
 
-  parseIdentifier(): Result<Expression, ParseError> {
-    const identifierTokenResult = this.expect("identifier");
-    if (identifierTokenResult.isErr()) return identifierTokenResult.mapErr();
+  parseIdentifier(): Expression {
+    const token = this.expect("identifier");
 
-    const { value } = identifierTokenResult.unwrap();
-
-    return Result.ok({
-      type: "identifier",
-      value,
-    });
+    return withLocation(
+      {
+        type: "identifier",
+        value: token.value,
+      },
+      token
+    );
   }
 
-  parseBoolean(): Result<Expression, ParseError> {
-    const booleanTokenResult = this.expect("keyword");
-    if (booleanTokenResult.isErr()) return booleanTokenResult.mapErr();
+  parseBoolean(): Expression {
+    const token = this.expect("keyword");
 
-    const { value } = booleanTokenResult.unwrap();
-
-    if (value !== "true" && value !== "false") {
-      return Result.err(unexpectedToken("eof", booleanTokenResult.unwrap()));
+    if (token.value !== "true" && token.value !== "false") {
+      unexpectedToken("eof", token);
     }
 
-    return Result.ok({
-      type: "boolean",
-      value: value === "true",
-    });
+    return withLocation(
+      {
+        type: "boolean",
+        value: token.value === "true",
+      },
+      token
+    );
   }
 
-  parseArrowFunctionExpression(): Result<Expression, ParseError> {
-    const leftParenResult = this.expect("left_paren");
-    if (leftParenResult.isErr()) return leftParenResult.mapErr();
+  parseArrowFunctionExpression(): Expression {
+    const token = this.expect("left_paren");
 
-    const params = this.parseParams();
-    if (params.isErr()) return params.mapErr();
+    const parameters = this.parseParams();
 
-    // arrow token
+    // right paren?
+
     this.expect("arrow");
 
-    const bodyResult = this.parseStatement();
-    if (bodyResult.isErr()) return bodyResult.mapErr();
+    const body = this.parseStatement();
 
-    return Result.ok({
-      type: "function",
-      identifier: Option.none(),
-      parameters: params.unwrap(),
-      body: bodyResult.unwrap(),
-    });
+    return withLocation(
+      {
+        type: "function",
+        parameters,
+        body,
+      },
+      token
+    );
   }
 
-  parseFunctionExpression(): Result<Expression, ParseError> {
-    const keyword = this.expectWithValue("keyword", "function");
-    if (keyword.isErr()) return keyword.mapErr();
+  parseFunctionExpression(): Expression {
+    const token = this.expectWithValue("keyword", "function");
 
-    const { value } = keyword.unwrap();
-
-    if (value !== "function") {
-      return Result.err(unexpectedToken("eof", keyword.unwrap()));
-    }
-
-    const identifier: Option<string> = Option.none();
+    let identifier: string;
 
     if (this.nextTokenIsType("identifier")) {
       const identifierToken = this.expect("identifier");
-      identifier.setValue(identifierToken.unwrap().value);
+      identifier = identifierToken.value;
     }
 
-    const leftParenResult = this.expect("left_paren");
-    if (leftParenResult.isErr()) return leftParenResult.mapErr();
+    this.expect("left_paren");
 
-    const params = this.parseParams();
-    if (params.isErr()) return params.mapErr();
+    const parameters = this.parseParams();
 
-    const bodyResult = this.parseStatement();
-    if (bodyResult.isErr()) return bodyResult.mapErr();
+    // right paren?
 
-    return Result.ok({
-      type: "function",
-      identifier,
-      parameters: params.unwrap(),
-      body: bodyResult.unwrap(),
-    });
+    const body = this.parseStatement();
+
+    return withLocation(
+      {
+        type: "function",
+        identifier,
+        parameters,
+        body,
+      },
+      token
+    );
   }
 
-  parseObjectExpression(): Result<Expression, ParseError> {
-    const leftBrace = this.expect("left_brace");
-    if (leftBrace.isErr()) return leftBrace.mapErr();
+  parseObjectExpression(): Expression {
+    const token = this.expect("left_brace");
 
     const properties: Record<string, Expression> = {};
 
     while (!this.nextTokenIsType("right_brace")) {
       const identifier = this.expect("identifier");
-      if (identifier.isErr()) return identifier.mapErr();
-
-      const idToken = identifier.unwrap();
-      const id = idToken.value as string;
 
       if (this.peekNextToken().type === "colon") {
-        const colon = this.expect("colon");
-        if (colon.isErr()) return colon.mapErr();
-
-        const value = this.parseExpression(0);
-        if (value.isErr()) return value.mapErr();
-
-        properties[id] = value.unwrap();
+        this.expect("colon");
+        properties[identifier.value] = this.parseExpression(0);
       } else {
-        properties[id] = { type: "identifier", value: id };
+        properties[identifier.value] = withLocation(
+          {
+            type: "identifier",
+            value: identifier.value,
+          },
+          identifier
+        );
       }
 
       if (this.nextTokenIsType("comma")) {
@@ -224,59 +234,40 @@ export class Parser {
       }
     }
 
-    // skip "}"
     this.index++;
 
-    return Result.ok({
-      type: "object",
-      properties,
-    });
+    return withLocation(
+      {
+        type: "object",
+        properties,
+      },
+      token
+    );
   }
 
-  parseArrayExpression(): Result<Expression, ParseError> {
-    const leftBracket = this.expect("left_bracket");
-    if (leftBracket.isErr()) return leftBracket.mapErr();
+  parseArrayExpression(): Expression {
+    const token = this.expect("left_bracket");
 
     const elements = [];
 
     while (!this.nextTokenIsType("right_bracket")) {
-      const value = this.parseExpression(0);
-      if (value.isErr()) return value.mapErr();
-
-      elements.push(value.unwrap());
+      elements.push(this.parseExpression(0));
 
       if (this.nextTokenIsType("comma")) {
         this.index++;
       }
     }
 
-    // skip "]"
     this.index++;
 
-    return Result.ok({
-      type: "array",
-      elements,
-    });
+    return withLocation(
+      {
+        type: "array",
+        elements,
+      },
+      token
+    );
   }
-
-  // parseKeywordExpression(): Result<Expression, ParseError> {
-  //   const keywordTokenResult = this.expect("keyword");
-  //   if (keywordTokenResult.isErr()) return keywordTokenResult.mapErr();
-
-  //   const token = keywordTokenResult.unwrap();
-
-  //   switch (token.value) {
-  //     case "true":
-  //     case "false":
-  //       this.index--;
-  //       return this.parseBoolean();
-  //     case "function":
-  //       this.index--;
-  //       return this.parseFunctionExpression();
-  //     default:
-  //       return Result.err(unexpectedToken("eof", token));
-  //   }
-  // }
 
   isArrowFunctionExpression() {
     const next0 = this.peekNextToken()?.type;
@@ -297,28 +288,24 @@ export class Parser {
     return false;
   }
 
-  parseNotExpression(): Result<Expression, ParseError> {
-    const err = this.expect("not");
-    if (err.isErr()) return err.mapErr();
+  parseNotExpression(): Expression {
+    const token = this.expect("not");
 
     const expression = this.parseExpression();
-    if (expression.isErr()) return expression.mapErr();
 
-    return Result.ok({
-      type: "not",
-      expression: expression.unwrap(),
-    });
+    return withLocation(
+      {
+        type: "not",
+        expression,
+      },
+      token
+    );
   }
 
-  parsePrimary(): Result<Expression, ParseError> {
+  parsePrimary(): Expression {
     if (this.isArrowFunctionExpression()) {
       return this.parseArrowFunctionExpression();
     }
-
-    // if (this.peekNextToken()?.type === "spread") {
-    //   this.expect("spread");
-    //   return this.parseExpression();
-    // }
 
     if (this.peekNextToken()?.type === "left_paren") {
       this.expect("left_paren");
@@ -331,44 +318,51 @@ export class Parser {
 
     switch (token.type) {
       case "identifier": {
-        let left: Expression = { type: "identifier", value: token.value };
+        let left: Expression = withLocation(
+          { type: "identifier", value: token.value },
+          token
+        );
 
         // loop to consume any number of . [] () postfixes
         while (true) {
-          const next = this.peekNextToken()?.type;
-          if (next === "dot") {
+          const next = this.peekNextToken();
+          if (next?.type === "dot") {
             this.nextToken();
             const right = this.expect("identifier");
-            if (right.isErr()) return right.mapErr();
 
-            left = {
-              type: "member",
-              object: left,
-              property: { type: "identifier", value: right.unwrap().value },
-              computed: false,
-            };
-          } else if (next === "left_bracket") {
+            left = withLocation(
+              {
+                type: "member",
+                object: left,
+                property: withLocation(
+                  { type: "identifier", value: right.value },
+                  right
+                ),
+                computed: false,
+              },
+              token
+            );
+          } else if (next?.type === "left_bracket") {
             this.nextToken();
 
             const property = this.parseExpression(0);
-            if (property.isErr()) return property.mapErr();
 
-            const rightBracket = this.expect("right_bracket");
-            if (rightBracket.isErr()) return rightBracket.mapErr();
+            this.expect("right_bracket");
 
-            left = {
-              type: "member",
-              object: left,
-              property: property.unwrap(),
-              computed: true,
-            };
-          } else if (next === "left_paren") {
+            left = withLocation(
+              {
+                type: "member",
+                object: left,
+                property: property,
+                computed: true,
+              },
+              token
+            );
+          } else if (next?.type === "left_paren") {
             this.nextToken();
             const args: Expression[] = [];
             while (this.peekNextToken().type !== "right_paren") {
-              const arg = this.parseExpression(0);
-              if (arg.isErr()) return arg.mapErr();
-              args.push(arg.unwrap());
+              args.push(this.parseExpression(0));
 
               if (this.peekNextToken().type !== "right_paren") {
                 this.expect("comma");
@@ -376,22 +370,31 @@ export class Parser {
             }
 
             this.expect("right_paren");
-            left = { type: "call", func: left, arguments: args };
-          } else if (next === "increment") {
+            left = withLocation(
+              { type: "call", func: left, arguments: args },
+              next
+            );
+          } else if (next?.type === "increment") {
             this.expect("increment");
-            left = {
-              type: "increment",
-              expression: left,
-              postfix: true,
-            };
-          } else if (next === "decrement") {
+            left = withLocation(
+              {
+                type: "increment",
+                expression: left,
+                postfix: true,
+              },
+              token
+            );
+          } else if (next?.type === "decrement") {
             this.expect("decrement");
 
-            left = {
-              type: "decrement",
-              expression: left,
-              postfix: true,
-            };
+            left = withLocation(
+              {
+                type: "decrement",
+                expression: left,
+                postfix: true,
+              },
+              token
+            );
           } else {
             break;
           }
@@ -402,39 +405,45 @@ export class Parser {
           this.nextToken();
 
           const value = this.parseExpression();
-          if (value.isErr()) return value.mapErr();
 
-          return Result.ok({
-            type: "assignment",
-            operator: "=",
-            left,
-            right: value.unwrap(),
-          });
+          return withLocation(
+            {
+              type: "assignment",
+              operator: "=",
+              left,
+              right: value,
+            },
+            token
+          );
         }
 
-        return Result.ok(left);
+        return left;
       }
 
       case "number": {
-        return Result.ok({ type: "number", value: parseFloat(token.value) });
+        return withLocation(
+          { type: "number", value: parseFloat(token.value) },
+          token
+        );
       }
 
       case "string": {
-        return Result.ok({ type: "string", value: token.value });
+        return withLocation({ type: "string", value: token.value }, token);
       }
 
       case "keyword": {
         if (token.value === "true" || token.value === "false") {
-          return Result.ok({ type: "boolean", value: token.value === "true" });
+          return withLocation(
+            { type: "boolean", value: token.value === "true" },
+            token
+          );
         }
 
         if (token.value === "function") {
-          let id = Option.none<string>();
+          let id: string;
 
           if (this.peekNextToken()?.type === "identifier") {
-            let idToken = this.expect("identifier");
-            if (idToken.isErr()) return idToken.mapErr();
-            id = Option.some(idToken.unwrap().value);
+            id = this.expect("identifier").value;
           }
 
           const parameters: Parameter[] = [];
@@ -443,8 +452,7 @@ export class Parser {
 
           while (this.peekNextToken()?.type !== "right_paren") {
             const param = this.expect("identifier");
-            if (param.isErr()) return param.mapErr();
-            parameters.push({ name: param.unwrap().value });
+            parameters.push({ name: param.value });
 
             if (this.peekNextToken()?.type !== "right_paren") {
               this.expect("comma");
@@ -454,43 +462,43 @@ export class Parser {
           this.expect("right_paren");
 
           const body = this.parseBlockStatement();
-          if (body.isErr()) return body.mapErr();
 
-          return Result.ok({
-            type: "function",
-            identifier: id,
-            parameters,
-            body: body.unwrap(),
-          });
+          return withLocation(
+            {
+              type: "function",
+              identifier: id,
+              parameters,
+              body,
+            },
+            token
+          );
         }
 
         if (token.value === "new") {
-          const id = this.expect("identifier");
-          if (id.isErr()) return id.mapErr();
+          const identifier = this.expect("identifier");
 
           const args: Expression[] = [];
 
-          const leftParen = this.expect("left_paren");
-          if (leftParen.isErr()) return leftParen.mapErr();
+          this.expect("left_paren");
 
           while (this.peekNextToken().type !== "right_paren") {
-            const arg = this.parseExpression(0);
-            if (arg.isErr()) return arg.mapErr();
-            args.push(arg.unwrap());
+            args.push(this.parseExpression(0));
 
             if (this.peekNextToken().type !== "right_paren") {
               this.expect("comma");
             }
           }
 
-          const rightParen = this.expect("right_paren");
-          if (rightParen.isErr()) return rightParen.mapErr();
+          this.expect("right_paren");
 
-          return Result.ok({
-            type: "new",
-            identifier: id.unwrap().value,
-            arguments: args,
-          });
+          return withLocation(
+            {
+              type: "new",
+              identifier: identifier.value,
+              arguments: args,
+            },
+            token
+          );
         }
 
         throw new Error("unexpected token: " + token.type + ": " + token.value);
@@ -518,46 +526,39 @@ export class Parser {
       }
 
       case "spread": {
-        const expr = this.parseExpression();
-        if (expr.isErr()) return expr;
-
-        return Result.ok({
-          type: "spread",
-          expression: expr.unwrap(),
-        });
+        return withLocation(
+          {
+            type: "spread",
+            expression: this.parseExpression(),
+          },
+          token
+        );
       }
 
       case "decrement": {
-        const expr = this.parseExpression();
-        if (expr.isErr()) return expr;
-
-        return Result.ok({
-          type: "decrement",
-          expression: expr.unwrap(),
-          postfix: false,
-        });
+        return withLocation(
+          {
+            type: "decrement",
+            expression: this.parseExpression(),
+            postfix: false,
+          },
+          token
+        );
       }
 
       case "increment": {
-        const expr = this.parseExpression();
-        if (expr.isErr()) return expr;
-
-        return Result.ok({
-          type: "decrement",
-          expression: expr.unwrap(),
-          postfix: false,
-        });
+        return withLocation(
+          {
+            type: "increment",
+            expression: this.parseExpression(),
+            postfix: false,
+          },
+          token
+        );
       }
 
       default:
-        const err =
-          "unexpected token: " +
-          token.type +
-          ": " +
-          token.value +
-          " in " +
-          `${token.filename}:${token.line}:${token.col}`;
-        throw new Error(err);
+        unexpectedToken("eof", token);
     }
   }
 
@@ -567,212 +568,231 @@ export class Parser {
     return token.type in TOKEN_TO_OPERATOR;
   }
 
-  parseExpression(precedence = 0): Result<Expression, ParseError> {
-    let leftResult = this.parsePrimary();
-
-    if (leftResult.isErr()) return leftResult.mapErr();
-    let left = leftResult.unwrap();
+  parseExpression(precedence = 0): Expression {
+    let left = this.parsePrimary();
 
     while (this.isOperatorTokenType(this.peekNextToken())) {
       const operatorToken = this.peekNextToken()!;
       const operator = getOperatorFromToken(operatorToken);
+
       const operatorPrecedence = OPERATOR_PRECEDENCE[operator];
 
       // Only parse next operator if its precedence is higher or equal
       if (operatorPrecedence > precedence) {
         this.nextToken(); // consume the operator
         const right = this.parseExpression(operatorPrecedence);
-        if (right.isErr()) return right.mapErr();
 
-        left = { type: "binary", operator, left, right: right.unwrap() };
+        left = withLocation(
+          {
+            type: "binary",
+            operator,
+            left,
+            right,
+          },
+          operatorToken
+        );
       } else {
         break;
       }
     }
 
-    return Result.ok(left);
+    return left;
   }
 
-  parseVariableDeclaration(): Result<Statement, ParseError> {
-    const keywordResult = this.expect("keyword");
-    if (keywordResult.isErr()) return keywordResult.mapErr();
-
-    const keywordToken = keywordResult.unwrap();
+  parseVariableDeclaration(): Statement {
+    const keywordToken = this.expect("keyword");
 
     if (!["var", "const", "let"].includes(keywordToken.value)) {
-      return Result.err(unexpectedToken("eof", keywordToken));
+      unexpectedToken("eof", keywordToken);
     }
 
-    const identifierResult = this.expect("identifier");
-
-    if (identifierResult.isErr()) return identifierResult.mapErr();
-
-    const identifierToken = identifierResult.unwrap();
+    const identifierToken = this.expect("identifier");
 
     if (!this.nextTokenIsType("equals")) {
-      if (keywordToken.value === "const")
-        return Result.err({
-          type: "syntax_error",
-          message: "const declaration must have initial value",
-        });
+      if (keywordToken.value === "const") syntaxError(keywordToken);
 
-      return Result.ok({
+      return withLocation(
+        {
+          type: "variable_declaration",
+          declarationType: "var",
+          identifier: identifierToken.value,
+          varType: keywordToken.value as "var" | "let",
+        },
+        keywordToken
+      );
+    }
+
+    this.expect("equals");
+
+    const value = this.parseExpression(0);
+
+    return withLocation(
+      {
         type: "variable_declaration",
         declarationType: "var",
         identifier: identifierToken.value,
-        value: Option.none(),
-        varType: keywordToken.value as "var" | "let",
-      });
-    }
-
-    const equalsResult = this.expect("equals");
-    if (equalsResult.isErr()) return equalsResult.mapErr();
-
-    const valueResult = this.parseExpression(0);
-    if (valueResult.isErr()) return valueResult.mapErr();
-
-    return Result.ok({
-      type: "variable_declaration",
-      declarationType: "var",
-      identifier: identifierToken.value,
-      value: Option.some(valueResult.unwrap()),
-      varType: keywordToken.value as "var" | "const" | "let",
-    });
+        value,
+        varType: keywordToken.value as "var" | "const" | "let",
+      },
+      keywordToken
+    );
   }
 
-  parseBlockStatement(): Result<Statement, ParseError> {
-    const leftBraceResult = this.expect("left_brace");
-    if (leftBraceResult.isErr()) return leftBraceResult.mapErr();
+  parseBlockStatement(): Statement {
+    const token = this.expect("left_brace");
 
     const body: Statement[] = [];
 
     while (!this.nextTokenIsType("right_brace")) {
-      const result = this.parseStatement();
-      if (result.isErr()) return result;
-      body.push(result.unwrap());
+      body.push(this.parseStatement());
     }
 
     this.index++;
 
-    return Result.ok({
-      type: "block",
-      body,
-    });
+    return withLocation(
+      {
+        type: "block",
+        body,
+      },
+      token
+    );
   }
 
-  parseExpressionStatement(): Result<Statement, ParseError> {
-    const expressionResult = this.parseExpression(0);
-    if (expressionResult.isErr()) return expressionResult.mapErr();
+  parseExpressionStatement(): Statement {
+    const token = this.tokens[this.index];
+
+    const expression = this.parseExpression(0);
 
     if (this.nextTokenIsType("semicolon")) {
       this.expect("semicolon");
     }
 
-    return Result.ok({
-      type: "expression",
-      expression: expressionResult.unwrap(),
-    });
+    return withLocation(
+      {
+        type: "expression",
+        expression,
+      },
+      token
+    );
   }
 
-  parseFunctionDeclarationStatement(): Result<Statement, ParseError> {
-    const returnResult = this.expectWithValue("keyword", "function");
-    if (returnResult.isErr()) return returnResult.mapErr();
+  parseFunctionDeclarationStatement(): Statement {
+    const token = this.expectWithValue("keyword", "function");
 
     const identifier = this.expect("identifier");
-    if (identifier.isErr()) return identifier.mapErr();
 
-    const leftParenResult = this.expect("left_paren");
-    if (leftParenResult.isErr()) return leftParenResult.mapErr();
+    this.expect("left_paren");
 
     const parameters: Parameter[] = [];
 
     while (!this.nextTokenIsType("right_paren")) {
-      const paramResult = this.expect("identifier");
-      if (paramResult.isErr()) return paramResult.mapErr();
+      const param = this.expect("identifier");
 
-      parameters.push({ name: paramResult.unwrap().value });
+      parameters.push({ name: param.value });
 
       if (this.nextTokenIsType("comma")) this.index++;
     }
 
-    // skip right_paren
     this.index++;
 
-    const bodyResult = this.parseStatement();
-    if (bodyResult.isErr()) return bodyResult.mapErr();
+    const body = this.parseStatement();
 
-    return Result.ok({
-      type: "function_declaration",
-      identifier: identifier.unwrap().value,
-      parameters,
-      body: bodyResult.unwrap(),
-    });
+    return withLocation(
+      {
+        type: "function_declaration",
+        identifier: identifier.value,
+        parameters,
+        body,
+      },
+      token
+    );
   }
 
-  parseIfStatement(): Result<Statement, ParseError> {
-    const ifKeyword = this.expectWithValue("keyword", "if");
-    if (ifKeyword.isErr()) return ifKeyword.mapErr();
+  parseIfStatement(): Statement {
+    const token = this.expectWithValue("keyword", "if");
 
-    const leftParen = this.expect("left_paren");
-    if (leftParen.isErr()) return leftParen.mapErr();
+    this.expect("left_paren");
 
     const condition = this.parseExpression(0);
-    if (condition.isErr()) return condition.mapErr();
 
-    const rightParen = this.expect("right_paren");
-    if (rightParen.isErr()) return rightParen.mapErr();
+    this.expect("right_paren");
 
     const ifBody = this.parseStatement();
-    if (ifBody.isErr()) return ifBody;
 
-    const elseBody: Option<Statement> = Option.none();
+    let elseBody: Statement;
 
     if (this.nextTokenIsType("keyword")) {
       const keyword = this.expect("keyword");
-      if (keyword.isErr()) return keyword.mapErr();
 
-      if (keyword.unwrap().value === "else") {
-        const elseStatement = this.parseStatement();
-        if (elseStatement.isErr()) return elseStatement;
-
-        elseBody.setValue(elseStatement.unwrap());
+      if (keyword.value === "else") {
+        elseBody = this.parseStatement();
       } else {
         this.backup();
       }
     }
 
-    return Result.ok({
-      type: "if",
-      condition: condition.unwrap(),
-      ifBody: ifBody.unwrap(),
-      elseBody,
-    });
+    return withLocation(
+      {
+        type: "if",
+        condition,
+        ifBody,
+        elseBody,
+      },
+      token
+    );
   }
 
-  parseWhileStatement(): Result<Statement, ParseError> {
-    const whileKeyword = this.expectWithValue("keyword", "while");
-    if (whileKeyword.isErr()) return whileKeyword.mapErr();
+  parseWhileStatement(): Statement {
+    const token = this.expectWithValue("keyword", "while");
 
-    const leftParen = this.expect("left_paren");
-    if (leftParen.isErr()) return leftParen.mapErr();
+    this.expect("left_paren");
 
     const condition = this.parseExpression(0);
-    if (condition.isErr()) return condition.mapErr();
 
-    const rightParen = this.expect("right_paren");
-    if (rightParen.isErr()) return rightParen.mapErr();
+    this.expect("right_paren");
 
     const body = this.parseStatement();
-    if (body.isErr()) return body;
 
-    return Result.ok({
-      type: "while",
-      condition: condition.unwrap(),
-      body: body.unwrap(),
-    });
+    return withLocation(
+      {
+        type: "while",
+        condition,
+        body,
+      },
+      token
+    );
   }
 
-  parseParams(): Result<Parameter[], ParseError> {
+  parseForStatement(): Statement {
+    const token = this.expectWithValue("keyword", "for");
+
+    this.expect("left_paren");
+
+    const init = this.parseStatement();
+    // this.expect("semicolon");
+
+    const test = this.parseExpression(0);
+    this.expect("semicolon");
+
+    const update = this.parseExpression(0);
+
+    this.expect("right_paren");
+
+    const body = this.parseStatement();
+
+    return withLocation(
+      {
+        type: "for",
+        init,
+        test,
+        update,
+        body,
+      },
+      token
+    );
+  }
+
+  parseParams(): Parameter[] {
     const params: Parameter[] = [];
 
     while (this.peekNextToken()?.type !== "right_paren") {
@@ -780,17 +800,15 @@ export class Parser {
         this.expect("spread");
 
         const identifier = this.expect("identifier");
-        if (identifier.isErr()) return identifier.mapErr();
 
-        params.push({ name: identifier.unwrap().value, spread: true });
+        params.push({ name: identifier.value, spread: true });
 
         break;
       }
 
       const param = this.expect("identifier");
-      if (param.isErr()) return param.mapErr();
 
-      params.push({ name: param.unwrap().value });
+      params.push({ name: param.value });
 
       if (this.peekNextToken()?.type !== "right_paren") {
         this.expect("comma");
@@ -799,88 +817,72 @@ export class Parser {
 
     this.expect("right_paren");
 
-    return Result.ok(params);
+    return params;
   }
 
-  parseClassMethodDeclaration(
-    isStatic: boolean
-  ): Result<ClassMethodDeclaration, ParseError> {
+  parseClassMethodDeclaration(isStatic: boolean): ClassMethodDeclaration {
     const id = this.expect("identifier");
-    if (id.isErr()) return id.mapErr();
 
-    const leftParen = this.expect("left_paren");
-    if (leftParen.isErr()) return leftParen.mapErr();
+    this.expect("left_paren");
 
     const params = this.parseParams();
-    if (params.isErr()) return params.mapErr();
 
-    // get method body
     const body = this.parseBlockStatement();
-    if (body.isErr()) return body.mapErr();
 
-    return Result.ok({
-      name: id.unwrap().value,
-      parameters: params.unwrap(),
-      body: body.unwrap(),
+    return {
+      name: id.value,
+      parameters: params,
+      body: body,
       static: isStatic,
-    });
+    };
   }
 
-  parseClassPropertyDeclaration(
-    isStatic: boolean
-  ): Result<ClassPropertyDeclaration, ParseError> {
+  parseClassPropertyDeclaration(isStatic: boolean): ClassPropertyDeclaration {
     const id = this.expect("identifier");
-    if (id.isErr()) return id.mapErr();
 
     // property without initial value
     if (this.peekNextToken()?.type === "semicolon") {
       this.nextToken();
-      return Result.ok({
-        name: id.unwrap().value,
+      return {
+        name: id.value,
         static: isStatic,
-      });
+      };
     }
 
-    const equals = this.expect("equals");
-    if (equals.isErr()) return equals.mapErr();
+    this.expect("equals");
 
     const value = this.parseExpression(0);
-    if (value.isErr()) return value.mapErr();
 
     if (this.nextTokenIsType("semicolon")) {
       this.expect("semicolon");
     }
 
-    return Result.ok({
-      name: id.unwrap().value,
-      value: value.unwrap(),
+    return {
+      name: id.value,
+      value: value,
       static: isStatic,
-    });
+    };
   }
 
-  parseClassDeclarationStatement(): Result<Statement, ParseError> {
-    const classKeyword = this.expectWithValue("keyword", "class");
-    if (classKeyword.isErr()) return classKeyword.mapErr();
+  parseClassDeclarationStatement(): Statement {
+    const token = this.expectWithValue("keyword", "class");
 
     const className = this.expect("identifier");
-    if (className.isErr()) return className.mapErr();
 
     let superClass: string | undefined;
 
     if (this.peekNextToken().type === "keyword") {
       const next = this.nextToken();
       if (next.value !== "extends") {
-        return Result.err(unexpectedToken("left_brace", next));
+        unexpectedToken("left_brace", next);
       }
 
       const identifier = this.expect("identifier");
-      if (identifier.isErr()) return identifier.mapErr();
 
-      superClass = identifier.unwrap().value;
+      superClass = identifier.value;
     }
 
-    const leftBrace = this.expect("left_brace");
-    if (leftBrace.isErr()) return leftBrace.mapErr();
+    this.expect("left_brace");
 
     const properties: ClassPropertyDeclaration[] = [];
     const methods: ClassMethodDeclaration[] = [];
@@ -895,7 +897,6 @@ export class Parser {
       }
 
       const id = this.expect("identifier");
-      if (id.isErr()) return id.mapErr();
 
       peek = this.peekNextToken();
 
@@ -904,46 +905,39 @@ export class Parser {
         (peek?.type === "keyword" && peek?.value === "static")
       ) {
         this.backup();
-        const method = this.parseClassMethodDeclaration(isStatic);
-        if (method.isErr()) return method.mapErr();
-        methods.push(method.unwrap());
+        methods.push(this.parseClassMethodDeclaration(isStatic));
       } else if (peek?.type === "semicolon" || peek?.type === "equals") {
         this.backup();
-        const prop = this.parseClassPropertyDeclaration(isStatic);
-        if (prop.isErr()) return prop.mapErr();
-        properties.push(prop.unwrap());
+        properties.push(this.parseClassPropertyDeclaration(isStatic));
       } else {
-        return Result.err(unexpectedToken("eof", this.tokens[this.index]));
+        unexpectedToken("eof", this.tokens[this.index]);
       }
     }
 
-    const rightBrace = this.expect("right_brace");
-    if (rightBrace.isErr()) return rightBrace.mapErr();
+    this.expect("right_brace");
 
-    return Result.ok({
-      type: "class_declaration",
-      identifier: className.unwrap().value,
-      properties,
-      methods,
-      superClass,
-    });
+    return withLocation(
+      {
+        type: "class_declaration",
+        identifier: className.value,
+        properties,
+        methods,
+        superClass,
+      },
+      token
+    );
   }
 
-  parseSwitchStatement(): Result<Statement, ParseError> {
-    const returnResult = this.expectWithValue("keyword", "switch");
-    if (returnResult.isErr()) return returnResult.mapErr();
+  parseSwitchStatement(): Statement {
+    const token = this.expectWithValue("keyword", "switch");
 
-    const leftParen = this.expect("left_paren");
-    if (leftParen.isErr()) return leftParen.mapErr();
+    this.expect("left_paren");
 
     const condition = this.parseExpression(0);
-    if (condition.isErr()) return condition.mapErr();
 
-    const rightParen = this.expect("right_paren");
-    if (rightParen.isErr()) return rightParen.mapErr();
+    this.expect("right_paren");
 
-    const leftBrace = this.expect("left_brace");
-    if (leftBrace.isErr()) return leftBrace.mapErr();
+    this.expect("left_brace");
 
     const cases: SwitchCase[] = [];
 
@@ -951,24 +945,21 @@ export class Parser {
       this.peekNextToken()?.type === "keyword" &&
       this.peekNextToken()?.text === "case"
     ) {
-      const c = this.expectWithValue("keyword", "case");
-      if (c.isErr()) return c.mapErr();
+      this.expectWithValue("keyword", "case");
 
       const test = this.parseExpression();
-      if (test.isErr()) return test.mapErr();
 
-      const colon = this.expect("colon");
-      if (colon.isErr()) return colon.mapErr();
+      this.expect("colon");
 
       const body = this.parseStatement();
 
       cases.push({
-        test: test.unwrap(),
-        body: body.unwrap(),
+        test: test,
+        body: body,
       });
     }
 
-    let def: Option<Statement> = Option.none();
+    let def: Statement;
 
     if (
       this.peekNextToken().type === "keyword" &&
@@ -976,62 +967,59 @@ export class Parser {
     ) {
       this.expectWithValue("keyword", "default");
 
-      const colon = this.expect("colon");
-      if (colon.isErr()) return colon.mapErr();
+      this.expect("colon");
 
-      const body = this.parseStatement();
-      if (body.isErr()) return body.mapErr();
-
-      def = Option.some(body.unwrap());
+      def = this.parseStatement();
     }
 
-    const rightBrace = this.expect("right_brace");
-    if (rightBrace.isErr()) return rightBrace.mapErr();
+    this.expect("right_brace");
 
-    return Result.ok({
-      type: "switch",
-      condition: condition.unwrap(),
-      cases,
-      default: def,
-    });
+    return withLocation(
+      {
+        type: "switch",
+        condition: condition,
+        cases,
+        default: def,
+      },
+      token
+    );
   }
 
-  parseReturnStatement(): Result<Statement, ParseError> {
-    const returnResult = this.expectWithValue("keyword", "return");
-    if (returnResult.isErr()) return returnResult.mapErr();
+  parseReturnStatement(): Statement {
+    const token = this.expectWithValue("keyword", "return");
 
     if (this.peekNextToken().type === "semicolon") {
       this.expect("semicolon");
-      return Result.ok({ type: "return" });
+      return withLocation({ type: "return" }, token);
     }
 
     const expressionResult = this.parseExpression(0);
-    if (expressionResult.isErr()) return expressionResult.mapErr();
 
-    const semicolonTokenResult = this.expect("semicolon");
-    if (semicolonTokenResult.isErr()) return semicolonTokenResult.mapErr();
+    this.expect("semicolon");
 
-    return Result.ok({ type: "return", expression: expressionResult.unwrap() });
+    return withLocation(
+      { type: "return", expression: expressionResult },
+      token
+    );
   }
 
-  parseBreakStatement(): Result<Statement, ParseError> {
-    const returnResult = this.expectWithValue("keyword", "break");
-    if (returnResult.isErr()) return returnResult.mapErr();
+  parseBreakStatement(): Statement {
+    const token = this.expectWithValue("keyword", "break");
 
     if (this.peekNextToken().type === "semicolon") {
       this.expect("semicolon");
     }
 
-    return Result.ok({ type: "break" });
+    return withLocation({ type: "break" }, token);
   }
 
-  parseStatement(): Result<Statement, ParseError> {
+  parseStatement(): Statement {
     const token = this.tokens[this.index];
 
     switch (token.type) {
       case "semicolon":
         this.index++;
-        return Result.ok({ type: "empty" });
+        return withLocation({ type: "empty" }, token);
       case "number":
       case "string":
       case "identifier":
@@ -1072,6 +1060,10 @@ export class Parser {
           return this.parseWhileStatement();
         }
 
+        if (token.value === "for") {
+          return this.parseForStatement();
+        }
+
         if (token.value === "function") {
           return this.parseFunctionDeclarationStatement();
         }
@@ -1092,30 +1084,28 @@ export class Parser {
           return this.parseBreakStatement();
         }
 
-        return Result.err(unexpectedToken("eof", token));
+        unexpectedToken("eof", token);
+        break;
+
       case "left_brace": {
-        const result = this.parseBlockStatement();
-        if (result.isErr()) return result;
-        return result;
+        return this.parseBlockStatement();
       }
 
       default:
-        return Result.err(unexpectedToken("eof", token));
+        unexpectedToken("eof", token);
     }
   }
 
-  parse(tokens: Token[]): Result<Program, ParseError> {
+  parse(tokens: Token[]): Program {
     this.tokens = tokens;
     this.index = 0;
 
     const body: Statement[] = [];
 
     while (this.index < tokens.length) {
-      const result = this.parseStatement();
-      if (result.isErr()) return result.mapErr();
-      body.push(result.unwrap());
+      body.push(this.parseStatement());
     }
 
-    return Result.ok({ body });
+    return { type: "program", body };
   }
 }

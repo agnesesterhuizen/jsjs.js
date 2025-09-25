@@ -1,34 +1,56 @@
-// @ts-nocheck: TODO: revisit this file, lots of TS errors
+import { Expression, Operator, Program, Statement, Location } from "./ast.ts";
+import {
+  JSArray,
+  JSBoolean,
+  JSFunction,
+  JSNumber,
+  JSObject,
+  JSString,
+  JSValue,
+} from "./js-types.ts";
 
-import { Expression, Program, Statement } from "./ast.ts";
-import { JSFunction, JSNumber, JSObject, JSValue } from "./js-types.ts";
-import { Result } from "./types.ts";
+const assertNotReached = (_t: never) => {};
 
 export type InterpreterError =
   | {
       type: "not_yet_implemented";
       message?: string;
+      location?: string;
     }
   | {
       type: "reference_error";
       message: string;
+      location?: string;
     }
   | {
       type: "type_error";
       message: string;
+      location?: string;
     };
 
-const todo = (feature: string): InterpreterError => ({
+const todo = (
+  feature: string,
+  { location }: { location: Location }
+): InterpreterError => ({
   type: "not_yet_implemented",
   message: feature,
+  location: `at ${location.file}:${location.line}:${location.column}`,
 });
-const referenceError = (message: string): InterpreterError => ({
+const referenceError = (
+  message: string,
+  { location }: { location: Location }
+): InterpreterError => ({
   type: "reference_error",
   message,
+  location: `at ${location.file}:${location.line}:${location.column}`,
 });
-const typeError = (message: string): InterpreterError => ({
+const typeError = (
+  message: string,
+  { location }: { location: Location }
+): InterpreterError => ({
   type: "type_error",
   message,
+  location: `at ${location.file}:${location.line}:${location.column}`,
 });
 
 // export type Value =
@@ -56,19 +78,43 @@ const typeError = (message: string): InterpreterError => ({
 //   }
 // };
 
+export type Logger = (...data: any[]) => void;
+
 export class Interpreter {
   debug = false;
 
   scope = 0;
   scopes: Record<string, JSValue>[] = [];
 
+  logger: Logger = console.log;
+
   constructor() {
     const global = {
       console: JSObject.object({
         log: JSObject.builtinFunction((...args: JSValue[]) => {
-          const strings = args.map((x) => x.toString());
-          console.log(...strings);
+          this.logger(...args.map((a) => a.toString()));
           return JSObject.undefined();
+        }),
+      }),
+      Object: JSObject.object({
+        keys: JSObject.builtinFunction((obj: JSObject) => {
+          const keys = new JSArray();
+          keys.elements = Object.keys(obj.properties).map(
+            (prop) => new JSString(prop)
+          );
+
+          return keys;
+        }),
+      }),
+      Math: JSObject.object({
+        random: JSObject.builtinFunction(() => {
+          return JSObject.number(Math.random());
+        }),
+        floor: JSObject.builtinFunction((x: JSNumber) => {
+          if (x.type !== "number") {
+            throw "Math.floor expects a number";
+          }
+          return JSObject.number(Math.floor(x.value));
         }),
       }),
     };
@@ -78,10 +124,12 @@ export class Interpreter {
 
   pushScope() {
     this.scopes.push({});
+    this.scope++;
   }
 
   popScope() {
     this.scopes.pop();
+    this.scope--;
   }
 
   declareVariable(name: string, value: JSValue) {
@@ -100,7 +148,7 @@ export class Interpreter {
     while (index >= 0) {
       const scope = this.scopes[index];
 
-      if (scope[name]) {
+      if (name in scope) {
         return scope[name];
       }
 
@@ -110,117 +158,311 @@ export class Interpreter {
     return JSObject.undefined();
   }
 
-  executeExpression(expression: Expression): Result<JSValue, InterpreterError> {
+  executeNumericOperation(operator: Operator, left: JSNumber, right: JSNumber) {
+    switch (operator) {
+      case "+":
+        return JSObject.number(left.value + right.value);
+      case "-":
+        return JSObject.number(left.value - right.value);
+      case "*":
+        return JSObject.number(left.value * right.value);
+      case "/":
+        return JSObject.number(left.value / right.value);
+      case "%":
+        return JSObject.number(left.value % right.value);
+
+      case "<":
+        return JSObject.boolean(left.value < right.value);
+      case "<=":
+        return JSObject.boolean(left.value <= right.value);
+      case ">":
+        return JSObject.boolean(left.value > right.value);
+      case ">=":
+        return JSObject.boolean(left.value >= right.value);
+
+      case "!=":
+        return JSObject.boolean(left.value != right.value);
+      case "!==":
+        return JSObject.boolean(left.value !== right.value);
+      case "==":
+        return JSObject.boolean(left.value == right.value);
+      case "===":
+        return JSObject.boolean(left.value === right.value);
+
+      // logical ops: short-circuit, return operand (not coerced bool)
+      case "||":
+        return left.isTruthy() ? left : right;
+      case "&&":
+        return left.isTruthy() ? right : left;
+
+      case "|": {
+        const l = left.value | 0;
+        const r = right.value | 0;
+        return JSObject.number(l | r);
+      }
+      case "&": {
+        const l = left.value | 0;
+        const r = right.value | 0;
+        return JSObject.number(l & r);
+      }
+
+      default:
+        assertNotReached(operator);
+    }
+  }
+
+  executeBooleanOperation(
+    expression: Expression,
+    operator: Operator,
+    left: JSBoolean,
+    right: JSBoolean
+  ) {
+    switch (operator) {
+      case "||":
+        return JSObject.boolean(left.isTruthy() || right.isTruthy());
+      case "&&":
+        return JSObject.boolean(left.isTruthy() && right.isTruthy());
+      case "!=":
+        return JSObject.boolean(left.value != right.value);
+      case "!==":
+        return JSObject.boolean(left.value !== right.value);
+      case "==":
+        return JSObject.boolean(left.value == right.value);
+      case "===":
+        return JSObject.boolean(left.value === right.value);
+      case "<=":
+        return JSObject.boolean(left.value <= right.value);
+      case "<":
+        return JSObject.boolean(left.value < right.value);
+      case ">=":
+        return JSObject.boolean(left.value >= right.value);
+      case ">":
+        return JSObject.boolean(left.value > right.value);
+
+      // convert bools to 1 or 0 and do regular arithmetic
+      case "+":
+        return JSObject.number((left.value ? 1 : 0) + (right.value ? 1 : 0));
+      case "-":
+        return JSObject.number((left.value ? 1 : 0) - (right.value ? 1 : 0));
+      case "*":
+        return JSObject.number((left.value ? 1 : 0) * (right.value ? 1 : 0));
+      case "/":
+        return JSObject.number((left.value ? 1 : 0) / (right.value ? 1 : 0));
+      case "%":
+        return JSObject.number((left.value ? 1 : 0) % (right.value ? 1 : 0));
+      case "|":
+        return JSObject.number((left.value ? 1 : 0) | (right.value ? 1 : 0));
+      case "&":
+        return JSObject.number((left.value ? 1 : 0) & (right.value ? 1 : 0));
+
+      default:
+        assertNotReached(operator);
+        throw todo("boolean operator " + operator, expression);
+    }
+  }
+
+  executeBinaryExpression(expression: Extract<Expression, { type: "binary" }>) {
+    const left = this.executeExpression(expression.left);
+
+    // short-circuit checks first
+    if (expression.operator === "||") {
+      return left.isTruthy() ? left : this.executeExpression(expression.right);
+    }
+
+    if (expression.operator === "&&") {
+      return left.isTruthy() ? this.executeExpression(expression.right) : left;
+    }
+
+    const right = this.executeExpression(expression.right);
+
+    if (left.type === "number" && right.type === "number") {
+      const res = this.executeNumericOperation(
+        expression.operator,
+        left as JSNumber,
+        right as JSNumber
+      );
+
+      return res;
+    }
+
+    if (left.type === "boolean" && right.type === "boolean") {
+      return this.executeBooleanOperation(
+        expression,
+        expression.operator,
+        left as JSBoolean,
+        right as JSBoolean
+      );
+    }
+
+    // string concatenation with +
+    if (
+      expression.operator === "+" &&
+      (left.type === "string" || right.type === "string")
+    ) {
+      return JSObject.string(left.toString() + right.toString());
+    }
+
+    // string comparisons with <, <=, >, >=
+    if (
+      ["<", "<=", ">", ">="].includes(expression.operator) &&
+      left.type === "string" &&
+      right.type === "string"
+    ) {
+      const ls = left as JSString;
+      const rs = right as JSString;
+
+      switch (expression.operator) {
+        case "<":
+          return JSObject.boolean(ls.value < rs.value);
+        case "<=":
+          return JSObject.boolean(ls.value <= rs.value);
+        case ">":
+          return JSObject.boolean(ls.value > rs.value);
+        case ">=":
+          return JSObject.boolean(ls.value >= rs.value);
+      }
+    }
+
+    // equality comparisons with null
+    if (left.type === "null" && right.type === "null") {
+      if (expression.operator === "===" || expression.operator === "==")
+        return JSObject.boolean(true);
+      if (expression.operator === "!==" || expression.operator === "!=")
+        return JSObject.boolean(false);
+    }
+
+    // equality comparisons with undefined
+    if (left.type === "undefined" && right.type === "undefined") {
+      if (expression.operator === "===" || expression.operator === "==")
+        return JSObject.boolean(true);
+      if (expression.operator === "!==" || expression.operator === "!=")
+        return JSObject.boolean(false);
+    }
+
+    // equality comparisons with null and undefined :(
+    if (
+      (left.type === "null" && right.type === "undefined") ||
+      (left.type === "undefined" && right.type === "null")
+    ) {
+      if (expression.operator === "==") return JSObject.boolean(true);
+      if (expression.operator === "!=") return JSObject.boolean(false);
+      if (expression.operator === "===") return JSObject.boolean(false);
+      if (expression.operator === "!==") return JSObject.boolean(true);
+    }
+
+    if (
+      (left.type === "number" && right.type === "undefined") ||
+      (left.type === "undefined" && right.type === "number")
+    ) {
+      return JSObject.number(NaN);
+    }
+
+    // insane things happen here lol
+
+    throw todo(
+      "binary operation with " + left.type + " and " + right.type,
+      expression
+    );
+  }
+
+  call(fn: JSFunction, args: Expression[]): JSValue {
+    if (fn.isBuiltIn) {
+      const func = fn.builtInFunction;
+
+      const argValues = [];
+
+      for (const a of args) {
+        const result = this.executeExpression(a);
+        argValues.push(result);
+      }
+
+      const result = func(...argValues);
+
+      return result;
+    }
+
+    this.pushScope();
+
+    // bind parameters
+    for (let i = 0; i < args.length; i++) {
+      const a = args[i];
+      const result = this.executeExpression(a);
+      const parameter = fn.parameters[i];
+      this.declareVariable(parameter.name, result);
+    }
+
+    try {
+      const result = this.executeStatement(fn.body);
+      this.popScope();
+      return result;
+    } catch (errorOrReturnValue) {
+      // rethrow if not a return value so we don't mask any actual errors
+
+      if (errorOrReturnValue.type !== "__RETURN_VALUE__") {
+        throw errorOrReturnValue;
+      }
+
+      this.popScope();
+      return errorOrReturnValue.value;
+    }
+  }
+
+  executeExpression(expression: Expression): JSValue {
     if (this.debug) {
       console.log("executeExpression", expression);
     }
 
     switch (expression.type) {
       case "number":
-        return Result.ok(JSObject.number(expression.value));
+        return JSObject.number(expression.value);
       case "string":
-        return Result.ok(JSObject.string(expression.value));
+        return JSObject.string(expression.value);
       case "boolean":
-        return Result.ok(JSObject.boolean(expression.value));
+        return JSObject.boolean(expression.value);
       case "identifier":
-        return Result.ok(this.lookupVariable(expression.value));
+        return this.lookupVariable(expression.value);
       case "call": {
-        const identifierResult = this.executeExpression(expression.func);
-        if (identifierResult.isErr()) return identifierResult;
-
-        const value = identifierResult.unwrap();
+        const value = this.executeExpression(expression.func);
 
         if (value.type !== "function") {
-          return Result.err({
-            type: "type_error",
-            message: "TODO: x is not a function",
-          });
+          throw todo(`function not defined`, expression);
         }
 
-        const functionValue = value as JSFunction;
-
-        if (!functionValue.isBuiltIn) {
-          this.pushScope();
-
-          for (let i = 0; i < expression.arguments.length; i++) {
-            const arg = expression.arguments[i];
-            const result = this.executeExpression(arg);
-            if (result.isErr()) return result;
-            const parameter = functionValue.parameters[i];
-            this.declareVariable(parameter.name, result.unwrap());
-          }
-
-          try {
-            const result = this.executeStatement(functionValue.body.unwrap());
-            this.popScope();
-            return result;
-          } catch (errorOrReturnValue) {
-            // rethrow if not a return value so we don't mask any actual errors
-
-            if (errorOrReturnValue.type !== "__RETURN_VALUE__") {
-              throw errorOrReturnValue;
-            }
-
-            this.popScope();
-            return errorOrReturnValue.value;
-          }
-        }
-
-        const func = functionValue.builtInFunction.unwrap();
-
-        const args = [];
-
-        for (const arg of expression.arguments) {
-          const result = this.executeExpression(arg);
-          if (result.isErr()) return result;
-          args.push(result.unwrap());
-        }
-
-        const result = func(...args);
-        return Result.ok(result);
+        return this.call(value as JSFunction, expression.arguments);
       }
 
       case "member": {
-        const objectResult = this.executeExpression(expression.object);
-        if (objectResult.isErr()) return objectResult;
-
-        const object = objectResult.unwrap();
+        const object = this.executeExpression(expression.object);
 
         if (expression.computed) {
-          const property = this.executeExpression(expression.property);
-          if (property.isErr()) return property;
-
-          return Result.ok(object.getProperty(property.unwrap()));
+          return object.getProperty(
+            this.executeExpression(expression.property)
+          );
         } else {
           if (expression.property.type !== "identifier") {
-            return Result.err(
-              todo(
-                "executeExpression: member expression with computed properties"
-              )
+            throw todo(
+              "executeExpression: member expression with computed properties",
+              expression
             );
           }
 
-          return Result.ok(
-            object.getProperty(JSObject.string(expression.property.value))
-          );
+          return object.getProperty(JSObject.string(expression.property.value));
         }
       }
 
       case "function": {
-        return Result.ok(JSObject.func(expression.parameters, expression.body));
+        return JSObject.func(expression.parameters, expression.body);
       }
 
       case "object": {
-        const properties = {};
+        const properties: Record<string, JSValue> = {};
 
         for (const [name, expr] of Object.entries(expression.properties)) {
           const value = this.executeExpression(expr);
-          if (value.isErr()) return value;
-
-          properties[name] = value.unwrap();
+          properties[name] = value;
         }
 
-        return Result.ok(JSObject.object(properties));
+        return JSObject.object(properties);
       }
 
       case "array": {
@@ -228,39 +470,37 @@ export class Interpreter {
 
         for (const element of expression.elements) {
           const value = this.executeExpression(element);
-          if (value.isErr()) return value;
-
-          elements.push(value.unwrap());
+          elements.push(value);
         }
 
-        return Result.ok(JSObject.array(elements));
+        return JSObject.array(elements);
       }
 
       case "assignment": {
         if (expression.operator !== "=") {
-          return Result.err(todo("non = assignment"));
+          throw todo("non = assignment", expression);
         }
 
         if (expression.left.type === "identifier") {
           const value = this.executeExpression(expression.right);
-          if (value.isErr()) return value;
-          this.setVariable(expression.left.value, value.unwrap());
-          return Result.ok(value.unwrap());
+          this.setVariable(expression.left.value, value);
+          return value;
         }
 
         if (expression.left.type === "member") {
           const memberExpression = expression.left;
           if (memberExpression.object.type !== "identifier") {
-            return Result.err({
-              type: "reference_error",
-              message: "Invalid left-hand side in assignment",
-            });
+            throw referenceError(
+              "Invalid left-hand side in assignment",
+              expression
+            );
           }
 
           const object = this.lookupVariable(memberExpression.object.value);
           if (object.type === "undefined" || object.type === "null") {
-            return Result.err(
-              typeError("Cannot set properties of " + object.type)
+            throw typeError(
+              "Cannot set properties of " + object.type,
+              expression
             );
           }
 
@@ -271,85 +511,104 @@ export class Interpreter {
               property = JSObject.string(memberExpression.property.value);
             } else {
               const value = this.executeExpression(memberExpression.property);
-              if (value.isErr()) return value;
-              property = value.unwrap();
+              property = value;
             }
           } else {
             if (memberExpression.property.type !== "identifier") {
-              return Result.err(
-                referenceError("Invalid left-hand side in assignment")
+              throw referenceError(
+                "Invalid left-hand side in assignment",
+                expression
               );
             }
           }
 
           const value = this.executeExpression(expression.right);
-          if (value.isErr()) return value;
 
-          object.setProperty(property, value.unwrap());
+          object.setProperty(property, value);
 
-          return Result.ok(value.unwrap());
+          return value;
         }
 
-        return Result.err(
-          referenceError("Invalid left-hand side in assignment")
+        throw referenceError(
+          "Invalid left-hand side in assignment",
+          expression
         );
       }
 
       case "binary": {
-        const right = this.executeExpression(expression.right);
-        if (right.isErr()) return right;
+        return this.executeBinaryExpression(expression);
+      }
 
-        const left = this.executeExpression(expression.left);
-        if (left.isErr()) return left;
+      case "increment": {
+        // TODO: support member expressions
 
-        const rightValue = right.unwrap();
-        const leftValue = left.unwrap();
-
-        if (rightValue.type !== "number" || leftValue.type !== "number") {
-          return Result.err(todo("non numeric binary expression"));
+        if (!(expression.expression.type === "identifier")) {
+          throw todo("unsupported expression type", expression);
         }
 
-        switch (expression.operator) {
-          case "+": {
-            const result = JSObject.number(
-              (leftValue as JSNumber).value + (rightValue as JSNumber).value
-            );
-            return Result.ok(result);
-          }
-          case "*": {
-            const result = JSObject.number(
-              (leftValue as JSNumber).value * (rightValue as JSNumber).value
-            );
-            return Result.ok(result);
-          }
-          case "!==":
-          case "!=":
-          case "===":
-          case "==": {
-            todo("comparison operation");
-            break;
-          }
-
-          default:
-            todo(expression.operator);
-          // assertNotReached(expression);
+        // get the value
+        const operand = this.executeExpression(expression.expression);
+        if (operand.type !== "number") {
+          throw todo("incrementing non-number", expression);
         }
-        break;
+
+        const originalValue = operand as JSNumber;
+        const newValue = JSObject.number(originalValue.value + 1);
+
+        // update the value in the environment
+        this.setVariable(expression.expression.value, newValue);
+
+        if (expression.postfix) {
+          return originalValue;
+        } else {
+          return newValue;
+        }
+      }
+
+      case "decrement": {
+        // TODO: support member expressions
+
+        if (!(expression.expression.type === "identifier")) {
+          throw todo("unsupported expression type", expression);
+        }
+
+        // get the value
+        const operand = this.executeExpression(expression.expression);
+        if (operand.type !== "number") {
+          throw todo("decrementing non-number", expression);
+        }
+
+        const originalValue = operand as JSNumber;
+        const newValue = JSObject.number(originalValue.value - 1);
+
+        // update the value in the environment
+        this.setVariable(expression.expression.value, newValue);
+
+        if (expression.postfix) {
+          return originalValue;
+        } else {
+          return newValue;
+        }
+      }
+
+      case "not": {
+        const operand = this.executeExpression(expression.expression);
+        return JSObject.boolean(!operand.isTruthy());
       }
 
       default:
-        todo(expression.type);
+        throw todo(expression.type, expression);
     }
   }
 
-  executeStatement(statement: Statement): Result<JSValue, InterpreterError> {
+  executeStatement(statement: Statement): JSValue {
     if (this.debug) {
       console.log("executeStatement", statement);
     }
 
     switch (statement.type) {
       case "empty":
-        return Result.ok(JSObject.undefined());
+        return JSObject.undefined();
       case "block":
         return this.executeStatements(statement.body);
       case "expression":
@@ -359,53 +618,106 @@ export class Interpreter {
         throw { type: "__RETURN_VALUE__", value };
       }
       case "variable_declaration": {
-        if (statement.value.hasValue()) {
-          const result = this.executeExpression(statement.value.unwrap());
-          if (result.isErr()) return result;
-          const value = result.unwrap();
+        if (statement.value !== undefined) {
+          const value = this.executeExpression(statement.value);
           this.declareVariable(statement.identifier, value);
-          return Result.ok(value);
+          return value;
         }
 
-        return Result.ok(JSObject.undefined());
+        return JSObject.undefined();
       }
 
       case "function_declaration": {
         const func = JSObject.func(statement.parameters, statement.body);
         this.declareVariable(statement.identifier, func);
-        return Result.ok(JSObject.undefined());
+        return JSObject.undefined();
       }
 
       case "if": {
         const condition = this.executeExpression(statement.condition);
-        if (condition.isErr()) return condition;
-        if (condition.unwrap().isTruthy()) {
+        if (condition.isTruthy()) {
           this.executeStatement(statement.ifBody);
-        } else if (statement.elseBody.hasValue()) {
-          this.executeStatement(statement.elseBody.unwrap());
+        } else if (statement.elseBody !== undefined) {
+          this.executeStatement(statement.elseBody);
         }
 
-        return Result.ok(JSObject.undefined());
+        return JSObject.undefined();
+      }
+
+      case "for": {
+        this.executeStatement(statement.init);
+
+        let test = this.executeExpression(statement.test);
+
+        while (test && test.isTruthy()) {
+          this.executeStatement(statement.body);
+          this.executeExpression(statement.update);
+          test = this.executeExpression(statement.test);
+        }
+
+        return JSObject.undefined();
       }
 
       case "while": {
-        return Result.err(todo("while statements"));
+        let condition = this.executeExpression(statement.condition);
+        while (condition.isTruthy()) {
+          this.executeStatement(statement.body);
+          condition = this.executeExpression(statement.condition);
+          if (!condition.isTruthy()) break;
+        }
+
+        return JSObject.undefined();
+      }
+
+      case "switch": {
+        const condition = this.executeExpression(statement.condition);
+
+        let foundCase = false;
+
+        try {
+          for (const c of statement.cases) {
+            if (foundCase) {
+              this.executeStatement(c.body);
+              continue;
+            }
+
+            const caseValue = this.executeExpression(c.test);
+
+            // bit of a hack, fix this
+            if (caseValue.toString() === condition.toString()) {
+              foundCase = true;
+              this.executeStatement(c.body);
+            }
+          }
+        } catch (e) {
+          if (e.type === "__BREAK__") {
+            return JSObject.undefined();
+          }
+          throw e;
+        }
+
+        if (statement.default) {
+          return this.executeStatement(statement.default);
+        }
+
+        break;
+      }
+
+      case "break": {
+        throw { type: "__BREAK__" };
       }
 
       default:
-        todo(statement.type);
+        throw todo(statement.type, statement);
     }
   }
 
-  executeStatements(
-    statements: Statement[]
-  ): Result<JSValue, InterpreterError> {
+  executeStatements(statements: Statement[]): JSValue {
     // run function declarations first
     for (const statement of statements) {
       if (statement.type !== "function_declaration") continue;
 
-      const result = this.executeStatement(statement);
-      if (result.isErr()) return result.mapErr();
+      this.executeStatement(statement);
     }
 
     // hoist "var" declarations
@@ -413,8 +725,7 @@ export class Interpreter {
       if (statement.type !== "variable_declaration") continue;
       if (statement.declarationType !== "var") continue;
 
-      const result = this.executeStatement(statement);
-      if (result.isErr()) return result.mapErr();
+      this.executeStatement(statement);
     }
 
     let lastValue = JSObject.undefined();
@@ -428,17 +739,13 @@ export class Interpreter {
       )
         continue;
 
-      const result = this.executeStatement(statement);
-      if (result.isErr()) return result.mapErr();
-
-      lastValue = result.unwrap();
+      lastValue = this.executeStatement(statement);
     }
 
-    return Result.ok(lastValue);
+    return lastValue;
   }
 
-  run(program: Program): Result<JSValue, InterpreterError> {
-    console.log("running", JSON.stringify(program, null, 2));
+  run(program: Program): JSValue {
     return this.executeStatements(program.body);
   }
 }

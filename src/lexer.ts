@@ -26,7 +26,7 @@ interface MooRules {
   [key: string]: MooRule | MooRule[] | string | RegExp;
 }
 
-const rules: MooRules = {
+const rules = {
   ws: { match: /[\s]+/, lineBreaks: true },
   identifier: {
     match: /[$_a-zA-Z][$_0-9a-zA-Z]*/,
@@ -72,10 +72,11 @@ const rules: MooRules = {
   comma: ",",
   increment: "++",
   plus: "+",
-  asterisk: "*",
+  multiply: "*",
   decrement: "--",
   minus: "-",
-  slash: "/",
+  divide: "/",
+  modulo: "%",
   arrow: "=>",
   strict_equal_to: "===",
   equal_to: "==",
@@ -103,7 +104,7 @@ export type TokenType = keyof typeof rules | "keyword";
 export type Token = MooToken & { type: TokenType; filename: string };
 
 export class Lexer {
-  lexer = compile(rules);
+  lexer = compile(rules as MooRules);
 
   run(filename: string, src: string): Token[] {
     this.lexer.reset(src);

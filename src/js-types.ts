@@ -1,17 +1,24 @@
-// @ts-nocheck: TODO: revisit this file, lots of TS errors
-
 import { Statement, Parameter } from "./ast.ts";
-import { Option } from "./types.ts";
 
 export class JSObject {
   type = "object";
   properties: Record<string, JSValue> = {};
 
   getProperty(property: JSValue): JSValue {
-    if (this.type === "array" && property.type === "number") {
-      return (this as unknown as JSArray).elements[
-        (property as JSNumber).value
-      ];
+    if (this.type === "array") {
+      if (property.type === "number") {
+        return (this as unknown as JSArray).elements[
+          (property as JSNumber).value
+        ];
+      }
+
+      if (
+        property.type === "string" &&
+        (property as JSString).value === "length"
+      ) {
+        const length = (this as unknown as JSArray).length();
+        return JSObject.number(length);
+      }
     }
 
     const propertyName = property.toString();
@@ -34,6 +41,16 @@ export class JSObject {
     this.properties[propertyName] = value;
   }
 
+  toString() {
+    const out: Record<string, string> = {};
+
+    for (const [key, value] of Object.entries(this.properties)) {
+      out[key] = value.toString();
+    }
+
+    return JSON.stringify(out, null, 2);
+  }
+
   isTruthy() {
     return true;
   }
@@ -51,8 +68,7 @@ export class JSObject {
   }
 
   static string(value: string) {
-    const object = new JSString();
-    object.value = value;
+    const object = new JSString(value);
     return object;
   }
 
@@ -65,14 +81,14 @@ export class JSObject {
   static func(parameters: Parameter[], body: Statement) {
     const object = new JSFunction();
     object.parameters = parameters;
-    object.body = Option.some(body);
+    object.body = body;
     return object;
   }
 
   static builtinFunction(func: BuiltInFunction) {
     const object = new JSFunction();
     object.isBuiltIn = true;
-    object.builtInFunction = Option.some(func);
+    object.builtInFunction = func;
     return object;
   }
 
@@ -120,6 +136,11 @@ export class JSString extends JSObject {
   type = "string";
   value: string;
 
+  constructor(value: string) {
+    super();
+    this.value = value;
+  }
+
   toString() {
     return this.value.toString();
   }
@@ -146,8 +167,12 @@ export class JSArray extends JSObject {
   type = "array";
   elements: JSValue[] = [];
 
+  length() {
+    return this.elements.length;
+  }
+
   toString() {
-    return this.elements.toString();
+    return `[ ${this.elements.join(", ")} ]`;
   }
 }
 
@@ -156,8 +181,8 @@ type BuiltInFunction = (...args: JSValue[]) => JSValue;
 export class JSFunction extends JSObject {
   type = "function";
   isBuiltIn = false;
-  builtInFunction: Option<BuiltInFunction> = Option.none();
-  body: Option<Statement> = Option.none();
+  builtInFunction: BuiltInFunction;
+  body: Statement;
   parameters: Parameter[] = [];
 
   toString() {

@@ -1,11 +1,11 @@
-import { Token } from "./lexer.ts";
-import { Option } from "./types.ts";
+import { Token, TokenType } from "./lexer.ts";
 
 export type Operator =
   | "+"
   | "*"
   | "-"
   | "/"
+  | "%"
   | "!="
   | "!=="
   | "==="
@@ -19,11 +19,12 @@ export type Operator =
   | "&&"
   | "&";
 
-export const TOKEN_TO_OPERATOR: Record<string, Operator> = {
+export const TOKEN_TO_OPERATOR: Partial<Record<TokenType, Operator>> = {
   plus: "+",
   minus: "-",
-  asterisk: "*",
+  multiply: "*",
   divide: "/",
+  modulo: "%",
 
   not_equal: "!=",
   strict_not_equal: "!==",
@@ -65,6 +66,7 @@ export const OPERATOR_PRECEDENCE: Record<Operator, number> = {
   "-": 8,
   "*": 9,
   "/": 9,
+  "%": 9,
 };
 export type Parameter = {
   name: string;
@@ -84,7 +86,15 @@ export type ClassMethodDeclaration = {
   static: boolean;
 };
 
-export type Expression =
+export type Location = {
+  file: string;
+  line: number;
+  column: number;
+};
+
+export type WithLocation<T> = T & { location: Location };
+
+export type Expression = WithLocation<
   | { type: "number"; value: number }
   | { type: "string"; value: string }
   | { type: "boolean"; value: boolean }
@@ -102,7 +112,7 @@ export type Expression =
   | { type: "call"; func: Expression; arguments: Expression[] }
   | {
       type: "function";
-      identifier: Option<string>;
+      identifier?: string;
       parameters: Parameter[];
       body: Statement;
     }
@@ -130,16 +140,17 @@ export type Expression =
       type: "decrement";
       expression: Expression;
       postfix: boolean;
-    };
+    }
+>;
 
-export type Statement =
+export type Statement = WithLocation<
   | { type: "empty" }
   | { type: "expression"; expression: Expression }
   | {
       type: "variable_declaration";
       declarationType: "var";
       identifier: string;
-      value: Option<Expression>;
+      value?: Expression;
       varType: "var" | "let" | "const";
     }
   | {
@@ -165,15 +176,23 @@ export type Statement =
       type: "if";
       condition: Expression;
       ifBody: Statement;
-      elseBody: Option<Statement>;
+      elseBody?: Statement;
     }
   | { type: "while"; condition: Expression; body: Statement }
+  | {
+      type: "for";
+      init: Statement;
+      test: Expression;
+      update: Expression;
+      body: Statement;
+    }
   | {
       type: "switch";
       condition: Expression;
       cases: SwitchCase[];
-      default: Option<Statement>;
-    };
+      default?: Statement;
+    }
+>;
 
 export type SwitchCase = {
   test: Expression;
@@ -181,5 +200,6 @@ export type SwitchCase = {
 };
 
 export interface Program {
+  type: "program";
   body: Statement[];
 }
