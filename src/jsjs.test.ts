@@ -189,6 +189,30 @@ describe("parser", () => {
         },
         arguments: [],
       }));
+    it("parses call member expression on literal", () =>
+      textExpression(`[10, 20, 30].forEach(() => {});`, {
+        type: "call",
+        func: {
+          type: "member",
+          object: {
+            type: "array",
+            elements: [
+              { type: "number", value: 10 },
+              { type: "number", value: 20 },
+              { type: "number", value: 30 },
+            ],
+          },
+          property: { type: "identifier", value: "forEach" },
+          computed: false,
+        },
+        arguments: [
+          {
+            type: "function",
+            parameters: [],
+            body: { type: "block", body: [] },
+          },
+        ],
+      }));
     it("parses hello world", () =>
       textExpression('console.log("hello world")', {
         type: "call",

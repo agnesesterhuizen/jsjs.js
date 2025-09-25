@@ -1,4 +1,5 @@
 import { Statement, Parameter } from "./ast.ts";
+import { Interpreter, typeError } from "./interpreter.ts";
 
 export class JSObject {
   type = "object";
@@ -98,9 +99,10 @@ export class JSObject {
     return object;
   }
 
-  static array(elements: JSValue[]) {
+  static array(interpreter: Interpreter, elements: JSValue[]) {
     const object = new JSArray();
     object.elements = elements;
+    object.interpreter = interpreter;
     return object;
   }
 
@@ -167,8 +169,26 @@ export class JSArray extends JSObject {
   type = "array";
   elements: JSValue[] = [];
 
+  // horrible, I swear I'll fix this
+  interpreter: Interpreter;
+
   constructor() {
     super();
+
+    this.properties["indexOf"] = JSObject.builtinFunction(
+      (searchElement: JSValue, fromIndex?: JSNumber) => {
+        const startIndex =
+          fromIndex && fromIndex.type === "number" ? fromIndex.value : 0;
+
+        for (let i = startIndex; i < this.elements.length; i++) {
+          if (this.elements[i].toString() === searchElement.toString()) {
+            return JSObject.number(i);
+          }
+        }
+
+        return JSObject.number(-1);
+      }
+    );
 
     this.properties["push"] = JSObject.builtinFunction((...args: JSValue[]) => {
       this.elements.push(...args);
@@ -179,6 +199,47 @@ export class JSArray extends JSObject {
       const value = this.elements.pop();
       return value || JSObject.undefined();
     });
+
+    this.properties["shift"] = JSObject.builtinFunction(() => {
+      const value = this.elements.shift();
+      return value || JSObject.undefined();
+    });
+
+    this.properties["unshift"] = JSObject.builtinFunction(
+      (...args: JSValue[]) => {
+        this.elements.unshift(...args);
+        return JSObject.number(this.elements.length);
+      }
+    );
+
+    this.properties["splice"] = JSObject.builtinFunction(
+      (start: JSNumber, deleteCount: JSNumber, ...items: JSValue[]) => {
+        if (start.type !== "number" || deleteCount.type !== "number") {
+          throw typeError("Array.prototype.splice expects numbers", null);
+        }
+
+        const removed = this.elements.splice(
+          start.value,
+          deleteCount.value,
+          ...items
+        );
+        return JSObject.array(this.interpreter, removed);
+      }
+    );
+
+    this.properties["slice"] = JSObject.builtinFunction(
+      (begin: JSNumber, end?: JSNumber) => {
+        if (begin.type !== "number" || (end && end.type !== "number")) {
+          throw typeError("Array.prototype.slice expects numbers", null);
+        }
+
+        const sliced = this.elements.slice(
+          begin.value,
+          end ? end.value : undefined
+        );
+        return JSObject.array(this.interpreter, sliced);
+      }
+    );
 
     this.properties["concat"] = JSObject.builtinFunction(
       (...args: JSValue[]) => {
@@ -192,7 +253,56 @@ export class JSArray extends JSObject {
           }
         }
 
-        return JSObject.array(newElements);
+        return JSObject.array(this.interpreter, newElements);
+      }
+    );
+
+    this.properties["join"] = JSObject.builtinFunction(
+      (separator?: JSString) => {
+        const sep =
+          separator && separator.type === "string" ? separator.value : ",";
+        return JSObject.string(
+          this.elements.map((e) => e.toString()).join(sep)
+        );
+      }
+    );
+
+    this.properties["reverse"] = JSObject.builtinFunction(() => {
+      this.elements.reverse();
+      return this;
+    });
+
+    this.properties["includes"] = JSObject.builtinFunction(
+      (searchElement: JSValue, fromIndex?: JSNumber) => {
+        const startIndex =
+          fromIndex && fromIndex.type === "number" ? fromIndex.value : 0;
+
+        for (let i = startIndex; i < this.elements.length; i++) {
+          if (this.elements[i].toString() === searchElement.toString()) {
+            return JSObject.boolean(true);
+          }
+        }
+
+        return JSObject.boolean(false);
+      }
+    );
+
+    this.properties["forEach"] = JSObject.builtinFunction(
+      (callback: JSFunction) => {
+        if (callback.type !== "function") {
+          throw typeError("Array.prototype.forEach expects a function", null);
+        }
+
+        for (let i = 0; i < this.elements.length; i++) {
+          const element = this.elements[i];
+
+          // element, index, array
+          const args = [element, JSObject.number(i), this];
+
+          this.interpreter.call(callback, args);
+        }
+
+        return JSObject.undefined();
       }
     );
   }

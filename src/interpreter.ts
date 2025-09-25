@@ -28,7 +28,7 @@ export type InterpreterError =
       location?: string;
     };
 
-const todo = (
+export const todo = (
   feature: string,
   { location }: { location: Location }
 ): InterpreterError => ({
@@ -36,7 +36,7 @@ const todo = (
   message: feature,
   location: `at ${location.file}:${location.line}:${location.column}`,
 });
-const referenceError = (
+export const referenceError = (
   message: string,
   { location }: { location: Location }
 ): InterpreterError => ({
@@ -44,7 +44,7 @@ const referenceError = (
   message,
   location: `at ${location.file}:${location.line}:${location.column}`,
 });
-const typeError = (
+export const typeError = (
   message: string,
   { location }: { location: Location }
 ): InterpreterError => ({
@@ -98,9 +98,9 @@ export class Interpreter {
       }),
       Object: JSObject.object({
         keys: JSObject.builtinFunction((obj: JSObject) => {
-          const keys = new JSArray();
-          keys.elements = Object.keys(obj.properties).map(
-            (prop) => new JSString(prop)
+          const keys = JSObject.array(this, []);
+          keys.elements = Object.keys(obj.properties).map((prop) =>
+            JSObject.string(prop)
           );
 
           return keys;
@@ -365,30 +365,19 @@ export class Interpreter {
     );
   }
 
-  call(fn: JSFunction, args: Expression[]): JSValue {
+  call(fn: JSFunction, args: JSValue[]): JSValue {
     if (fn.isBuiltIn) {
       const func = fn.builtInFunction;
-
-      const argValues = [];
-
-      for (const a of args) {
-        const result = this.executeExpression(a);
-        argValues.push(result);
-      }
-
-      const result = func(...argValues);
-
+      const result = func(...args);
       return result;
     }
 
     this.pushScope();
 
     // bind parameters
-    for (let i = 0; i < args.length; i++) {
-      const a = args[i];
-      const result = this.executeExpression(a);
+    for (let i = 0; i < fn.parameters.length; i++) {
       const parameter = fn.parameters[i];
-      this.declareVariable(parameter.name, result);
+      this.declareVariable(parameter.name, args[i]);
     }
 
     try {
@@ -425,10 +414,17 @@ export class Interpreter {
         const value = this.executeExpression(expression.func);
 
         if (value.type !== "function") {
-          throw todo(`function not defined`, expression);
+          throw todo(`${value.toString()} is not a function`, expression);
         }
 
-        return this.call(value as JSFunction, expression.arguments);
+        const args = [];
+
+        for (const a of expression.arguments) {
+          const result = this.executeExpression(a);
+          args.push(result);
+        }
+
+        return this.call(value as JSFunction, args);
       }
 
       case "member": {
@@ -473,7 +469,7 @@ export class Interpreter {
           elements.push(value);
         }
 
-        return JSObject.array(elements);
+        return JSObject.array(this, elements);
       }
 
       case "assignment": {

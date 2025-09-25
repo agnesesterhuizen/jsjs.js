@@ -1,0 +1,29 @@
+Initial array: [ 2, 3, 4 ]
+Array length: 3
+After push(6): [ 2, 3, 4, 6 ]
+New length: 4
+Popped element: 5
+After pop(): [ 2, 3, 4, 6 ]
+After unshift(0): [ 0, 2, 3, 4, 6 ]
+Shifted element: 1
+After shift(): [ 0, 2, 3, 4, 6 ]
+Original array: [ 0, 2, 3, 4, 6 ]
+Array to concat: [ 6, 7, 8 ]
+Concatenated: [ 2, 3, 4, 6, 7, 8 ]
+slice(1, 3): [ 3, 4 ]
+Original unchanged: [ 0, 2, 3, 4, 6 ]
+indexOf(3): 2
+indexOf(99): -1
+join(','): 0,2,3,4,6
+join(' - '): 0 - 2 - 3 - 4 - 6
+Before reverse: [ 1, 2, 3, 4 ]
+After reverse: [ 4, 3, 2, 1 ]
+includes(2): true
+includes(5): false
+forEach test:
+Index 0 : 10
+Index 1 : 20
+Index 2 : 30
+Empty array: [  ]
+Empty length: 0
+After push to empty: [ first ]

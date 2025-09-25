@@ -316,134 +316,41 @@ export class Parser {
 
     const token = this.nextToken();
 
+    let left: Expression;
+
     switch (token.type) {
       case "identifier": {
-        let left: Expression = withLocation(
-          { type: "identifier", value: token.value },
-          token
-        );
-
-        // loop to consume any number of . [] () postfixes
-        while (true) {
-          const next = this.peekNextToken();
-          if (next?.type === "dot") {
-            this.nextToken();
-            const right = this.expect("identifier");
-
-            left = withLocation(
-              {
-                type: "member",
-                object: left,
-                property: withLocation(
-                  { type: "identifier", value: right.value },
-                  right
-                ),
-                computed: false,
-              },
-              token
-            );
-          } else if (next?.type === "left_bracket") {
-            this.nextToken();
-
-            const property = this.parseExpression(0);
-
-            this.expect("right_bracket");
-
-            left = withLocation(
-              {
-                type: "member",
-                object: left,
-                property: property,
-                computed: true,
-              },
-              token
-            );
-          } else if (next?.type === "left_paren") {
-            this.nextToken();
-            const args: Expression[] = [];
-            while (this.peekNextToken().type !== "right_paren") {
-              args.push(this.parseExpression(0));
-
-              if (this.peekNextToken().type !== "right_paren") {
-                this.expect("comma");
-              }
-            }
-
-            this.expect("right_paren");
-            left = withLocation(
-              { type: "call", func: left, arguments: args },
-              next
-            );
-          } else if (next?.type === "increment") {
-            this.expect("increment");
-            left = withLocation(
-              {
-                type: "increment",
-                expression: left,
-                postfix: true,
-              },
-              token
-            );
-          } else if (next?.type === "decrement") {
-            this.expect("decrement");
-
-            left = withLocation(
-              {
-                type: "decrement",
-                expression: left,
-                postfix: true,
-              },
-              token
-            );
-          } else {
-            break;
-          }
-        }
-
-        // assignment is not postfix, so check after loop
-        if (this.peekNextToken()?.type === "equals") {
-          this.nextToken();
-
-          const value = this.parseExpression();
-
-          return withLocation(
-            {
-              type: "assignment",
-              operator: "=",
-              left,
-              right: value,
-            },
-            token
-          );
-        }
-
-        return left;
+        left = withLocation({ type: "identifier", value: token.value }, token);
+        break;
       }
 
       case "number": {
-        return withLocation(
+        left = withLocation(
           { type: "number", value: parseFloat(token.value) },
           token
         );
+        break;
       }
 
       case "string": {
-        return withLocation({ type: "string", value: token.value }, token);
+        left = withLocation({ type: "string", value: token.value }, token);
+        break;
       }
 
       case "keyword": {
         if (token.value === "true" || token.value === "false") {
-          return withLocation(
+          left = withLocation(
             { type: "boolean", value: token.value === "true" },
             token
           );
+          break;
         }
 
         if (token.value === "function") {
-          let id: string;
+          let identifier: string;
 
           if (this.peekNextToken()?.type === "identifier") {
-            id = this.expect("identifier").value;
+            identifier = this.expect("identifier").value;
           }
 
           const parameters: Parameter[] = [];
@@ -463,15 +370,16 @@ export class Parser {
 
           const body = this.parseBlockStatement();
 
-          return withLocation(
+          left = withLocation(
             {
               type: "function",
-              identifier: id,
+              identifier: identifier,
               parameters,
               body,
             },
             token
           );
+          break;
         }
 
         if (token.value === "new") {
@@ -491,7 +399,7 @@ export class Parser {
 
           this.expect("right_paren");
 
-          return withLocation(
+          left = withLocation(
             {
               type: "new",
               identifier: identifier.value,
@@ -499,6 +407,7 @@ export class Parser {
             },
             token
           );
+          break;
         }
 
         throw new Error("unexpected token: " + token.type + ": " + token.value);
@@ -506,37 +415,42 @@ export class Parser {
 
       case "left_brace": {
         this.index--;
-        return this.parseObjectExpression();
+        left = this.parseObjectExpression();
+        break;
       }
 
       case "left_bracket": {
         this.index--;
-        return this.parseArrayExpression();
+        left = this.parseArrayExpression();
+        break;
       }
 
       case "right_paren": {
         this.index--;
         this.index--;
-        return this.parseArrowFunctionExpression();
+        left = this.parseArrowFunctionExpression();
+        break;
       }
 
       case "not": {
         this.index--;
-        return this.parseNotExpression();
+        left = this.parseNotExpression();
+        break;
       }
 
       case "spread": {
-        return withLocation(
+        left = withLocation(
           {
             type: "spread",
             expression: this.parseExpression(),
           },
           token
         );
+        break;
       }
 
       case "decrement": {
-        return withLocation(
+        left = withLocation(
           {
             type: "decrement",
             expression: this.parseExpression(),
@@ -544,10 +458,11 @@ export class Parser {
           },
           token
         );
+        break;
       }
 
       case "increment": {
-        return withLocation(
+        left = withLocation(
           {
             type: "increment",
             expression: this.parseExpression(),
@@ -555,11 +470,106 @@ export class Parser {
           },
           token
         );
+        break;
       }
 
       default:
         unexpectedToken("eof", token);
     }
+
+    while (true) {
+      const next = this.peekNextToken();
+      if (next?.type === "dot") {
+        this.nextToken();
+        const right = this.expect("identifier");
+
+        left = withLocation(
+          {
+            type: "member",
+            object: left,
+            property: withLocation(
+              { type: "identifier", value: right.value },
+              right
+            ),
+            computed: false,
+          },
+          token
+        );
+      } else if (next?.type === "left_bracket") {
+        this.nextToken();
+
+        const property = this.parseExpression(0);
+
+        this.expect("right_bracket");
+
+        left = withLocation(
+          {
+            type: "member",
+            object: left,
+            property: property,
+            computed: true,
+          },
+          token
+        );
+      } else if (next?.type === "left_paren") {
+        this.nextToken();
+        const args: Expression[] = [];
+        while (this.peekNextToken().type !== "right_paren") {
+          args.push(this.parseExpression(0));
+
+          if (this.peekNextToken().type !== "right_paren") {
+            this.expect("comma");
+          }
+        }
+
+        this.expect("right_paren");
+        left = withLocation(
+          { type: "call", func: left, arguments: args },
+          next
+        );
+      } else if (next?.type === "increment") {
+        this.expect("increment");
+        left = withLocation(
+          {
+            type: "increment",
+            expression: left,
+            postfix: true,
+          },
+          token
+        );
+      } else if (next?.type === "decrement") {
+        this.expect("decrement");
+
+        left = withLocation(
+          {
+            type: "decrement",
+            expression: left,
+            postfix: true,
+          },
+          token
+        );
+      } else {
+        break;
+      }
+    }
+
+    if (this.peekNextToken()?.type === "equals") {
+      this.nextToken();
+
+      const value = this.parseExpression();
+
+      return withLocation(
+        {
+          type: "assignment",
+          operator: "=",
+          left,
+          right: value,
+        },
+        token
+      );
+    }
+
+    return left;
   }
 
   isOperatorTokenType(token: Token) {
@@ -1024,6 +1034,7 @@ export class Parser {
       case "string":
       case "identifier":
       case "left_paren":
+      case "left_bracket":
       case "not":
       case "decrement":
       case "increment":

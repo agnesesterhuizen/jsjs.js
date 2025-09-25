@@ -57,9 +57,9 @@ const rules = {
 
   number: [/[-]?(?:[0-9]*[.])?[0-9]+/ as MooRule],
   string: [
-    { match: /".*"/, value: (x: string) => x.slice(1, -1) },
-    { match: /'.*'/, value: (x: string) => x.slice(1, -1) },
-    { match: /`.*`/, value: (x: string) => x.slice(1, -1) },
+    { match: /"[^"]*"/, value: (x: string) => x.slice(1, -1) },
+    { match: /'[^']*'/, value: (x: string) => x.slice(1, -1) },
+    { match: /`[^`]*`/, value: (x: string) => x.slice(1, -1) },
   ],
   left_brace: "{",
   right_brace: "}",
