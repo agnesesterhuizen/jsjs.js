@@ -167,6 +167,36 @@ export class JSArray extends JSObject {
   type = "array";
   elements: JSValue[] = [];
 
+  constructor() {
+    super();
+
+    this.properties["push"] = JSObject.builtinFunction((...args: JSValue[]) => {
+      this.elements.push(...args);
+      return JSObject.number(this.elements.length);
+    });
+
+    this.properties["pop"] = JSObject.builtinFunction(() => {
+      const value = this.elements.pop();
+      return value || JSObject.undefined();
+    });
+
+    this.properties["concat"] = JSObject.builtinFunction(
+      (...args: JSValue[]) => {
+        const newElements = [...this.elements];
+
+        for (const arg of args) {
+          if (arg.type === "array") {
+            newElements.push(...(arg as JSArray).elements);
+          } else {
+            newElements.push(arg);
+          }
+        }
+
+        return JSObject.array(newElements);
+      }
+    );
+  }
+
   length() {
     return this.elements.length;
   }
