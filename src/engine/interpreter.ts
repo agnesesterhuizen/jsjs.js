@@ -1,13 +1,12 @@
-import { Expression, Operator, Program, Statement, Location } from "./ast.ts";
+import { Expression, Operator, Program, Statement, Location } from "../ast.ts";
 import {
-  JSArray,
   JSBoolean,
   JSFunction,
   JSNumber,
-  JSObject,
   JSString,
-  JSValue,
-} from "./js-types.ts";
+  JSObject,
+} from "./objects.ts";
+import { Runtime } from "./runtime.ts";
 
 const assertNotReached = (_t: never) => {};
 
@@ -53,164 +52,45 @@ export const typeError = (
   location: `at ${location.file}:${location.line}:${location.column}`,
 });
 
-// export type Value =
-//   | { type: "undefined" }
-//   | { type: "number"; value: number }
-//   | { type: "string"; value: string }
-//   | { type: "boolean"; value: boolean }
-//   | { type: "object"; properties: Record<string, Value> }
-//   | {
-//       type: "function";
-//       builtIn: boolean;
-//       builtInFunc: Option<(...args: Value[]) => Value>;
-//       body: Statement;
-//       parameters: string[];
-//     };
-
-// const valueToString = (value: Value): string => {
-//   switch (value.type) {
-//     case "number":
-//     case "string":
-//     case "boolean":
-//       return value.value.toString();
-//     default:
-//       return JSON.stringify(value);
-//   }
-// };
-
-export type Logger = (...data: any[]) => void;
-
 export class Interpreter {
   debug = false;
 
-  scope = 0;
-  scopes: Record<string, JSValue>[] = [];
+  runtime: Runtime;
 
-  logger: Logger = console.log;
-
-  constructor() {
-    const global = {
-      console: JSObject.object({
-        log: JSObject.builtinFunction((...args: JSValue[]) => {
-          this.logger(...args.map((a) => a.toString()));
-          return JSObject.undefined();
-        }),
-      }),
-      Object: JSObject.object({
-        keys: JSObject.builtinFunction((obj: JSObject) => {
-          const keys = JSObject.array(this, []);
-          keys.elements = Object.keys(obj.properties).map((prop) =>
-            JSObject.string(prop)
-          );
-
-          return keys;
-        }),
-        values: JSObject.builtinFunction((obj: JSObject) => {
-          const values = JSObject.array(this, []);
-          values.elements = Object.values(obj.properties);
-          return values;
-        }),
-        entries: JSObject.builtinFunction((obj: JSObject) => {
-          const entries = JSObject.array(this, []);
-          entries.elements = Object.entries(obj.properties).map(
-            ([key, value]) =>
-              JSObject.array(this, [JSObject.string(key), value])
-          );
-          return entries;
-        }),
-        assign: JSObject.builtinFunction(
-          (target: JSObject, ...sources: JSObject[]) => {
-            for (const source of sources) {
-              for (const [key, value] of Object.entries(source.properties)) {
-                target.properties[key] = value;
-              }
-            }
-            return target;
-          }
-        ),
-      }),
-      Math: JSObject.object({
-        random: JSObject.builtinFunction(() => {
-          return JSObject.number(Math.random());
-        }),
-        floor: JSObject.builtinFunction((x: JSNumber) => {
-          if (x.type !== "number") {
-            throw "Math.floor expects a number";
-          }
-          return JSObject.number(Math.floor(x.value));
-        }),
-      }),
-    };
-
-    this.scopes.push(global);
-  }
-
-  pushScope() {
-    this.scopes.push({});
-    this.scope++;
-  }
-
-  popScope() {
-    this.scopes.pop();
-    this.scope--;
-  }
-
-  declareVariable(name: string, value: JSValue) {
-    const scope = this.scopes[this.scope];
-    scope[name] = value;
-  }
-
-  setVariable(name: string, value: JSValue) {
-    const scope = this.scopes[this.scope];
-    scope[name] = value;
-  }
-
-  lookupVariable(name: string) {
-    let index = this.scope;
-
-    while (index >= 0) {
-      const scope = this.scopes[index];
-
-      if (name in scope) {
-        return scope[name];
-      }
-
-      index--;
-    }
-
-    return JSObject.undefined();
+  constructor(runtime: Runtime) {
+    this.runtime = runtime;
   }
 
   executeNumericOperation(operator: Operator, left: JSNumber, right: JSNumber) {
     switch (operator) {
       case "+":
-        return JSObject.number(left.value + right.value);
+        return this.runtime.newNumber(left.value + right.value);
       case "-":
-        return JSObject.number(left.value - right.value);
+        return this.runtime.newNumber(left.value - right.value);
       case "*":
-        return JSObject.number(left.value * right.value);
+        return this.runtime.newNumber(left.value * right.value);
       case "/":
-        return JSObject.number(left.value / right.value);
+        return this.runtime.newNumber(left.value / right.value);
       case "%":
-        return JSObject.number(left.value % right.value);
+        return this.runtime.newNumber(left.value % right.value);
 
       case "<":
-        return JSObject.boolean(left.value < right.value);
+        return this.runtime.newBoolean(left.value < right.value);
       case "<=":
-        return JSObject.boolean(left.value <= right.value);
+        return this.runtime.newBoolean(left.value <= right.value);
       case ">":
-        return JSObject.boolean(left.value > right.value);
+        return this.runtime.newBoolean(left.value > right.value);
       case ">=":
-        return JSObject.boolean(left.value >= right.value);
+        return this.runtime.newBoolean(left.value >= right.value);
 
       case "!=":
-        return JSObject.boolean(left.value != right.value);
+        return this.runtime.newBoolean(left.value != right.value);
       case "!==":
-        return JSObject.boolean(left.value !== right.value);
+        return this.runtime.newBoolean(left.value !== right.value);
       case "==":
-        return JSObject.boolean(left.value == right.value);
+        return this.runtime.newBoolean(left.value == right.value);
       case "===":
-        return JSObject.boolean(left.value === right.value);
+        return this.runtime.newBoolean(left.value === right.value);
 
       // logical ops: short-circuit, return operand (not coerced bool)
       case "||":
@@ -221,12 +101,12 @@ export class Interpreter {
       case "|": {
         const l = left.value | 0;
         const r = right.value | 0;
-        return JSObject.number(l | r);
+        return this.runtime.newNumber(l | r);
       }
       case "&": {
         const l = left.value | 0;
         const r = right.value | 0;
-        return JSObject.number(l & r);
+        return this.runtime.newNumber(l & r);
       }
 
       default:
@@ -242,41 +122,55 @@ export class Interpreter {
   ) {
     switch (operator) {
       case "||":
-        return JSObject.boolean(left.isTruthy() || right.isTruthy());
+        return this.runtime.newBoolean(left.isTruthy() || right.isTruthy());
       case "&&":
-        return JSObject.boolean(left.isTruthy() && right.isTruthy());
+        return this.runtime.newBoolean(left.isTruthy() && right.isTruthy());
       case "!=":
-        return JSObject.boolean(left.value != right.value);
+        return this.runtime.newBoolean(left.value != right.value);
       case "!==":
-        return JSObject.boolean(left.value !== right.value);
+        return this.runtime.newBoolean(left.value !== right.value);
       case "==":
-        return JSObject.boolean(left.value == right.value);
+        return this.runtime.newBoolean(left.value == right.value);
       case "===":
-        return JSObject.boolean(left.value === right.value);
+        return this.runtime.newBoolean(left.value === right.value);
       case "<=":
-        return JSObject.boolean(left.value <= right.value);
+        return this.runtime.newBoolean(left.value <= right.value);
       case "<":
-        return JSObject.boolean(left.value < right.value);
+        return this.runtime.newBoolean(left.value < right.value);
       case ">=":
-        return JSObject.boolean(left.value >= right.value);
+        return this.runtime.newBoolean(left.value >= right.value);
       case ">":
-        return JSObject.boolean(left.value > right.value);
+        return this.runtime.newBoolean(left.value > right.value);
 
       // convert bools to 1 or 0 and do regular arithmetic
       case "+":
-        return JSObject.number((left.value ? 1 : 0) + (right.value ? 1 : 0));
+        return this.runtime.newNumber(
+          (left.value ? 1 : 0) + (right.value ? 1 : 0)
+        );
       case "-":
-        return JSObject.number((left.value ? 1 : 0) - (right.value ? 1 : 0));
+        return this.runtime.newNumber(
+          (left.value ? 1 : 0) - (right.value ? 1 : 0)
+        );
       case "*":
-        return JSObject.number((left.value ? 1 : 0) * (right.value ? 1 : 0));
+        return this.runtime.newNumber(
+          (left.value ? 1 : 0) * (right.value ? 1 : 0)
+        );
       case "/":
-        return JSObject.number((left.value ? 1 : 0) / (right.value ? 1 : 0));
+        return this.runtime.newNumber(
+          (left.value ? 1 : 0) / (right.value ? 1 : 0)
+        );
       case "%":
-        return JSObject.number((left.value ? 1 : 0) % (right.value ? 1 : 0));
+        return this.runtime.newNumber(
+          (left.value ? 1 : 0) % (right.value ? 1 : 0)
+        );
       case "|":
-        return JSObject.number((left.value ? 1 : 0) | (right.value ? 1 : 0));
+        return this.runtime.newNumber(
+          (left.value ? 1 : 0) | (right.value ? 1 : 0)
+        );
       case "&":
-        return JSObject.number((left.value ? 1 : 0) & (right.value ? 1 : 0));
+        return this.runtime.newNumber(
+          (left.value ? 1 : 0) & (right.value ? 1 : 0)
+        );
 
       default:
         assertNotReached(operator);
@@ -322,7 +216,7 @@ export class Interpreter {
       expression.operator === "+" &&
       (left.type === "string" || right.type === "string")
     ) {
-      return JSObject.string(left.toString() + right.toString());
+      return this.runtime.newString(left.toString() + right.toString());
     }
 
     // string comparisons with <, <=, >, >=
@@ -336,30 +230,30 @@ export class Interpreter {
 
       switch (expression.operator) {
         case "<":
-          return JSObject.boolean(ls.value < rs.value);
+          return this.runtime.newBoolean(ls.value < rs.value);
         case "<=":
-          return JSObject.boolean(ls.value <= rs.value);
+          return this.runtime.newBoolean(ls.value <= rs.value);
         case ">":
-          return JSObject.boolean(ls.value > rs.value);
+          return this.runtime.newBoolean(ls.value > rs.value);
         case ">=":
-          return JSObject.boolean(ls.value >= rs.value);
+          return this.runtime.newBoolean(ls.value >= rs.value);
       }
     }
 
     // equality comparisons with null
     if (left.type === "null" && right.type === "null") {
       if (expression.operator === "===" || expression.operator === "==")
-        return JSObject.boolean(true);
+        return this.runtime.newBoolean(true);
       if (expression.operator === "!==" || expression.operator === "!=")
-        return JSObject.boolean(false);
+        return this.runtime.newBoolean(false);
     }
 
     // equality comparisons with undefined
     if (left.type === "undefined" && right.type === "undefined") {
       if (expression.operator === "===" || expression.operator === "==")
-        return JSObject.boolean(true);
+        return this.runtime.newBoolean(true);
       if (expression.operator === "!==" || expression.operator === "!=")
-        return JSObject.boolean(false);
+        return this.runtime.newBoolean(false);
     }
 
     // equality comparisons with null and undefined :(
@@ -367,17 +261,17 @@ export class Interpreter {
       (left.type === "null" && right.type === "undefined") ||
       (left.type === "undefined" && right.type === "null")
     ) {
-      if (expression.operator === "==") return JSObject.boolean(true);
-      if (expression.operator === "!=") return JSObject.boolean(false);
-      if (expression.operator === "===") return JSObject.boolean(false);
-      if (expression.operator === "!==") return JSObject.boolean(true);
+      if (expression.operator === "==") return this.runtime.newBoolean(true);
+      if (expression.operator === "!=") return this.runtime.newBoolean(false);
+      if (expression.operator === "===") return this.runtime.newBoolean(false);
+      if (expression.operator === "!==") return this.runtime.newBoolean(true);
     }
 
     if (
       (left.type === "number" && right.type === "undefined") ||
       (left.type === "undefined" && right.type === "number")
     ) {
-      return JSObject.number(NaN);
+      return this.runtime.newNumber(NaN);
     }
 
     // insane things happen here lol
@@ -388,24 +282,26 @@ export class Interpreter {
     );
   }
 
-  call(fn: JSFunction, args: JSValue[]): JSValue {
+  call(thisArg: JSObject, fn: JSFunction, args: JSObject[]): JSObject {
     if (fn.isBuiltIn) {
       const func = fn.builtInFunction;
-      const result = func(...args);
+      const result = func(thisArg, ...args);
       return result;
     }
 
-    this.pushScope();
+    this.runtime.pushScope();
+
+    this.runtime.declareVariable("this", thisArg);
 
     // bind parameters
     for (let i = 0; i < fn.parameters.length; i++) {
       const parameter = fn.parameters[i];
-      this.declareVariable(parameter.name, args[i]);
+      this.runtime.declareVariable(parameter.name, args[i]);
     }
 
     try {
       const result = this.executeStatement(fn.body);
-      this.popScope();
+      this.runtime.popScope();
       return result;
     } catch (errorOrReturnValue) {
       // rethrow if not a return value so we don't mask any actual errors
@@ -414,48 +310,68 @@ export class Interpreter {
         throw errorOrReturnValue;
       }
 
-      this.popScope();
+      this.runtime.popScope();
       return errorOrReturnValue.value;
     }
   }
 
-  executeExpression(expression: Expression): JSValue {
+  executeExpression(expression: Expression): JSObject {
     if (this.debug) {
       console.log("executeExpression", expression);
     }
 
     switch (expression.type) {
       case "number":
-        return JSObject.number(expression.value);
+        return this.runtime.newNumber(expression.value);
       case "string":
-        return JSObject.string(expression.value);
+        return this.runtime.newString(expression.value);
       case "boolean":
-        return JSObject.boolean(expression.value);
+        return this.runtime.newBoolean(expression.value);
       case "identifier":
-        return this.lookupVariable(expression.value);
+        return this.runtime.lookupVariable(expression.value);
       case "call": {
-        const value = this.executeExpression(expression.func);
+        const fnVal = this.executeExpression(expression.func);
 
-        if (value.type !== "function") {
-          throw todo(`${value.toString()} is not a function`, expression);
+        if (fnVal.type !== "function") {
+          throw todo(`${fnVal.toString()} is not a function`, expression);
         }
 
-        const args = [];
-
+        const args: JSObject[] = [];
         for (const a of expression.arguments) {
-          const result = this.executeExpression(a);
-          args.push(result);
+          args.push(this.executeExpression(a));
         }
 
-        return this.call(value as JSFunction, args);
+        let thisVal: JSObject = this.runtime.newUndefined();
+
+        if (expression.func.type === "member") {
+          thisVal = this.executeExpression(expression.func.object);
+        }
+
+        return this.call(thisVal, fnVal as JSFunction, args);
+      }
+
+      case "new": {
+        const callee = this.runtime.lookupVariable(expression.identifier);
+        if (callee.type !== "function") {
+          throw typeError(
+            `${callee.toString()} is not a constructor`,
+            expression
+          );
+        }
+        const args: JSObject[] = [];
+        for (const a of expression.arguments) {
+          args.push(this.executeExpression(a));
+        }
+        return this.runtime.construct(callee as JSFunction, args);
       }
 
       case "member": {
         const object = this.executeExpression(expression.object);
 
         if (expression.computed) {
-          return object.getProperty(
-            this.executeExpression(expression.property)
+          return this.runtime.getProperty(
+            object,
+            this.executeExpression(expression.property).toString()
           );
         } else {
           if (expression.property.type !== "identifier") {
@@ -465,23 +381,26 @@ export class Interpreter {
             );
           }
 
-          return object.getProperty(JSObject.string(expression.property.value));
+          return this.runtime.getProperty(
+            object,
+            this.runtime.newString(expression.property.value).toString()
+          );
         }
       }
 
       case "function": {
-        return JSObject.func(expression.parameters, expression.body);
+        return this.runtime.newFunction(expression.parameters, expression.body);
       }
 
       case "object": {
-        const properties: Record<string, JSValue> = {};
+        const properties: Record<string, JSObject> = {};
 
         for (const [name, expr] of Object.entries(expression.properties)) {
           const value = this.executeExpression(expr);
           properties[name] = value;
         }
 
-        return JSObject.object(properties);
+        return this.runtime.newObject(properties);
       }
 
       case "array": {
@@ -492,7 +411,7 @@ export class Interpreter {
           elements.push(value);
         }
 
-        return JSObject.array(this, elements);
+        return this.runtime.newArray(elements);
       }
 
       case "assignment": {
@@ -502,20 +421,14 @@ export class Interpreter {
 
         if (expression.left.type === "identifier") {
           const value = this.executeExpression(expression.right);
-          this.setVariable(expression.left.value, value);
+          this.runtime.setVariable(expression.left.value, value);
           return value;
         }
 
         if (expression.left.type === "member") {
           const memberExpression = expression.left;
-          if (memberExpression.object.type !== "identifier") {
-            throw referenceError(
-              "Invalid left-hand side in assignment",
-              expression
-            );
-          }
+          const object = this.executeExpression(memberExpression.object);
 
-          const object = this.lookupVariable(memberExpression.object.value);
           if (object.type === "undefined" || object.type === "null") {
             throw typeError(
               "Cannot set properties of " + object.type,
@@ -523,14 +436,15 @@ export class Interpreter {
             );
           }
 
-          let property: JSValue;
+          let property: JSObject;
 
           if (memberExpression.computed) {
             if (memberExpression.property.type === "identifier") {
-              property = JSObject.string(memberExpression.property.value);
+              property = this.runtime.newString(
+                memberExpression.property.value
+              );
             } else {
-              const value = this.executeExpression(memberExpression.property);
-              property = value;
+              property = this.executeExpression(memberExpression.property);
             }
           } else {
             if (memberExpression.property.type !== "identifier") {
@@ -540,12 +454,12 @@ export class Interpreter {
               );
             }
 
-            property = JSObject.string(memberExpression.property.value);
+            property = this.runtime.newString(memberExpression.property.value);
           }
 
           const value = this.executeExpression(expression.right);
 
-          object.setProperty(property, value);
+          this.runtime.setProperty(object, property.toString(), value);
 
           return value;
         }
@@ -574,10 +488,10 @@ export class Interpreter {
         }
 
         const originalValue = operand as JSNumber;
-        const newValue = JSObject.number(originalValue.value + 1);
+        const newValue = this.runtime.newNumber(originalValue.value + 1);
 
         // update the value in the environment
-        this.setVariable(expression.expression.value, newValue);
+        this.runtime.setVariable(expression.expression.value, newValue);
 
         if (expression.postfix) {
           return originalValue;
@@ -600,10 +514,10 @@ export class Interpreter {
         }
 
         const originalValue = operand as JSNumber;
-        const newValue = JSObject.number(originalValue.value - 1);
+        const newValue = this.runtime.newNumber(originalValue.value - 1);
 
         // update the value in the environment
-        this.setVariable(expression.expression.value, newValue);
+        this.runtime.setVariable(expression.expression.value, newValue);
 
         if (expression.postfix) {
           return originalValue;
@@ -614,7 +528,7 @@ export class Interpreter {
 
       case "not": {
         const operand = this.executeExpression(expression.expression);
-        return JSObject.boolean(!operand.isTruthy());
+        return this.runtime.newBoolean(!operand.isTruthy());
       }
 
       default:
@@ -622,14 +536,14 @@ export class Interpreter {
     }
   }
 
-  executeStatement(statement: Statement): JSValue {
+  executeStatement(statement: Statement): JSObject {
     if (this.debug) {
       console.log("executeStatement", statement);
     }
 
     switch (statement.type) {
       case "empty":
-        return JSObject.undefined();
+        return this.runtime.newUndefined();
       case "block":
         return this.executeStatements(statement.body);
       case "expression":
@@ -641,17 +555,20 @@ export class Interpreter {
       case "variable_declaration": {
         if (statement.value !== undefined) {
           const value = this.executeExpression(statement.value);
-          this.declareVariable(statement.identifier, value);
+          this.runtime.declareVariable(statement.identifier, value);
           return value;
         }
 
-        return JSObject.undefined();
+        return this.runtime.newUndefined();
       }
 
       case "function_declaration": {
-        const func = JSObject.func(statement.parameters, statement.body);
-        this.declareVariable(statement.identifier, func);
-        return JSObject.undefined();
+        const func = this.runtime.newFunction(
+          statement.parameters,
+          statement.body
+        );
+        this.runtime.declareVariable(statement.identifier, func);
+        return this.runtime.newUndefined();
       }
 
       case "if": {
@@ -662,7 +579,7 @@ export class Interpreter {
           this.executeStatement(statement.elseBody);
         }
 
-        return JSObject.undefined();
+        return this.runtime.newUndefined();
       }
 
       case "for": {
@@ -676,7 +593,7 @@ export class Interpreter {
           test = this.executeExpression(statement.test);
         }
 
-        return JSObject.undefined();
+        return this.runtime.newUndefined();
       }
 
       case "while": {
@@ -687,7 +604,7 @@ export class Interpreter {
           if (!condition.isTruthy()) break;
         }
 
-        return JSObject.undefined();
+        return this.runtime.newUndefined();
       }
 
       case "switch": {
@@ -712,7 +629,7 @@ export class Interpreter {
           }
         } catch (e) {
           if (e.type === "__BREAK__") {
-            return JSObject.undefined();
+            return this.runtime.newUndefined();
           }
           throw e;
         }
@@ -733,7 +650,7 @@ export class Interpreter {
     }
   }
 
-  executeStatements(statements: Statement[]): JSValue {
+  executeStatements(statements: Statement[]): JSObject {
     // run function declarations first
     for (const statement of statements) {
       if (statement.type !== "function_declaration") continue;
@@ -749,7 +666,7 @@ export class Interpreter {
       this.executeStatement(statement);
     }
 
-    let lastValue = JSObject.undefined();
+    let lastValue = this.runtime.newUndefined();
 
     // run other statements
     for (const statement of statements) {
@@ -766,7 +683,7 @@ export class Interpreter {
     return lastValue;
   }
 
-  run(program: Program): JSValue {
+  run(program: Program): JSObject {
     return this.executeStatements(program.body);
   }
 }
