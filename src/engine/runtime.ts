@@ -7,6 +7,7 @@ import { createObjectConstructor } from "./intrinsics/constructor/Object.ts";
 import { createArrayPrototype } from "./intrinsics/prototype/Array.ts";
 import { createFunctionPrototype } from "./intrinsics/prototype/Function.ts";
 import { createObjectPrototype } from "./intrinsics/prototype/Object.ts";
+import { createStringPrototype } from "./intrinsics/prototype/String.ts";
 import {
   JSObject,
   JSUndefined,
@@ -64,6 +65,10 @@ export class Runtime {
     this.intrinsics["FunctionPrototype"] = functionPrototype;
     this.intrinsics["Function"] = functionConstructor;
 
+    // string
+    const stringPrototype = createStringPrototype(this);
+    this.intrinsics["StringPrototype"] = stringPrototype;
+
     // other
     const mathConstructor = createMathConstructor(this);
 
@@ -107,7 +112,12 @@ export class Runtime {
   }
 
   newString(value: string): JSString {
-    return new JSString(value);
+    const object = new JSString(value);
+    const proto = this.intrinsics["StringPrototype"];
+    if (proto && proto.type === "object") {
+      object.prototype = proto as JSObject;
+    }
+    return object;
   }
 
   newBoolean(value: boolean): JSBoolean {
@@ -270,6 +280,20 @@ export class Runtime {
       const n = parseInt(property, 10);
       if (!isNaN(n)) {
         return arr.elements[n] || this.newUndefined();
+      }
+    }
+
+    if (object.type === "string") {
+      const str = object as unknown as JSString;
+
+      if (property === "length") {
+        return this.newNumber(str.value.length);
+      }
+
+      // check if string index
+      const n = parseInt(property, 10);
+      if (!isNaN(n)) {
+        return this.newString(str.value[n]);
       }
     }
 

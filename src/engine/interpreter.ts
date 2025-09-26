@@ -240,6 +240,28 @@ export class Interpreter {
       }
     }
 
+    if (left.type === "string" && right.type === "string") {
+      const ls = left as JSString;
+      const rs = right as JSString;
+
+      switch (expression.operator) {
+        case "===":
+        case "==":
+          return this.runtime.newBoolean(ls.value === rs.value);
+        case "!==":
+        case "!=":
+          return this.runtime.newBoolean(ls.value !== rs.value);
+      }
+    }
+
+    if (
+      (expression.operator === "===" || expression.operator === "!==") &&
+      left.type !== right.type
+    ) {
+      const result = expression.operator === "===" ? false : true;
+      return this.runtime.newBoolean(result);
+    }
+
     // equality comparisons with null
     if (left.type === "null" && right.type === "null") {
       if (expression.operator === "===" || expression.operator === "==")
@@ -271,6 +293,11 @@ export class Interpreter {
       (left.type === "number" && right.type === "undefined") ||
       (left.type === "undefined" && right.type === "number")
     ) {
+      const op = expression.operator;
+      if (op === "<" || op === "<=" || op === ">" || op === ">=") {
+        return this.runtime.newBoolean(false);
+      }
+
       return this.runtime.newNumber(NaN);
     }
 
@@ -341,9 +368,9 @@ export class Interpreter {
     }
 
     try {
-      const result = this.executeStatement(fn.body);
+      this.executeStatement(fn.body);
       this.runtime.popScope();
-      return result;
+      return this.runtime.newUndefined();
     } catch (errorOrReturnValue) {
       // rethrow if not a return value so we don't mask any actual errors
 
@@ -673,7 +700,11 @@ export class Interpreter {
       case "expression":
         return this.executeExpression(statement.expression);
       case "return": {
-        const value = this.executeExpression(statement.expression);
+        let value: JSObject = this.runtime.newUndefined();
+        if (statement.expression) {
+          value = this.executeExpression(statement.expression);
+        }
+
         throw { type: "__RETURN_VALUE__", value };
       }
       case "variable_declaration": {
@@ -734,7 +765,15 @@ export class Interpreter {
         let test = this.executeExpression(statement.test);
 
         while (test && test.isTruthy()) {
-          this.executeStatement(statement.body);
+          try {
+            this.executeStatement(statement.body);
+          } catch (e) {
+            if (e.type === "__BREAK__") {
+              break;
+            }
+            throw e;
+          }
+
           this.executeExpression(statement.update);
           test = this.executeExpression(statement.test);
         }
@@ -745,7 +784,15 @@ export class Interpreter {
       case "while": {
         let condition = this.executeExpression(statement.condition);
         while (condition.isTruthy()) {
-          this.executeStatement(statement.body);
+          try {
+            this.executeStatement(statement.body);
+          } catch (e) {
+            if (e.type === "__BREAK__") {
+              break;
+            }
+            throw e;
+          }
+
           condition = this.executeExpression(statement.condition);
           if (!condition.isTruthy()) break;
         }

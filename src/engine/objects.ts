@@ -1,7 +1,17 @@
 import { Statement, Parameter } from "../ast.ts";
 
+type ObjectType =
+  | "array"
+  | "boolean"
+  | "function"
+  | "null"
+  | "number"
+  | "object"
+  | "string"
+  | "undefined";
+
 export class JSObject {
-  type = "object";
+  type: ObjectType = "object";
   properties: Record<string, JSObject> = {};
 
   prototype: JSObject | null = null;
@@ -22,7 +32,7 @@ export class JSObject {
 }
 
 export class JSUndefined extends JSObject {
-  type = "undefined";
+  type: ObjectType = "undefined";
 
   toString() {
     return "undefined";
@@ -34,7 +44,7 @@ export class JSUndefined extends JSObject {
 }
 
 export class JSNull extends JSObject {
-  type = "null";
+  type: ObjectType = "null";
 
   toString() {
     return "null";
@@ -46,7 +56,7 @@ export class JSNull extends JSObject {
 }
 
 export class JSNumber extends JSObject {
-  type = "number";
+  type: ObjectType = "number";
   value: number;
 
   toString() {
@@ -54,12 +64,12 @@ export class JSNumber extends JSObject {
   }
 
   isTruthy() {
-    return this.value !== 0;
+    return this.value !== 0 && !Number.isNaN(this.value);
   }
 }
 
 export class JSString extends JSObject {
-  type = "string";
+  type: ObjectType = "string";
   value: string;
 
   constructor(value: string) {
@@ -77,7 +87,7 @@ export class JSString extends JSObject {
 }
 
 export class JSBoolean extends JSObject {
-  type = "boolean";
+  type: ObjectType = "boolean";
   value: boolean;
 
   toString() {
@@ -90,7 +100,7 @@ export class JSBoolean extends JSObject {
 }
 
 export class JSArray extends JSObject {
-  type = "array";
+  type: ObjectType = "array";
   elements: JSObject[] = [];
 
   length() {
@@ -108,7 +118,7 @@ export type BuiltInFunction = (
 ) => JSObject;
 
 export class JSFunction extends JSObject {
-  type = "function";
+  type: ObjectType = "function";
   isBuiltIn = false;
   builtInFunction: BuiltInFunction;
   body: Statement;
