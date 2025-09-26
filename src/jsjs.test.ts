@@ -29,6 +29,9 @@ Deno.test("parser: expressions", async (t) => {
   await t.step("parses number literal", () =>
     textExpression("123;", { type: "number", value: 123 })
   );
+  await t.step("parses null literal", () =>
+    textExpression("null;", { type: "null" })
+  );
   await t.step("parses empty string literal", () =>
     textExpression('"";', { type: "string", value: "" })
   );
@@ -266,6 +269,55 @@ Deno.test("parser: expressions", async (t) => {
     textExpression("...a;", {
       type: "spread",
       expression: { type: "identifier", value: "a" },
+    });
+  });
+
+  await t.step("super call expression", () => {
+    textExpression("super();", {
+      type: "super_call",
+      arguments: [],
+    });
+  });
+
+  await t.step("super call expression with arguments", () => {
+    textExpression("super(name, age);", {
+      type: "super_call",
+      arguments: [
+        { type: "identifier", value: "name" },
+        { type: "identifier", value: "age" },
+      ],
+    });
+  });
+
+  await t.step("super member expression", () => {
+    textExpression("super.method;", {
+      type: "super_member",
+      property: "method",
+    });
+  });
+
+  await t.step("super member call expression", () => {
+    textExpression("super.method();", {
+      type: "call",
+      func: {
+        type: "super_member",
+        property: "method",
+      },
+      arguments: [],
+    });
+  });
+
+  await t.step("super member call expression with arguments", () => {
+    textExpression("super.method(arg1, arg2);", {
+      type: "call",
+      func: {
+        type: "super_member",
+        property: "method",
+      },
+      arguments: [
+        { type: "identifier", value: "arg1" },
+        { type: "identifier", value: "arg2" },
+      ],
     });
   });
 

@@ -16,14 +16,20 @@ import {
   JSFunction,
   BuiltInFunction,
   JSArray,
+  JSNull,
 } from "./objects.ts";
+
+type Binding = {
+  initialized: boolean;
+  value: JSObject;
+};
 
 export class Runtime {
   intrinsics: Record<string, JSObject> = {};
   interpreter: Interpreter;
 
   scope = 0;
-  scopes: Record<string, JSObject>[] = [];
+  scopes: Record<string, Binding>[] = [];
 
   logger: Logger = console.log;
 
@@ -61,27 +67,37 @@ export class Runtime {
     // other
     const mathConstructor = createMathConstructor(this);
 
-    const global = {
-      Object: objectConstructor,
-      Array: arrayConstructor,
-      Function: functionConstructor,
-      Math: mathConstructor,
-
-      console: this.newObject({
-        log: this.newBuiltinFunction((_, ...args: JSObject[]) => {
-          this.logger(...args.map((a) => a.toString()));
-          return this.newUndefined();
+    const global: Record<string, Binding> = {
+      Object: { initialized: true, value: objectConstructor },
+      Array: { initialized: true, value: arrayConstructor },
+      Function: { initialized: true, value: functionConstructor },
+      Math: { initialized: true, value: mathConstructor },
+      console: {
+        initialized: true,
+        value: this.newObject({
+          log: this.newBuiltinFunction((_, ...args: JSObject[]) => {
+            this.logger(...args.map((a) => a.toString()));
+            return this.newUndefined();
+          }),
         }),
-      }),
+      },
     };
 
     this.scopes.push(global);
+
+    this.declareVariable("Infinity", this.newNumber(Infinity));
+    this.declareVariable("NaN", this.newNumber(NaN));
+    this.declareVariable("undefined", this.newUndefined());
   }
 
   //#region type factories
 
   newUndefined(): JSUndefined {
     return new JSUndefined();
+  }
+
+  newNull(): JSNull {
+    return new JSNull();
   }
 
   newNumber(value: number): JSNumber {
@@ -110,6 +126,10 @@ export class Runtime {
       object.prototype = proto as JSObject;
     }
 
+    const functionPrototype = this.newObject();
+    functionPrototype.properties["constructor"] = object;
+    object.properties["prototype"] = functionPrototype;
+
     return object;
   }
 
@@ -122,6 +142,10 @@ export class Runtime {
     if (proto && proto.type === "object") {
       object.prototype = proto as JSObject;
     }
+
+    const functionPrototype = this.newObject();
+    functionPrototype.properties["constructor"] = object;
+    object.properties["prototype"] = functionPrototype;
 
     return object;
   }
@@ -155,29 +179,78 @@ export class Runtime {
     this.scope--;
   }
 
-  declareVariable(name: string, value: JSObject) {
+  declareVariable(
+    name: string,
+    value: JSObject,
+    kind: "var" | "let" | "const" = "var"
+  ) {
     const scope = this.scopes[this.scope];
-    scope[name] = value;
+
+    if (kind === "var") {
+      // vars can be redeclared
+      if (name in scope) {
+        const binding = scope[name];
+        binding.value = value;
+        binding.initialized = true;
+      } else {
+        scope[name] = { initialized: true, value };
+      }
+    } else if (kind === "let" || kind === "const") {
+      // let and const can't be redeclared
+      if (name in scope) {
+        throw new SyntaxError(`Identifier '${name}' has already been declared`);
+      }
+      scope[name] = { initialized: false, value: this.newUndefined() };
+    }
   }
 
   setVariable(name: string, value: JSObject) {
-    const scope = this.scopes[this.scope];
-    scope[name] = value;
-  }
-
-  lookupVariable(name: string) {
     let index = this.scope;
-
     while (index >= 0) {
       const scope = this.scopes[index];
-
       if (name in scope) {
-        return scope[name];
+        const binding = scope[name];
+        if (!binding.initialized) {
+          throw new ReferenceError(
+            `Cannot access '${name}' before initialization`
+          );
+        }
+        binding.value = value;
+        return;
       }
-
       index--;
     }
 
+    // not found, assign to global scope
+    const global = this.scopes[0];
+    if (!(name in global)) {
+      global[name] = { initialized: true, value };
+    } else {
+      const binding = global[name];
+      if (!binding.initialized) {
+        throw new ReferenceError(
+          `Cannot access '${name}' before initialization`
+        );
+      }
+      binding.value = value;
+    }
+  }
+
+  lookupVariable(name: string): JSObject {
+    let index = this.scope;
+    while (index >= 0) {
+      const scope = this.scopes[index];
+      if (name in scope) {
+        const binding = scope[name];
+        if (!binding.initialized) {
+          throw new ReferenceError(
+            `Cannot access '${name}' before initialization`
+          );
+        }
+        return binding.value;
+      }
+      index--;
+    }
     return this.newUndefined();
   }
 
@@ -203,7 +276,7 @@ export class Runtime {
     let current: JSObject | null = object as JSObject;
 
     while (current) {
-      if (current.properties[property]) {
+      if (Object.prototype.hasOwnProperty.call(current.properties, property)) {
         return current.properties[property];
       }
       current = current.prototype;

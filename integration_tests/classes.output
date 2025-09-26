@@ -1,0 +1,8 @@
+name: Rover
+breed: Collie
+type: dog
+describe: Dog named Rover (Collie)
+describe from prototype: Animal named Shadow
+constructor: true
+proto === Dog.prototype: true
+proto chain reaches Animal.prototype: true

@@ -99,6 +99,7 @@ export type Expression = WithLocation<
   | { type: "string"; value: string }
   | { type: "boolean"; value: boolean }
   | { type: "identifier"; value: string }
+  | { type: "null" }
   | { type: "object"; properties: Record<string, Expression> }
   | { type: "array"; elements: Expression[] }
   | {
@@ -140,6 +141,14 @@ export type Expression = WithLocation<
       type: "decrement";
       expression: Expression;
       postfix: boolean;
+    }
+  | {
+      type: "super_call";
+      arguments: Expression[];
+    }
+  | {
+      type: "super_member";
+      property: string;
     }
 >;
 

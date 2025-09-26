@@ -274,6 +274,47 @@ export class Interpreter {
       return this.runtime.newNumber(NaN);
     }
 
+    // function equality
+    if (left.type === "function" && right.type === "function") {
+      const leftFunc = left as JSFunction;
+      const rightFunc = right as JSFunction;
+
+      if (expression.operator === "===" || expression.operator === "==") {
+        return this.runtime.newBoolean(leftFunc === rightFunc);
+      }
+      if (expression.operator === "!==" || expression.operator === "!=") {
+        return this.runtime.newBoolean(leftFunc !== rightFunc);
+      }
+    }
+
+    // function vs other type
+    if (
+      (left.type === "function" && right.type !== "function") ||
+      (left.type !== "function" && right.type === "function")
+    ) {
+      if (expression.operator === "===" || expression.operator === "!==") {
+        const result = expression.operator === "===" ? false : true;
+        return this.runtime.newBoolean(result);
+      }
+      if (expression.operator === "==" || expression.operator === "!=") {
+        const result = expression.operator === "==" ? false : true;
+        return this.runtime.newBoolean(result);
+      }
+    }
+
+    // object equality
+    if (left.type === "object" && right.type === "object") {
+      const leftObj = left as JSObject;
+      const rightObj = right as JSObject;
+
+      if (expression.operator === "===" || expression.operator === "==") {
+        return this.runtime.newBoolean(leftObj === rightObj);
+      }
+      if (expression.operator === "!==" || expression.operator === "!=") {
+        return this.runtime.newBoolean(leftObj !== rightObj);
+      }
+    }
+
     // insane things happen here lol
 
     throw todo(
@@ -327,6 +368,8 @@ export class Interpreter {
         return this.runtime.newString(expression.value);
       case "boolean":
         return this.runtime.newBoolean(expression.value);
+      case "null":
+        return this.runtime.newNull();
       case "identifier":
         return this.runtime.lookupVariable(expression.value);
       case "call": {
@@ -439,13 +482,7 @@ export class Interpreter {
           let property: JSObject;
 
           if (memberExpression.computed) {
-            if (memberExpression.property.type === "identifier") {
-              property = this.runtime.newString(
-                memberExpression.property.value
-              );
-            } else {
-              property = this.executeExpression(memberExpression.property);
-            }
+            property = this.executeExpression(memberExpression.property);
           } else {
             if (memberExpression.property.type !== "identifier") {
               throw referenceError(
@@ -531,6 +568,87 @@ export class Interpreter {
         return this.runtime.newBoolean(!operand.isTruthy());
       }
 
+      case "super_call": {
+        // current constructor context
+        const thisVal = this.runtime.lookupVariable("this");
+        if (thisVal.type === "undefined") {
+          throw referenceError("'super' keyword unexpected here", expression);
+        }
+
+        // find the current constructor
+        const currentConstructor = this.runtime.getProperty(
+          thisVal,
+          "constructor"
+        ) as JSFunction;
+        if (currentConstructor.type !== "function") {
+          throw referenceError(
+            "Cannot find current constructor for super call",
+            expression
+          );
+        }
+
+        // get the parent constructor
+        const currentPrototype = currentConstructor.properties[
+          "prototype"
+        ] as JSObject;
+        const parentPrototype = currentPrototype.prototype;
+        if (!parentPrototype) {
+          throw referenceError(
+            "Class does not extend another class",
+            expression
+          );
+        }
+
+        const parentConstructor = this.runtime.getProperty(
+          parentPrototype,
+          "constructor"
+        ) as JSFunction;
+        if (parentConstructor.type !== "function") {
+          throw referenceError("Cannot find parent constructor", expression);
+        }
+
+        const args: JSObject[] = [];
+        for (const a of expression.arguments) {
+          args.push(this.executeExpression(a));
+        }
+
+        return this.call(thisVal, parentConstructor, args);
+      }
+
+      case "super_member": {
+        // current constructor context
+        const thisVal = this.runtime.lookupVariable("this");
+        if (thisVal.type === "undefined") {
+          throw referenceError("'super' keyword unexpected here", expression);
+        }
+
+        // find the current constructor
+        const currentConstructor = this.runtime.getProperty(
+          thisVal,
+          "constructor"
+        ) as JSFunction;
+        if (currentConstructor.type !== "function") {
+          throw referenceError(
+            "Cannot find current constructor for super member access",
+            expression
+          );
+        }
+
+        // get the parent prototype
+        const currentPrototype = currentConstructor.properties[
+          "prototype"
+        ] as JSObject;
+        const parentPrototype = currentPrototype.prototype;
+        if (!parentPrototype) {
+          throw referenceError(
+            "Class does not extend another class",
+            expression
+          );
+        }
+
+        return this.runtime.getProperty(parentPrototype, expression.property);
+      }
+
       default:
         throw todo(expression.type, expression);
     }
@@ -544,8 +662,14 @@ export class Interpreter {
     switch (statement.type) {
       case "empty":
         return this.runtime.newUndefined();
-      case "block":
-        return this.executeStatements(statement.body);
+      case "block": {
+        this.runtime.pushScope();
+        try {
+          return this.executeStatements(statement.body);
+        } finally {
+          this.runtime.popScope();
+        }
+      }
       case "expression":
         return this.executeExpression(statement.expression);
       case "return": {
@@ -553,9 +677,31 @@ export class Interpreter {
         throw { type: "__RETURN_VALUE__", value };
       }
       case "variable_declaration": {
-        if (statement.value !== undefined) {
-          const value = this.executeExpression(statement.value);
-          this.runtime.declareVariable(statement.identifier, value);
+        if (statement.declarationType === "var") {
+          if (statement.value !== undefined) {
+            const value = this.executeExpression(statement.value);
+            this.runtime.declareVariable(statement.identifier, value, "var");
+            return value;
+          }
+          return this.runtime.newUndefined();
+        } else if (
+          statement.declarationType === "let" ||
+          statement.declarationType === "const"
+        ) {
+          const scope = this.runtime.scopes[this.runtime.scope];
+          const binding = scope[statement.identifier];
+          if (!binding) {
+            throw referenceError(
+              `binding for '${statement.identifier}' not found in current scope`,
+              statement
+            );
+          }
+          let value = this.runtime.newUndefined();
+          if (statement.value !== undefined) {
+            value = this.executeExpression(statement.value);
+          }
+          binding.value = value;
+          binding.initialized = true;
           return value;
         }
 
@@ -645,25 +791,101 @@ export class Interpreter {
         throw { type: "__BREAK__" };
       }
 
+      case "class_declaration": {
+        const constructorMethod = statement.methods.find(
+          (m) => m.name === "constructor"
+        );
+
+        const ctor = constructorMethod
+          ? this.runtime.newFunction(
+              constructorMethod.parameters,
+              constructorMethod.body
+            )
+          : this.runtime.newFunction([], {
+              type: "empty",
+              location: statement.location,
+            });
+
+        // extends
+        if (statement.superClass) {
+          const parentClass = this.runtime.lookupVariable(statement.superClass);
+          if (parentClass.type !== "function") {
+            throw typeError(
+              `Class extends value ${statement.superClass} is not a constructor or null`,
+              statement
+            );
+          }
+
+          const parentPrototype = parentClass.properties[
+            "prototype"
+          ] as JSObject;
+
+          const childPrototype = this.runtime.newObject();
+          childPrototype.prototype = parentPrototype;
+          childPrototype.properties["constructor"] = ctor;
+          ctor.properties["prototype"] = childPrototype;
+        }
+
+        for (const prop of statement.properties) {
+          const value = prop.value
+            ? this.executeExpression(prop.value)
+            : this.runtime.newUndefined();
+
+          if (prop.static) {
+            ctor.properties[prop.name] = value;
+          } else {
+            const prototypeObj = ctor.properties["prototype"] as JSObject;
+            prototypeObj.properties[prop.name] = value;
+          }
+        }
+
+        for (const meth of statement.methods) {
+          if (meth.name === "constructor") continue;
+
+          const func = this.runtime.newFunction(meth.parameters, meth.body);
+
+          if (meth.static) {
+            ctor.properties[meth.name] = func;
+          } else {
+            const prototypeObj = ctor.properties["prototype"] as JSObject;
+            prototypeObj.properties[meth.name] = func;
+          }
+        }
+
+        this.runtime.declareVariable(statement.identifier, ctor);
+
+        break;
+      }
+
       default:
-        throw todo(statement.type, statement);
+        assertNotReached(statement);
     }
   }
 
   executeStatements(statements: Statement[]): JSObject {
-    // run function declarations first
+    // hoist function declarations
     for (const statement of statements) {
       if (statement.type !== "function_declaration") continue;
 
-      this.executeStatement(statement);
+      const func = this.runtime.newFunction(
+        statement.parameters,
+        statement.body
+      );
+      this.runtime.declareVariable(statement.identifier, func, "var");
     }
 
     // hoist "var" declarations
+    const currentScope = this.runtime.scopes[this.runtime.scope];
     for (const statement of statements) {
       if (statement.type !== "variable_declaration") continue;
       if (statement.declarationType !== "var") continue;
 
-      this.executeStatement(statement);
+      if (statement.identifier in currentScope) continue;
+      this.runtime.declareVariable(
+        statement.identifier,
+        this.runtime.newUndefined(),
+        "var"
+      );
     }
 
     let lastValue = this.runtime.newUndefined();
@@ -671,12 +893,6 @@ export class Interpreter {
     // run other statements
     for (const statement of statements) {
       if (statement.type === "function_declaration") continue;
-      if (
-        statement.type === "variable_declaration" &&
-        statement.declarationType === "var"
-      )
-        continue;
-
       lastValue = this.executeStatement(statement);
     }
 

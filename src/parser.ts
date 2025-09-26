@@ -291,7 +291,7 @@ export class Parser {
   parseNotExpression(): Expression {
     const token = this.expect("not");
 
-    const expression = this.parseExpression();
+    const expression = this.parseExpression(15);
 
     return withLocation(
       {
@@ -343,6 +343,11 @@ export class Parser {
             { type: "boolean", value: token.value === "true" },
             token
           );
+          break;
+        }
+
+        if (token.value === "null") {
+          left = withLocation({ type: "null" }, token);
           break;
         }
 
@@ -408,6 +413,47 @@ export class Parser {
             token
           );
           break;
+        }
+
+        if (token.value === "super") {
+          if (this.peekNextToken()?.type === "left_paren") {
+            // super() call
+            this.expect("left_paren");
+
+            const args: Expression[] = [];
+            while (this.peekNextToken()?.type !== "right_paren") {
+              args.push(this.parseExpression(0));
+              if (this.peekNextToken()?.type !== "right_paren") {
+                this.expect("comma");
+              }
+            }
+
+            this.expect("right_paren");
+
+            left = withLocation(
+              {
+                type: "super_call",
+                arguments: args,
+              },
+              token
+            );
+            break;
+          } else if (this.peekNextToken()?.type === "dot") {
+            // super.method
+            this.expect("dot");
+            const property = this.expect("identifier");
+
+            left = withLocation(
+              {
+                type: "super_member",
+                property: property.value,
+              },
+              token
+            );
+            break;
+          } else {
+            throw syntaxError(token);
+          }
         }
 
         throw new Error("unexpected token: " + token.type + ": " + token.value);
@@ -1044,7 +1090,9 @@ export class Parser {
         if (
           token.value === "true" ||
           token.value === "false" ||
-          token.value === "new"
+          token.value === "new" ||
+          token.value === "null" ||
+          token.value === "super"
         ) {
           return this.parseExpressionStatement();
         }

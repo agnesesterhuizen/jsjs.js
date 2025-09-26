@@ -33,6 +33,18 @@ export class JSUndefined extends JSObject {
   }
 }
 
+export class JSNull extends JSObject {
+  type = "null";
+
+  toString() {
+    return "null";
+  }
+
+  isTruthy() {
+    return false;
+  }
+}
+
 export class JSNumber extends JSObject {
   type = "number";
   value: number;

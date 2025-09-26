@@ -1,0 +1,1504 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "class_declaration",
+      "identifier": "Animal",
+      "properties": [],
+      "methods": [
+        {
+          "name": "constructor",
+          "parameters": [
+            {
+              "name": "name"
+            }
+          ],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 3,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "name",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 3,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 3,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "name",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 3,
+                      "column": 17
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 3,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 3,
+                  "column": 5
+                }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 4,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "type",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 4,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 4,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "string",
+                    "value": "animal",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 4,
+                      "column": 17
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 4,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 4,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 2,
+              "column": 21
+            }
+          },
+          "static": false
+        },
+        {
+          "name": "describe",
+          "parameters": [],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "return",
+                "expression": {
+                  "type": "binary",
+                  "operator": "+",
+                  "left": {
+                    "type": "string",
+                    "value": "Animal named ",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 8,
+                      "column": 12
+                    }
+                  },
+                  "right": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 8,
+                        "column": 30
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "name",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 8,
+                        "column": 35
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 8,
+                      "column": 30
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 8,
+                    "column": 28
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 8,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 7,
+              "column": 14
+            }
+          },
+          "static": false
+        },
+        {
+          "name": "getType",
+          "parameters": [],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "return",
+                "expression": {
+                  "type": "member",
+                  "object": {
+                    "type": "identifier",
+                    "value": "this",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 12,
+                      "column": 12
+                    }
+                  },
+                  "property": {
+                    "type": "identifier",
+                    "value": "type",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 12,
+                      "column": 17
+                    }
+                  },
+                  "computed": false,
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 12,
+                    "column": 12
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 12,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 11,
+              "column": 13
+            }
+          },
+          "static": false
+        }
+      ],
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 1,
+        "column": 1
+      }
+    },
+    {
+      "type": "class_declaration",
+      "identifier": "Dog",
+      "properties": [],
+      "methods": [
+        {
+          "name": "constructor",
+          "parameters": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "breed"
+            }
+          ],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "super_call",
+                  "arguments": [
+                    {
+                      "type": "identifier",
+                      "value": "name",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 18,
+                        "column": 11
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 18,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 18,
+                  "column": 5
+                }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 19,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "breed",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 19,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 19,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "breed",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 19,
+                      "column": 18
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 19,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 19,
+                  "column": 5
+                }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 20,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "type",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 20,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 20,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "string",
+                    "value": "dog",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 20,
+                      "column": 17
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 20,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 20,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 17,
+              "column": 28
+            }
+          },
+          "static": false
+        },
+        {
+          "name": "describe",
+          "parameters": [],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "return",
+                "expression": {
+                  "type": "binary",
+                  "operator": "+",
+                  "left": {
+                    "type": "binary",
+                    "operator": "+",
+                    "left": {
+                      "type": "binary",
+                      "operator": "+",
+                      "left": {
+                        "type": "binary",
+                        "operator": "+",
+                        "left": {
+                          "type": "string",
+                          "value": "Dog named ",
+                          "location": {
+                            "file": "./integration_tests/classes.js",
+                            "line": 24,
+                            "column": 12
+                          }
+                        },
+                        "right": {
+                          "type": "member",
+                          "object": {
+                            "type": "identifier",
+                            "value": "this",
+                            "location": {
+                              "file": "./integration_tests/classes.js",
+                              "line": 24,
+                              "column": 27
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "name",
+                            "location": {
+                              "file": "./integration_tests/classes.js",
+                              "line": 24,
+                              "column": 32
+                            }
+                          },
+                          "computed": false,
+                          "location": {
+                            "file": "./integration_tests/classes.js",
+                            "line": 24,
+                            "column": 27
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/classes.js",
+                          "line": 24,
+                          "column": 25
+                        }
+                      },
+                      "right": {
+                        "type": "string",
+                        "value": " (",
+                        "location": {
+                          "file": "./integration_tests/classes.js",
+                          "line": 24,
+                          "column": 39
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 24,
+                        "column": 37
+                      }
+                    },
+                    "right": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "this",
+                        "location": {
+                          "file": "./integration_tests/classes.js",
+                          "line": 24,
+                          "column": 46
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "breed",
+                        "location": {
+                          "file": "./integration_tests/classes.js",
+                          "line": 24,
+                          "column": 51
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 24,
+                        "column": 46
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 24,
+                      "column": 44
+                    }
+                  },
+                  "right": {
+                    "type": "string",
+                    "value": ")",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 24,
+                      "column": 59
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 24,
+                    "column": 57
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 24,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 23,
+              "column": 14
+            }
+          },
+          "static": false
+        }
+      ],
+      "superClass": "Animal",
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "identifier": "rover",
+      "value": {
+        "type": "new",
+        "identifier": "Dog",
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Rover",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 28,
+              "column": 23
+            }
+          },
+          {
+            "type": "string",
+            "value": "Collie",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 28,
+              "column": 32
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 28,
+          "column": 15
+        }
+      },
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 30,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 30,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/classes.js",
+            "line": 30,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "name:",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 30,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "rover",
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 30,
+                "column": 22
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "name",
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 30,
+                "column": 28
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 30,
+              "column": 22
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 30,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 31,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 31,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/classes.js",
+            "line": 31,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "breed:",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 31,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "rover",
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 31,
+                "column": 23
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "breed",
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 31,
+                "column": 29
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 31,
+              "column": 23
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 31,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 32,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 32,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/classes.js",
+            "line": 32,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "type:",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 32,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "rover",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 32,
+                  "column": 22
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "getType",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 32,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 32,
+                "column": 22
+              }
+            },
+            "arguments": [],
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 32,
+              "column": 35
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 32,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 33,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 33,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/classes.js",
+            "line": 33,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "describe:",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 33,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "rover",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 33,
+                  "column": 26
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "describe",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 33,
+                  "column": 32
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 33,
+                "column": 26
+              }
+            },
+            "arguments": [],
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 33,
+              "column": 40
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 33,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 33,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 34,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 34,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/classes.js",
+            "line": 34,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "describe from prototype:",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 35,
+              "column": 3
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "member",
+                "object": {
+                  "type": "member",
+                  "object": {
+                    "type": "identifier",
+                    "value": "Animal",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 36,
+                      "column": 3
+                    }
+                  },
+                  "property": {
+                    "type": "identifier",
+                    "value": "prototype",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 36,
+                      "column": 10
+                    }
+                  },
+                  "computed": false,
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 36,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "describe",
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 36,
+                    "column": 20
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 36,
+                  "column": 3
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "call",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 36,
+                  "column": 29
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 36,
+                "column": 3
+              }
+            },
+            "arguments": [
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Shadow",
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 36,
+                      "column": 42
+                    }
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 36,
+                  "column": 34
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 36,
+              "column": 33
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 34,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 38,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 38,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/classes.js",
+            "line": 38,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "constructor:",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 38,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "===",
+            "left": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "rover",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 38,
+                  "column": 29
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "constructor",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 38,
+                  "column": 35
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 38,
+                "column": 29
+              }
+            },
+            "right": {
+              "type": "identifier",
+              "value": "Dog",
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 38,
+                "column": 51
+              }
+            },
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 38,
+              "column": 47
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 38,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 39,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 39,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/classes.js",
+            "line": 39,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "proto === Dog.prototype:",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 40,
+              "column": 3
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "===",
+            "left": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "Object",
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 41,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "getPrototypeOf",
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 41,
+                    "column": 10
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 41,
+                  "column": 3
+                }
+              },
+              "arguments": [
+                {
+                  "type": "identifier",
+                  "value": "rover",
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 41,
+                    "column": 25
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 41,
+                "column": 24
+              }
+            },
+            "right": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "Dog",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 41,
+                  "column": 36
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "prototype",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 41,
+                  "column": 40
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 41,
+                "column": 36
+              }
+            },
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 41,
+              "column": 32
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 39,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 43,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 43,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/classes.js",
+            "line": 43,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "proto chain reaches Animal.prototype:",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 44,
+              "column": 3
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "===",
+            "left": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "Object",
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 45,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "getPrototypeOf",
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 45,
+                    "column": 10
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 45,
+                  "column": 3
+                }
+              },
+              "arguments": [
+                {
+                  "type": "call",
+                  "func": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "Object",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 45,
+                        "column": 25
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "getPrototypeOf",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 45,
+                        "column": 32
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/classes.js",
+                      "line": 45,
+                      "column": 25
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "identifier",
+                      "value": "rover",
+                      "location": {
+                        "file": "./integration_tests/classes.js",
+                        "line": 45,
+                        "column": 47
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/classes.js",
+                    "line": 45,
+                    "column": 46
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 45,
+                "column": 24
+              }
+            },
+            "right": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "Animal",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 45,
+                  "column": 59
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "prototype",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 45,
+                  "column": 66
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/classes.js",
+                "line": 45,
+                "column": 59
+              }
+            },
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 45,
+              "column": 55
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/classes.js",
+          "line": 43,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/classes.js",
+        "line": 43,
+        "column": 1
+      }
+    }
+  ]
+}
