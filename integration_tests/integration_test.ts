@@ -28,41 +28,43 @@ const getAst = (filename: string, src: string) => {
 
 const tests = getTests();
 
-tests.forEach((name) => {
-  Deno.test(`integration: ${name}`, async () => {
-    const filename = `${TEST_DIR}/${name}.js`;
-    const astFileName = `${TEST_DIR}/${name}.ast.json`;
-    const outputFileName = `${TEST_DIR}/${name}.output`;
-    const src = Deno.readTextFileSync(filename);
-    const ast = getAst(filename, src);
+Deno.test(`integration:`, async (t) => {
+  for (const name of tests) {
+    await t.step(name, async () => {
+      const filename = `${TEST_DIR}/${name}.js`;
+      const astFileName = `${TEST_DIR}/${name}.ast.json`;
+      const outputFileName = `${TEST_DIR}/${name}.output`;
+      const src = Deno.readTextFileSync(filename);
+      const ast = getAst(filename, src);
 
-    if (OVERWRITE_SNAPSHOTS) {
-      Deno.writeTextFileSync(astFileName, JSON.stringify(ast, null, 2));
-    }
+      if (OVERWRITE_SNAPSHOTS) {
+        Deno.writeTextFileSync(astFileName, JSON.stringify(ast, null, 2));
+      }
 
-    const expectedAst = Deno.readTextFileSync(astFileName);
+      const expectedAst = Deno.readTextFileSync(astFileName);
 
-    assertEquals(JSON.stringify(ast, null, 2), expectedAst);
+      assertEquals(JSON.stringify(ast, null, 2), expectedAst);
 
-    const command = new Deno.Command("deno", {
-      args: ["run", "-A", "src/main.ts", filename],
+      const command = new Deno.Command("deno", {
+        args: ["run", "-A", "src/main.ts", filename],
+      });
+      const { success, stdout, stderr } = await command.output();
+
+      assertEquals(
+        success,
+        true,
+        "failed to run test file: \n" + new TextDecoder().decode(stderr)
+      );
+
+      const out = new TextDecoder().decode(stdout);
+
+      if (OVERWRITE_SNAPSHOTS) {
+        Deno.writeTextFileSync(outputFileName, out);
+      }
+
+      const expectedOut = Deno.readTextFileSync(outputFileName);
+
+      assertEquals(out, expectedOut);
     });
-    const { success, stdout, stderr } = await command.output();
-
-    assertEquals(
-      success,
-      true,
-      "failed to run test file: \n" + new TextDecoder().decode(stderr)
-    );
-
-    const out = new TextDecoder().decode(stdout);
-
-    if (OVERWRITE_SNAPSHOTS) {
-      Deno.writeTextFileSync(outputFileName, out);
-    }
-
-    const expectedOut = Deno.readTextFileSync(outputFileName);
-
-    assertEquals(out, expectedOut);
-  });
+  }
 });

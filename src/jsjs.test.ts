@@ -1,5 +1,4 @@
 import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
-import { describe, it } from "jsr:@std/testing/bdd";
 import { JSJS } from "./jsjs.ts";
 
 const textExpression = (source: string, expression: any) => {
@@ -20,104 +19,127 @@ const testStatement = (source: string, statement: any) => {
   assertObjectMatch(ast.body[0], statement);
 };
 
-describe("parser", () => {
-  describe("expressions", () => {
-    it("parses expression in parens", () =>
-      textExpression("(123);", { type: "number", value: 123 }));
-    it("parses number literal", () =>
-      textExpression("123;", { type: "number", value: 123 }));
-    it("parses empty string literal", () =>
-      textExpression('"";', { type: "string", value: "" }));
-    it("parses string literal", () =>
-      textExpression('"hello";', { type: "string", value: "hello" }));
-    it("parses string literal, single quotes", () =>
-      textExpression("'hello';", { type: "string", value: "hello" }));
-    it("parses string literal, backticks", () =>
-      textExpression("`hello`;", { type: "string", value: "hello" }));
-    it("parses boolean literal: true", () =>
-      textExpression("true;", { type: "boolean", value: true }));
-    it("parses boolean literal: false", () =>
-      textExpression("false;", { type: "boolean", value: false }));
-    it("parses identifier literal: false", () =>
-      textExpression("test;", { type: "identifier", value: "test" }));
-    it("parses object literal - empty", () =>
-      textExpression("({});", { type: "object", properties: {} }));
-    it("parses object literal", () =>
-      textExpression('({a: 123, b: "test"});', {
-        type: "object",
-        properties: {
-          a: { type: "number", value: 123 },
-          b: { type: "string", value: "test" },
-        },
-      }));
-    it("parses array literal - empty", () =>
-      textExpression("([]);", { type: "array", elements: [] }));
-    it("parses array literal", () =>
-      textExpression('([123, "test"]);', {
-        type: "array",
-        elements: [
-          { type: "number", value: 123 },
-          { type: "string", value: "test" },
-        ],
-      }));
-    it("parses assignment expression - identifier", () =>
-      textExpression("x = 123;", {
-        type: "assignment",
-        operator: "=",
-        left: { type: "identifier", value: "x" },
-        right: { type: "number", value: 123 },
-      }));
-    it("parses assignment expression - member", () =>
-      textExpression("x.y = 123;", {
-        type: "assignment",
-        operator: "=",
-        left: {
-          type: "member",
-          object: { type: "identifier", value: "x" },
-          property: { type: "identifier", value: "y" },
-          computed: false,
-        },
-        right: { type: "number", value: 123 },
-      }));
-    it("parses assignment expression - computed member", () =>
-      textExpression("x[y] = 123;", {
-        type: "assignment",
-        operator: "=",
-        left: {
-          type: "member",
-          object: { type: "identifier", value: "x" },
-          property: { type: "identifier", value: "y" },
-          computed: true,
-        },
-        right: { type: "number", value: 123 },
-      }));
-    it("parses member expression", () =>
-      textExpression("a.b;", {
+Deno.test("parser: expressions", async (t) => {
+  await t.step("parses expression in parens", () =>
+    textExpression("(123);", { type: "number", value: 123 })
+  );
+  await t.step("parses expression in parens", () =>
+    textExpression("(123);", { type: "number", value: 123 })
+  );
+  await t.step("parses number literal", () =>
+    textExpression("123;", { type: "number", value: 123 })
+  );
+  await t.step("parses empty string literal", () =>
+    textExpression('"";', { type: "string", value: "" })
+  );
+  await t.step("parses string literal", () =>
+    textExpression('"hello";', { type: "string", value: "hello" })
+  );
+  await t.step("parses string literal, single quotes", () =>
+    textExpression("'hello';", { type: "string", value: "hello" })
+  );
+  await t.step("parses string literal, backticks", () =>
+    textExpression("`hello`;", { type: "string", value: "hello" })
+  );
+  await t.step("parses boolean literal: true", () =>
+    textExpression("true;", { type: "boolean", value: true })
+  );
+  await t.step("parses boolean literal: false", () =>
+    textExpression("false;", { type: "boolean", value: false })
+  );
+  await t.step("parses identifier literal: false", () =>
+    textExpression("test;", { type: "identifier", value: "test" })
+  );
+  await t.step("parses object literal - empty", () =>
+    textExpression("({});", { type: "object", properties: {} })
+  );
+  await t.step("parses object literal", () =>
+    textExpression('({a: 123, b: "test"});', {
+      type: "object",
+      properties: {
+        a: { type: "number", value: 123 },
+        b: { type: "string", value: "test" },
+      },
+    })
+  );
+  await t.step("parses array literal - empty", () =>
+    textExpression("([]);", { type: "array", elements: [] })
+  );
+  await t.step("parses array literal", () =>
+    textExpression('([123, "test"]);', {
+      type: "array",
+      elements: [
+        { type: "number", value: 123 },
+        { type: "string", value: "test" },
+      ],
+    })
+  );
+  await t.step("parses assignment expression - identifier", () =>
+    textExpression("x = 123;", {
+      type: "assignment",
+      operator: "=",
+      left: { type: "identifier", value: "x" },
+      right: { type: "number", value: 123 },
+    })
+  );
+  await t.step("parses assignment expression - member", () =>
+    textExpression("x.y = 123;", {
+      type: "assignment",
+      operator: "=",
+      left: {
+        type: "member",
+        object: { type: "identifier", value: "x" },
+        property: { type: "identifier", value: "y" },
+        computed: false,
+      },
+      right: { type: "number", value: 123 },
+    })
+  );
+  await t.step("parses assignment expression - computed member", () =>
+    textExpression("x[y] = 123;", {
+      type: "assignment",
+      operator: "=",
+      left: {
+        type: "member",
+        object: { type: "identifier", value: "x" },
+        property: { type: "identifier", value: "y" },
+        computed: true,
+      },
+      right: { type: "number", value: 123 },
+    })
+  );
+  await t.step("parses member expression", () =>
+    textExpression("a.b;", {
+      type: "member",
+      object: { type: "identifier", value: "a" },
+      property: { type: "identifier", value: "b" },
+      computed: false,
+    })
+  );
+  await t.step("parses member expression - nested", () =>
+    textExpression("a.b.c;", {
+      type: "member",
+      object: {
         type: "member",
         object: { type: "identifier", value: "a" },
         property: { type: "identifier", value: "b" },
         computed: false,
-      }));
-    it("parses member expression - nested", () =>
-      textExpression("a.b.c;", {
-        type: "member",
-        object: {
-          type: "member",
-          object: { type: "identifier", value: "a" },
-          property: { type: "identifier", value: "b" },
-          computed: false,
-        },
-        property: { type: "identifier", value: "c" },
-        computed: false,
-      }));
-    it("parses computed member expression", () =>
-      textExpression("a[0];", {
-        type: "member",
-        object: { type: "identifier", value: "a" },
-        property: { type: "number", value: 0 },
-        computed: true,
-      }));
-    it("parses computed member expression - object property as key", () =>
+      },
+      property: { type: "identifier", value: "c" },
+      computed: false,
+    })
+  );
+  await t.step("parses computed member expression", () =>
+    textExpression("a[0];", {
+      type: "member",
+      object: { type: "identifier", value: "a" },
+      property: { type: "number", value: 0 },
+      computed: true,
+    })
+  );
+  await t.step(
+    "parses computed member expression - object property as key",
+    () =>
       textExpression("this.a[b.c];", {
         type: "member",
         object: {
@@ -139,130 +161,245 @@ describe("parser", () => {
           computed: false,
         },
         computed: true,
-      }));
+      })
+  );
 
-    it("parses object expression", () =>
-      textExpression("({});", {
-        type: "object",
-        properties: {},
-      }));
+  await t.step("parses object expression", () =>
+    textExpression("({});", {
+      type: "object",
+      properties: {},
+    })
+  );
 
-    it("parses object expression - with properties", () =>
-      textExpression('({ a: 1, b: "test" });', {
-        type: "object",
-        properties: {
-          a: {
-            type: "number",
-            value: 1,
-          },
-          b: {
-            type: "string",
-            value: "test",
-          },
+  await t.step("parses object expression - with properties", () =>
+    textExpression('({ a: 1, b: "test" });', {
+      type: "object",
+      properties: {
+        a: {
+          type: "number",
+          value: 1,
         },
-      }));
+        b: {
+          type: "string",
+          value: "test",
+        },
+      },
+    })
+  );
 
-    it("parses call expression - no args", () =>
-      textExpression("a();", {
-        type: "call",
-        func: { type: "identifier", value: "a" },
-        arguments: [],
-      }));
-    it("parses call expression", () =>
-      textExpression('a(1,b,"test");', {
-        type: "call",
-        func: { type: "identifier", value: "a" },
-        arguments: [
-          { type: "number", value: 1 },
-          { type: "identifier", value: "b" },
-          { type: "string", value: "test" },
-        ],
-      }));
-    it("parses call member expression", () =>
-      textExpression("a.b();", {
-        type: "call",
-        func: {
-          type: "member",
-          object: { type: "identifier", value: "a" },
-          property: { type: "identifier", value: "b" },
-          computed: false,
+  await t.step("parses call expression - no args", () =>
+    textExpression("a();", {
+      type: "call",
+      func: { type: "identifier", value: "a" },
+      arguments: [],
+    })
+  );
+  await t.step("parses call expression", () =>
+    textExpression('a(1,b,"test");', {
+      type: "call",
+      func: { type: "identifier", value: "a" },
+      arguments: [
+        { type: "number", value: 1 },
+        { type: "identifier", value: "b" },
+        { type: "string", value: "test" },
+      ],
+    })
+  );
+  await t.step("parses call member expression", () =>
+    textExpression("a.b();", {
+      type: "call",
+      func: {
+        type: "member",
+        object: { type: "identifier", value: "a" },
+        property: { type: "identifier", value: "b" },
+        computed: false,
+      },
+      arguments: [],
+    })
+  );
+  await t.step("parses call member expression on literal", () =>
+    textExpression(`[10, 20, 30].forEach(() => {});`, {
+      type: "call",
+      func: {
+        type: "member",
+        object: {
+          type: "array",
+          elements: [
+            { type: "number", value: 10 },
+            { type: "number", value: 20 },
+            { type: "number", value: 30 },
+          ],
         },
-        arguments: [],
-      }));
-    it("parses call member expression on literal", () =>
-      textExpression(`[10, 20, 30].forEach(() => {});`, {
-        type: "call",
-        func: {
-          type: "member",
-          object: {
-            type: "array",
-            elements: [
-              { type: "number", value: 10 },
-              { type: "number", value: 20 },
-              { type: "number", value: 30 },
-            ],
-          },
-          property: { type: "identifier", value: "forEach" },
-          computed: false,
-        },
-        arguments: [
-          {
-            type: "function",
-            parameters: [],
-            body: { type: "block", body: [] },
-          },
-        ],
-      }));
-    it("parses hello world", () =>
-      textExpression('console.log("hello world")', {
-        type: "call",
-        func: {
-          type: "member",
-          object: { type: "identifier", value: "console" },
-          property: { type: "identifier", value: "log" },
-          computed: false,
-        },
-        arguments: [{ type: "string", value: "hello world" }],
-      }));
-    describe("function expression", () => {
-      it("parses basic function expression", () =>
-        textExpression("(function(){});", {
+        property: { type: "identifier", value: "forEach" },
+        computed: false,
+      },
+      arguments: [
+        {
           type: "function",
           parameters: [],
-          body: {
-            type: "block",
-            body: [],
-          },
-        }));
-      it("parses named function expression", () =>
-        textExpression("(function test(){});", {
-          type: "function",
-          identifier: "test",
-          parameters: [],
-          body: {
-            type: "block",
-            body: [],
-          },
-        }));
-      it("parses function expression with single parameter", () =>
-        textExpression("(function(a){});", {
-          type: "function",
-          parameters: [{ name: "a" }],
-          body: {
-            type: "block",
-            body: [],
-          },
-        }));
-      it("parses function expression with parameters", () =>
-        textExpression("(function(a,b,c){});", {
-          type: "function",
-          parameters: ["a", "b", "c"].map((name) => ({ name })),
-          body: {
-            type: "block",
-            body: [],
-          },
-        }));
-      it("parses function expression with body - single statement", () =>
+          body: { type: "block", body: [] },
+        },
+      ],
+    })
+  );
+  await t.step("parses hello world", () =>
+    textExpression('console.log("hello world")', {
+      type: "call",
+      func: {
+        type: "member",
+        object: { type: "identifier", value: "console" },
+        property: { type: "identifier", value: "log" },
+        computed: false,
+      },
+      arguments: [{ type: "string", value: "hello world" }],
+    })
+  );
+
+  await t.step("parses not expression", () =>
+    textExpression("!1;", {
+      type: "not",
+      expression: { type: "number", value: 1 },
+    })
+  );
+
+  await t.step("spread expression", () => {
+    textExpression("...a;", {
+      type: "spread",
+      expression: { type: "identifier", value: "a" },
+    });
+  });
+
+  await t.step("binary expression", async (t) => {
+    await t.step("parses binary expression", () =>
+      textExpression("1+2;", {
+        type: "binary",
+        operator: "+",
+        left: { type: "number", value: 1 },
+        right: { type: "number", value: 2 },
+      })
+    );
+
+    await t.step("parses binary expression with division", () =>
+      textExpression("1/2;", {
+        type: "binary",
+        operator: "/",
+        left: { type: "number", value: 1 },
+        right: { type: "number", value: 2 },
+      })
+    );
+
+    await t.step("parses binary comparison expression", () =>
+      textExpression("1 !== 2;", {
+        type: "binary",
+        operator: "!==",
+        left: { type: "number", value: 1 },
+        right: { type: "number", value: 2 },
+      })
+    );
+
+    // 1+2*3 => 1+(2*3)
+    await t.step("parses binary expression with mixed precedence", () =>
+      textExpression("1+2*3;", {
+        type: "binary",
+        operator: "+",
+        left: { type: "number", value: 1 },
+        right: {
+          type: "binary",
+          operator: "*",
+          left: { type: "number", value: 2 },
+          right: { type: "number", value: 3 },
+        },
+      })
+    );
+
+    // 1*2+3 => (1*2)+3
+    await t.step("parses binary expression with mixed precedence", () =>
+      textExpression("1*2+3;", {
+        type: "binary",
+        operator: "+",
+        left: {
+          type: "binary",
+          operator: "*",
+          left: { type: "number", value: 1 },
+          right: { type: "number", value: 2 },
+        },
+        right: { type: "number", value: 3 },
+      })
+    );
+
+    await t.step("parses binary expression with same precedence", () =>
+      textExpression("1+2+3;", {
+        type: "binary",
+        operator: "+",
+        left: {
+          type: "binary",
+          operator: "+",
+          left: { type: "number", value: 1 },
+          right: { type: "number", value: 2 },
+        },
+        right: { type: "number", value: 3 },
+      })
+    );
+  });
+
+  await t.step("parses new expression", () =>
+    textExpression("new X(123);", {
+      type: "new",
+      identifier: "X",
+      arguments: [
+        {
+          type: "number",
+          value: 123,
+        },
+      ],
+    })
+  );
+
+  await t.step("function expression", async (t) => {
+    await t.step("parses basic function expression", () =>
+      textExpression("(function(){});", {
+        type: "function",
+        parameters: [],
+        body: {
+          type: "block",
+          body: [],
+        },
+      })
+    );
+    await t.step("parses named function expression", () =>
+      textExpression("(function test(){});", {
+        type: "function",
+        identifier: "test",
+        parameters: [],
+        body: {
+          type: "block",
+          body: [],
+        },
+      })
+    );
+    await t.step("parses function expression with single parameter", () =>
+      textExpression("(function(a){});", {
+        type: "function",
+        parameters: [{ name: "a" }],
+        body: {
+          type: "block",
+          body: [],
+        },
+      })
+    );
+    await t.step("parses function expression with parameters", () =>
+      textExpression("(function(a,b,c){});", {
+        type: "function",
+        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [],
+        },
+      })
+    );
+    await t.step(
+      "parses function expression with body - single statement",
+      () =>
         textExpression("(function(){ 123; });", {
           type: "function",
           parameters: [],
@@ -275,63 +412,70 @@ describe("parser", () => {
               },
             ],
           },
-        }));
-      it("parses function expression with body", () =>
-        textExpression('(function(){ 123; test; "hello"; });', {
-          type: "function",
-          parameters: [],
-          body: {
-            type: "block",
-            body: [
-              {
-                type: "expression",
-                expression: { type: "number", value: 123 },
-              },
-              {
-                type: "expression",
-                expression: { type: "identifier", value: "test" },
-              },
-              {
-                type: "expression",
-                expression: { type: "string", value: "hello" },
-              },
-            ],
-          },
-        }));
-      it("parses function expression", () =>
-        textExpression('(function(a,b,c){ 123; test; "hello";});', {
-          type: "function",
-          parameters: ["a", "b", "c"].map((name) => ({ name })),
-          body: {
-            type: "block",
-            body: [
-              {
-                type: "expression",
-                expression: { type: "number", value: 123 },
-              },
-              {
-                type: "expression",
-                expression: { type: "identifier", value: "test" },
-              },
-              {
-                type: "expression",
-                expression: { type: "string", value: "hello" },
-              },
-            ],
-          },
-        }));
-    });
-    describe("arrow function expression", () => {
-      it("parses basic function expression", () =>
-        textExpression("(() => {});", {
-          type: "function",
-          parameters: [],
-          body: {
-            type: "block",
-            body: [],
-          },
-        }));
-      it("parses arrow function expression with basic expression return", () =>
+        })
+    );
+    await t.step("parses function expression with body", () =>
+      textExpression('(function(){ 123; test; "hello"; });', {
+        type: "function",
+        parameters: [],
+        body: {
+          type: "block",
+          body: [
+            {
+              type: "expression",
+              expression: { type: "number", value: 123 },
+            },
+            {
+              type: "expression",
+              expression: { type: "identifier", value: "test" },
+            },
+            {
+              type: "expression",
+              expression: { type: "string", value: "hello" },
+            },
+          ],
+        },
+      })
+    );
+    await t.step("parses function expression", () =>
+      textExpression('(function(a,b,c){ 123; test; "hello";});', {
+        type: "function",
+        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [
+            {
+              type: "expression",
+              expression: { type: "number", value: 123 },
+            },
+            {
+              type: "expression",
+              expression: { type: "identifier", value: "test" },
+            },
+            {
+              type: "expression",
+              expression: { type: "string", value: "hello" },
+            },
+          ],
+        },
+      })
+    );
+  });
+
+  await t.step("arrow function expression", async (t) => {
+    await t.step("parses basic function expression", () =>
+      textExpression("(() => {});", {
+        type: "function",
+        parameters: [],
+        body: {
+          type: "block",
+          body: [],
+        },
+      })
+    );
+    await t.step(
+      "parses arrow function expression with basic expression return",
+      () =>
         textExpression("(() => (1));", {
           type: "function",
           parameters: [],
@@ -342,8 +486,11 @@ describe("parser", () => {
               value: 1,
             },
           },
-        }));
-      it("parses arrow function expression with spread parameters", () =>
+        })
+    );
+    await t.step(
+      "parses arrow function expression with spread parameters",
+      () =>
         textExpression("((...a) => {});", {
           type: "function",
           parameters: [
@@ -356,8 +503,11 @@ describe("parser", () => {
             type: "block",
             body: [],
           },
-        }));
-      it("parses arrow function expression with object expression return", () =>
+        })
+    );
+    await t.step(
+      "parses arrow function expression with object expression return",
+      () =>
         textExpression("(() => ({ a: 1 }));", {
           type: "function",
           parameters: [],
@@ -373,26 +523,31 @@ describe("parser", () => {
               },
             },
           },
-        }));
-      it("parses function expression with single parameter", () =>
-        textExpression("((a) => {});", {
-          type: "function",
-          parameters: ["a"].map((name) => ({ name })),
-          body: {
-            type: "block",
-            body: [],
-          },
-        }));
-      it("parses function expression with parameters", () =>
-        textExpression("((a,b,c) => {});", {
-          type: "function",
-          parameters: ["a", "b", "c"].map((name) => ({ name })),
-          body: {
-            type: "block",
-            body: [],
-          },
-        }));
-      it("parses function expression with body - single statement", () =>
+        })
+    );
+    await t.step("parses function expression with single parameter", () =>
+      textExpression("((a) => {});", {
+        type: "function",
+        parameters: ["a"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [],
+        },
+      })
+    );
+    await t.step("parses function expression with parameters", () =>
+      textExpression("((a,b,c) => {});", {
+        type: "function",
+        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        body: {
+          type: "block",
+          body: [],
+        },
+      })
+    );
+    await t.step(
+      "parses function expression with body - single statement",
+      () =>
         textExpression("(() => { 123; });", {
           type: "function",
           parameters: [],
@@ -405,246 +560,184 @@ describe("parser", () => {
               },
             ],
           },
-        }));
-      it("parses function expression with body", () =>
-        textExpression('(() => { 123; test; "hello"; });', {
-          type: "function",
-          parameters: [],
-          body: {
-            type: "block",
-            body: [
-              {
-                type: "expression",
-                expression: { type: "number", value: 123 },
-              },
-              {
-                type: "expression",
-                expression: { type: "identifier", value: "test" },
-              },
-              {
-                type: "expression",
-                expression: { type: "string", value: "hello" },
-              },
-            ],
-          },
-        }));
-      it("parses function expression", () =>
-        textExpression('((a,b,c) => { 123; test; "hello";});', {
-          type: "function",
-          parameters: ["a", "b", "c"].map((name) => ({ name })),
-          body: {
-            type: "block",
-            body: [
-              {
-                type: "expression",
-                expression: { type: "number", value: 123 },
-              },
-              {
-                type: "expression",
-                expression: { type: "identifier", value: "test" },
-              },
-              {
-                type: "expression",
-                expression: { type: "string", value: "hello" },
-              },
-            ],
-          },
-        }));
-    });
-
-    it("parses not expression", () =>
-      textExpression("!1;", {
-        type: "not",
-        expression: { type: "number", value: 1 },
-      }));
-
-    it("spread expression", () => {
-      textExpression("...a;", {
-        type: "spread",
-        expression: { type: "identifier", value: "a" },
-      });
-    });
-
-    describe("binary expression", () => {
-      it("parses binary expression", () =>
-        textExpression("1+2;", {
-          type: "binary",
-          operator: "+",
-          left: { type: "number", value: 1 },
-          right: { type: "number", value: 2 },
-        }));
-
-      it("parses binary expression with division", () =>
-        textExpression("1/2;", {
-          type: "binary",
-          operator: "/",
-          left: { type: "number", value: 1 },
-          right: { type: "number", value: 2 },
-        }));
-
-      it("parses binary comparison expression", () =>
-        textExpression("1 !== 2;", {
-          type: "binary",
-          operator: "!==",
-          left: { type: "number", value: 1 },
-          right: { type: "number", value: 2 },
-        }));
-
-      // 1+2*3 => 1+(2*3)
-      it("parses binary expression with mixed precedence", () =>
-        textExpression("1+2*3;", {
-          type: "binary",
-          operator: "+",
-          left: { type: "number", value: 1 },
-          right: {
-            type: "binary",
-            operator: "*",
-            left: { type: "number", value: 2 },
-            right: { type: "number", value: 3 },
-          },
-        }));
-
-      // 1*2+3 => (1*2)+3
-      it("parses binary expression with mixed precedence", () =>
-        textExpression("1*2+3;", {
-          type: "binary",
-          operator: "+",
-          left: {
-            type: "binary",
-            operator: "*",
-            left: { type: "number", value: 1 },
-            right: { type: "number", value: 2 },
-          },
-          right: { type: "number", value: 3 },
-        }));
-
-      it("parses binary expression with same precedence", () =>
-        textExpression("1+2+3;", {
-          type: "binary",
-          operator: "+",
-          left: {
-            type: "binary",
-            operator: "+",
-            left: { type: "number", value: 1 },
-            right: { type: "number", value: 2 },
-          },
-          right: { type: "number", value: 3 },
-        }));
-    });
-
-    it("parses new expression", () =>
-      textExpression("new X(123);", {
-        type: "new",
-        identifier: "X",
-        arguments: [
-          {
-            type: "number",
-            value: 123,
-          },
-        ],
-      }));
-  });
-
-  describe("statements", () => {
-    it("parses variable declaration with no initial value", () => {
-      testStatement("var x;", {
-        type: "variable_declaration",
-        declarationType: "var",
-        identifier: "x",
-        varType: "var",
-      });
-    });
-
-    it("parses variable declaration", () => {
-      testStatement("var x = 1;", {
-        type: "variable_declaration",
-        declarationType: "var",
-        identifier: "x",
-        value: { type: "number", value: 1 },
-        varType: "var",
-      });
-    });
-    it("parses const declaration", () => {
-      testStatement("const x = 1;", {
-        type: "variable_declaration",
-        declarationType: "var",
-        identifier: "x",
-        value: { type: "number", value: 1 },
-        varType: "const",
-      });
-    });
-
-    it("parses return statement", () => {
-      testStatement("return 123;", {
-        type: "return",
-        expression: { type: "number", value: 123 },
-      });
-    });
-    it("parses return statement without expression", () => {
-      testStatement("return;", {
-        type: "return",
-      });
-    });
-    it("parses basic function declaration statement", () => {
-      testStatement("function x() {}", {
-        type: "function_declaration",
-        identifier: "x",
+        })
+    );
+    await t.step("parses function expression with body", () =>
+      textExpression('(() => { 123; test; "hello"; });', {
+        type: "function",
         parameters: [],
         body: {
           type: "block",
-          body: [],
+          body: [
+            {
+              type: "expression",
+              expression: { type: "number", value: 123 },
+            },
+            {
+              type: "expression",
+              expression: { type: "identifier", value: "test" },
+            },
+            {
+              type: "expression",
+              expression: { type: "string", value: "hello" },
+            },
+          ],
         },
-      });
-    });
-    it("parses function declaration statement", () => {
-      testStatement("function x(a,b,c) { 123; }", {
-        type: "function_declaration",
-        identifier: "x",
+      })
+    );
+    await t.step("parses function expression", () =>
+      textExpression('((a,b,c) => { 123; test; "hello";});', {
+        type: "function",
         parameters: ["a", "b", "c"].map((name) => ({ name })),
         body: {
           type: "block",
           body: [
             {
               type: "expression",
-              expression: {
-                type: "number",
-                value: 123,
-              },
-            },
-          ],
-        },
-      });
-    });
-    it("parses if statement", () => {
-      testStatement("if (true) { 123; }", {
-        type: "if",
-        condition: { type: "boolean", value: true },
-        ifBody: {
-          type: "block",
-          body: [
-            {
-              type: "expression",
               expression: { type: "number", value: 123 },
             },
-          ],
-        },
-        elseBody: undefined,
-      });
-    });
-    it("parses if/else statement", () => {
-      testStatement("if (true) { 123; } else { 234; }", {
-        type: "if",
-        condition: { type: "boolean", value: true },
-        ifBody: {
-          type: "block",
-          body: [
             {
               type: "expression",
-              expression: { type: "number", value: 123 },
+              expression: { type: "identifier", value: "test" },
+            },
+            {
+              type: "expression",
+              expression: { type: "string", value: "hello" },
             },
           ],
         },
-        elseBody: {
+      })
+    );
+  });
+});
+
+Deno.test("parser:statement", async (t) => {
+  await t.step("parses variable declaration with no initial value", () => {
+    testStatement("var x;", {
+      type: "variable_declaration",
+      declarationType: "var",
+      identifier: "x",
+      varType: "var",
+    });
+  });
+
+  await t.step("parses variable declaration", () => {
+    testStatement("var x = 1;", {
+      type: "variable_declaration",
+      declarationType: "var",
+      identifier: "x",
+      value: { type: "number", value: 1 },
+      varType: "var",
+    });
+  });
+  await t.step("parses const declaration", () => {
+    testStatement("const x = 1;", {
+      type: "variable_declaration",
+      declarationType: "var",
+      identifier: "x",
+      value: { type: "number", value: 1 },
+      varType: "const",
+    });
+  });
+
+  await t.step("parses return statement", () => {
+    testStatement("return 123;", {
+      type: "return",
+      expression: { type: "number", value: 123 },
+    });
+  });
+  await t.step("parses return statement without expression", () => {
+    testStatement("return;", {
+      type: "return",
+    });
+  });
+  await t.step("parses basic function declaration statement", () => {
+    testStatement("function x() {}", {
+      type: "function_declaration",
+      identifier: "x",
+      parameters: [],
+      body: {
+        type: "block",
+        body: [],
+      },
+    });
+  });
+  await t.step("parses function declaration statement", () => {
+    testStatement("function x(a,b,c) { 123; }", {
+      type: "function_declaration",
+      identifier: "x",
+      parameters: ["a", "b", "c"].map((name) => ({ name })),
+      body: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: {
+              type: "number",
+              value: 123,
+            },
+          },
+        ],
+      },
+    });
+  });
+  await t.step("parses if statement", () => {
+    testStatement("if (true) { 123; }", {
+      type: "if",
+      condition: { type: "boolean", value: true },
+      ifBody: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: { type: "number", value: 123 },
+          },
+        ],
+      },
+      elseBody: undefined,
+    });
+  });
+  await t.step("parses if/else statement", () => {
+    testStatement("if (true) { 123; } else { 234; }", {
+      type: "if",
+      condition: { type: "boolean", value: true },
+      ifBody: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: { type: "number", value: 123 },
+          },
+        ],
+      },
+      elseBody: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: { type: "number", value: 234 },
+          },
+        ],
+      },
+    });
+  });
+  await t.step("parses if/else if statement", () => {
+    testStatement("if (true) { 123; } else if(false) { 234; }", {
+      type: "if",
+      condition: { type: "boolean", value: true },
+      ifBody: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: { type: "number", value: 123 },
+          },
+        ],
+      },
+      elseBody: {
+        type: "if",
+        condition: { type: "boolean", value: false },
+        ifBody: {
           type: "block",
           body: [
             {
@@ -653,128 +746,101 @@ describe("parser", () => {
             },
           ],
         },
-      });
+        elseBody: undefined,
+      },
     });
-    it("parses if/else if statement", () => {
-      testStatement("if (true) { 123; } else if(false) { 234; }", {
-        type: "if",
-        condition: { type: "boolean", value: true },
-        ifBody: {
-          type: "block",
-          body: [
-            {
-              type: "expression",
-              expression: { type: "number", value: 123 },
-            },
-          ],
-        },
-        elseBody: {
-          type: "if",
-          condition: { type: "boolean", value: false },
-          ifBody: {
-            type: "block",
-            body: [
-              {
-                type: "expression",
-                expression: { type: "number", value: 234 },
-              },
-            ],
+  });
+  await t.step("parses while statement", () => {
+    testStatement("while (true) { 123; }", {
+      type: "while",
+      condition: { type: "boolean", value: true },
+      body: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: { type: "number", value: 123 },
           },
-          elseBody: undefined,
-        },
-      });
+        ],
+      },
     });
-    it("parses while statement", () => {
-      testStatement("while (true) { 123; }", {
-        type: "while",
-        condition: { type: "boolean", value: true },
-        body: {
-          type: "block",
-          body: [
-            {
-              type: "expression",
-              expression: { type: "number", value: 123 },
-            },
-          ],
+  });
+  await t.step("parses while statement with expression", () => {
+    testStatement("while (i >= 1) { 123; }", {
+      type: "while",
+      condition: {
+        type: "binary",
+        operator: ">=",
+        left: {
+          type: "identifier",
+          value: "i",
         },
-      });
-    });
-    it("parses while statement with expression", () => {
-      testStatement("while (i >= 1) { 123; }", {
-        type: "while",
-        condition: {
-          type: "binary",
-          operator: ">=",
-          left: {
-            type: "identifier",
-            value: "i",
+        right: {
+          type: "number",
+          value: 1,
+        },
+      },
+      body: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: { type: "number", value: 123 },
           },
-          right: {
-            type: "number",
-            value: 1,
-          },
-        },
-        body: {
-          type: "block",
-          body: [
-            {
-              type: "expression",
-              expression: { type: "number", value: 123 },
-            },
-          ],
-        },
-      });
+        ],
+      },
     });
+  });
 
-    it("switch statement", () => {
-      testStatement(
-        `switch(x) {
+  await t.step("switch statement", () => {
+    testStatement(
+      `switch(x) {
         case "a": break;
         case "b":
           return 123;
         default:
           return;
       }`,
-        {
-          type: "switch",
-          condition: {
-            type: "identifier",
-            value: "x",
+      {
+        type: "switch",
+        condition: {
+          type: "identifier",
+          value: "x",
+        },
+        cases: [
+          {
+            test: {
+              type: "string",
+              value: "a",
+            },
+            body: {
+              type: "break",
+            },
           },
-          cases: [
-            {
-              test: {
-                type: "string",
-                value: "a",
-              },
-              body: {
-                type: "break",
+          {
+            test: {
+              type: "string",
+              value: "b",
+            },
+            body: {
+              type: "return",
+              expression: {
+                type: "number",
+                value: 123,
               },
             },
-            {
-              test: {
-                type: "string",
-                value: "b",
-              },
-              body: {
-                type: "return",
-                expression: {
-                  type: "number",
-                  value: 123,
-                },
-              },
-            },
-          ],
-          default: {
-            type: "return",
           },
-        }
-      );
-    });
+        ],
+        default: {
+          type: "return",
+        },
+      }
+    );
+  });
 
-    it("switch statement inside method", () => {
-      testStatement(
-        `class X {
+  await t.step("switch statement inside method", () => {
+    testStatement(
+      `class X {
         y(expression) {
           if (this.debug) {}
           switch (expression.type) {
@@ -783,422 +849,421 @@ describe("parser", () => {
           }
         }
       }`,
-        {
-          type: "class_declaration",
-          identifier: "X",
-          properties: [],
-          methods: [
-            {
-              name: "y",
-              parameters: [{ name: "expression" }],
-              body: {
-                type: "block",
-                body: [
-                  {
-                    type: "if",
-                    condition: {
-                      type: "member",
-                      object: {
-                        type: "identifier",
-                        value: "this",
-                      },
-                      property: {
-                        type: "identifier",
-                        value: "debug",
-                      },
-                      computed: false,
-                    },
-                    ifBody: {
-                      type: "block",
-                      body: [],
-                    },
-                    elseBody: undefined,
-                  },
-                  {
-                    type: "switch",
-                    condition: {
-                      type: "member",
-                      object: {
-                        type: "identifier",
-                        value: "expression",
-                      },
-                      property: {
-                        type: "identifier",
-                        value: "type",
-                      },
-                      computed: false,
-                    },
-                    cases: [
-                      {
-                        test: {
-                          type: "string",
-                          value: "z",
-                        },
-                        body: {
-                          type: "return",
-                          expression: {
-                            type: "number",
-                            value: 1,
-                          },
-                        },
-                      },
-                    ],
-                    default: undefined,
-                  },
-                ],
-              },
-              static: false,
-            },
-          ],
-        }
-      );
-    });
-
-    it("parses basic class declaration", () => {
-      testStatement("class X {}", {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [],
-      });
-    });
-    it("parses class declaration with super class", () => {
-      testStatement("class X extends Y {}", {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [],
-        superClass: "Y",
-      });
-    });
-    it("parses class declaration with constructor", () => {
-      testStatement("class X { constructor() {} }", {
+      {
         type: "class_declaration",
         identifier: "X",
         properties: [],
         methods: [
           {
-            name: "constructor",
-            parameters: [],
+            name: "y",
+            parameters: [{ name: "expression" }],
             body: {
               type: "block",
-              body: [],
+              body: [
+                {
+                  type: "if",
+                  condition: {
+                    type: "member",
+                    object: {
+                      type: "identifier",
+                      value: "this",
+                    },
+                    property: {
+                      type: "identifier",
+                      value: "debug",
+                    },
+                    computed: false,
+                  },
+                  ifBody: {
+                    type: "block",
+                    body: [],
+                  },
+                  elseBody: undefined,
+                },
+                {
+                  type: "switch",
+                  condition: {
+                    type: "member",
+                    object: {
+                      type: "identifier",
+                      value: "expression",
+                    },
+                    property: {
+                      type: "identifier",
+                      value: "type",
+                    },
+                    computed: false,
+                  },
+                  cases: [
+                    {
+                      test: {
+                        type: "string",
+                        value: "z",
+                      },
+                      body: {
+                        type: "return",
+                        expression: {
+                          type: "number",
+                          value: 1,
+                        },
+                      },
+                    },
+                  ],
+                  default: undefined,
+                },
+              ],
             },
             static: false,
           },
         ],
-      });
+      }
+    );
+  });
+
+  await t.step("parses basic class declaration", () => {
+    testStatement("class X {}", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [],
     });
-    it("parses class property without initial value", () => {
-      testStatement("class X { x; }", {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [{ name: "x", static: false }],
-        methods: [],
-      });
+  });
+  await t.step("parses class declaration with super class", () => {
+    testStatement("class X extends Y {}", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [],
+      superClass: "Y",
     });
-    it("parses class property with initial value: number", () => {
-      testStatement("class X { x = 123; }", {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [
-          { name: "x", value: { type: "number", value: 123 }, static: false },
-        ],
-        methods: [],
-      });
-    });
-    it("parses class property with initial value: string", () => {
-      testStatement(`class X { x = "test"; }`, {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [
-          {
-            name: "x",
-            value: { type: "string", value: "test" },
-            static: false,
+  });
+  await t.step("parses class declaration with constructor", () => {
+    testStatement("class X { constructor() {} }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "constructor",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [],
           },
-        ],
-        methods: [],
-      });
+          static: false,
+        },
+      ],
     });
-    it("parses static class property", () => {
-      testStatement(`class X { static x = "test"; }`, {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [
-          { name: "x", value: { type: "string", value: "test" }, static: true },
-        ],
-        methods: [],
-      });
+  });
+  await t.step("parses class property without initial value", () => {
+    testStatement("class X { x; }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [{ name: "x", static: false }],
+      methods: [],
     });
-    it("parses class property with initial value: expression", () => {
-      testStatement("class X { x = 1 + a; }", {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [
-          {
-            name: "x",
-            value: {
-              type: "binary",
-              operator: "+",
-              left: {
-                type: "number",
-                value: 1,
-              },
-              right: {
-                type: "identifier",
-                value: "a",
-              },
-            },
-            static: false,
-          },
-        ],
-        methods: [],
-      });
+  });
+  await t.step("parses class property with initial value: number", () => {
+    testStatement("class X { x = 123; }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        { name: "x", value: { type: "number", value: 123 }, static: false },
+      ],
+      methods: [],
     });
-    it("parses class with mixed properties", () => {
-      testStatement(`class X { x = 1; y = "hi"; z; expr = 1 + a; }`, {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [
-          {
-            name: "x",
-            value: {
+  });
+  await t.step("parses class property with initial value: string", () => {
+    testStatement(`class X { x = "test"; }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        {
+          name: "x",
+          value: { type: "string", value: "test" },
+          static: false,
+        },
+      ],
+      methods: [],
+    });
+  });
+  await t.step("parses static class property", () => {
+    testStatement(`class X { static x = "test"; }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        { name: "x", value: { type: "string", value: "test" }, static: true },
+      ],
+      methods: [],
+    });
+  });
+  await t.step("parses class property with initial value: expression", () => {
+    testStatement("class X { x = 1 + a; }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        {
+          name: "x",
+          value: {
+            type: "binary",
+            operator: "+",
+            left: {
               type: "number",
               value: 1,
             },
-            static: false,
-          },
-          {
-            name: "y",
-            value: {
-              type: "string",
-              value: "hi",
+            right: {
+              type: "identifier",
+              value: "a",
             },
-            static: false,
           },
-          {
-            name: "z",
-            static: false,
-          },
-          {
-            name: "expr",
-            value: {
-              type: "binary",
-              operator: "+",
-              left: {
-                type: "number",
-                value: 1,
-              },
-              right: {
-                type: "identifier",
-                value: "a",
-              },
-            },
-            static: false,
-          },
-        ],
-        methods: [],
-      });
+          static: false,
+        },
+      ],
+      methods: [],
     });
-    it("parses class method", () => {
-      testStatement("class X { y() {} }", {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [
-          {
-            name: "y",
-            parameters: [],
-            body: {
-              type: "block",
-              body: [],
-            },
-            static: false,
+  });
+  await t.step("parses class with mixed properties", () => {
+    testStatement(`class X { x = 1; y = "hi"; z; expr = 1 + a; }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        {
+          name: "x",
+          value: {
+            type: "number",
+            value: 1,
           },
-        ],
-      });
-    });
-    it("parses class method with parameters", () => {
-      testStatement("class X { y(a,b, c) {} }", {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [
-          {
-            name: "y",
-            parameters: ["a", "b", "c"].map((name) => ({ name })),
-            body: {
-              type: "block",
-              body: [],
-            },
-            static: false,
+          static: false,
+        },
+        {
+          name: "y",
+          value: {
+            type: "string",
+            value: "hi",
           },
-        ],
-      });
-    });
-    it("parses class method with spread parameters", () => {
-      testStatement("class X { y(...a) {} }", {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [
-          {
-            name: "y",
-            parameters: [{ name: "a", spread: true }],
-            body: {
-              type: "block",
-              body: [],
+          static: false,
+        },
+        {
+          name: "z",
+          static: false,
+        },
+        {
+          name: "expr",
+          value: {
+            type: "binary",
+            operator: "+",
+            left: {
+              type: "number",
+              value: 1,
             },
-            static: false,
+            right: {
+              type: "identifier",
+              value: "a",
+            },
           },
-        ],
-      });
+          static: false,
+        },
+      ],
+      methods: [],
     });
-    it("parses class method with body", () => {
-      testStatement(`class X { y() { console.log("hello") } }`, {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [
-          {
-            name: "y",
-            parameters: [],
-            body: {
-              type: "block",
-              body: [
-                {
-                  type: "expression",
-                  expression: {
-                    type: "call",
-                    func: {
-                      type: "member",
-                      object: {
-                        type: "identifier",
-                        value: "console",
-                      },
-                      property: {
-                        type: "identifier",
-                        value: "log",
-                      },
-                      computed: false,
+  });
+  await t.step("parses class method", () => {
+    testStatement("class X { y() {} }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [],
+          },
+          static: false,
+        },
+      ],
+    });
+  });
+  await t.step("parses class method with parameters", () => {
+    testStatement("class X { y(a,b, c) {} }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: ["a", "b", "c"].map((name) => ({ name })),
+          body: {
+            type: "block",
+            body: [],
+          },
+          static: false,
+        },
+      ],
+    });
+  });
+  await t.step("parses class method with spread parameters", () => {
+    testStatement("class X { y(...a) {} }", {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: [{ name: "a", spread: true }],
+          body: {
+            type: "block",
+            body: [],
+          },
+          static: false,
+        },
+      ],
+    });
+  });
+  await t.step("parses class method with body", () => {
+    testStatement(`class X { y() { console.log("hello") } }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [
+              {
+                type: "expression",
+                expression: {
+                  type: "call",
+                  func: {
+                    type: "member",
+                    object: {
+                      type: "identifier",
+                      value: "console",
                     },
-                    arguments: [
-                      {
-                        type: "string",
-                        value: "hello",
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-            static: false,
-          },
-        ],
-      });
-    });
-    it("parses class method with body and parameters", () => {
-      testStatement(`class X { y(message) { console.log(message); } }`, {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [
-          {
-            name: "y",
-            parameters: ["message"].map((name) => ({ name })),
-            body: {
-              type: "block",
-              body: [
-                {
-                  type: "expression",
-                  expression: {
-                    type: "call",
-                    func: {
-                      type: "member",
-                      object: {
-                        type: "identifier",
-                        value: "console",
-                      },
-                      property: {
-                        type: "identifier",
-                        value: "log",
-                      },
-                      computed: false,
+                    property: {
+                      type: "identifier",
+                      value: "log",
                     },
-                    arguments: [
-                      {
-                        type: "identifier",
-                        value: "message",
-                      },
-                    ],
+                    computed: false,
                   },
+                  arguments: [
+                    {
+                      type: "string",
+                      value: "hello",
+                    },
+                  ],
                 },
-              ],
-            },
-            static: false,
-          },
-        ],
-      });
-    });
-
-    it("parses class arrow function property", () => {
-      testStatement(`class X { y = () => {}; }`, {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [
-          {
-            name: "y",
-            value: {
-              type: "function",
-              parameters: [],
-              body: {
-                type: "block",
-                body: [],
               },
-            },
-            static: false,
+            ],
           },
-        ],
-        methods: [],
-      });
+          static: false,
+        },
+      ],
     });
+  });
+  await t.step("parses class method with body and parameters", () => {
+    testStatement(`class X { y(message) { console.log(message); } }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: ["message"].map((name) => ({ name })),
+          body: {
+            type: "block",
+            body: [
+              {
+                type: "expression",
+                expression: {
+                  type: "call",
+                  func: {
+                    type: "member",
+                    object: {
+                      type: "identifier",
+                      value: "console",
+                    },
+                    property: {
+                      type: "identifier",
+                      value: "log",
+                    },
+                    computed: false,
+                  },
+                  arguments: [
+                    {
+                      type: "identifier",
+                      value: "message",
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+          static: false,
+        },
+      ],
+    });
+  });
 
-    it("parses static class method", () => {
-      testStatement(`class X { static y() {} }`, {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [
-          {
-            name: "y",
+  await t.step("parses class arrow function property", () => {
+    testStatement(`class X { y = () => {}; }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [
+        {
+          name: "y",
+          value: {
+            type: "function",
             parameters: [],
             body: {
               type: "block",
               body: [],
             },
-            static: true,
           },
-        ],
-      });
+          static: false,
+        },
+      ],
+      methods: [],
     });
-    it("parses static class method with parameters", () => {
-      testStatement(`class X { static y(a,b,c) {} }`, {
-        type: "class_declaration",
-        identifier: "X",
-        properties: [],
-        methods: [
-          {
-            name: "y",
-            parameters: ["a", "b", "c"].map((name) => ({ name })),
-            body: {
-              type: "block",
-              body: [],
-            },
-            static: true,
+  });
+
+  await t.step("parses static class method", () => {
+    testStatement(`class X { static y() {} }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [],
           },
-        ],
-      });
+          static: true,
+        },
+      ],
+    });
+  });
+  await t.step("parses static class method with parameters", () => {
+    testStatement(`class X { static y(a,b,c) {} }`, {
+      type: "class_declaration",
+      identifier: "X",
+      properties: [],
+      methods: [
+        {
+          name: "y",
+          parameters: ["a", "b", "c"].map((name) => ({ name })),
+          body: {
+            type: "block",
+            body: [],
+          },
+          static: true,
+        },
+      ],
     });
   });
 });
