@@ -752,6 +752,16 @@ Deno.test("parser: expressions", async (t) => {
       })
     );
   });
+  await t.step("parses comma operator", () =>
+    textExpression("(1, 2, 3);", {
+      type: "comma",
+      expressions: [
+        { type: "number", value: 1 },
+        { type: "number", value: 2 },
+        { type: "number", value: 3 },
+      ],
+    })
+  );
 });
 
 Deno.test("parser:statement", async (t) => {

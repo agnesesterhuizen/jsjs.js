@@ -306,7 +306,7 @@ export class Parser {
 
       if (this.peekNextToken().type === "colon") {
         this.expect("colon");
-        properties[identifier.value] = this.parseExpression(0);
+        properties[identifier.value] = this.parseExpression(0, false);
       } else {
         properties[identifier.value] = withLocation(
           {
@@ -339,7 +339,7 @@ export class Parser {
     const elements = [];
 
     while (!this.nextTokenIsType("right_bracket")) {
-      elements.push(this.parseExpression(0));
+      elements.push(this.parseExpression(0, false));
 
       if (this.nextTokenIsType("comma")) {
         this.index++;
@@ -793,7 +793,7 @@ export class Parser {
           this.expect("left_paren");
 
           while (this.peekNextToken().type !== "right_paren") {
-            args.push(this.parseExpression(0));
+            args.push(this.parseExpression(0, false));
 
             if (this.peekNextToken().type !== "right_paren") {
               this.expect("comma");
@@ -820,7 +820,7 @@ export class Parser {
 
             const args: Expression[] = [];
             while (this.peekNextToken()?.type !== "right_paren") {
-              args.push(this.parseExpression(0));
+              args.push(this.parseExpression(0, false));
               if (this.peekNextToken()?.type !== "right_paren") {
                 this.expect("comma");
               }
@@ -942,7 +942,7 @@ export class Parser {
       } else if (next?.type === "left_bracket") {
         this.nextToken();
 
-        const property = this.parseExpression(0);
+        const property = this.parseExpression(0, false);
 
         this.expect("right_bracket");
 
@@ -959,7 +959,7 @@ export class Parser {
         this.nextToken();
         const args: Expression[] = [];
         while (this.peekNextToken().type !== "right_paren") {
-          args.push(this.parseExpression(0));
+          args.push(this.parseExpression(0, false));
 
           if (this.peekNextToken().type !== "right_paren") {
             this.expect("comma");
@@ -1004,7 +1004,7 @@ export class Parser {
       if (operator) {
         this.nextToken();
 
-        const value = this.parseExpression();
+        const value = this.parseExpression(0, false);
 
         return withLocation(
           {
@@ -1027,7 +1027,7 @@ export class Parser {
     return token.type in TOKEN_TO_OPERATOR;
   }
 
-  parseExpression(precedence = 0): Expression {
+  parseExpression(precedence = 0, allowComma = true): Expression {
     let left = this.parsePrimary();
 
     while (this.isOperatorTokenType(this.peekNextToken())) {
@@ -1039,7 +1039,7 @@ export class Parser {
       // Only parse next operator if its precedence is higher or equal
       if (operatorPrecedence > precedence) {
         this.nextToken(); // consume the operator
-        const right = this.parseExpression(operatorPrecedence);
+        const right = this.parseExpression(operatorPrecedence, allowComma);
 
         left = withLocation(
           {
@@ -1063,9 +1063,9 @@ export class Parser {
     ) {
       const testExpression = left;
       this.expect("question_mark");
-      const consequent = this.parseExpression(0);
+      const consequent = this.parseExpression(0, allowComma);
       this.expect("colon");
-      const alternate = this.parseExpression(precedence);
+      const alternate = this.parseExpression(precedence, allowComma);
 
       left = {
         type: "conditional",
@@ -1073,6 +1073,26 @@ export class Parser {
         consequent,
         alternate,
         location: testExpression.location,
+      };
+    }
+
+    if (
+      allowComma &&
+      precedence <= 0 &&
+      this.peekNextToken()?.type === "comma"
+    ) {
+      const expressions: Expression[] = [left];
+      const location = left.location;
+
+      while (this.peekNextToken()?.type === "comma") {
+        this.expect("comma");
+        expressions.push(this.parseExpression(0, false));
+      }
+
+      return {
+        type: "comma",
+        expressions,
+        location,
       };
     }
 
@@ -1095,7 +1115,7 @@ export class Parser {
 
       if (this.nextTokenIsType("equals")) {
         this.expect("equals");
-        value = this.parseExpression(0);
+        value = this.parseExpression(0, false);
       } else if (keywordToken.value === "const") {
         syntaxError("const declaration must have initial value", keywordToken);
       }
@@ -1289,7 +1309,7 @@ export class Parser {
 
       if (allowDefaults && this.peekNextToken()?.type === "equals") {
         this.expect("equals");
-        defaultValue = this.parseExpression(0);
+        defaultValue = this.parseExpression(0, false);
       }
 
       params.push({ name: identifierToken.value, defaultValue });
@@ -1339,7 +1359,7 @@ export class Parser {
 
     this.expect("equals");
 
-    const value = this.parseExpression(0);
+    const value = this.parseExpression(0, false);
 
     if (this.nextTokenIsType("semicolon")) {
       this.expect("semicolon");

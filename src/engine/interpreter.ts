@@ -596,6 +596,14 @@ export class Interpreter {
         return this.call(thisVal, fnVal as JSFunction, args);
       }
 
+      case "comma": {
+        let result: JSObject = this.runtime.newUndefined();
+        for (const expr of expression.expressions) {
+          result = this.executeExpression(expr);
+        }
+        return result;
+      }
+
       case "conditional": {
         const condition = this.executeExpression(expression.test);
         if (condition.isTruthy()) {

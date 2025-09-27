@@ -141,6 +141,10 @@ export type Expression = WithLocation<
   | { type: "binary"; left: Expression; right: Expression; operator: Operator }
   | { type: "call"; func: Expression; arguments: Expression[] }
   | {
+      type: "comma";
+      expressions: Expression[];
+    }
+  | {
       type: "function";
       identifier?: string;
       parameters: Parameter[];
