@@ -20,7 +20,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "low",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "low",
+                  "location": {
+                    "file": "./integration_tests/binarysearch.js",
+                    "line": 2,
+                    "column": 7
+                  }
+                },
                 "value": {
                   "type": "number",
                   "value": 0,
@@ -44,7 +52,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "high",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "high",
+                  "location": {
+                    "file": "./integration_tests/binarysearch.js",
+                    "line": 3,
+                    "column": 7
+                  }
+                },
                 "value": {
                   "type": "binary",
                   "operator": "-",
@@ -136,7 +152,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "mid",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "mid",
+                        "location": {
+                          "file": "./integration_tests/binarysearch.js",
+                          "line": 6,
+                          "column": 9
+                        }
+                      },
                       "value": {
                         "type": "call",
                         "func": {
@@ -284,8 +308,8 @@
                           "type": "assignment",
                           "operator": "=",
                           "left": {
-                            "type": "identifier",
-                            "value": "low",
+                            "type": "pattern_identifier",
+                            "name": "low",
                             "location": {
                               "file": "./integration_tests/binarysearch.js",
                               "line": 9,
@@ -394,8 +418,8 @@
                             "type": "assignment",
                             "operator": "=",
                             "left": {
-                              "type": "identifier",
-                              "value": "high",
+                              "type": "pattern_identifier",
+                              "name": "high",
                               "location": {
                                 "file": "./integration_tests/binarysearch.js",
                                 "line": 11,

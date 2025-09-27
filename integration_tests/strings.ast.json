@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "str",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "str",
+            "location": {
+              "file": "./integration_tests/strings.js",
+              "line": 1,
+              "column": 7
+            }
+          },
           "value": {
             "type": "string",
             "value": "abcd",

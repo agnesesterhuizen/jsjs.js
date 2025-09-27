@@ -91,8 +91,36 @@ export type ClassMethodDeclaration = {
   static: boolean;
 };
 
+export type ObjectPatternProperty =
+  | WithLocation<{
+      type: "pattern_property";
+      key: string;
+      value: Pattern;
+      defaultValue?: Expression;
+    }>
+  | WithLocation<{
+      type: "pattern_rest";
+      argument: Pattern;
+    }>;
+
+export type Pattern =
+  | WithLocation<{
+      type: "pattern_identifier";
+      name: string;
+    }>
+  | WithLocation<{
+      type: "pattern_member";
+      object: Expression;
+      property: Expression;
+      computed: boolean;
+    }>
+  | WithLocation<{
+      type: "pattern_object";
+      properties: ObjectPatternProperty[];
+    }>;
+
 export type VariableDeclarator = {
-  identifier: string;
+  id: Pattern;
   value?: Expression;
 };
 
@@ -158,7 +186,7 @@ export type Expression = WithLocation<
   | {
       type: "assignment";
       operator: AssignmentOperator;
-      left: Expression;
+      left: Pattern;
       right: Expression;
     }
   | {

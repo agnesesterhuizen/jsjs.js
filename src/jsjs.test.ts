@@ -131,7 +131,7 @@ Deno.test("parser: expressions", async (t) => {
     textExpression("x = 123;", {
       type: "assignment",
       operator: "=",
-      left: { type: "identifier", value: "x" },
+      left: { type: "pattern_identifier", name: "x" },
       right: { type: "number", value: 123 },
     })
   );
@@ -140,7 +140,7 @@ Deno.test("parser: expressions", async (t) => {
       type: "assignment",
       operator: "=",
       left: {
-        type: "member",
+        type: "pattern_member",
         object: { type: "identifier", value: "x" },
         property: { type: "identifier", value: "y" },
         computed: false,
@@ -153,7 +153,7 @@ Deno.test("parser: expressions", async (t) => {
       type: "assignment",
       operator: "=",
       left: {
-        type: "member",
+        type: "pattern_member",
         object: { type: "identifier", value: "x" },
         property: { type: "identifier", value: "y" },
         computed: true,
@@ -165,7 +165,7 @@ Deno.test("parser: expressions", async (t) => {
     textExpression("x += 5;", {
       type: "assignment",
       operator: "+=",
-      left: { type: "identifier", value: "x" },
+      left: { type: "pattern_identifier", name: "x" },
       right: { type: "number", value: 5 },
     })
   );
@@ -173,7 +173,7 @@ Deno.test("parser: expressions", async (t) => {
     textExpression("y -= 2;", {
       type: "assignment",
       operator: "-=",
-      left: { type: "identifier", value: "y" },
+      left: { type: "pattern_identifier", name: "y" },
       right: { type: "number", value: 2 },
     })
   );
@@ -181,7 +181,7 @@ Deno.test("parser: expressions", async (t) => {
     textExpression("value *= 10;", {
       type: "assignment",
       operator: "*=",
-      left: { type: "identifier", value: "value" },
+      left: { type: "pattern_identifier", name: "value" },
       right: { type: "number", value: 10 },
     })
   );
@@ -189,7 +189,7 @@ Deno.test("parser: expressions", async (t) => {
     textExpression("total /= 2;", {
       type: "assignment",
       operator: "/=",
-      left: { type: "identifier", value: "total" },
+      left: { type: "pattern_identifier", name: "total" },
       right: { type: "number", value: 2 },
     })
   );
@@ -771,7 +771,7 @@ Deno.test("parser: expressions", async (t) => {
           object: {
             type: "assignment",
             operator: "=",
-            left: { type: "identifier", value: "mod" },
+            left: { type: "pattern_identifier", name: "mod" },
             right: {
               type: "object",
               properties: {
@@ -817,7 +817,7 @@ Deno.test("parser:statement", async (t) => {
       declarationType: "var",
       declarations: [
         {
-          identifier: "x",
+          id: { type: "pattern_identifier", name: "x" },
         },
       ],
       varType: "var",
@@ -830,7 +830,7 @@ Deno.test("parser:statement", async (t) => {
       declarationType: "var",
       declarations: [
         {
-          identifier: "x",
+          id: { type: "pattern_identifier", name: "x" },
           value: { type: "number", value: 1 },
         },
       ],
@@ -843,7 +843,7 @@ Deno.test("parser:statement", async (t) => {
       declarationType: "var",
       declarations: [
         {
-          identifier: "x",
+          id: { type: "pattern_identifier", name: "x" },
           value: { type: "number", value: 1 },
         },
       ],
@@ -1029,7 +1029,11 @@ Deno.test("parser:statement", async (t) => {
       left: {
         type: "variable_declaration",
         declarationType: "var",
-        declarations: [{ identifier: "key" }],
+        declarations: [
+          {
+            id: { type: "pattern_identifier", name: "key" },
+          },
+        ],
         varType: "var",
       },
       right: {
@@ -1062,7 +1066,7 @@ Deno.test("parser:statement", async (t) => {
             expression: {
               type: "assignment",
               operator: "=",
-              left: { type: "identifier", value: "result" },
+              left: { type: "pattern_identifier", name: "result" },
               right: { type: "identifier", value: "key" },
             },
           },
@@ -1097,7 +1101,11 @@ Deno.test("parser:statement", async (t) => {
       left: {
         type: "variable_declaration",
         declarationType: "var",
-        declarations: [{ identifier: "value" }],
+        declarations: [
+          {
+            id: { type: "pattern_identifier", name: "value" },
+          },
+        ],
         varType: "let",
       },
       right: {
@@ -1130,7 +1138,7 @@ Deno.test("parser:statement", async (t) => {
             expression: {
               type: "assignment",
               operator: "=",
-              left: { type: "identifier", value: "total" },
+              left: { type: "pattern_identifier", name: "total" },
               right: { type: "identifier", value: "item" },
             },
           },
@@ -1249,10 +1257,7 @@ Deno.test("parser:statement", async (t) => {
                 expression: {
                   type: "assignment",
                   operator: "=",
-                  left: {
-                    type: "identifier",
-                    value: "c",
-                  },
+                  left: { type: "pattern_identifier", name: "c" },
                   right: {
                     type: "number",
                     value: 0,
@@ -1280,10 +1285,7 @@ Deno.test("parser:statement", async (t) => {
                 expression: {
                   type: "assignment",
                   operator: "=",
-                  left: {
-                    type: "identifier",
-                    value: "c",
-                  },
+                  left: { type: "pattern_identifier", name: "c" },
                   right: {
                     type: "number",
                     value: 1,
@@ -1299,10 +1301,7 @@ Deno.test("parser:statement", async (t) => {
           expression: {
             type: "assignment",
             operator: "=",
-            left: {
-              type: "identifier",
-              value: "c",
-            },
+            left: { type: "pattern_identifier", name: "c" },
             right: {
               type: "number",
               value: 0,

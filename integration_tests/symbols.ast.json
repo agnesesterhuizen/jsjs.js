@@ -60,7 +60,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "localA",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "localA",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 3,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -103,7 +111,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "localB",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "localB",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 4,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -281,7 +297,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "globalA",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "globalA",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 8,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -342,7 +366,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "globalB",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "globalB",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 9,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -566,7 +598,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "notRegistered",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "notRegistered",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 13,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -700,7 +740,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "box",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "box",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 16,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {},
@@ -725,7 +773,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "box",
@@ -778,7 +826,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "box",
@@ -831,7 +879,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "box",

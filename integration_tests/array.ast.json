@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "arr",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "arr",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 1,
+              "column": 7
+            }
+          },
           "value": {
             "type": "array",
             "elements": [
@@ -418,7 +426,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "popped",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "popped",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 9,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -712,7 +728,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "shifted",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "shifted",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 16,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -889,7 +913,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "arr2",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "arr2",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 20,
+              "column": 7
+            }
+          },
           "value": {
             "type": "array",
             "elements": [
@@ -941,7 +973,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "concatenated",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "concatenated",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 21,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -1191,7 +1231,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "sliced",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "sliced",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 26,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -1787,7 +1835,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "toReverse",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "toReverse",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 36,
+              "column": 7
+            }
+          },
           "value": {
             "type": "array",
             "elements": [
@@ -2018,7 +2074,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "testArr",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "testArr",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 41,
+              "column": 7
+            }
+          },
           "value": {
             "type": "array",
             "elements": [
@@ -2504,7 +2568,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "empty",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "empty",
+            "location": {
+              "file": "./integration_tests/array.js",
+              "line": 50,
+              "column": 7
+            }
+          },
           "value": {
             "type": "array",
             "elements": [],

@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "numbers",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "numbers",
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 1,
+              "column": 7
+            }
+          },
           "value": {
             "type": "array",
             "elements": [
@@ -67,7 +75,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "total",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "total",
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 2,
+              "column": 5
+            }
+          },
           "value": {
             "type": "number",
             "value": 0,
@@ -93,7 +109,15 @@
         "declarationType": "var",
         "declarations": [
           {
-            "identifier": "value"
+            "id": {
+              "type": "pattern_identifier",
+              "name": "value",
+              "location": {
+                "file": "./integration_tests/for_of.js",
+                "line": 3,
+                "column": 10
+              }
+            }
           }
         ],
         "varType": "let",
@@ -121,8 +145,8 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "identifier",
-                "value": "total",
+                "type": "pattern_identifier",
+                "name": "total",
                 "location": {
                   "file": "./integration_tests/for_of.js",
                   "line": 4,
@@ -240,7 +264,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "bucket",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "bucket",
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 8,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {

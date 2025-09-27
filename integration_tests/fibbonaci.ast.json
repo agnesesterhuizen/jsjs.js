@@ -273,7 +273,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "res",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "res",
+            "location": {
+              "file": "./integration_tests/fibbonaci.js",
+              "line": 11,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {

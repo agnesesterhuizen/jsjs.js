@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "x",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "x",
+            "location": {
+              "file": "./integration_tests/switch.js",
+              "line": 1,
+              "column": 7
+            }
+          },
           "value": {
             "type": "string",
             "value": "test",

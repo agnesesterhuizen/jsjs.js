@@ -18,7 +18,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "identifier",
                       "value": "this",
@@ -71,7 +71,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "identifier",
                       "value": "this",
@@ -153,7 +153,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "identifier",
                       "value": "this",
@@ -256,7 +256,15 @@
                 "declarationType": "var",
                 "declarations": [
                   {
-                    "identifier": "index",
+                    "id": {
+                      "type": "pattern_identifier",
+                      "name": "index",
+                      "location": {
+                        "file": "./integration_tests/hashtable.js",
+                        "line": 9,
+                        "column": 9
+                      }
+                    },
                     "value": {
                       "type": "call",
                       "func": {
@@ -454,7 +462,7 @@
                               "type": "assignment",
                               "operator": "=",
                               "left": {
-                                "type": "member",
+                                "type": "pattern_member",
                                 "object": {
                                   "type": "member",
                                   "object": {
@@ -572,8 +580,8 @@
                         "type": "assignment",
                         "operator": "=",
                         "left": {
-                          "type": "identifier",
-                          "value": "index",
+                          "type": "pattern_identifier",
+                          "name": "index",
                           "location": {
                             "file": "./integration_tests/hashtable.js",
                             "line": 16,
@@ -656,7 +664,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "member",
                       "object": {
@@ -727,7 +735,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "member",
                       "object": {
@@ -816,7 +824,15 @@
                 "declarationType": "var",
                 "declarations": [
                   {
-                    "identifier": "index",
+                    "id": {
+                      "type": "pattern_identifier",
+                      "name": "index",
+                      "location": {
+                        "file": "./integration_tests/hashtable.js",
+                        "line": 23,
+                        "column": 9
+                      }
+                    },
                     "value": {
                       "type": "call",
                       "func": {
@@ -1106,8 +1122,8 @@
                         "type": "assignment",
                         "operator": "=",
                         "left": {
-                          "type": "identifier",
-                          "value": "index",
+                          "type": "pattern_identifier",
+                          "name": "index",
                           "location": {
                             "file": "./integration_tests/hashtable.js",
                             "line": 29,
@@ -1225,7 +1241,15 @@
                 "declarationType": "var",
                 "declarations": [
                   {
-                    "identifier": "sum",
+                    "id": {
+                      "type": "pattern_identifier",
+                      "name": "sum",
+                      "location": {
+                        "file": "./integration_tests/hashtable.js",
+                        "line": 35,
+                        "column": 9
+                      }
+                    },
                     "value": {
                       "type": "number",
                       "value": 0,
@@ -1251,7 +1275,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "i",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "i",
+                        "location": {
+                          "file": "./integration_tests/hashtable.js",
+                          "line": 36,
+                          "column": 14
+                        }
+                      },
                       "value": {
                         "type": "number",
                         "value": 0,
@@ -1342,8 +1374,8 @@
                         "type": "assignment",
                         "operator": "=",
                         "left": {
-                          "type": "identifier",
-                          "value": "sum",
+                          "type": "pattern_identifier",
+                          "name": "sum",
                           "location": {
                             "file": "./integration_tests/hashtable.js",
                             "line": 37,
@@ -1513,7 +1545,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "t",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "t",
+            "location": {
+              "file": "./integration_tests/hashtable.js",
+              "line": 43,
+              "column": 7
+            }
+          },
           "value": {
             "type": "new",
             "identifier": "HashTable",

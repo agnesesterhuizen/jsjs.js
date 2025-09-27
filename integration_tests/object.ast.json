@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "obj",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "obj",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 1,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {
@@ -484,7 +492,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "obj",
@@ -537,7 +545,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "obj",
@@ -767,7 +775,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "target",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "target",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 16,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {
@@ -810,7 +826,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "source",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "source",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 17,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {
@@ -853,7 +877,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "merged",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "merged",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 18,
+              "column": 7
+            }
+          },
           "value": {
             "type": "call",
             "func": {
@@ -1112,7 +1144,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "objA",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "objA",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 23,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {
@@ -1264,7 +1304,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "nested",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "nested",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 26,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {
@@ -1598,7 +1646,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "data",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "data",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 41,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {
@@ -1903,7 +1959,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "empty",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "empty",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 49,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {},
@@ -2091,7 +2155,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "empty",
@@ -2206,7 +2270,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "x",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "x",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 55,
+              "column": 7
+            }
+          },
           "value": {
             "type": "string",
             "value": "test",
@@ -2230,7 +2302,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "y",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "y",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 56,
+              "column": 7
+            }
+          },
           "value": {
             "type": "number",
             "value": 42,
@@ -2254,7 +2334,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "shorthand",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "shorthand",
+            "location": {
+              "file": "./integration_tests/object.js",
+              "line": 57,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {

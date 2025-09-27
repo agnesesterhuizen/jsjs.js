@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "x",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "x",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 5,
+              "column": 7
+            }
+          },
           "value": {
             "type": "number",
             "value": 42,
@@ -30,7 +38,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "y",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "y",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 8,
+              "column": 7
+            }
+          },
           "value": {
             "type": "string",
             "value": "hello",
@@ -54,7 +70,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "z",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "z",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 15,
+              "column": 7
+            }
+          },
           "value": {
             "type": "boolean",
             "value": true,

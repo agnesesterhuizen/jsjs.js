@@ -1,0 +1,1146 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "person",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 1,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "value": "Alice",
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 2,
+                  "column": 9
+                }
+              },
+              "age": {
+                "type": "number",
+                "value": 30,
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 3,
+                  "column": 8
+                }
+              },
+              "address": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string",
+                    "value": "Wonderland",
+                    "location": {
+                      "file": "./integration_tests/object_destructuring.js",
+                      "line": 4,
+                      "column": 20
+                    }
+                  },
+                  "zip": {
+                    "type": "number",
+                    "value": 12345,
+                    "location": {
+                      "file": "./integration_tests/object_destructuring.js",
+                      "line": 4,
+                      "column": 39
+                    }
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 4,
+                  "column": 12
+                }
+              },
+              "extras": {
+                "type": "string",
+                "value": "extra",
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 5,
+                  "column": 11
+                }
+              }
+            },
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 1,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 1,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_object",
+            "properties": [
+              {
+                "type": "pattern_property",
+                "key": "name",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "name",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 8,
+                    "column": 9
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 8,
+                  "column": 9
+                }
+              },
+              {
+                "type": "pattern_property",
+                "key": "age",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "age",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 8,
+                    "column": 15
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 8,
+                  "column": 15
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 8,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "identifier",
+            "value": "person",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 8,
+              "column": 23
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 9,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 9,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object_destructuring.js",
+            "line": 9,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "basic:",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 9,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "name",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 9,
+              "column": 23
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "age",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 9,
+              "column": 29
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object_destructuring.js",
+          "line": 9,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_object",
+            "properties": [
+              {
+                "type": "pattern_property",
+                "key": "address",
+                "value": {
+                  "type": "pattern_object",
+                  "properties": [
+                    {
+                      "type": "pattern_property",
+                      "key": "city",
+                      "value": {
+                        "type": "pattern_identifier",
+                        "name": "city",
+                        "location": {
+                          "file": "./integration_tests/object_destructuring.js",
+                          "line": 12,
+                          "column": 14
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/object_destructuring.js",
+                        "line": 12,
+                        "column": 14
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 12,
+                    "column": 12
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 12,
+                  "column": 3
+                }
+              },
+              {
+                "type": "pattern_property",
+                "key": "nickname",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "nickname",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 13,
+                    "column": 3
+                  }
+                },
+                "defaultValue": {
+                  "type": "string",
+                  "value": "Traveler",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 13,
+                    "column": 14
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 13,
+                  "column": 3
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 11,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "identifier",
+            "value": "person",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 14,
+              "column": 5
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 15,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 15,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object_destructuring.js",
+            "line": 15,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "nested:",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 15,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "city",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 15,
+              "column": 24
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "nickname",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 15,
+              "column": 30
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object_destructuring.js",
+          "line": 15,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "aliasName",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 17,
+              "column": 5
+            }
+          }
+        }
+      ],
+      "varType": "let",
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "aliasCity",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 18,
+              "column": 5
+            }
+          }
+        }
+      ],
+      "varType": "let",
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_object",
+          "properties": [
+            {
+              "type": "pattern_property",
+              "key": "name",
+              "value": {
+                "type": "pattern_identifier",
+                "name": "aliasName",
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 19,
+                  "column": 10
+                }
+              },
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 19,
+                "column": 4
+              }
+            },
+            {
+              "type": "pattern_property",
+              "key": "address",
+              "value": {
+                "type": "pattern_object",
+                "properties": [
+                  {
+                    "type": "pattern_property",
+                    "key": "city",
+                    "value": {
+                      "type": "pattern_identifier",
+                      "name": "aliasCity",
+                      "location": {
+                        "file": "./integration_tests/object_destructuring.js",
+                        "line": 19,
+                        "column": 38
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/object_destructuring.js",
+                      "line": 19,
+                      "column": 32
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 19,
+                  "column": 30
+                }
+              },
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 19,
+                "column": 21
+              }
+            }
+          ],
+          "location": {
+            "file": "./integration_tests/object_destructuring.js",
+            "line": 19,
+            "column": 2
+          }
+        },
+        "right": {
+          "type": "identifier",
+          "value": "person",
+          "location": {
+            "file": "./integration_tests/object_destructuring.js",
+            "line": 19,
+            "column": 54
+          }
+        },
+        "location": {
+          "file": "./integration_tests/object_destructuring.js",
+          "line": 19,
+          "column": 2
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 20,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 20,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object_destructuring.js",
+            "line": 20,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "assignment:",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 20,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "aliasName",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 20,
+              "column": 28
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "aliasCity",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 20,
+              "column": 39
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object_destructuring.js",
+          "line": 20,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_object",
+            "properties": [
+              {
+                "type": "pattern_property",
+                "key": "name",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "firstName",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 23,
+                    "column": 9
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 23,
+                  "column": 3
+                }
+              },
+              {
+                "type": "pattern_property",
+                "key": "address",
+                "value": {
+                  "type": "pattern_object",
+                  "properties": [
+                    {
+                      "type": "pattern_property",
+                      "key": "city",
+                      "value": {
+                        "type": "pattern_identifier",
+                        "name": "homeCity",
+                        "location": {
+                          "file": "./integration_tests/object_destructuring.js",
+                          "line": 24,
+                          "column": 20
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/object_destructuring.js",
+                        "line": 24,
+                        "column": 14
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 24,
+                    "column": 12
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 24,
+                  "column": 3
+                }
+              },
+              {
+                "type": "pattern_rest",
+                "argument": {
+                  "type": "pattern_identifier",
+                  "name": "restProps",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 25,
+                    "column": 6
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 25,
+                  "column": 3
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 22,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "identifier",
+            "value": "person",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 26,
+              "column": 5
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 27,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 27,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/object_destructuring.js",
+            "line": 27,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "rest:",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 28,
+              "column": 3
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "firstName",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 29,
+              "column": 3
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "homeCity",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 30,
+              "column": 3
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "restProps",
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 31,
+                "column": 3
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "age",
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 31,
+                "column": 13
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 31,
+              "column": 3
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "restProps",
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 32,
+                "column": 3
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "extras",
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 32,
+                "column": 13
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 32,
+              "column": 3
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "restProps",
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 33,
+                "column": 3
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "address",
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 33,
+                "column": 13
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 33,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object_destructuring.js",
+          "line": 27,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "people",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 36,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "identifier",
+                "value": "person",
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 37,
+                  "column": 3
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Bob",
+                    "location": {
+                      "file": "./integration_tests/object_destructuring.js",
+                      "line": 39,
+                      "column": 11
+                    }
+                  },
+                  "age": {
+                    "type": "number",
+                    "value": 25,
+                    "location": {
+                      "file": "./integration_tests/object_destructuring.js",
+                      "line": 40,
+                      "column": 10
+                    }
+                  },
+                  "address": {
+                    "type": "object",
+                    "properties": {
+                      "city": {
+                        "type": "string",
+                        "value": "Builderland",
+                        "location": {
+                          "file": "./integration_tests/object_destructuring.js",
+                          "line": 41,
+                          "column": 22
+                        }
+                      },
+                      "zip": {
+                        "type": "number",
+                        "value": 54321,
+                        "location": {
+                          "file": "./integration_tests/object_destructuring.js",
+                          "line": 41,
+                          "column": 42
+                        }
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/object_destructuring.js",
+                      "line": 41,
+                      "column": 14
+                    }
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 38,
+                  "column": 3
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 36,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 36,
+        "column": 1
+      }
+    },
+    {
+      "type": "for_of",
+      "left": {
+        "type": "variable_declaration",
+        "declarationType": "var",
+        "declarations": [
+          {
+            "id": {
+              "type": "pattern_object",
+              "properties": [
+                {
+                  "type": "pattern_property",
+                  "key": "name",
+                  "value": {
+                    "type": "pattern_identifier",
+                    "name": "loopName",
+                    "location": {
+                      "file": "./integration_tests/object_destructuring.js",
+                      "line": 45,
+                      "column": 20
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 45,
+                    "column": 14
+                  }
+                },
+                {
+                  "type": "pattern_property",
+                  "key": "address",
+                  "value": {
+                    "type": "pattern_object",
+                    "properties": [
+                      {
+                        "type": "pattern_property",
+                        "key": "city",
+                        "value": {
+                          "type": "pattern_identifier",
+                          "name": "loopCity",
+                          "location": {
+                            "file": "./integration_tests/object_destructuring.js",
+                            "line": 45,
+                            "column": 47
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/object_destructuring.js",
+                          "line": 45,
+                          "column": 41
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/object_destructuring.js",
+                      "line": 45,
+                      "column": 39
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 45,
+                    "column": 30
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 45,
+                "column": 12
+              }
+            }
+          }
+        ],
+        "varType": "const",
+        "location": {
+          "file": "./integration_tests/object_destructuring.js",
+          "line": 45,
+          "column": 6
+        }
+      },
+      "right": {
+        "type": "identifier",
+        "value": "people",
+        "location": {
+          "file": "./integration_tests/object_destructuring.js",
+          "line": 45,
+          "column": 63
+        }
+      },
+      "body": {
+        "type": "block",
+        "body": [
+          {
+            "type": "expression",
+            "expression": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "console",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 46,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "log",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 46,
+                    "column": 11
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/object_destructuring.js",
+                  "line": 46,
+                  "column": 3
+                }
+              },
+              "arguments": [
+                {
+                  "type": "string",
+                  "value": "loop:",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 46,
+                    "column": 15
+                  }
+                },
+                {
+                  "type": "identifier",
+                  "value": "loopName",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 46,
+                    "column": 24
+                  }
+                },
+                {
+                  "type": "identifier",
+                  "value": "loopCity",
+                  "location": {
+                    "file": "./integration_tests/object_destructuring.js",
+                    "line": 46,
+                    "column": 34
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/object_destructuring.js",
+                "line": 46,
+                "column": 14
+              }
+            },
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 46,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/object_destructuring.js",
+          "line": 45,
+          "column": 71
+        }
+      },
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 45,
+        "column": 1
+      }
+    }
+  ]
+}

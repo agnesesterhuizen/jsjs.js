@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "i",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "i",
+            "location": {
+              "file": "./integration_tests/increment_decrement.js",
+              "line": 1,
+              "column": 5
+            }
+          },
           "value": {
             "type": "number",
             "value": 0,
@@ -148,8 +156,8 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "identifier",
-          "value": "i",
+          "type": "pattern_identifier",
+          "name": "i",
           "location": {
             "file": "./integration_tests/increment_decrement.js",
             "line": 6,
@@ -300,8 +308,8 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "identifier",
-          "value": "i",
+          "type": "pattern_identifier",
+          "name": "i",
           "location": {
             "file": "./integration_tests/increment_decrement.js",
             "line": 11,
@@ -452,8 +460,8 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "identifier",
-          "value": "i",
+          "type": "pattern_identifier",
+          "name": "i",
           "location": {
             "file": "./integration_tests/increment_decrement.js",
             "line": 16,

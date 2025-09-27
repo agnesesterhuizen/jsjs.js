@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "name",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "name",
+            "location": {
+              "file": "./integration_tests/templateliterals.js",
+              "line": 1,
+              "column": 7
+            }
+          },
           "value": {
             "type": "string",
             "value": "world",
@@ -30,7 +38,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "a",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "a",
+            "location": {
+              "file": "./integration_tests/templateliterals.js",
+              "line": 2,
+              "column": 7
+            }
+          },
           "value": {
             "type": "number",
             "value": 2,
@@ -54,7 +70,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "b",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "b",
+            "location": {
+              "file": "./integration_tests/templateliterals.js",
+              "line": 3,
+              "column": 7
+            }
+          },
           "value": {
             "type": "number",
             "value": 3,
@@ -252,7 +276,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "multiLine",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "multiLine",
+            "location": {
+              "file": "./integration_tests/templateliterals.js",
+              "line": 7,
+              "column": 7
+            }
+          },
           "value": {
             "type": "template_literal",
             "quasis": [
@@ -333,7 +365,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "nested",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "nested",
+            "location": {
+              "file": "./integration_tests/templateliterals.js",
+              "line": 10,
+              "column": 7
+            }
+          },
           "value": {
             "type": "template_literal",
             "quasis": [
@@ -457,7 +497,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "escaped",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "escaped",
+            "location": {
+              "file": "./integration_tests/templateliterals.js",
+              "line": 12,
+              "column": 7
+            }
+          },
           "value": {
             "type": "template_literal",
             "quasis": [

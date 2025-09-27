@@ -17,6 +17,8 @@ import {
   ExportSpecifier,
   Location,
   CatchClause,
+  Pattern,
+  ObjectPatternProperty,
 } from "./ast.ts";
 import { Token, TokenType } from "./lexer.ts";
 
@@ -759,6 +761,7 @@ export class Parser {
       return this.parseArrowFunctionExpression(allowComma);
     }
 
+    const expressionStartIndex = this.index;
     let left: Expression;
     let locationSource: Token | Location;
 
@@ -1104,6 +1107,19 @@ export class Parser {
     if (assignmentToken) {
       const operator = ASSIGNMENT_TOKEN_TO_OPERATOR[assignmentToken.type];
       if (operator) {
+        const leftEndIndex = this.index;
+        const savedIndex = this.index;
+        this.index = expressionStartIndex;
+        const assignmentTarget = this.parseAssignmentTarget();
+        if (this.index !== leftEndIndex) {
+          syntaxError("invalid left-hand side in assignment", assignmentToken);
+        }
+        this.index = savedIndex;
+
+        if (operator !== "=" && assignmentTarget.type === "pattern_object") {
+          syntaxError("Destructuring assignments must use '=' operator", assignmentToken);
+        }
+
         this.nextToken();
 
         const value = this.parseExpression(0, false);
@@ -1112,7 +1128,7 @@ export class Parser {
           {
             type: "assignment",
             operator,
-            left,
+            left: assignmentTarget,
             right: value,
           },
           locationSource
@@ -1211,18 +1227,21 @@ export class Parser {
     const declarations: VariableDeclarator[] = [];
 
     while (true) {
-      const identifierToken = this.expect("identifier");
+      const pattern = this.parseBindingPattern();
 
       let value: Expression | undefined;
 
       if (this.nextTokenIsType("equals")) {
         this.expect("equals");
         value = this.parseExpression(0, false);
-      } else if (keywordToken.value === "const") {
+      } else if (
+        keywordToken.value === "const" &&
+        !this.isForInOrOfLookahead()
+      ) {
         syntaxError("const declaration must have initial value", keywordToken);
       }
 
-      declarations.push({ identifier: identifierToken.value, value });
+      declarations.push({ id: pattern, value });
 
       if (!this.nextTokenIsType("comma")) {
         break;
@@ -1240,6 +1259,248 @@ export class Parser {
       },
       keywordToken
     );
+  }
+
+  isForInOrOfLookahead(): boolean {
+    const next = this.peekNextToken();
+    if (!next) return false;
+    if (next.type !== "keyword" && next.type !== "identifier") {
+      return false;
+    }
+    return next.value === "in" || next.value === "of";
+  }
+
+  parseBindingPattern(): Pattern {
+    const next = this.peekNextToken();
+
+    if (!next) {
+      unexpectedToken("identifier", next);
+    }
+
+    if (next.type === "left_brace") {
+      return this.parseObjectPattern("binding");
+    }
+
+    if (next.type === "identifier") {
+      const token = this.expect("identifier");
+      return withLocation(
+        { type: "pattern_identifier", name: token.value },
+        token
+      );
+    }
+
+    unexpectedToken("identifier", next);
+  }
+
+  parseAssignmentPattern(): Pattern {
+    return this.parseAssignmentTarget();
+  }
+
+  parseObjectPattern(kind: "binding" | "assignment"): Pattern {
+    const startToken = this.expect("left_brace");
+
+    const properties: ObjectPatternProperty[] = [];
+    let sawRest = false;
+
+    while (!this.nextTokenIsType("right_brace")) {
+      if (this.peekNextToken()?.type === "spread") {
+        const spreadToken = this.expect("spread");
+        if (sawRest) {
+          syntaxError("Multiple rest properties in object pattern", spreadToken);
+        }
+
+        const argument =
+          kind === "binding"
+            ? this.parseBindingPattern()
+            : this.parseAssignmentPattern();
+
+        if (argument.type !== "pattern_identifier") {
+          syntaxError("Rest element must be an identifier", spreadToken);
+        }
+
+        properties.push(
+          withLocation(
+            {
+              type: "pattern_rest",
+              argument,
+            },
+            spreadToken
+          )
+        );
+        sawRest = true;
+
+        if (!this.nextTokenIsType("right_brace")) {
+          syntaxError("Rest element must be the last property", spreadToken);
+        }
+        break;
+      }
+
+      const keyToken = this.nextToken();
+      let key: string;
+
+      if (keyToken.type === "identifier" || keyToken.type === "keyword") {
+        key = keyToken.value;
+      } else if (keyToken.type === "string" || keyToken.type === "number") {
+        key = keyToken.value;
+      } else {
+        unexpectedToken("identifier", keyToken);
+      }
+
+      let valuePattern: Pattern;
+      let defaultValue: Expression | undefined;
+
+      if (this.peekNextToken()?.type === "colon") {
+        this.expect("colon");
+        valuePattern =
+          kind === "binding"
+            ? this.parseBindingPattern()
+            : this.parseAssignmentPattern();
+      } else {
+        if (keyToken.type !== "identifier") {
+          unexpectedToken("identifier", keyToken);
+        }
+        valuePattern = withLocation(
+          { type: "pattern_identifier", name: key },
+          keyToken
+        );
+      }
+
+      if (this.peekNextToken()?.type === "equals") {
+        this.expect("equals");
+        defaultValue = this.parseExpression(0, false);
+      }
+
+      properties.push(
+        withLocation(
+          {
+            type: "pattern_property",
+            key,
+            value: valuePattern,
+            defaultValue,
+          },
+          keyToken
+        )
+      );
+
+      if (this.nextTokenIsType("comma")) {
+        this.expect("comma");
+        if (this.nextTokenIsType("right_brace")) {
+          break;
+        }
+      } else {
+        break;
+      }
+    }
+
+    this.expect("right_brace");
+
+    return withLocation(
+      {
+        type: "pattern_object",
+        properties,
+      },
+      startToken
+    );
+  }
+
+  parseAssignmentTarget(): Pattern {
+    const next = this.peekNextToken();
+
+    if (!next) {
+      unexpectedToken("identifier", next);
+    }
+
+    if (next.type === "left_paren") {
+      this.expect("left_paren");
+      const target = this.parseAssignmentTarget();
+      this.expect("right_paren");
+      return target;
+    }
+
+    if (next.type === "left_brace") {
+      return this.parseObjectPattern("assignment");
+    }
+
+    if (next.type === "identifier") {
+      const identifierToken = this.expect("identifier");
+      let expression: Expression = withLocation(
+        { type: "identifier", value: identifierToken.value },
+        identifierToken
+      ) as Extract<Expression, { type: "identifier" }>;
+
+      while (true) {
+        const peek = this.peekNextToken();
+        if (!peek) break;
+
+        if (peek.type === "dot") {
+          this.expect("dot");
+          const propertyToken = this.expect("identifier");
+          const propertyExpression = withLocation(
+            { type: "identifier", value: propertyToken.value },
+            propertyToken
+          ) as Extract<Expression, { type: "identifier" }>;
+          expression = withLocation(
+            {
+              type: "member",
+              object: expression,
+              property: propertyExpression,
+              computed: false,
+            },
+            expression.location
+          ) as Extract<Expression, { type: "member" }>;
+          continue;
+        }
+
+        if (peek.type === "left_bracket") {
+          this.expect("left_bracket");
+          const propertyExpression = this.parseExpression(0, false);
+          this.expect("right_bracket");
+          expression = withLocation(
+            {
+              type: "member",
+              object: expression,
+              property: propertyExpression,
+              computed: true,
+            },
+            expression.location
+          ) as Extract<Expression, { type: "member" }>;
+          continue;
+        }
+
+        break;
+      }
+
+      return this.expressionToPattern(expression);
+    }
+
+    unexpectedToken("identifier", next);
+  }
+
+  expressionToPattern(expression: Expression): Pattern {
+    if (expression.type === "identifier") {
+      return withLocation(
+        {
+          type: "pattern_identifier",
+          name: expression.value,
+        },
+        expression.location
+      );
+    }
+
+    if (expression.type === "member") {
+      return withLocation(
+        {
+          type: "pattern_member",
+          object: expression.object,
+          property: expression.property,
+          computed: expression.computed,
+        },
+        expression.location
+      );
+    }
+
+    const token = this.tokens[this.index - 1] ?? this.peekNextToken();
+    syntaxError("Invalid assignment target", token ?? this.tokens[this.index]);
   }
 
   parseBlockStatement(): Statement {

@@ -5,6 +5,7 @@ import {
   Program,
   Statement,
   Location,
+  Pattern,
 } from "../ast.ts";
 import {
   JSBoolean,
@@ -13,6 +14,7 @@ import {
   JSString,
   JSObject,
   JSSymbol,
+  JSArray,
 } from "./objects.ts";
 import { Runtime } from "./runtime.ts";
 
@@ -69,6 +71,202 @@ export class Interpreter {
 
   constructor(runtime: Runtime) {
     this.runtime = runtime;
+  }
+
+  declarePatternBindings(pattern: Pattern, kind: "let" | "const") {
+    switch (pattern.type) {
+      case "pattern_identifier": {
+        this.runtime.declareVariable(
+          pattern.name,
+          this.runtime.newUndefined(),
+          kind
+        );
+        return;
+      }
+      case "pattern_object": {
+        for (const property of pattern.properties) {
+          if (property.type === "pattern_property") {
+            this.declarePatternBindings(property.value, kind);
+          } else if (property.type === "pattern_rest") {
+            this.declarePatternBindings(property.argument, kind);
+          }
+        }
+        return;
+      }
+      case "pattern_member":
+        throw referenceError(
+          "Invalid destructuring target in declaration",
+          pattern
+        );
+      default:
+        return;
+    }
+  }
+
+  assignPattern(
+    pattern: Pattern,
+    value: JSObject,
+    options: {
+      kind: "var" | "let" | "const" | "assignment";
+      declaration: boolean;
+    }
+  ): JSObject {
+    switch (pattern.type) {
+      case "pattern_identifier":
+        return this.assignPatternIdentifier(pattern, value, options);
+      case "pattern_member":
+        if (options.declaration) {
+          throw referenceError(
+            "Invalid destructuring target in declaration",
+            pattern
+          );
+        }
+        return this.assignPatternMember(pattern, value);
+      case "pattern_object":
+        return this.assignObjectPattern(pattern, value, options);
+      default:
+        return value;
+    }
+  }
+
+  assignPatternIdentifier(
+    pattern: Extract<Pattern, { type: "pattern_identifier" }>,
+    value: JSObject,
+    options: {
+      kind: "var" | "let" | "const" | "assignment";
+      declaration: boolean;
+    }
+  ): JSObject {
+    if (options.kind === "var") {
+      this.runtime.declareVariable(pattern.name, value, "var");
+      return value;
+    }
+
+    if (options.kind === "let" || options.kind === "const") {
+      const scope = this.runtime.scopes[this.runtime.scope];
+      const binding = scope[pattern.name];
+      if (!binding) {
+        throw referenceError(
+          `binding for '${pattern.name}' not found in current scope`,
+          pattern
+        );
+      }
+      binding.value = value;
+      binding.initialized = true;
+      return value;
+    }
+
+    this.runtime.setVariable(pattern.name, value);
+    return value;
+  }
+
+  assignPatternMember(
+    pattern: Extract<Pattern, { type: "pattern_member" }>,
+    value: JSObject
+  ): JSObject {
+    const object = this.executeExpression(pattern.object);
+
+    if (object.type === "undefined" || object.type === "null") {
+      throw typeError(`Cannot set properties of ${object.type}`, pattern);
+    }
+
+    let propertyKey: string | JSSymbol;
+
+    if (pattern.computed) {
+      const computedProperty = this.executeExpression(pattern.property);
+      if (computedProperty.type === "symbol") {
+        propertyKey = computedProperty as JSSymbol;
+      } else {
+        propertyKey = computedProperty.toString();
+      }
+    } else {
+      if (pattern.property.type !== "identifier") {
+        throw referenceError("Invalid property in assignment target", pattern);
+      }
+      propertyKey = pattern.property.value;
+    }
+
+    this.runtime.setProperty(object, propertyKey, value);
+    return value;
+  }
+
+  assignObjectPattern(
+    pattern: Extract<Pattern, { type: "pattern_object" }>,
+    value: JSObject,
+    options: {
+      kind: "var" | "let" | "const" | "assignment";
+      declaration: boolean;
+    }
+  ): JSObject {
+    if (value.type === "undefined" || value.type === "null") {
+      throw typeError(
+        `Cannot destructure ${value.type} value`,
+        pattern
+      );
+    }
+
+    const source = value as JSObject;
+    const excludedKeys = new Set<string>();
+    let lastValue: JSObject = this.runtime.newUndefined();
+
+    for (const property of pattern.properties) {
+      if (property.type === "pattern_property") {
+        excludedKeys.add(property.key);
+        let propertyValue = this.runtime.getProperty(source, property.key);
+        if (propertyValue.type === "undefined" && property.defaultValue) {
+          propertyValue = this.executeExpression(property.defaultValue);
+        }
+        lastValue = this.assignPattern(property.value, propertyValue, options);
+      } else if (property.type === "pattern_rest") {
+        const restValue = this.createObjectRest(source, excludedKeys);
+        lastValue = this.assignPattern(property.argument, restValue, options);
+      }
+    }
+
+    return lastValue;
+  }
+
+  createObjectRest(source: JSObject, excludedKeys: Set<string>): JSObject {
+    const rest = this.runtime.newObject();
+
+    if (source.type === "array") {
+      const arraySource = source as JSArray;
+      for (let i = 0; i < arraySource.elements.length; i++) {
+        const element = arraySource.elements[i];
+        if (element === undefined) continue;
+        const key = String(i);
+        if (excludedKeys.has(key)) continue;
+        rest.properties[key] = element;
+      }
+    }
+
+    for (const [key, val] of Object.entries(source.properties)) {
+      if (excludedKeys.has(key)) continue;
+      rest.properties[key] = val;
+    }
+
+    return rest;
+  }
+
+  collectPatternIdentifiers(pattern: Pattern, result: Set<string>) {
+    switch (pattern.type) {
+      case "pattern_identifier":
+        result.add(pattern.name);
+        return;
+      case "pattern_object":
+        for (const property of pattern.properties) {
+          if (property.type === "pattern_property") {
+            this.collectPatternIdentifiers(property.value, result);
+          } else if (property.type === "pattern_rest") {
+            this.collectPatternIdentifiers(property.argument, result);
+          }
+        }
+        return;
+      case "pattern_member":
+        return;
+      default:
+        return;
+    }
   }
 
   executeNumericOperation(operator: Operator, left: JSNumber, right: JSNumber) {
@@ -428,26 +626,28 @@ export class Interpreter {
   ) {
     const rightValue = this.executeExpression(expression.right);
 
-    if (expression.left.type === "identifier") {
-      if (expression.operator === "=") {
-        this.runtime.setVariable(expression.left.value, rightValue);
-        return rightValue;
-      }
+    if (expression.operator === "=") {
+      this.assignPattern(expression.left, rightValue, {
+        kind: "assignment",
+        declaration: false,
+      });
+      return rightValue;
+    }
 
-      const currentValue = this.runtime.lookupVariable(expression.left.value);
+    if (expression.left.type === "pattern_identifier") {
+      const currentValue = this.runtime.lookupVariable(expression.left.name);
       const newValue = this.applyAssignmentOperator(
         expression.operator,
         currentValue,
         rightValue,
         expression
       );
-      this.runtime.setVariable(expression.left.value, newValue);
+      this.runtime.setVariable(expression.left.name, newValue);
       return newValue;
     }
 
-    if (expression.left.type === "member") {
-      const memberExpression = expression.left;
-      const object = this.executeExpression(memberExpression.object);
+    if (expression.left.type === "pattern_member") {
+      const object = this.executeExpression(expression.left.object);
 
       if (object.type === "undefined" || object.type === "null") {
         throw typeError("Cannot set properties of " + object.type, expression);
@@ -455,29 +655,22 @@ export class Interpreter {
 
       let propertyKey: string | JSSymbol;
 
-      if (memberExpression.computed) {
-        const computedProperty = this.executeExpression(
-          memberExpression.property
-        );
+      if (expression.left.computed) {
+        const computedProperty = this.executeExpression(expression.left.property);
         if (computedProperty.type === "symbol") {
           propertyKey = computedProperty as JSSymbol;
         } else {
           propertyKey = computedProperty.toString();
         }
       } else {
-        if (memberExpression.property.type !== "identifier") {
+        if (expression.left.property.type !== "identifier") {
           throw referenceError(
             "Invalid left-hand side in assignment",
             expression
           );
         }
 
-        propertyKey = memberExpression.property.value;
-      }
-
-      if (expression.operator === "=") {
-        this.runtime.setProperty(object, propertyKey, rightValue);
-        return rightValue;
+        propertyKey = expression.left.property.value;
       }
 
       const currentValue = this.runtime.getProperty(object, propertyKey);
@@ -918,48 +1111,33 @@ export class Interpreter {
       case "variable_declaration": {
         const kind = statement.varType;
         let lastValue: JSObject = this.runtime.newUndefined();
-
-        if (kind === "var") {
-          for (const decl of statement.declarations) {
-            let value = this.runtime.newUndefined();
-            if (decl.value !== undefined) {
-              value = this.executeExpression(decl.value);
-            }
-            this.runtime.declareVariable(decl.identifier, value, "var");
-            lastValue = value;
-          }
-          return lastValue;
-        }
-
         if (kind === "let" || kind === "const") {
           for (const decl of statement.declarations) {
-            this.runtime.declareVariable(
-              decl.identifier,
-              this.runtime.newUndefined(),
-              kind
-            );
-
-            const scope = this.runtime.scopes[this.runtime.scope];
-            const binding = scope[decl.identifier];
-            if (!binding) {
-              throw referenceError(
-                `binding for '${decl.identifier}' not found in current scope`,
-                statement
-              );
-            }
-
-            if (decl.value !== undefined) {
-              binding.value = this.executeExpression(decl.value);
-            }
-
-            binding.initialized = true;
-            lastValue = binding.value;
+            this.declarePatternBindings(decl.id, kind);
           }
-
-          return lastValue;
         }
 
-        return this.runtime.newUndefined();
+        for (const decl of statement.declarations) {
+          const shouldAssign =
+            decl.value !== undefined || decl.id.type === "pattern_identifier";
+
+          if (!shouldAssign) {
+            continue;
+          }
+
+          let initValue: JSObject = this.runtime.newUndefined();
+
+          if (decl.value !== undefined) {
+            initValue = this.executeExpression(decl.value);
+          }
+
+          lastValue = this.assignPattern(decl.id, initValue, {
+            kind,
+            declaration: true,
+          });
+        }
+
+        return lastValue;
       }
 
       case "function_declaration": {
@@ -1030,7 +1208,10 @@ export class Interpreter {
           this.executeStatement(declaration);
 
           assign = (value: JSObject) => {
-            this.runtime.setVariable(declarator.identifier, value);
+            this.assignPattern(declarator.id, value, {
+              kind: declaration.varType,
+              declaration: true,
+            });
           };
         } else {
           const targetExpression = statement.left as Expression;
@@ -1135,7 +1316,10 @@ export class Interpreter {
           this.executeStatement(declaration);
 
           assign = (value: JSObject) => {
-            this.runtime.setVariable(declarator.identifier, value);
+            this.assignPattern(declarator.id, value, {
+              kind: declaration.varType,
+              declaration: true,
+            });
           };
         } else {
           const targetExpression = statement.left as Expression;
@@ -1405,12 +1589,16 @@ export class Interpreter {
       if (statement.varType !== "var") continue;
 
       for (const decl of statement.declarations) {
-        if (decl.identifier in currentScope) continue;
-        this.runtime.declareVariable(
-          decl.identifier,
-          this.runtime.newUndefined(),
-          "var"
-        );
+        const identifiers = new Set<string>();
+        this.collectPatternIdentifiers(decl.id, identifiers);
+        for (const name of identifiers) {
+          if (name in currentScope) continue;
+          this.runtime.declareVariable(
+            name,
+            this.runtime.newUndefined(),
+            "var"
+          );
+        }
       }
     }
 

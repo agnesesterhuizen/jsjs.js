@@ -92,7 +92,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "this",
@@ -140,7 +140,7 @@
                         "type": "assignment",
                         "operator": "=",
                         "left": {
-                          "type": "member",
+                          "type": "pattern_member",
                           "object": {
                             "type": "identifier",
                             "value": "this",
@@ -279,7 +279,7 @@
                               "type": "assignment",
                               "operator": "=",
                               "left": {
-                                "type": "member",
+                                "type": "pattern_member",
                                 "object": {
                                   "type": "identifier",
                                   "value": "this",
@@ -353,7 +353,7 @@
                         "type": "assignment",
                         "operator": "=",
                         "left": {
-                          "type": "member",
+                          "type": "pattern_member",
                           "object": {
                             "type": "identifier",
                             "value": "this",
@@ -418,7 +418,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "x",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "x",
+                              "location": {
+                                "file": "./integration_tests/gameoflife.js",
+                                "line": 18,
+                                "column": 14
+                              }
+                            },
                             "value": {
                               "type": "number",
                               "value": 0,
@@ -491,7 +499,7 @@
                               "type": "assignment",
                               "operator": "=",
                               "left": {
-                                "type": "member",
+                                "type": "pattern_member",
                                 "object": {
                                   "type": "member",
                                   "object": {
@@ -574,7 +582,15 @@
                               "declarationType": "var",
                               "declarations": [
                                 {
-                                  "identifier": "y",
+                                  "id": {
+                                    "type": "pattern_identifier",
+                                    "name": "y",
+                                    "location": {
+                                      "file": "./integration_tests/gameoflife.js",
+                                      "line": 20,
+                                      "column": 16
+                                    }
+                                  },
                                   "value": {
                                     "type": "number",
                                     "value": 0,
@@ -646,7 +662,15 @@
                                   "declarationType": "var",
                                   "declarations": [
                                     {
-                                      "identifier": "seed",
+                                      "id": {
+                                        "type": "pattern_identifier",
+                                        "name": "seed",
+                                        "location": {
+                                          "file": "./integration_tests/gameoflife.js",
+                                          "line": 21,
+                                          "column": 13
+                                        }
+                                      },
                                       "value": {
                                         "type": "binary",
                                         "operator": "+",
@@ -775,7 +799,7 @@
                                           "type": "assignment",
                                           "operator": "=",
                                           "left": {
-                                            "type": "member",
+                                            "type": "pattern_member",
                                             "object": {
                                               "type": "member",
                                               "object": {
@@ -874,7 +898,7 @@
                                           "type": "assignment",
                                           "operator": "=",
                                           "left": {
-                                            "type": "member",
+                                            "type": "pattern_member",
                                             "object": {
                                               "type": "member",
                                               "object": {
@@ -1027,7 +1051,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "this",
@@ -1065,7 +1089,7 @@
                         "type": "assignment",
                         "operator": "=",
                         "left": {
-                          "type": "member",
+                          "type": "pattern_member",
                           "object": {
                             "type": "identifier",
                             "value": "this",
@@ -1166,7 +1190,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "i",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "i",
+                              "location": {
+                                "file": "./integration_tests/gameoflife.js",
+                                "line": 33,
+                                "column": 14
+                              }
+                            },
                             "value": {
                               "type": "number",
                               "value": 0,
@@ -1275,7 +1307,7 @@
                               "type": "assignment",
                               "operator": "=",
                               "left": {
-                                "type": "member",
+                                "type": "pattern_member",
                                 "object": {
                                   "type": "member",
                                   "object": {
@@ -1425,7 +1457,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "x",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "x",
+                              "location": {
+                                "file": "./integration_tests/gameoflife.js",
+                                "line": 36,
+                                "column": 14
+                              }
+                            },
                             "value": {
                               "type": "number",
                               "value": 0,
@@ -1535,7 +1575,15 @@
                               "declarationType": "var",
                               "declarations": [
                                 {
-                                  "identifier": "y",
+                                  "id": {
+                                    "type": "pattern_identifier",
+                                    "name": "y",
+                                    "location": {
+                                      "file": "./integration_tests/gameoflife.js",
+                                      "line": 37,
+                                      "column": 16
+                                    }
+                                  },
                                   "value": {
                                     "type": "number",
                                     "value": 0,
@@ -1661,7 +1709,15 @@
                                   "declarationType": "var",
                                   "declarations": [
                                     {
-                                      "identifier": "n",
+                                      "id": {
+                                        "type": "pattern_identifier",
+                                        "name": "n",
+                                        "location": {
+                                          "file": "./integration_tests/gameoflife.js",
+                                          "line": 38,
+                                          "column": 13
+                                        }
+                                      },
                                       "value": {
                                         "type": "number",
                                         "value": 0,
@@ -1687,7 +1743,15 @@
                                     "declarationType": "var",
                                     "declarations": [
                                       {
-                                        "identifier": "dx",
+                                        "id": {
+                                          "type": "pattern_identifier",
+                                          "name": "dx",
+                                          "location": {
+                                            "file": "./integration_tests/gameoflife.js",
+                                            "line": 39,
+                                            "column": 18
+                                          }
+                                        },
                                         "value": {
                                           "type": "number",
                                           "value": -1,
@@ -1761,7 +1825,15 @@
                                           "declarationType": "var",
                                           "declarations": [
                                             {
-                                              "identifier": "dy",
+                                              "id": {
+                                                "type": "pattern_identifier",
+                                                "name": "dy",
+                                                "location": {
+                                                  "file": "./integration_tests/gameoflife.js",
+                                                  "line": 40,
+                                                  "column": 20
+                                                }
+                                              },
                                               "value": {
                                                 "type": "number",
                                                 "value": -1,
@@ -2316,7 +2388,15 @@
                                   "declarationType": "var",
                                   "declarations": [
                                     {
-                                      "identifier": "c",
+                                      "id": {
+                                        "type": "pattern_identifier",
+                                        "name": "c",
+                                        "location": {
+                                          "file": "./integration_tests/gameoflife.js",
+                                          "line": 51,
+                                          "column": 13
+                                        }
+                                      },
                                       "value": {
                                         "type": "member",
                                         "object": {
@@ -2430,8 +2510,8 @@
                                             "type": "assignment",
                                             "operator": "=",
                                             "left": {
-                                              "type": "identifier",
-                                              "value": "c",
+                                              "type": "pattern_identifier",
+                                              "name": "c",
                                               "location": {
                                                 "file": "./integration_tests/gameoflife.js",
                                                 "line": 55,
@@ -2507,8 +2587,8 @@
                                             "type": "assignment",
                                             "operator": "=",
                                             "left": {
-                                              "type": "identifier",
-                                              "value": "c",
+                                              "type": "pattern_identifier",
+                                              "name": "c",
                                               "location": {
                                                 "file": "./integration_tests/gameoflife.js",
                                                 "line": 60,
@@ -2553,8 +2633,8 @@
                                       "type": "assignment",
                                       "operator": "=",
                                       "left": {
-                                        "type": "identifier",
-                                        "value": "c",
+                                        "type": "pattern_identifier",
+                                        "name": "c",
                                         "location": {
                                           "file": "./integration_tests/gameoflife.js",
                                           "line": 63,
@@ -2594,7 +2674,7 @@
                                     "type": "assignment",
                                     "operator": "=",
                                     "left": {
-                                      "type": "member",
+                                      "type": "pattern_member",
                                       "object": {
                                         "type": "member",
                                         "object": {
@@ -2709,7 +2789,7 @@
                         "type": "assignment",
                         "operator": "=",
                         "left": {
-                          "type": "member",
+                          "type": "pattern_member",
                           "object": {
                             "type": "identifier",
                             "value": "this",
@@ -2832,7 +2912,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "this",
@@ -2871,7 +2951,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "x",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "x",
+                              "location": {
+                                "file": "./integration_tests/gameoflife.js",
+                                "line": 72,
+                                "column": 14
+                              }
+                            },
                             "value": {
                               "type": "number",
                               "value": 0,
@@ -2979,7 +3067,15 @@
                             "declarationType": "var",
                             "declarations": [
                               {
-                                "identifier": "l",
+                                "id": {
+                                  "type": "pattern_identifier",
+                                  "name": "l",
+                                  "location": {
+                                    "file": "./integration_tests/gameoflife.js",
+                                    "line": 73,
+                                    "column": 11
+                                  }
+                                },
                                 "value": {
                                   "type": "string",
                                   "value": "",
@@ -3005,7 +3101,15 @@
                               "declarationType": "var",
                               "declarations": [
                                 {
-                                  "identifier": "y",
+                                  "id": {
+                                    "type": "pattern_identifier",
+                                    "name": "y",
+                                    "location": {
+                                      "file": "./integration_tests/gameoflife.js",
+                                      "line": 74,
+                                      "column": 16
+                                    }
+                                  },
                                   "value": {
                                     "type": "number",
                                     "value": 0,
@@ -3197,8 +3301,8 @@
                                       "type": "assignment",
                                       "operator": "+=",
                                       "left": {
-                                        "type": "identifier",
-                                        "value": "l",
+                                        "type": "pattern_identifier",
+                                        "name": "l",
                                         "location": {
                                           "file": "./integration_tests/gameoflife.js",
                                           "line": 75,
@@ -3232,8 +3336,8 @@
                                       "type": "assignment",
                                       "operator": "+=",
                                       "left": {
-                                        "type": "identifier",
-                                        "value": "l",
+                                        "type": "pattern_identifier",
+                                        "name": "l",
                                         "location": {
                                           "file": "./integration_tests/gameoflife.js",
                                           "line": 76,
@@ -3360,7 +3464,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "this",
@@ -3399,7 +3503,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "t",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "t",
+                              "location": {
+                                "file": "./integration_tests/gameoflife.js",
+                                "line": 83,
+                                "column": 14
+                              }
+                            },
                             "value": {
                               "type": "number",
                               "value": 0,
@@ -3700,7 +3812,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "game",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "game",
+            "location": {
+              "file": "./integration_tests/gameoflife.js",
+              "line": 91,
+              "column": 5
+            }
+          },
           "value": {
             "type": "new",
             "identifier": "GameOfLife",
@@ -3816,7 +3936,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "game",
@@ -4115,7 +4235,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "game",

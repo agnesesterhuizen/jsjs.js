@@ -22,7 +22,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "identifier",
                       "value": "this",
@@ -75,7 +75,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "identifier",
                       "value": "this",
@@ -307,7 +307,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "identifier",
                       "value": "this",
@@ -360,7 +360,7 @@
                   "type": "assignment",
                   "operator": "=",
                   "left": {
-                    "type": "member",
+                    "type": "pattern_member",
                     "object": {
                       "type": "identifier",
                       "value": "this",
@@ -569,7 +569,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "rover",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "rover",
+            "location": {
+              "file": "./integration_tests/classes.js",
+              "line": 28,
+              "column": 7
+            }
+          },
           "value": {
             "type": "new",
             "identifier": "Dog",

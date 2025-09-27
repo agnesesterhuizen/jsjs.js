@@ -18,7 +18,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "this",
@@ -71,7 +71,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "this",
@@ -137,7 +137,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "member",
             "object": {
@@ -271,7 +271,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "member",
             "object": {
@@ -464,7 +464,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "this",
@@ -517,7 +517,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "this",
@@ -583,7 +583,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "Dog",
@@ -691,7 +691,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "member",
             "object": {
@@ -762,7 +762,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "member",
             "object": {
@@ -967,7 +967,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "rover",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "rover",
+            "location": {
+              "file": "./integration_tests/inheritance.js",
+              "line": 27,
+              "column": 7
+            }
+          },
           "value": {
             "type": "new",
             "identifier": "Dog",

@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "re",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "re",
+            "location": {
+              "file": "./integration_tests/regex.js",
+              "line": 1,
+              "column": 7
+            }
+          },
           "value": {
             "type": "regex",
             "pattern": "hello (\\w+)",
@@ -31,7 +39,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "inputs",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "inputs",
+            "location": {
+              "file": "./integration_tests/regex.js",
+              "line": 2,
+              "column": 7
+            }
+          },
           "value": {
             "type": "array",
             "elements": [
@@ -94,7 +110,15 @@
         "declarationType": "var",
         "declarations": [
           {
-            "identifier": "i",
+            "id": {
+              "type": "pattern_identifier",
+              "name": "i",
+              "location": {
+                "file": "./integration_tests/regex.js",
+                "line": 9,
+                "column": 10
+              }
+            },
             "value": {
               "type": "number",
               "value": 0,
@@ -184,7 +208,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "input",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "input",
+                  "location": {
+                    "file": "./integration_tests/regex.js",
+                    "line": 10,
+                    "column": 9
+                  }
+                },
                 "value": {
                   "type": "member",
                   "object": {
@@ -227,7 +259,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "re",
@@ -279,7 +311,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "result",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "result",
+                  "location": {
+                    "file": "./integration_tests/regex.js",
+                    "line": 12,
+                    "column": 9
+                  }
+                },
                 "value": {
                   "type": "call",
                   "func": {
@@ -885,7 +925,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "escapeRe",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "escapeRe",
+            "location": {
+              "file": "./integration_tests/regex.js",
+              "line": 26,
+              "column": 7
+            }
+          },
           "value": {
             "type": "regex",
             "pattern": "[-\\/\\\\^$*+?.()|[\\]{}]",
@@ -1093,7 +1141,7 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "member",
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
             "value": "escapeRe",

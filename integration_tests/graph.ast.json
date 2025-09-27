@@ -20,7 +20,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "visited",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "visited",
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 2,
+                    "column": 9
+                  }
+                },
                 "value": {
                   "type": "object",
                   "properties": {},
@@ -44,7 +52,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "distances",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "distances",
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 3,
+                    "column": 9
+                  }
+                },
                 "value": {
                   "type": "object",
                   "properties": {},
@@ -68,7 +84,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "prev",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "prev",
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 4,
+                    "column": 9
+                  }
+                },
                 "value": {
                   "type": "object",
                   "properties": {},
@@ -92,7 +116,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "nodes",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "nodes",
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 5,
+                    "column": 9
+                  }
+                },
                 "value": {
                   "type": "array",
                   "elements": [],
@@ -116,7 +148,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "nodeCount",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "nodeCount",
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 8,
+                    "column": 7
+                  }
+                },
                 "value": {
                   "type": "number",
                   "value": 0,
@@ -140,7 +180,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "graphKeys",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "graphKeys",
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 9,
+                    "column": 9
+                  }
+                },
                 "value": {
                   "type": "call",
                   "func": {
@@ -201,7 +249,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "keyIndex",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "keyIndex",
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 10,
+                    "column": 7
+                  }
+                },
                 "value": {
                   "type": "number",
                   "value": 0,
@@ -275,7 +331,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "node",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "node",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 12,
+                          "column": 11
+                        }
+                      },
                       "value": {
                         "type": "member",
                         "object": {
@@ -318,7 +382,7 @@
                     "type": "assignment",
                     "operator": "=",
                     "left": {
-                      "type": "member",
+                      "type": "pattern_member",
                       "object": {
                         "type": "identifier",
                         "value": "nodes",
@@ -371,8 +435,8 @@
                     "type": "assignment",
                     "operator": "=",
                     "left": {
-                      "type": "identifier",
-                      "value": "nodeCount",
+                      "type": "pattern_identifier",
+                      "name": "nodeCount",
                       "location": {
                         "file": "./integration_tests/graph.js",
                         "line": 14,
@@ -424,7 +488,7 @@
                     "type": "assignment",
                     "operator": "=",
                     "left": {
-                      "type": "member",
+                      "type": "pattern_member",
                       "object": {
                         "type": "identifier",
                         "value": "distances",
@@ -477,7 +541,7 @@
                     "type": "assignment",
                     "operator": "=",
                     "left": {
-                      "type": "member",
+                      "type": "pattern_member",
                       "object": {
                         "type": "identifier",
                         "value": "prev",
@@ -529,7 +593,7 @@
                     "type": "assignment",
                     "operator": "=",
                     "left": {
-                      "type": "member",
+                      "type": "pattern_member",
                       "object": {
                         "type": "identifier",
                         "value": "visited",
@@ -582,8 +646,8 @@
                     "type": "assignment",
                     "operator": "=",
                     "left": {
-                      "type": "identifier",
-                      "value": "keyIndex",
+                      "type": "pattern_identifier",
+                      "name": "keyIndex",
                       "location": {
                         "file": "./integration_tests/graph.js",
                         "line": 18,
@@ -648,7 +712,7 @@
               "type": "assignment",
               "operator": "=",
               "left": {
-                "type": "member",
+                "type": "pattern_member",
                 "object": {
                   "type": "identifier",
                   "value": "distances",
@@ -700,7 +764,15 @@
             "declarationType": "var",
             "declarations": [
               {
-                "identifier": "visitedCount",
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "visitedCount",
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 22,
+                    "column": 7
+                  }
+                },
                 "value": {
                   "type": "number",
                   "value": 0,
@@ -756,7 +828,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "currNode",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "currNode",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 25,
+                          "column": 9
+                        }
+                      },
                       "value": {
                         "type": "null",
                         "location": {
@@ -779,7 +859,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "currDist",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "currDist",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 26,
+                          "column": 9
+                        }
+                      },
                       "value": {
                         "type": "identifier",
                         "value": "Infinity",
@@ -803,7 +891,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "i",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "i",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 29,
+                          "column": 9
+                        }
+                      },
                       "value": {
                         "type": "number",
                         "value": 0,
@@ -859,7 +955,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "node",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "node",
+                              "location": {
+                                "file": "./integration_tests/graph.js",
+                                "line": 31,
+                                "column": 13
+                              }
+                            },
                             "value": {
                               "type": "member",
                               "object": {
@@ -997,8 +1101,8 @@
                                 "type": "assignment",
                                 "operator": "=",
                                 "left": {
-                                  "type": "identifier",
-                                  "value": "currNode",
+                                  "type": "pattern_identifier",
+                                  "name": "currNode",
                                   "location": {
                                     "file": "./integration_tests/graph.js",
                                     "line": 33,
@@ -1032,8 +1136,8 @@
                                 "type": "assignment",
                                 "operator": "=",
                                 "left": {
-                                  "type": "identifier",
-                                  "value": "currDist",
+                                  "type": "pattern_identifier",
+                                  "name": "currDist",
                                   "location": {
                                     "file": "./integration_tests/graph.js",
                                     "line": 34,
@@ -1098,8 +1202,8 @@
                           "type": "assignment",
                           "operator": "=",
                           "left": {
-                            "type": "identifier",
-                            "value": "i",
+                            "type": "pattern_identifier",
+                            "name": "i",
                             "location": {
                               "file": "./integration_tests/graph.js",
                               "line": 36,
@@ -1163,7 +1267,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "neighbors",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "neighbors",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 40,
+                          "column": 11
+                        }
+                      },
                       "value": {
                         "type": "member",
                         "object": {
@@ -1205,7 +1317,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "neighborKeys",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "neighborKeys",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 41,
+                          "column": 11
+                        }
+                      },
                       "value": {
                         "type": "call",
                         "func": {
@@ -1266,7 +1386,15 @@
                   "declarationType": "var",
                   "declarations": [
                     {
-                      "identifier": "neighborIndex",
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "neighborIndex",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 42,
+                          "column": 9
+                        }
+                      },
                       "value": {
                         "type": "number",
                         "value": 0,
@@ -1340,7 +1468,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "neighbor",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "neighbor",
+                              "location": {
+                                "file": "./integration_tests/graph.js",
+                                "line": 44,
+                                "column": 13
+                              }
+                            },
                             "value": {
                               "type": "member",
                               "object": {
@@ -1382,7 +1518,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "weight",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "weight",
+                              "location": {
+                                "file": "./integration_tests/graph.js",
+                                "line": 45,
+                                "column": 13
+                              }
+                            },
                             "value": {
                               "type": "member",
                               "object": {
@@ -1424,7 +1568,15 @@
                         "declarationType": "var",
                         "declarations": [
                           {
-                            "identifier": "dist",
+                            "id": {
+                              "type": "pattern_identifier",
+                              "name": "dist",
+                              "location": {
+                                "file": "./integration_tests/graph.js",
+                                "line": 46,
+                                "column": 13
+                              }
+                            },
                             "value": {
                               "type": "binary",
                               "operator": "+",
@@ -1517,7 +1669,7 @@
                                 "type": "assignment",
                                 "operator": "=",
                                 "left": {
-                                  "type": "member",
+                                  "type": "pattern_member",
                                   "object": {
                                     "type": "identifier",
                                     "value": "distances",
@@ -1570,7 +1722,7 @@
                                 "type": "assignment",
                                 "operator": "=",
                                 "left": {
-                                  "type": "member",
+                                  "type": "pattern_member",
                                   "object": {
                                     "type": "identifier",
                                     "value": "prev",
@@ -1636,8 +1788,8 @@
                           "type": "assignment",
                           "operator": "=",
                           "left": {
-                            "type": "identifier",
-                            "value": "neighborIndex",
+                            "type": "pattern_identifier",
+                            "name": "neighborIndex",
                             "location": {
                               "file": "./integration_tests/graph.js",
                               "line": 51,
@@ -1702,7 +1854,7 @@
                     "type": "assignment",
                     "operator": "=",
                     "left": {
-                      "type": "member",
+                      "type": "pattern_member",
                       "object": {
                         "type": "identifier",
                         "value": "visited",
@@ -1755,8 +1907,8 @@
                     "type": "assignment",
                     "operator": "=",
                     "left": {
-                      "type": "identifier",
-                      "value": "visitedCount",
+                      "type": "pattern_identifier",
+                      "name": "visitedCount",
                       "location": {
                         "file": "./integration_tests/graph.js",
                         "line": 55,
@@ -1869,7 +2021,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "graph",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "graph",
+            "location": {
+              "file": "./integration_tests/graph.js",
+              "line": 61,
+              "column": 7
+            }
+          },
           "value": {
             "type": "object",
             "properties": {

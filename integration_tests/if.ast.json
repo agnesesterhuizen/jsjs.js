@@ -6,7 +6,15 @@
       "declarationType": "var",
       "declarations": [
         {
-          "identifier": "x",
+          "id": {
+            "type": "pattern_identifier",
+            "name": "x",
+            "location": {
+              "file": "./integration_tests/if.js",
+              "line": 1,
+              "column": 5
+            }
+          },
           "value": {
             "type": "boolean",
             "value": true,
@@ -176,8 +184,8 @@
         "type": "assignment",
         "operator": "=",
         "left": {
-          "type": "identifier",
-          "value": "x",
+          "type": "pattern_identifier",
+          "name": "x",
           "location": {
             "file": "./integration_tests/if.js",
             "line": 9,

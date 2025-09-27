@@ -8,7 +8,15 @@
         "declarationType": "var",
         "declarations": [
           {
-            "identifier": "i",
+            "id": {
+              "type": "pattern_identifier",
+              "name": "i",
+              "location": {
+                "file": "./integration_tests/forloop.js",
+                "line": 1,
+                "column": 10
+              }
+            },
             "value": {
               "type": "number",
               "value": 0,
