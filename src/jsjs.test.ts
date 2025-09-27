@@ -1,5 +1,6 @@
 import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
 import { JSJS } from "./jsjs.ts";
+import { Statement } from "./ast.ts";
 
 const textExpression = (source: string, expression: any) => {
   const p = new JSJS();
@@ -874,28 +875,136 @@ Deno.test("parser:statement", async (t) => {
               type: "string",
               value: "a",
             },
-            body: {
-              type: "break",
-            },
+            body: [
+              {
+                type: "break",
+              },
+            ],
           },
           {
             test: {
               type: "string",
               value: "b",
             },
-            body: {
-              type: "return",
-              expression: {
-                type: "number",
-                value: 123,
+            body: [
+              {
+                type: "return",
+                expression: {
+                  type: "number",
+                  value: 123,
+                },
               },
-            },
+            ],
           },
         ],
         default: {
           type: "return",
         },
-      }
+      } as Statement
+    );
+  });
+
+  await t.step("switch statement with numbers", () => {
+    testStatement(
+      `switch (n) {
+          case 0:
+          case 1:
+            c = 0;
+            break;
+          case 2:
+            break;
+          case 3:
+            c = 1;
+            break;
+          default:
+            c = 0;
+        }`,
+      {
+        type: "switch",
+        condition: {
+          type: "identifier",
+          value: "n",
+        },
+        cases: [
+          {
+            test: {
+              type: "number",
+              value: 0,
+            },
+            body: [],
+          },
+          {
+            test: {
+              type: "number",
+              value: 1,
+            },
+            body: [
+              {
+                type: "expression",
+                expression: {
+                  type: "assignment",
+                  operator: "=",
+                  left: {
+                    type: "identifier",
+                    value: "c",
+                  },
+                  right: {
+                    type: "number",
+                    value: 0,
+                  },
+                },
+              },
+              { type: "break" },
+            ],
+          },
+          {
+            test: {
+              type: "number",
+              value: 2,
+            },
+            body: [{ type: "break" }],
+          },
+          {
+            test: {
+              type: "number",
+              value: 3,
+            },
+            body: [
+              {
+                type: "expression",
+                expression: {
+                  type: "assignment",
+                  operator: "=",
+                  left: {
+                    type: "identifier",
+                    value: "c",
+                  },
+                  right: {
+                    type: "number",
+                    value: 1,
+                  },
+                },
+              },
+              { type: "break" },
+            ],
+          },
+        ],
+        default: {
+          type: "expression",
+          expression: {
+            type: "assignment",
+            operator: "=",
+            left: {
+              type: "identifier",
+              value: "c",
+            },
+            right: {
+              type: "number",
+              value: 0,
+            },
+          },
+        },
+      } as Statement
     );
   });
 
@@ -961,23 +1070,24 @@ Deno.test("parser:statement", async (t) => {
                         type: "string",
                         value: "z",
                       },
-                      body: {
-                        type: "return",
-                        expression: {
-                          type: "number",
-                          value: 1,
+                      body: [
+                        {
+                          type: "return",
+                          expression: {
+                            type: "number",
+                            value: 1,
+                          },
                         },
-                      },
+                      ],
                     },
                   ],
-                  default: undefined,
                 },
               ],
             },
             static: false,
           },
         ],
-      }
+      } as Statement
     );
   });
 

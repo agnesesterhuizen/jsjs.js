@@ -832,7 +832,7 @@ export class Interpreter {
         try {
           for (const c of statement.cases) {
             if (foundCase) {
-              this.executeStatement(c.body);
+              this.executeStatements(c.body);
               continue;
             }
 
@@ -841,7 +841,7 @@ export class Interpreter {
             // bit of a hack, fix this
             if (caseValue.toString() === condition.toString()) {
               foundCase = true;
-              this.executeStatement(c.body);
+              this.executeStatements(c.body);
             }
           }
         } catch (e) {

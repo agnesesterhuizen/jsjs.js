@@ -207,7 +207,7 @@ export type Statement = WithLocation<
 
 export type SwitchCase = {
   test: Expression;
-  body: Statement;
+  body: Statement[];
 };
 
 export interface Program {

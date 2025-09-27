@@ -43,14 +43,16 @@
               "column": 8
             }
           },
-          "body": {
-            "type": "break",
-            "location": {
-              "file": "./integration_tests/switch.js",
-              "line": 5,
-              "column": 5
+          "body": [
+            {
+              "type": "break",
+              "location": {
+                "file": "./integration_tests/switch.js",
+                "line": 5,
+                "column": 5
+              }
             }
-          }
+          ]
         },
         {
           "test": {
@@ -62,24 +64,26 @@
               "column": 8
             }
           },
-          "body": {
-            "type": "block",
-            "body": [
-              {
-                "type": "break",
-                "location": {
-                  "file": "./integration_tests/switch.js",
-                  "line": 7,
-                  "column": 5
+          "body": [
+            {
+              "type": "block",
+              "body": [
+                {
+                  "type": "break",
+                  "location": {
+                    "file": "./integration_tests/switch.js",
+                    "line": 7,
+                    "column": 5
+                  }
                 }
+              ],
+              "location": {
+                "file": "./integration_tests/switch.js",
+                "line": 6,
+                "column": 13
               }
-            ],
-            "location": {
-              "file": "./integration_tests/switch.js",
-              "line": 6,
-              "column": 13
             }
-          }
+          ]
         },
         {
           "test": {
@@ -91,70 +95,72 @@
               "column": 8
             }
           },
-          "body": {
-            "type": "block",
-            "body": [
-              {
-                "type": "expression",
-                "expression": {
-                  "type": "call",
-                  "func": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "console",
+          "body": [
+            {
+              "type": "block",
+              "body": [
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 12,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 12,
+                          "column": 13
+                        }
+                      },
+                      "computed": false,
                       "location": {
                         "file": "./integration_tests/switch.js",
                         "line": 12,
                         "column": 5
                       }
                     },
-                    "property": {
-                      "type": "identifier",
-                      "value": "log",
-                      "location": {
-                        "file": "./integration_tests/switch.js",
-                        "line": 12,
-                        "column": 13
+                    "arguments": [
+                      {
+                        "type": "string",
+                        "value": "match",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 12,
+                          "column": 17
+                        }
                       }
-                    },
-                    "computed": false,
+                    ],
                     "location": {
                       "file": "./integration_tests/switch.js",
                       "line": 12,
-                      "column": 5
+                      "column": 16
                     }
                   },
-                  "arguments": [
-                    {
-                      "type": "string",
-                      "value": "match",
-                      "location": {
-                        "file": "./integration_tests/switch.js",
-                        "line": 12,
-                        "column": 17
-                      }
-                    }
-                  ],
                   "location": {
                     "file": "./integration_tests/switch.js",
                     "line": 12,
-                    "column": 16
+                    "column": 5
                   }
-                },
-                "location": {
-                  "file": "./integration_tests/switch.js",
-                  "line": 12,
-                  "column": 5
                 }
+              ],
+              "location": {
+                "file": "./integration_tests/switch.js",
+                "line": 11,
+                "column": 16
               }
-            ],
-            "location": {
-              "file": "./integration_tests/switch.js",
-              "line": 11,
-              "column": 16
             }
-          }
+          ]
         },
         {
           "test": {
@@ -166,78 +172,80 @@
               "column": 8
             }
           },
-          "body": {
-            "type": "block",
-            "body": [
-              {
-                "type": "expression",
-                "expression": {
-                  "type": "call",
-                  "func": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "console",
+          "body": [
+            {
+              "type": "block",
+              "body": [
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 16,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 16,
+                          "column": 13
+                        }
+                      },
+                      "computed": false,
                       "location": {
                         "file": "./integration_tests/switch.js",
                         "line": 16,
                         "column": 5
                       }
                     },
-                    "property": {
-                      "type": "identifier",
-                      "value": "log",
-                      "location": {
-                        "file": "./integration_tests/switch.js",
-                        "line": 16,
-                        "column": 13
+                    "arguments": [
+                      {
+                        "type": "string",
+                        "value": "next case",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 16,
+                          "column": 17
+                        }
                       }
-                    },
-                    "computed": false,
+                    ],
                     "location": {
                       "file": "./integration_tests/switch.js",
                       "line": 16,
-                      "column": 5
+                      "column": 16
                     }
                   },
-                  "arguments": [
-                    {
-                      "type": "string",
-                      "value": "next case",
-                      "location": {
-                        "file": "./integration_tests/switch.js",
-                        "line": 16,
-                        "column": 17
-                      }
-                    }
-                  ],
                   "location": {
                     "file": "./integration_tests/switch.js",
                     "line": 16,
-                    "column": 16
+                    "column": 5
                   }
                 },
-                "location": {
-                  "file": "./integration_tests/switch.js",
-                  "line": 16,
-                  "column": 5
+                {
+                  "type": "break",
+                  "location": {
+                    "file": "./integration_tests/switch.js",
+                    "line": 17,
+                    "column": 5
+                  }
                 }
-              },
-              {
-                "type": "break",
-                "location": {
-                  "file": "./integration_tests/switch.js",
-                  "line": 17,
-                  "column": 5
-                }
+              ],
+              "location": {
+                "file": "./integration_tests/switch.js",
+                "line": 15,
+                "column": 17
               }
-            ],
-            "location": {
-              "file": "./integration_tests/switch.js",
-              "line": 15,
-              "column": 17
             }
-          }
+          ]
         },
         {
           "test": {
@@ -249,78 +257,80 @@
               "column": 8
             }
           },
-          "body": {
-            "type": "block",
-            "body": [
-              {
-                "type": "expression",
-                "expression": {
-                  "type": "call",
-                  "func": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "console",
+          "body": [
+            {
+              "type": "block",
+              "body": [
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 21,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 21,
+                          "column": 13
+                        }
+                      },
+                      "computed": false,
                       "location": {
                         "file": "./integration_tests/switch.js",
                         "line": 21,
                         "column": 5
                       }
                     },
-                    "property": {
-                      "type": "identifier",
-                      "value": "log",
-                      "location": {
-                        "file": "./integration_tests/switch.js",
-                        "line": 21,
-                        "column": 13
+                    "arguments": [
+                      {
+                        "type": "string",
+                        "value": "error: fell though after break",
+                        "location": {
+                          "file": "./integration_tests/switch.js",
+                          "line": 21,
+                          "column": 17
+                        }
                       }
-                    },
-                    "computed": false,
+                    ],
                     "location": {
                       "file": "./integration_tests/switch.js",
                       "line": 21,
-                      "column": 5
+                      "column": 16
                     }
                   },
-                  "arguments": [
-                    {
-                      "type": "string",
-                      "value": "error: fell though after break",
-                      "location": {
-                        "file": "./integration_tests/switch.js",
-                        "line": 21,
-                        "column": 17
-                      }
-                    }
-                  ],
                   "location": {
                     "file": "./integration_tests/switch.js",
                     "line": 21,
-                    "column": 16
+                    "column": 5
                   }
                 },
-                "location": {
-                  "file": "./integration_tests/switch.js",
-                  "line": 21,
-                  "column": 5
+                {
+                  "type": "break",
+                  "location": {
+                    "file": "./integration_tests/switch.js",
+                    "line": 22,
+                    "column": 5
+                  }
                 }
-              },
-              {
-                "type": "break",
-                "location": {
-                  "file": "./integration_tests/switch.js",
-                  "line": 22,
-                  "column": 5
-                }
+              ],
+              "location": {
+                "file": "./integration_tests/switch.js",
+                "line": 20,
+                "column": 23
               }
-            ],
-            "location": {
-              "file": "./integration_tests/switch.js",
-              "line": 20,
-              "column": 23
             }
-          }
+          ]
         }
       ],
       "default": {

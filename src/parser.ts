@@ -1015,35 +1015,76 @@ export class Parser {
 
     const cases: SwitchCase[] = [];
 
-    while (
-      this.peekNextToken()?.type === "keyword" &&
-      this.peekNextToken()?.text === "case"
-    ) {
-      this.expectWithValue("keyword", "case");
+    let defaultCase: Statement | undefined;
 
-      const test = this.parseExpression();
+    while (!this.nextTokenIsType("right_brace")) {
+      const next = this.peekNextToken();
 
-      this.expect("colon");
+      if (next?.type === "keyword" && next.value === "case") {
+        this.expectWithValue("keyword", "case");
 
-      const body = this.parseStatement();
+        const test = this.parseExpression(0);
 
-      cases.push({
-        test: test,
-        body: body,
-      });
-    }
+        this.expect("colon");
 
-    let def: Statement;
+        const body: Statement[] = [];
 
-    if (
-      this.peekNextToken().type === "keyword" &&
-      this.peekNextToken()?.value === "default"
-    ) {
-      this.expectWithValue("keyword", "default");
+        while (
+          !this.nextTokenIsType("right_brace") &&
+          !(
+            this.peekNextToken()?.type === "keyword" &&
+            (this.peekNextToken()?.value === "case" ||
+              this.peekNextToken()?.value === "default")
+          )
+        ) {
+          body.push(this.parseStatement());
+        }
 
-      this.expect("colon");
+        cases.push({
+          test,
+          body,
+        });
 
-      def = this.parseStatement();
+        continue;
+      }
+
+      if (next?.type === "keyword" && next.value === "default") {
+        if (defaultCase) {
+          syntaxError("duplicate default clause in switch statement", next);
+        }
+
+        const defaultToken = this.expectWithValue("keyword", "default");
+
+        this.expect("colon");
+
+        const body: Statement[] = [];
+
+        while (
+          !this.nextTokenIsType("right_brace") &&
+          !(
+            this.peekNextToken()?.type === "keyword" &&
+            this.peekNextToken()?.value === "case"
+          )
+        ) {
+          body.push(this.parseStatement());
+        }
+
+        if (body.length === 0) {
+          defaultCase = withLocation({ type: "block", body: [] }, defaultToken);
+        } else if (body.length === 1) {
+          defaultCase = body[0];
+        } else {
+          defaultCase = withLocation({ type: "block", body }, defaultToken);
+        }
+
+        continue;
+      }
+
+      if (next) {
+        syntaxError("unexpected token in switch statement", next);
+      } else {
+        unexpectedToken("right_brace", this.tokens[this.index - 1]);
+      }
     }
 
     this.expect("right_brace");
@@ -1051,9 +1092,9 @@ export class Parser {
     return withLocation(
       {
         type: "switch",
-        condition: condition,
+        condition,
         cases,
-        default: def,
+        default: defaultCase,
       },
       token
     );
