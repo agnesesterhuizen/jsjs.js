@@ -1082,6 +1082,129 @@ export class Interpreter {
         return this.runtime.newUndefined();
       }
 
+      case "for_of": {
+        const iterable = this.executeExpression(statement.right);
+
+        if (iterable.type === "undefined" || iterable.type === "null") {
+          throw typeError(
+            `Cannot iterate over ${iterable.type}`,
+            statement
+          );
+        }
+
+        const iteratorSymbol = this.runtime.getWellKnownSymbol("iterator");
+        const iteratorMethod = this.runtime.getProperty(
+          iterable,
+          iteratorSymbol
+        );
+
+        if (iteratorMethod.type !== "function") {
+          throw typeError("Object is not iterable", statement);
+        }
+
+        const iterator = this.call(
+          iterable,
+          iteratorMethod as JSFunction,
+          []
+        );
+
+        const nextMethod = this.runtime.getProperty(iterator, "next");
+        if (nextMethod.type !== "function") {
+          throw typeError("Iterator must have a next method", statement);
+        }
+
+        let assign: (value: JSObject) => void;
+
+        if (statement.left.type === "variable_declaration") {
+          const declaration = statement.left;
+          const declarator = declaration.declarations[0];
+
+          this.executeStatement(declaration);
+
+          assign = (value: JSObject) => {
+            this.runtime.setVariable(declarator.identifier, value);
+          };
+        } else {
+          const targetExpression = statement.left as Expression;
+
+          assign = (value: JSObject) => {
+            if (targetExpression.type === "identifier") {
+              this.runtime.setVariable(targetExpression.value, value);
+              return;
+            }
+
+            if (targetExpression.type === "member") {
+              const object = this.executeExpression(targetExpression.object);
+
+              if (object.type === "undefined" || object.type === "null") {
+                throw typeError(
+                  `Cannot set properties of ${object.type}`,
+                  targetExpression
+                );
+              }
+
+              let propertyKey: string | JSSymbol;
+
+              if (targetExpression.computed) {
+                const propertyValue = this.executeExpression(
+                  targetExpression.property
+                );
+
+                if (propertyValue.type === "symbol") {
+                  propertyKey = propertyValue as JSSymbol;
+                } else {
+                  propertyKey = propertyValue.toString();
+                }
+              } else {
+                if (targetExpression.property.type !== "identifier") {
+                  throw referenceError(
+                    "Invalid left-hand side in assignment",
+                    targetExpression
+                  );
+                }
+
+                propertyKey = targetExpression.property.value;
+              }
+
+              this.runtime.setProperty(object, propertyKey, value);
+              return;
+            }
+
+            throw referenceError(
+              "Invalid left-hand side in for-of",
+              targetExpression
+            );
+          };
+        }
+
+        while (true) {
+          const result = this.call(
+            iterator,
+            nextMethod as JSFunction,
+            []
+          );
+
+          const doneValue = this.runtime.getProperty(result, "done");
+          if (doneValue.isTruthy()) {
+            break;
+          }
+
+          const value = this.runtime.getProperty(result, "value");
+          assign(value);
+
+          try {
+            this.executeStatement(statement.body);
+          } catch (e) {
+            if (e.type === "__INTERNAL_BREAK__") {
+              break;
+            }
+            throw e;
+          }
+        }
+
+        return this.runtime.newUndefined();
+      }
+
       case "while": {
         let condition = this.executeExpression(statement.condition);
         while (condition.isTruthy()) {

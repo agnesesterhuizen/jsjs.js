@@ -1309,10 +1309,15 @@ export class Parser {
       (possibleInToken.type === "keyword" ||
         possibleInToken.type === "identifier") &&
       possibleInToken.value === "in";
+    const isForOfToken =
+      possibleInToken &&
+      (possibleInToken.type === "keyword" ||
+        possibleInToken.type === "identifier") &&
+      possibleInToken.value === "of";
 
-    if (isForInToken) {
+    if (isForInToken || isForOfToken) {
       const inToken = this.nextToken();
-      if (inToken.value !== "in") {
+      if (inToken.value !== (isForInToken ? "in" : "of")) {
         unexpectedToken("keyword", inToken);
       }
 
@@ -1329,7 +1334,7 @@ export class Parser {
       } else if (init.type === "variable_declaration") {
         if (init.declarations.length !== 1) {
           syntaxError(
-            "for-in declarations must have exactly one binding",
+            `for-${inToken.value} declarations must have exactly one binding`,
             possibleInToken
           );
         }
@@ -1337,19 +1342,22 @@ export class Parser {
         const declarator = init.declarations[0];
         if (declarator.value !== undefined) {
           syntaxError(
-            "for-in declarations may not include an initializer",
+            `for-${inToken.value} declarations may not include an initializer`,
             possibleInToken
           );
         }
 
         left = init;
       } else {
-        syntaxError("invalid left-hand side in for-in", possibleInToken);
+        syntaxError(
+          `invalid left-hand side in for-${inToken.value}`,
+          possibleInToken
+        );
       }
 
       return withLocation(
         {
-          type: "for_in",
+          type: isForInToken ? "for_in" : "for_of",
           left,
           right,
           body,

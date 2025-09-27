@@ -40,6 +40,7 @@ export class Runtime {
 
   symbolRegistry = new Map<string, JSSymbol>();
   private symbolCounter = 0;
+  private wellKnownSymbols: Record<string, JSSymbol> = {};
 
   constructor(logger: Logger = console.log) {
     this.logger = logger;
@@ -53,14 +54,6 @@ export class Runtime {
     this.intrinsics["ObjectPrototype"] = objectPrototype;
     this.intrinsics["Object"] = objectConstructor;
 
-    // array
-    const arrayPrototype = createArrayPrototype(this);
-    const arrayConstructor = createArrayConstructor(this);
-    arrayConstructor.properties["prototype"] = arrayPrototype;
-
-    this.intrinsics["ArrayPrototype"] = arrayPrototype;
-    this.intrinsics["Array"] = arrayConstructor;
-
     // function
     const functionPrototype = createFunctionPrototype(this);
     functionPrototype.prototype = objectPrototype;
@@ -71,14 +64,6 @@ export class Runtime {
 
     this.intrinsics["FunctionPrototype"] = functionPrototype;
     this.intrinsics["Function"] = functionConstructor;
-
-    // string
-    const stringPrototype = createStringPrototype(this);
-    this.intrinsics["StringPrototype"] = stringPrototype;
-
-    // regexp
-    const regExpPrototype = createRegExpPrototype(this);
-    this.intrinsics["RegExpPrototype"] = regExpPrototype;
 
     // symbol
     const symbolPrototype = createSymbolPrototype(this);
@@ -102,6 +87,10 @@ export class Runtime {
 
     symbolFunction.properties["prototype"] = symbolPrototype;
     symbolPrototype.properties["constructor"] = symbolFunction;
+
+    const iteratorSymbol = this.newSymbol("Symbol.iterator");
+    this.wellKnownSymbols["iterator"] = iteratorSymbol;
+    symbolFunction.properties["iterator"] = iteratorSymbol;
 
     symbolFunction.properties["for"] = this.newBuiltinFunction(
       (_thisArg: JSObject, keyArg?: JSObject) => {
@@ -138,6 +127,23 @@ export class Runtime {
     );
 
     this.intrinsics["Symbol"] = symbolFunction;
+
+    // array
+    const arrayPrototype = createArrayPrototype(this);
+    this.intrinsics["ArrayPrototype"] = arrayPrototype;
+
+    const arrayConstructor = createArrayConstructor(this);
+    arrayConstructor.properties["prototype"] = arrayPrototype;
+
+    this.intrinsics["Array"] = arrayConstructor;
+
+    // string
+    const stringPrototype = createStringPrototype(this);
+    this.intrinsics["StringPrototype"] = stringPrototype;
+
+    // regexp
+    const regExpPrototype = createRegExpPrototype(this);
+    this.intrinsics["RegExpPrototype"] = regExpPrototype;
 
     // other
     const mathConstructor = createMathConstructor(this);
@@ -291,6 +297,14 @@ export class Runtime {
     const proto = this.intrinsics["SymbolPrototype"];
     if (proto && proto.type === "object") {
       symbol.prototype = proto as JSObject;
+    }
+    return symbol;
+  }
+
+  getWellKnownSymbol(name: string): JSSymbol {
+    const symbol = this.wellKnownSymbols[name];
+    if (!symbol) {
+      throw new ReferenceError(`Unknown well-known symbol '${name}'`);
     }
     return symbol;
   }

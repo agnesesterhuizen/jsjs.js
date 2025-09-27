@@ -1,0 +1,418 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "identifier": "numbers",
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/for_of.js",
+                  "line": 1,
+                  "column": 18
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/for_of.js",
+                  "line": 1,
+                  "column": 21
+                }
+              },
+              {
+                "type": "number",
+                "value": 3,
+                "location": {
+                  "file": "./integration_tests/for_of.js",
+                  "line": 1,
+                  "column": 24
+                }
+              },
+              {
+                "type": "number",
+                "value": 4,
+                "location": {
+                  "file": "./integration_tests/for_of.js",
+                  "line": 1,
+                  "column": 27
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 1,
+              "column": 17
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/for_of.js",
+        "line": 1,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "identifier": "total",
+          "value": {
+            "type": "number",
+            "value": 0,
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 2,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "varType": "let",
+      "location": {
+        "file": "./integration_tests/for_of.js",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "type": "for_of",
+      "left": {
+        "type": "variable_declaration",
+        "declarationType": "var",
+        "declarations": [
+          {
+            "identifier": "value"
+          }
+        ],
+        "varType": "let",
+        "location": {
+          "file": "./integration_tests/for_of.js",
+          "line": 3,
+          "column": 6
+        }
+      },
+      "right": {
+        "type": "identifier",
+        "value": "numbers",
+        "location": {
+          "file": "./integration_tests/for_of.js",
+          "line": 3,
+          "column": 19
+        }
+      },
+      "body": {
+        "type": "block",
+        "body": [
+          {
+            "type": "expression",
+            "expression": {
+              "type": "assignment",
+              "operator": "=",
+              "left": {
+                "type": "identifier",
+                "value": "total",
+                "location": {
+                  "file": "./integration_tests/for_of.js",
+                  "line": 4,
+                  "column": 3
+                }
+              },
+              "right": {
+                "type": "binary",
+                "operator": "+",
+                "left": {
+                  "type": "identifier",
+                  "value": "total",
+                  "location": {
+                    "file": "./integration_tests/for_of.js",
+                    "line": 4,
+                    "column": 11
+                  }
+                },
+                "right": {
+                  "type": "identifier",
+                  "value": "value",
+                  "location": {
+                    "file": "./integration_tests/for_of.js",
+                    "line": 4,
+                    "column": 19
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/for_of.js",
+                  "line": 4,
+                  "column": 17
+                }
+              },
+              "location": {
+                "file": "./integration_tests/for_of.js",
+                "line": 4,
+                "column": 3
+              }
+            },
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 4,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/for_of.js",
+          "line": 3,
+          "column": 28
+        }
+      },
+      "location": {
+        "file": "./integration_tests/for_of.js",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 6,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 6,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/for_of.js",
+            "line": 6,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "identifier",
+            "value": "total",
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 6,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/for_of.js",
+          "line": 6,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/for_of.js",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "identifier": "bucket",
+          "value": {
+            "type": "object",
+            "properties": {
+              "first": {
+                "type": "identifier",
+                "value": "undefined",
+                "location": {
+                  "file": "./integration_tests/for_of.js",
+                  "line": 8,
+                  "column": 25
+                }
+              }
+            },
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 8,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/for_of.js",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "type": "for_of",
+      "left": {
+        "type": "member",
+        "object": {
+          "type": "identifier",
+          "value": "bucket",
+          "location": {
+            "file": "./integration_tests/for_of.js",
+            "line": 9,
+            "column": 6
+          }
+        },
+        "property": {
+          "type": "identifier",
+          "value": "first",
+          "location": {
+            "file": "./integration_tests/for_of.js",
+            "line": 9,
+            "column": 13
+          }
+        },
+        "computed": false,
+        "location": {
+          "file": "./integration_tests/for_of.js",
+          "line": 9,
+          "column": 6
+        }
+      },
+      "right": {
+        "type": "array",
+        "elements": [
+          {
+            "type": "string",
+            "value": "alpha",
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 9,
+              "column": 23
+            }
+          },
+          {
+            "type": "string",
+            "value": "beta",
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 9,
+              "column": 32
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/for_of.js",
+          "line": 9,
+          "column": 22
+        }
+      },
+      "body": {
+        "type": "block",
+        "body": [
+          {
+            "type": "expression",
+            "expression": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "console",
+                  "location": {
+                    "file": "./integration_tests/for_of.js",
+                    "line": 10,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "log",
+                  "location": {
+                    "file": "./integration_tests/for_of.js",
+                    "line": 10,
+                    "column": 11
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/for_of.js",
+                  "line": 10,
+                  "column": 3
+                }
+              },
+              "arguments": [
+                {
+                  "type": "member",
+                  "object": {
+                    "type": "identifier",
+                    "value": "bucket",
+                    "location": {
+                      "file": "./integration_tests/for_of.js",
+                      "line": 10,
+                      "column": 15
+                    }
+                  },
+                  "property": {
+                    "type": "identifier",
+                    "value": "first",
+                    "location": {
+                      "file": "./integration_tests/for_of.js",
+                      "line": 10,
+                      "column": 22
+                    }
+                  },
+                  "computed": false,
+                  "location": {
+                    "file": "./integration_tests/for_of.js",
+                    "line": 10,
+                    "column": 15
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/for_of.js",
+                "line": 10,
+                "column": 14
+              }
+            },
+            "location": {
+              "file": "./integration_tests/for_of.js",
+              "line": 10,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/for_of.js",
+          "line": 9,
+          "column": 41
+        }
+      },
+      "location": {
+        "file": "./integration_tests/for_of.js",
+        "line": 9,
+        "column": 1
+      }
+    }
+  ]
+}

@@ -99,3 +99,33 @@ Deno.test("interpreter: regex literals", () => {
   assertEquals(logs[5], ["g"]);
   assertEquals(logs[6], ["/ab+/g"]);
 });
+
+Deno.test("interpreter: for-of iterates arrays", () => {
+  const src = `
+    let total = 0;
+    for (let value of [1, 2, 3]) {
+      total = total + value;
+    }
+    console.log(total);
+  `;
+
+  const { logs } = run(src);
+
+  assertEquals(logs.length, 1);
+  assertEquals(logs[0], ["6"]);
+});
+
+Deno.test("interpreter: for-of iterates strings", () => {
+  const src = `
+    let chars = "";
+    for (let ch of "ok") {
+      chars = chars + ch;
+    }
+    console.log(chars);
+  `;
+
+  const { logs } = run(src);
+
+  assertEquals(logs.length, 1);
+  assertEquals(logs[0], ["ok"]);
+});

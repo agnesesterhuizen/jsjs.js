@@ -176,5 +176,43 @@ export const createArrayPrototype = (runtime: Runtime): JSObject => {
     }
   );
 
+  const iteratorSymbol = runtime.getWellKnownSymbol("iterator");
+  runtime.setProperty(
+    arrayProto,
+    iteratorSymbol,
+    runtime.newBuiltinFunction((thisArg: JSObject) => {
+      if (thisArg.type !== "array") {
+        throw typeError(
+          "Array iterator called on incompatible receiver",
+          null
+        );
+      }
+
+      const array = thisArg as JSArray;
+      let index = 0;
+
+      const iterator = runtime.newObject();
+      const next = runtime.newBuiltinFunction((_nextThis: JSObject) => {
+        if (index < array.elements.length) {
+          const element = array.elements[index] ?? runtime.newUndefined();
+          index += 1;
+          return runtime.newObject({
+            value: element,
+            done: runtime.newBoolean(false),
+          });
+        }
+
+        return runtime.newObject({
+          value: runtime.newUndefined(),
+          done: runtime.newBoolean(true),
+        });
+      });
+
+      iterator.properties["next"] = next;
+
+      return iterator;
+    })
+  );
+
   return arrayProto;
 };

@@ -37,5 +37,43 @@ export const createStringPrototype = (runtime: Runtime): JSObject => {
     }
   );
 
+  const iteratorSymbol = runtime.getWellKnownSymbol("iterator");
+  runtime.setProperty(
+    stringProto,
+    iteratorSymbol,
+    runtime.newBuiltinFunction((thisArg: JSObject) => {
+      if (thisArg.type !== "string") {
+        throw typeError(
+          "String iterator called on incompatible receiver",
+          null
+        );
+      }
+
+      const str = thisArg as JSString;
+      let index = 0;
+
+      const iterator = runtime.newObject();
+      const next = runtime.newBuiltinFunction((_nextThis: JSObject) => {
+        if (index < str.value.length) {
+          const value = runtime.newString(str.value[index] ?? "");
+          index += 1;
+          return runtime.newObject({
+            value,
+            done: runtime.newBoolean(false),
+          });
+        }
+
+        return runtime.newObject({
+          value: runtime.newUndefined(),
+          done: runtime.newBoolean(true),
+        });
+      });
+
+      iterator.properties["next"] = next;
+
+      return iterator;
+    })
+  );
+
   return stringProto;
 };

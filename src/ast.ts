@@ -255,6 +255,12 @@ export type Statement = WithLocation<
       body: Statement;
     }
   | {
+      type: "for_of";
+      left: Statement | Expression;
+      right: Expression;
+      body: Statement;
+    }
+  | {
       type: "switch";
       condition: Expression;
       cases: SwitchCase[];

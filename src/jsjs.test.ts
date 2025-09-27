@@ -1091,6 +1091,74 @@ Deno.test("parser:statement", async (t) => {
     });
   });
 
+  await t.step("parses for-of with variable declaration", () => {
+    testStatement("for (let value of items) {}", {
+      type: "for_of",
+      left: {
+        type: "variable_declaration",
+        declarationType: "var",
+        declarations: [{ identifier: "value" }],
+        varType: "let",
+      },
+      right: {
+        type: "identifier",
+        value: "items",
+      },
+      body: {
+        type: "block",
+        body: [],
+      },
+    });
+  });
+
+  await t.step("parses for-of with identifier target", () => {
+    testStatement("for (item of list) { total = item; }", {
+      type: "for_of",
+      left: {
+        type: "identifier",
+        value: "item",
+      },
+      right: {
+        type: "identifier",
+        value: "list",
+      },
+      body: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: {
+              type: "assignment",
+              operator: "=",
+              left: { type: "identifier", value: "total" },
+              right: { type: "identifier", value: "item" },
+            },
+          },
+        ],
+      },
+    });
+  });
+
+  await t.step("parses for-of with member target", () => {
+    testStatement("for (box.prop of source) {}", {
+      type: "for_of",
+      left: {
+        type: "member",
+        object: { type: "identifier", value: "box" },
+        property: { type: "identifier", value: "prop" },
+        computed: false,
+      },
+      right: {
+        type: "identifier",
+        value: "source",
+      },
+      body: {
+        type: "block",
+        body: [],
+      },
+    });
+  });
+
   await t.step("switch statement", () => {
     testStatement(
       `switch(x) {
