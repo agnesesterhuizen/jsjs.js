@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 const name = "world";
 const a = 2;
 const b = 3;

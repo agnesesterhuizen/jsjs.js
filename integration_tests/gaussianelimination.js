@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 const EPSILON = 1e-20;
 
 function luSolve(coefficientMatrix, constants, mutate = false) {

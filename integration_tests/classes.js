@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 class Animal {
   constructor(name) {
     this.name = name;

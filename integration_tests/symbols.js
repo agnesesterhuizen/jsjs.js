@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 console.log("symbols start");
 
 const localA = Symbol("local");

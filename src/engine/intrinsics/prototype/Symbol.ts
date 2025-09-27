@@ -2,7 +2,7 @@ import { typeError } from "../../interpreter.ts";
 import { Runtime } from "../../runtime.ts";
 import { JSObject, JSSymbol } from "../../objects.ts";
 
-const expectSymbol = (runtime: Runtime, value: JSObject): JSSymbol => {
+const expectSymbol = (_runtime: Runtime, value: JSObject): JSSymbol => {
   if (value.type !== "symbol") {
     throw typeError(
       "Symbol.prototype method called on incompatible receiver",

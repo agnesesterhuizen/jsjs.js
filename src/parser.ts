@@ -1815,7 +1815,7 @@ export class Parser {
         this.nextToken();
       }
 
-      const id = this.expect("identifier");
+      this.expect("identifier");
 
       peek = this.peekNextToken();
 

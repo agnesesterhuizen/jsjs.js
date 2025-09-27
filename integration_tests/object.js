@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 const obj = { x: "value1", y: 30, z: "data" };
 console.log("Initial object:", obj);
 console.log("Object keys:", Object.keys(obj));

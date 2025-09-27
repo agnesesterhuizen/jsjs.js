@@ -1,3 +1,4 @@
+// deno-lint-ignore-file
 let total = 5;
 total += 3;
 console.log("total += 3:", total);

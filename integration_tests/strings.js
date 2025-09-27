@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 const str = "abcd";
 
 console.log(str.length);

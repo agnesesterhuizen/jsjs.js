@@ -11,7 +11,7 @@
             "name": "person",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 1,
+              "line": 3,
               "column": 7
             }
           },
@@ -23,7 +23,7 @@
                 "value": "Alice",
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 2,
+                  "line": 4,
                   "column": 9
                 }
               },
@@ -32,7 +32,7 @@
                 "value": 30,
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 3,
+                  "line": 5,
                   "column": 8
                 }
               },
@@ -44,7 +44,7 @@
                     "value": "Wonderland",
                     "location": {
                       "file": "./integration_tests/object_destructuring.js",
-                      "line": 4,
+                      "line": 6,
                       "column": 20
                     }
                   },
@@ -53,14 +53,14 @@
                     "value": 12345,
                     "location": {
                       "file": "./integration_tests/object_destructuring.js",
-                      "line": 4,
+                      "line": 6,
                       "column": 39
                     }
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 4,
+                  "line": 6,
                   "column": 12
                 }
               },
@@ -69,14 +69,14 @@
                 "value": "extra",
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 5,
+                  "line": 7,
                   "column": 11
                 }
               }
             },
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 1,
+              "line": 3,
               "column": 16
             }
           }
@@ -85,7 +85,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 1,
+        "line": 3,
         "column": 1
       }
     },
@@ -105,13 +105,13 @@
                   "name": "name",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 8,
+                    "line": 10,
                     "column": 9
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 8,
+                  "line": 10,
                   "column": 9
                 }
               },
@@ -123,20 +123,20 @@
                   "name": "age",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 8,
+                    "line": 10,
                     "column": 15
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 8,
+                  "line": 10,
                   "column": 15
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 8,
+              "line": 10,
               "column": 7
             }
           },
@@ -145,7 +145,7 @@
             "value": "person",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 8,
+              "line": 10,
               "column": 23
             }
           }
@@ -154,7 +154,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 8,
+        "line": 10,
         "column": 1
       }
     },
@@ -169,7 +169,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 9,
+              "line": 11,
               "column": 1
             }
           },
@@ -178,14 +178,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 9,
+              "line": 11,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/object_destructuring.js",
-            "line": 9,
+            "line": 11,
             "column": 1
           }
         },
@@ -195,7 +195,7 @@
             "value": "basic:",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 9,
+              "line": 11,
               "column": 13
             }
           },
@@ -204,7 +204,7 @@
             "value": "name",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 9,
+              "line": 11,
               "column": 23
             }
           },
@@ -213,20 +213,20 @@
             "value": "age",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 9,
+              "line": 11,
               "column": 29
             }
           }
         ],
         "location": {
           "file": "./integration_tests/object_destructuring.js",
-          "line": 9,
+          "line": 11,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 9,
+        "line": 11,
         "column": 1
       }
     },
@@ -252,26 +252,26 @@
                         "name": "city",
                         "location": {
                           "file": "./integration_tests/object_destructuring.js",
-                          "line": 12,
+                          "line": 14,
                           "column": 14
                         }
                       },
                       "location": {
                         "file": "./integration_tests/object_destructuring.js",
-                        "line": 12,
+                        "line": 14,
                         "column": 14
                       }
                     }
                   ],
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 12,
+                    "line": 14,
                     "column": 12
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 12,
+                  "line": 14,
                   "column": 3
                 }
               },
@@ -283,7 +283,7 @@
                   "name": "nickname",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 13,
+                    "line": 15,
                     "column": 3
                   }
                 },
@@ -292,20 +292,20 @@
                   "value": "Traveler",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 13,
+                    "line": 15,
                     "column": 14
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 13,
+                  "line": 15,
                   "column": 3
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 11,
+              "line": 13,
               "column": 7
             }
           },
@@ -314,7 +314,7 @@
             "value": "person",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 14,
+              "line": 16,
               "column": 5
             }
           }
@@ -323,7 +323,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 11,
+        "line": 13,
         "column": 1
       }
     },
@@ -338,7 +338,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 15,
+              "line": 17,
               "column": 1
             }
           },
@@ -347,14 +347,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 15,
+              "line": 17,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/object_destructuring.js",
-            "line": 15,
+            "line": 17,
             "column": 1
           }
         },
@@ -364,7 +364,7 @@
             "value": "nested:",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 15,
+              "line": 17,
               "column": 13
             }
           },
@@ -373,7 +373,7 @@
             "value": "city",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 15,
+              "line": 17,
               "column": 24
             }
           },
@@ -382,40 +382,17 @@
             "value": "nickname",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 15,
+              "line": 17,
               "column": 30
             }
           }
         ],
         "location": {
           "file": "./integration_tests/object_destructuring.js",
-          "line": 15,
+          "line": 17,
           "column": 12
         }
       },
-      "location": {
-        "file": "./integration_tests/object_destructuring.js",
-        "line": 15,
-        "column": 1
-      }
-    },
-    {
-      "type": "variable_declaration",
-      "declarationType": "var",
-      "declarations": [
-        {
-          "id": {
-            "type": "pattern_identifier",
-            "name": "aliasName",
-            "location": {
-              "file": "./integration_tests/object_destructuring.js",
-              "line": 17,
-              "column": 5
-            }
-          }
-        }
-      ],
-      "varType": "let",
       "location": {
         "file": "./integration_tests/object_destructuring.js",
         "line": 17,
@@ -429,10 +406,10 @@
         {
           "id": {
             "type": "pattern_identifier",
-            "name": "aliasCity",
+            "name": "aliasName",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 18,
+              "line": 19,
               "column": 5
             }
           }
@@ -441,7 +418,30 @@
       "varType": "let",
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 18,
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "aliasCity",
+            "location": {
+              "file": "./integration_tests/object_destructuring.js",
+              "line": 20,
+              "column": 5
+            }
+          }
+        }
+      ],
+      "varType": "let",
+      "location": {
+        "file": "./integration_tests/object_destructuring.js",
+        "line": 20,
         "column": 1
       }
     },
@@ -461,14 +461,14 @@
                 "name": "aliasName",
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 19,
-                  "column": 10
+                  "line": 22,
+                  "column": 9
                 }
               },
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 19,
-                "column": 4
+                "line": 22,
+                "column": 3
               }
             },
             {
@@ -485,33 +485,33 @@
                       "name": "aliasCity",
                       "location": {
                         "file": "./integration_tests/object_destructuring.js",
-                        "line": 19,
-                        "column": 38
+                        "line": 23,
+                        "column": 20
                       }
                     },
                     "location": {
                       "file": "./integration_tests/object_destructuring.js",
-                      "line": 19,
-                      "column": 32
+                      "line": 23,
+                      "column": 14
                     }
                   }
                 ],
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 19,
-                  "column": 30
+                  "line": 23,
+                  "column": 12
                 }
               },
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 19,
-                "column": 21
+                "line": 23,
+                "column": 3
               }
             }
           ],
           "location": {
             "file": "./integration_tests/object_destructuring.js",
-            "line": 19,
+            "line": 21,
             "column": 2
           }
         },
@@ -520,19 +520,19 @@
           "value": "person",
           "location": {
             "file": "./integration_tests/object_destructuring.js",
-            "line": 19,
-            "column": 54
+            "line": 24,
+            "column": 5
           }
         },
         "location": {
           "file": "./integration_tests/object_destructuring.js",
-          "line": 19,
+          "line": 21,
           "column": 2
         }
       },
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 19,
+        "line": 21,
         "column": 1
       }
     },
@@ -547,7 +547,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 20,
+              "line": 25,
               "column": 1
             }
           },
@@ -556,14 +556,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 20,
+              "line": 25,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/object_destructuring.js",
-            "line": 20,
+            "line": 25,
             "column": 1
           }
         },
@@ -573,7 +573,7 @@
             "value": "assignment:",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 20,
+              "line": 25,
               "column": 13
             }
           },
@@ -582,7 +582,7 @@
             "value": "aliasName",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 20,
+              "line": 25,
               "column": 28
             }
           },
@@ -591,20 +591,20 @@
             "value": "aliasCity",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 20,
+              "line": 25,
               "column": 39
             }
           }
         ],
         "location": {
           "file": "./integration_tests/object_destructuring.js",
-          "line": 20,
+          "line": 25,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 20,
+        "line": 25,
         "column": 1
       }
     },
@@ -624,13 +624,13 @@
                   "name": "firstName",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 23,
+                    "line": 28,
                     "column": 9
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 23,
+                  "line": 28,
                   "column": 3
                 }
               },
@@ -648,26 +648,26 @@
                         "name": "homeCity",
                         "location": {
                           "file": "./integration_tests/object_destructuring.js",
-                          "line": 24,
+                          "line": 29,
                           "column": 20
                         }
                       },
                       "location": {
                         "file": "./integration_tests/object_destructuring.js",
-                        "line": 24,
+                        "line": 29,
                         "column": 14
                       }
                     }
                   ],
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 24,
+                    "line": 29,
                     "column": 12
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 24,
+                  "line": 29,
                   "column": 3
                 }
               },
@@ -678,20 +678,20 @@
                   "name": "restProps",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 25,
+                    "line": 30,
                     "column": 6
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 25,
+                  "line": 30,
                   "column": 3
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 22,
+              "line": 27,
               "column": 7
             }
           },
@@ -700,7 +700,7 @@
             "value": "person",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 26,
+              "line": 31,
               "column": 5
             }
           }
@@ -709,7 +709,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 22,
+        "line": 27,
         "column": 1
       }
     },
@@ -724,7 +724,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 27,
+              "line": 32,
               "column": 1
             }
           },
@@ -733,14 +733,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 27,
+              "line": 32,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/object_destructuring.js",
-            "line": 27,
+            "line": 32,
             "column": 1
           }
         },
@@ -750,7 +750,7 @@
             "value": "rest:",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 28,
+              "line": 33,
               "column": 3
             }
           },
@@ -759,7 +759,7 @@
             "value": "firstName",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 29,
+              "line": 34,
               "column": 3
             }
           },
@@ -768,7 +768,7 @@
             "value": "homeCity",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 30,
+              "line": 35,
               "column": 3
             }
           },
@@ -779,7 +779,7 @@
               "value": "restProps",
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 31,
+                "line": 36,
                 "column": 3
               }
             },
@@ -788,14 +788,14 @@
               "value": "age",
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 31,
+                "line": 36,
                 "column": 13
               }
             },
             "computed": false,
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 31,
+              "line": 36,
               "column": 3
             }
           },
@@ -806,7 +806,7 @@
               "value": "restProps",
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 32,
+                "line": 37,
                 "column": 3
               }
             },
@@ -815,14 +815,14 @@
               "value": "extras",
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 32,
+                "line": 37,
                 "column": 13
               }
             },
             "computed": false,
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 32,
+              "line": 37,
               "column": 3
             }
           },
@@ -833,7 +833,7 @@
               "value": "restProps",
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 33,
+                "line": 38,
                 "column": 3
               }
             },
@@ -842,27 +842,27 @@
               "value": "address",
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 33,
+                "line": 38,
                 "column": 13
               }
             },
             "computed": false,
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 33,
+              "line": 38,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/object_destructuring.js",
-          "line": 27,
+          "line": 32,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 27,
+        "line": 32,
         "column": 1
       }
     },
@@ -876,7 +876,7 @@
             "name": "people",
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 36,
+              "line": 41,
               "column": 7
             }
           },
@@ -888,7 +888,7 @@
                 "value": "person",
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 37,
+                  "line": 42,
                   "column": 3
                 }
               },
@@ -900,7 +900,7 @@
                     "value": "Bob",
                     "location": {
                       "file": "./integration_tests/object_destructuring.js",
-                      "line": 39,
+                      "line": 44,
                       "column": 11
                     }
                   },
@@ -909,7 +909,7 @@
                     "value": 25,
                     "location": {
                       "file": "./integration_tests/object_destructuring.js",
-                      "line": 40,
+                      "line": 45,
                       "column": 10
                     }
                   },
@@ -921,7 +921,7 @@
                         "value": "Builderland",
                         "location": {
                           "file": "./integration_tests/object_destructuring.js",
-                          "line": 41,
+                          "line": 46,
                           "column": 22
                         }
                       },
@@ -930,28 +930,28 @@
                         "value": 54321,
                         "location": {
                           "file": "./integration_tests/object_destructuring.js",
-                          "line": 41,
+                          "line": 46,
                           "column": 42
                         }
                       }
                     },
                     "location": {
                       "file": "./integration_tests/object_destructuring.js",
-                      "line": 41,
+                      "line": 46,
                       "column": 14
                     }
                   }
                 },
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 38,
+                  "line": 43,
                   "column": 3
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 36,
+              "line": 41,
               "column": 16
             }
           }
@@ -960,7 +960,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 36,
+        "line": 41,
         "column": 1
       }
     },
@@ -982,14 +982,14 @@
                     "name": "loopName",
                     "location": {
                       "file": "./integration_tests/object_destructuring.js",
-                      "line": 45,
-                      "column": 20
+                      "line": 51,
+                      "column": 9
                     }
                   },
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 45,
-                    "column": 14
+                    "line": 51,
+                    "column": 3
                   }
                 },
                 {
@@ -1006,33 +1006,33 @@
                           "name": "loopCity",
                           "location": {
                             "file": "./integration_tests/object_destructuring.js",
-                            "line": 45,
-                            "column": 47
+                            "line": 52,
+                            "column": 20
                           }
                         },
                         "location": {
                           "file": "./integration_tests/object_destructuring.js",
-                          "line": 45,
-                          "column": 41
+                          "line": 52,
+                          "column": 14
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/object_destructuring.js",
-                      "line": 45,
-                      "column": 39
+                      "line": 52,
+                      "column": 12
                     }
                   },
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 45,
-                    "column": 30
+                    "line": 52,
+                    "column": 3
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 45,
+                "line": 50,
                 "column": 12
               }
             }
@@ -1041,7 +1041,7 @@
         "varType": "const",
         "location": {
           "file": "./integration_tests/object_destructuring.js",
-          "line": 45,
+          "line": 50,
           "column": 6
         }
       },
@@ -1050,8 +1050,8 @@
         "value": "people",
         "location": {
           "file": "./integration_tests/object_destructuring.js",
-          "line": 45,
-          "column": 63
+          "line": 53,
+          "column": 6
         }
       },
       "body": {
@@ -1068,7 +1068,7 @@
                   "value": "console",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 46,
+                    "line": 54,
                     "column": 3
                   }
                 },
@@ -1077,14 +1077,14 @@
                   "value": "log",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 46,
+                    "line": 54,
                     "column": 11
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/object_destructuring.js",
-                  "line": 46,
+                  "line": 54,
                   "column": 3
                 }
               },
@@ -1094,7 +1094,7 @@
                   "value": "loop:",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 46,
+                    "line": 54,
                     "column": 15
                   }
                 },
@@ -1103,7 +1103,7 @@
                   "value": "loopName",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 46,
+                    "line": 54,
                     "column": 24
                   }
                 },
@@ -1112,33 +1112,33 @@
                   "value": "loopCity",
                   "location": {
                     "file": "./integration_tests/object_destructuring.js",
-                    "line": 46,
+                    "line": 54,
                     "column": 34
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/object_destructuring.js",
-                "line": 46,
+                "line": 54,
                 "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/object_destructuring.js",
-              "line": 46,
+              "line": 54,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/object_destructuring.js",
-          "line": 45,
-          "column": 71
+          "line": 53,
+          "column": 14
         }
       },
       "location": {
         "file": "./integration_tests/object_destructuring.js",
-        "line": 45,
+        "line": 50,
         "column": 1
       }
     }

@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 const re = /hello (\w+)/g;
 const inputs = [
   "hello world",

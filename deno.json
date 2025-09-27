@@ -1,5 +1,10 @@
 {
   "tasks": {
     "bundle": "deno bundle ./src/jsjs.ts -o dist/jsjs.js"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.14",
+    "@std/cli": "jsr:@std/cli@^1.0.22",
+    "moo": "npm:moo@^0.5.2"
   }
 }

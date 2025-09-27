@@ -12,7 +12,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 1,
+              "line": 3,
               "column": 1
             }
           },
@@ -21,14 +21,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 1,
+              "line": 3,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 1,
+            "line": 3,
             "column": 1
           }
         },
@@ -38,59 +38,17 @@
             "value": "for-in start",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 1,
+              "line": 3,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 1,
+          "line": 3,
           "column": 12
         }
       },
-      "location": {
-        "file": "./integration_tests/for_in.js",
-        "line": 1,
-        "column": 1
-      }
-    },
-    {
-      "type": "variable_declaration",
-      "declarationType": "var",
-      "declarations": [
-        {
-          "id": {
-            "type": "pattern_identifier",
-            "name": "proto",
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 3,
-              "column": 7
-            }
-          },
-          "value": {
-            "type": "object",
-            "properties": {
-              "inherited": {
-                "type": "boolean",
-                "value": true,
-                "location": {
-                  "file": "./integration_tests/for_in.js",
-                  "line": 3,
-                  "column": 28
-                }
-              }
-            },
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 3,
-              "column": 15
-            }
-          }
-        }
-      ],
-      "varType": "const",
       "location": {
         "file": "./integration_tests/for_in.js",
         "line": 3,
@@ -104,10 +62,52 @@
         {
           "id": {
             "type": "pattern_identifier",
+            "name": "proto",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 5,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "object",
+            "properties": {
+              "inherited": {
+                "type": "boolean",
+                "value": true,
+                "location": {
+                  "file": "./integration_tests/for_in.js",
+                  "line": 5,
+                  "column": 28
+                }
+              }
+            },
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 5,
+              "column": 15
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/for_in.js",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
             "name": "obj",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 4,
+              "line": 6,
               "column": 7
             }
           },
@@ -120,7 +120,7 @@
                 "value": "Object",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 4,
+                  "line": 6,
                   "column": 13
                 }
               },
@@ -129,14 +129,14 @@
                 "value": "create",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 4,
+                  "line": 6,
                   "column": 20
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/for_in.js",
-                "line": 4,
+                "line": 6,
                 "column": 13
               }
             },
@@ -146,14 +146,14 @@
                 "value": "proto",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 4,
+                  "line": 6,
                   "column": 27
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 4,
+              "line": 6,
               "column": 26
             }
           }
@@ -162,7 +162,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 4,
+        "line": 6,
         "column": 1
       }
     },
@@ -178,7 +178,7 @@
             "value": "obj",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 5,
+              "line": 7,
               "column": 1
             }
           },
@@ -187,14 +187,14 @@
             "value": "ownA",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 5,
+              "line": 7,
               "column": 5
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 5,
+            "line": 7,
             "column": 1
           }
         },
@@ -203,19 +203,19 @@
           "value": 1,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 5,
+            "line": 7,
             "column": 12
           }
         },
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 5,
+          "line": 7,
           "column": 1
         }
       },
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 5,
+        "line": 7,
         "column": 1
       }
     },
@@ -231,7 +231,7 @@
             "value": "obj",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 6,
+              "line": 8,
               "column": 1
             }
           },
@@ -240,14 +240,14 @@
             "value": "ownB",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 6,
+              "line": 8,
               "column": 5
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 6,
+            "line": 8,
             "column": 1
           }
         },
@@ -256,19 +256,19 @@
           "value": 2,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 6,
+            "line": 8,
             "column": 12
           }
         },
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 6,
+          "line": 8,
           "column": 1
         }
       },
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 6,
+        "line": 8,
         "column": 1
       }
     },
@@ -282,7 +282,7 @@
             "name": "sym",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 8,
+              "line": 10,
               "column": 7
             }
           },
@@ -293,7 +293,7 @@
               "value": "Symbol",
               "location": {
                 "file": "./integration_tests/for_in.js",
-                "line": 8,
+                "line": 10,
                 "column": 13
               }
             },
@@ -303,14 +303,14 @@
                 "value": "skipped",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 8,
+                  "line": 10,
                   "column": 20
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 8,
+              "line": 10,
               "column": 19
             }
           }
@@ -319,7 +319,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 8,
+        "line": 10,
         "column": 1
       }
     },
@@ -335,7 +335,7 @@
             "value": "obj",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 9,
+              "line": 11,
               "column": 1
             }
           },
@@ -344,14 +344,14 @@
             "value": "sym",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 9,
+              "line": 11,
               "column": 5
             }
           },
           "computed": true,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 9,
+            "line": 11,
             "column": 1
           }
         },
@@ -360,19 +360,19 @@
           "value": "hidden",
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 9,
+            "line": 11,
             "column": 12
           }
         },
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 9,
+          "line": 11,
           "column": 1
         }
       },
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 9,
+        "line": 11,
         "column": 1
       }
     },
@@ -386,7 +386,7 @@
             "name": "seen",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 11,
+              "line": 13,
               "column": 7
             }
           },
@@ -395,7 +395,7 @@
             "elements": [],
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 11,
+              "line": 13,
               "column": 14
             }
           }
@@ -404,7 +404,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 11,
+        "line": 13,
         "column": 1
       }
     },
@@ -420,7 +420,7 @@
               "name": "key",
               "location": {
                 "file": "./integration_tests/for_in.js",
-                "line": 12,
+                "line": 14,
                 "column": 10
               }
             }
@@ -429,7 +429,7 @@
         "varType": "var",
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 12,
+          "line": 14,
           "column": 6
         }
       },
@@ -438,7 +438,7 @@
         "value": "obj",
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 12,
+          "line": 14,
           "column": 17
         }
       },
@@ -456,7 +456,7 @@
                   "value": "seen",
                   "location": {
                     "file": "./integration_tests/for_in.js",
-                    "line": 13,
+                    "line": 15,
                     "column": 3
                   }
                 },
@@ -465,14 +465,14 @@
                   "value": "push",
                   "location": {
                     "file": "./integration_tests/for_in.js",
-                    "line": 13,
+                    "line": 15,
                     "column": 8
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 13,
+                  "line": 15,
                   "column": 3
                 }
               },
@@ -482,33 +482,33 @@
                   "value": "key",
                   "location": {
                     "file": "./integration_tests/for_in.js",
-                    "line": 13,
+                    "line": 15,
                     "column": 13
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/for_in.js",
-                "line": 13,
+                "line": 15,
                 "column": 12
               }
             },
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 13,
+              "line": 15,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 12,
+          "line": 14,
           "column": 22
         }
       },
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 12,
+        "line": 14,
         "column": 1
       }
     },
@@ -523,7 +523,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 15,
+              "line": 17,
               "column": 1
             }
           },
@@ -532,14 +532,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 15,
+              "line": 17,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 15,
+            "line": 17,
             "column": 1
           }
         },
@@ -553,7 +553,7 @@
                 "value": "seen",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 15,
+                  "line": 17,
                   "column": 13
                 }
               },
@@ -562,14 +562,14 @@
                 "value": "join",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 15,
+                  "line": 17,
                   "column": 18
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/for_in.js",
-                "line": 15,
+                "line": 17,
                 "column": 13
               }
             },
@@ -579,84 +579,24 @@
                 "value": ",",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 15,
+                  "line": 17,
                   "column": 23
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 15,
+              "line": 17,
               "column": 22
             }
           }
         ],
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 15,
+          "line": 17,
           "column": 12
         }
       },
-      "location": {
-        "file": "./integration_tests/for_in.js",
-        "line": 15,
-        "column": 1
-      }
-    },
-    {
-      "type": "variable_declaration",
-      "declarationType": "var",
-      "declarations": [
-        {
-          "id": {
-            "type": "pattern_identifier",
-            "name": "dest",
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 17,
-              "column": 7
-            }
-          },
-          "value": {
-            "type": "object",
-            "properties": {
-              "first": {
-                "type": "string",
-                "value": "",
-                "location": {
-                  "file": "./integration_tests/for_in.js",
-                  "line": 17,
-                  "column": 23
-                }
-              },
-              "second": {
-                "type": "string",
-                "value": "",
-                "location": {
-                  "file": "./integration_tests/for_in.js",
-                  "line": 17,
-                  "column": 35
-                }
-              },
-              "third": {
-                "type": "string",
-                "value": "",
-                "location": {
-                  "file": "./integration_tests/for_in.js",
-                  "line": 17,
-                  "column": 46
-                }
-              }
-            },
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 17,
-              "column": 14
-            }
-          }
-        }
-      ],
-      "varType": "const",
       "location": {
         "file": "./integration_tests/for_in.js",
         "line": 17,
@@ -670,10 +610,70 @@
         {
           "id": {
             "type": "pattern_identifier",
+            "name": "dest",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 19,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "object",
+            "properties": {
+              "first": {
+                "type": "string",
+                "value": "",
+                "location": {
+                  "file": "./integration_tests/for_in.js",
+                  "line": 19,
+                  "column": 23
+                }
+              },
+              "second": {
+                "type": "string",
+                "value": "",
+                "location": {
+                  "file": "./integration_tests/for_in.js",
+                  "line": 19,
+                  "column": 35
+                }
+              },
+              "third": {
+                "type": "string",
+                "value": "",
+                "location": {
+                  "file": "./integration_tests/for_in.js",
+                  "line": 19,
+                  "column": 46
+                }
+              }
+            },
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 19,
+              "column": 14
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/for_in.js",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
             "name": "labels",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 18,
+              "line": 20,
               "column": 7
             }
           },
@@ -685,7 +685,7 @@
                 "value": "first",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 18,
+                  "line": 20,
                   "column": 17
                 }
               },
@@ -694,7 +694,7 @@
                 "value": "second",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 18,
+                  "line": 20,
                   "column": 26
                 }
               },
@@ -703,14 +703,14 @@
                 "value": "third",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 18,
+                  "line": 20,
                   "column": 36
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 18,
+              "line": 20,
               "column": 16
             }
           }
@@ -719,7 +719,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 18,
+        "line": 20,
         "column": 1
       }
     },
@@ -733,7 +733,7 @@
             "name": "index",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 19,
+              "line": 21,
               "column": 5
             }
           },
@@ -742,7 +742,7 @@
             "value": 0,
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 19,
+              "line": 21,
               "column": 13
             }
           }
@@ -751,7 +751,7 @@
       "varType": "let",
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 19,
+        "line": 21,
         "column": 1
       }
     },
@@ -764,7 +764,7 @@
           "value": "dest",
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 20,
+            "line": 22,
             "column": 6
           }
         },
@@ -775,7 +775,7 @@
             "value": "labels",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 20,
+              "line": 22,
               "column": 11
             }
           },
@@ -786,28 +786,28 @@
               "value": "index",
               "location": {
                 "file": "./integration_tests/for_in.js",
-                "line": 20,
+                "line": 22,
                 "column": 18
               }
             },
             "postfix": true,
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 20,
+              "line": 22,
               "column": 18
             }
           },
           "computed": true,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 20,
+            "line": 22,
             "column": 11
           }
         },
         "computed": true,
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 20,
+          "line": 22,
           "column": 6
         }
       },
@@ -816,7 +816,7 @@
         "value": "obj",
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 20,
+          "line": 22,
           "column": 31
         }
       },
@@ -825,229 +825,13 @@
         "body": [],
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 20,
+          "line": 22,
           "column": 36
         }
       },
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 20,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 21,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 21,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/for_in.js",
-            "line": 21,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "dest",
-              "location": {
-                "file": "./integration_tests/for_in.js",
-                "line": 21,
-                "column": 13
-              }
-            },
-            "property": {
-              "type": "identifier",
-              "value": "first",
-              "location": {
-                "file": "./integration_tests/for_in.js",
-                "line": 21,
-                "column": 18
-              }
-            },
-            "computed": false,
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 21,
-              "column": 13
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/for_in.js",
-          "line": 21,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/for_in.js",
-        "line": 21,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 22,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 22,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/for_in.js",
-            "line": 22,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "dest",
-              "location": {
-                "file": "./integration_tests/for_in.js",
-                "line": 22,
-                "column": 13
-              }
-            },
-            "property": {
-              "type": "identifier",
-              "value": "second",
-              "location": {
-                "file": "./integration_tests/for_in.js",
-                "line": 22,
-                "column": 18
-              }
-            },
-            "computed": false,
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 22,
-              "column": 13
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/for_in.js",
-          "line": 22,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/for_in.js",
         "line": 22,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 23,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 23,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/for_in.js",
-            "line": 23,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "dest",
-              "location": {
-                "file": "./integration_tests/for_in.js",
-                "line": 23,
-                "column": 13
-              }
-            },
-            "property": {
-              "type": "identifier",
-              "value": "third",
-              "location": {
-                "file": "./integration_tests/for_in.js",
-                "line": 23,
-                "column": 18
-              }
-            },
-            "computed": false,
-            "location": {
-              "file": "./integration_tests/for_in.js",
-              "line": 23,
-              "column": 13
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/for_in.js",
-          "line": 23,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/for_in.js",
-        "line": 23,
         "column": 1
       }
     },
@@ -1084,8 +868,26 @@
         },
         "arguments": [
           {
-            "type": "identifier",
-            "value": "index",
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "dest",
+              "location": {
+                "file": "./integration_tests/for_in.js",
+                "line": 24,
+                "column": 13
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "first",
+              "location": {
+                "file": "./integration_tests/for_in.js",
+                "line": 24,
+                "column": 18
+              }
+            },
+            "computed": false,
             "location": {
               "file": "./integration_tests/for_in.js",
               "line": 24,
@@ -1106,6 +908,204 @@
       }
     },
     {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 25,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 25,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/for_in.js",
+            "line": 25,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "dest",
+              "location": {
+                "file": "./integration_tests/for_in.js",
+                "line": 25,
+                "column": 13
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "second",
+              "location": {
+                "file": "./integration_tests/for_in.js",
+                "line": 25,
+                "column": 18
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 25,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/for_in.js",
+          "line": 25,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/for_in.js",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 26,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 26,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/for_in.js",
+            "line": 26,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "dest",
+              "location": {
+                "file": "./integration_tests/for_in.js",
+                "line": 26,
+                "column": 13
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "third",
+              "location": {
+                "file": "./integration_tests/for_in.js",
+                "line": 26,
+                "column": 18
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 26,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/for_in.js",
+          "line": 26,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/for_in.js",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 27,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 27,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/for_in.js",
+            "line": 27,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "identifier",
+            "value": "index",
+            "location": {
+              "file": "./integration_tests/for_in.js",
+              "line": 27,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/for_in.js",
+          "line": 27,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/for_in.js",
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
       "type": "variable_declaration",
       "declarationType": "var",
       "declarations": [
@@ -1115,7 +1115,7 @@
             "name": "collected",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 26,
+              "line": 29,
               "column": 7
             }
           },
@@ -1124,7 +1124,7 @@
             "elements": [],
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 26,
+              "line": 29,
               "column": 19
             }
           }
@@ -1133,7 +1133,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 26,
+        "line": 29,
         "column": 1
       }
     },
@@ -1144,7 +1144,7 @@
         "value": "iterKey",
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 27,
+          "line": 30,
           "column": 6
         }
       },
@@ -1153,7 +1153,7 @@
         "value": "obj",
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 27,
+          "line": 30,
           "column": 17
         }
       },
@@ -1171,7 +1171,7 @@
                   "value": "collected",
                   "location": {
                     "file": "./integration_tests/for_in.js",
-                    "line": 28,
+                    "line": 31,
                     "column": 3
                   }
                 },
@@ -1180,14 +1180,14 @@
                   "value": "push",
                   "location": {
                     "file": "./integration_tests/for_in.js",
-                    "line": 28,
+                    "line": 31,
                     "column": 13
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 28,
+                  "line": 31,
                   "column": 3
                 }
               },
@@ -1200,7 +1200,7 @@
                     "value": "iterKey",
                     "location": {
                       "file": "./integration_tests/for_in.js",
-                      "line": 28,
+                      "line": 31,
                       "column": 18
                     }
                   },
@@ -1209,39 +1209,39 @@
                     "value": "!",
                     "location": {
                       "file": "./integration_tests/for_in.js",
-                      "line": 28,
+                      "line": 31,
                       "column": 28
                     }
                   },
                   "location": {
                     "file": "./integration_tests/for_in.js",
-                    "line": 28,
+                    "line": 31,
                     "column": 26
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/for_in.js",
-                "line": 28,
+                "line": 31,
                 "column": 17
               }
             },
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 28,
+              "line": 31,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 27,
+          "line": 30,
           "column": 22
         }
       },
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 27,
+        "line": 30,
         "column": 1
       }
     },
@@ -1256,7 +1256,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 30,
+              "line": 33,
               "column": 1
             }
           },
@@ -1265,14 +1265,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 30,
+              "line": 33,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/for_in.js",
-            "line": 30,
+            "line": 33,
             "column": 1
           }
         },
@@ -1286,7 +1286,7 @@
                 "value": "collected",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 30,
+                  "line": 33,
                   "column": 13
                 }
               },
@@ -1295,14 +1295,14 @@
                 "value": "join",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 30,
+                  "line": 33,
                   "column": 23
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/for_in.js",
-                "line": 30,
+                "line": 33,
                 "column": 13
               }
             },
@@ -1312,27 +1312,27 @@
                 "value": ",",
                 "location": {
                   "file": "./integration_tests/for_in.js",
-                  "line": 30,
+                  "line": 33,
                   "column": 28
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/for_in.js",
-              "line": 30,
+              "line": 33,
               "column": 27
             }
           }
         ],
         "location": {
           "file": "./integration_tests/for_in.js",
-          "line": 30,
+          "line": 33,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/for_in.js",
-        "line": 30,
+        "line": 33,
         "column": 1
       }
     }

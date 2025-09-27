@@ -12,7 +12,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 1,
+              "line": 3,
               "column": 1
             }
           },
@@ -21,14 +21,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 1,
+              "line": 3,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/symbols.js",
-            "line": 1,
+            "line": 3,
             "column": 1
           }
         },
@@ -38,68 +38,17 @@
             "value": "symbols start",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 1,
+              "line": 3,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/symbols.js",
-          "line": 1,
+          "line": 3,
           "column": 12
         }
       },
-      "location": {
-        "file": "./integration_tests/symbols.js",
-        "line": 1,
-        "column": 1
-      }
-    },
-    {
-      "type": "variable_declaration",
-      "declarationType": "var",
-      "declarations": [
-        {
-          "id": {
-            "type": "pattern_identifier",
-            "name": "localA",
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 3,
-              "column": 7
-            }
-          },
-          "value": {
-            "type": "call",
-            "func": {
-              "type": "identifier",
-              "value": "Symbol",
-              "location": {
-                "file": "./integration_tests/symbols.js",
-                "line": 3,
-                "column": 16
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "local",
-                "location": {
-                  "file": "./integration_tests/symbols.js",
-                  "line": 3,
-                  "column": 23
-                }
-              }
-            ],
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 3,
-              "column": 22
-            }
-          }
-        }
-      ],
-      "varType": "const",
       "location": {
         "file": "./integration_tests/symbols.js",
         "line": 3,
@@ -113,10 +62,10 @@
         {
           "id": {
             "type": "pattern_identifier",
-            "name": "localB",
+            "name": "localA",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 4,
+              "line": 5,
               "column": 7
             }
           },
@@ -127,7 +76,7 @@
               "value": "Symbol",
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 4,
+                "line": 5,
                 "column": 16
               }
             },
@@ -137,14 +86,14 @@
                 "value": "local",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 4,
+                  "line": 5,
                   "column": 23
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 4,
+              "line": 5,
               "column": 22
             }
           }
@@ -153,7 +102,58 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/symbols.js",
-        "line": 4,
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "localB",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 6,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "call",
+            "func": {
+              "type": "identifier",
+              "value": "Symbol",
+              "location": {
+                "file": "./integration_tests/symbols.js",
+                "line": 6,
+                "column": 16
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "local",
+                "location": {
+                  "file": "./integration_tests/symbols.js",
+                  "line": 6,
+                  "column": 23
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 6,
+              "column": 22
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/symbols.js",
+        "line": 6,
         "column": 1
       }
     },
@@ -168,7 +168,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 5,
+              "line": 7,
               "column": 1
             }
           },
@@ -177,14 +177,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 5,
+              "line": 7,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/symbols.js",
-            "line": 5,
+            "line": 7,
             "column": 1
           }
         },
@@ -197,26 +197,26 @@
               "value": "localA",
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 5,
+                "line": 7,
                 "column": 20
               }
             },
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 5,
+              "line": 7,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/symbols.js",
-          "line": 5,
+          "line": 7,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/symbols.js",
-        "line": 5,
+        "line": 7,
         "column": 1
       }
     },
@@ -231,7 +231,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 6,
+              "line": 8,
               "column": 1
             }
           },
@@ -240,14 +240,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 6,
+              "line": 8,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/symbols.js",
-            "line": 6,
+            "line": 8,
             "column": 1
           }
         },
@@ -260,7 +260,7 @@
               "value": "localA",
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 6,
+                "line": 8,
                 "column": 13
               }
             },
@@ -269,92 +269,23 @@
               "value": "localB",
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 6,
+                "line": 8,
                 "column": 24
               }
             },
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 6,
+              "line": 8,
               "column": 20
             }
           }
         ],
         "location": {
           "file": "./integration_tests/symbols.js",
-          "line": 6,
+          "line": 8,
           "column": 12
         }
       },
-      "location": {
-        "file": "./integration_tests/symbols.js",
-        "line": 6,
-        "column": 1
-      }
-    },
-    {
-      "type": "variable_declaration",
-      "declarationType": "var",
-      "declarations": [
-        {
-          "id": {
-            "type": "pattern_identifier",
-            "name": "globalA",
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 8,
-              "column": 7
-            }
-          },
-          "value": {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "Symbol",
-                "location": {
-                  "file": "./integration_tests/symbols.js",
-                  "line": 8,
-                  "column": 17
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "for",
-                "location": {
-                  "file": "./integration_tests/symbols.js",
-                  "line": 8,
-                  "column": 24
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/symbols.js",
-                "line": 8,
-                "column": 17
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "shared",
-                "location": {
-                  "file": "./integration_tests/symbols.js",
-                  "line": 8,
-                  "column": 28
-                }
-              }
-            ],
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 8,
-              "column": 27
-            }
-          }
-        }
-      ],
-      "varType": "const",
       "location": {
         "file": "./integration_tests/symbols.js",
         "line": 8,
@@ -368,10 +299,10 @@
         {
           "id": {
             "type": "pattern_identifier",
-            "name": "globalB",
+            "name": "globalA",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 9,
+              "line": 10,
               "column": 7
             }
           },
@@ -384,7 +315,7 @@
                 "value": "Symbol",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 9,
+                  "line": 10,
                   "column": 17
                 }
               },
@@ -393,14 +324,14 @@
                 "value": "for",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 9,
+                  "line": 10,
                   "column": 24
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 9,
+                "line": 10,
                 "column": 17
               }
             },
@@ -410,14 +341,14 @@
                 "value": "shared",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 9,
+                  "line": 10,
                   "column": 28
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 9,
+              "line": 10,
               "column": 27
             }
           }
@@ -426,7 +357,76 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/symbols.js",
-        "line": 9,
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "globalB",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 11,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "Symbol",
+                "location": {
+                  "file": "./integration_tests/symbols.js",
+                  "line": 11,
+                  "column": 17
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "for",
+                "location": {
+                  "file": "./integration_tests/symbols.js",
+                  "line": 11,
+                  "column": 24
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/symbols.js",
+                "line": 11,
+                "column": 17
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "shared",
+                "location": {
+                  "file": "./integration_tests/symbols.js",
+                  "line": 11,
+                  "column": 28
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 11,
+              "column": 27
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/symbols.js",
+        "line": 11,
         "column": 1
       }
     },
@@ -441,7 +441,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 10,
+              "line": 12,
               "column": 1
             }
           },
@@ -450,14 +450,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 10,
+              "line": 12,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/symbols.js",
-            "line": 10,
+            "line": 12,
             "column": 1
           }
         },
@@ -470,7 +470,7 @@
               "value": "globalA",
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 10,
+                "line": 12,
                 "column": 13
               }
             },
@@ -479,26 +479,26 @@
               "value": "globalB",
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 10,
+                "line": 12,
                 "column": 25
               }
             },
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 10,
+              "line": 12,
               "column": 21
             }
           }
         ],
         "location": {
           "file": "./integration_tests/symbols.js",
-          "line": 10,
+          "line": 12,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/symbols.js",
-        "line": 10,
+        "line": 12,
         "column": 1
       }
     },
@@ -513,7 +513,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 11,
+              "line": 13,
               "column": 1
             }
           },
@@ -522,14 +522,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 11,
+              "line": 13,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/symbols.js",
-            "line": 11,
+            "line": 13,
             "column": 1
           }
         },
@@ -543,7 +543,7 @@
                 "value": "Symbol",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 11,
+                  "line": 13,
                   "column": 13
                 }
               },
@@ -552,14 +552,14 @@
                 "value": "keyFor",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 11,
+                  "line": 13,
                   "column": 20
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 11,
+                "line": 13,
                 "column": 13
               }
             },
@@ -569,27 +569,27 @@
                 "value": "globalA",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 11,
+                  "line": 13,
                   "column": 27
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 11,
+              "line": 13,
               "column": 26
             }
           }
         ],
         "location": {
           "file": "./integration_tests/symbols.js",
-          "line": 11,
+          "line": 13,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/symbols.js",
-        "line": 11,
+        "line": 13,
         "column": 1
       }
     },
@@ -603,7 +603,7 @@
             "name": "notRegistered",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 13,
+              "line": 15,
               "column": 7
             }
           },
@@ -614,7 +614,7 @@
               "value": "Symbol",
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 13,
+                "line": 15,
                 "column": 23
               }
             },
@@ -624,14 +624,14 @@
                 "value": "anon",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 13,
+                  "line": 15,
                   "column": 30
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 13,
+              "line": 15,
               "column": 29
             }
           }
@@ -640,7 +640,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/symbols.js",
-        "line": 13,
+        "line": 15,
         "column": 1
       }
     },
@@ -655,7 +655,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 14,
+              "line": 16,
               "column": 1
             }
           },
@@ -664,14 +664,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 14,
+              "line": 16,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/symbols.js",
-            "line": 14,
+            "line": 16,
             "column": 1
           }
         },
@@ -685,7 +685,7 @@
                 "value": "Symbol",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 14,
+                  "line": 16,
                   "column": 13
                 }
               },
@@ -694,14 +694,14 @@
                 "value": "keyFor",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 14,
+                  "line": 16,
                   "column": 20
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/symbols.js",
-                "line": 14,
+                "line": 16,
                 "column": 13
               }
             },
@@ -711,27 +711,27 @@
                 "value": "notRegistered",
                 "location": {
                   "file": "./integration_tests/symbols.js",
-                  "line": 14,
+                  "line": 16,
                   "column": 27
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 14,
+              "line": 16,
               "column": 26
             }
           }
         ],
         "location": {
           "file": "./integration_tests/symbols.js",
-          "line": 14,
+          "line": 16,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/symbols.js",
-        "line": 14,
+        "line": 16,
         "column": 1
       }
     },
@@ -745,7 +745,7 @@
             "name": "box",
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 16,
+              "line": 18,
               "column": 7
             }
           },
@@ -754,119 +754,13 @@
             "properties": {},
             "location": {
               "file": "./integration_tests/symbols.js",
-              "line": 16,
+              "line": 18,
               "column": 13
             }
           }
         }
       ],
       "varType": "const",
-      "location": {
-        "file": "./integration_tests/symbols.js",
-        "line": 16,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "assignment",
-        "operator": "=",
-        "left": {
-          "type": "pattern_member",
-          "object": {
-            "type": "identifier",
-            "value": "box",
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 17,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "localA",
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 17,
-              "column": 5
-            }
-          },
-          "computed": true,
-          "location": {
-            "file": "./integration_tests/symbols.js",
-            "line": 17,
-            "column": 1
-          }
-        },
-        "right": {
-          "type": "string",
-          "value": "localValue",
-          "location": {
-            "file": "./integration_tests/symbols.js",
-            "line": 17,
-            "column": 15
-          }
-        },
-        "location": {
-          "file": "./integration_tests/symbols.js",
-          "line": 17,
-          "column": 1
-        }
-      },
-      "location": {
-        "file": "./integration_tests/symbols.js",
-        "line": 17,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "assignment",
-        "operator": "=",
-        "left": {
-          "type": "pattern_member",
-          "object": {
-            "type": "identifier",
-            "value": "box",
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 18,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "localB",
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 18,
-              "column": 5
-            }
-          },
-          "computed": true,
-          "location": {
-            "file": "./integration_tests/symbols.js",
-            "line": 18,
-            "column": 1
-          }
-        },
-        "right": {
-          "type": "string",
-          "value": "localValueB",
-          "location": {
-            "file": "./integration_tests/symbols.js",
-            "line": 18,
-            "column": 15
-          }
-        },
-        "location": {
-          "file": "./integration_tests/symbols.js",
-          "line": 18,
-          "column": 1
-        }
-      },
       "location": {
         "file": "./integration_tests/symbols.js",
         "line": 18,
@@ -891,7 +785,7 @@
           },
           "property": {
             "type": "identifier",
-            "value": "globalA",
+            "value": "localA",
             "location": {
               "file": "./integration_tests/symbols.js",
               "line": 19,
@@ -907,11 +801,11 @@
         },
         "right": {
           "type": "string",
-          "value": "globalValue",
+          "value": "localValue",
           "location": {
             "file": "./integration_tests/symbols.js",
             "line": 19,
-            "column": 16
+            "column": 15
           }
         },
         "location": {
@@ -929,12 +823,13 @@
     {
       "type": "expression",
       "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
-            "value": "console",
+            "value": "box",
             "location": {
               "file": "./integration_tests/symbols.js",
               "line": 20,
@@ -943,53 +838,33 @@
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "localB",
             "location": {
               "file": "./integration_tests/symbols.js",
               "line": 20,
-              "column": 9
+              "column": 5
             }
           },
-          "computed": false,
+          "computed": true,
           "location": {
             "file": "./integration_tests/symbols.js",
             "line": 20,
             "column": 1
           }
         },
-        "arguments": [
-          {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "box",
-              "location": {
-                "file": "./integration_tests/symbols.js",
-                "line": 20,
-                "column": 13
-              }
-            },
-            "property": {
-              "type": "identifier",
-              "value": "localA",
-              "location": {
-                "file": "./integration_tests/symbols.js",
-                "line": 20,
-                "column": 17
-              }
-            },
-            "computed": true,
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 20,
-              "column": 13
-            }
+        "right": {
+          "type": "string",
+          "value": "localValueB",
+          "location": {
+            "file": "./integration_tests/symbols.js",
+            "line": 20,
+            "column": 15
           }
-        ],
+        },
         "location": {
           "file": "./integration_tests/symbols.js",
           "line": 20,
-          "column": 12
+          "column": 1
         }
       },
       "location": {
@@ -1001,12 +876,13 @@
     {
       "type": "expression",
       "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_member",
           "object": {
             "type": "identifier",
-            "value": "console",
+            "value": "box",
             "location": {
               "file": "./integration_tests/symbols.js",
               "line": 21,
@@ -1015,53 +891,33 @@
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "globalA",
             "location": {
               "file": "./integration_tests/symbols.js",
               "line": 21,
-              "column": 9
+              "column": 5
             }
           },
-          "computed": false,
+          "computed": true,
           "location": {
             "file": "./integration_tests/symbols.js",
             "line": 21,
             "column": 1
           }
         },
-        "arguments": [
-          {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "box",
-              "location": {
-                "file": "./integration_tests/symbols.js",
-                "line": 21,
-                "column": 13
-              }
-            },
-            "property": {
-              "type": "identifier",
-              "value": "localB",
-              "location": {
-                "file": "./integration_tests/symbols.js",
-                "line": 21,
-                "column": 17
-              }
-            },
-            "computed": true,
-            "location": {
-              "file": "./integration_tests/symbols.js",
-              "line": 21,
-              "column": 13
-            }
+        "right": {
+          "type": "string",
+          "value": "globalValue",
+          "location": {
+            "file": "./integration_tests/symbols.js",
+            "line": 21,
+            "column": 16
           }
-        ],
+        },
         "location": {
           "file": "./integration_tests/symbols.js",
           "line": 21,
-          "column": 12
+          "column": 1
         }
       },
       "location": {
@@ -1114,49 +970,12 @@
               }
             },
             "property": {
-              "type": "call",
-              "func": {
-                "type": "member",
-                "object": {
-                  "type": "identifier",
-                  "value": "Symbol",
-                  "location": {
-                    "file": "./integration_tests/symbols.js",
-                    "line": 22,
-                    "column": 17
-                  }
-                },
-                "property": {
-                  "type": "identifier",
-                  "value": "for",
-                  "location": {
-                    "file": "./integration_tests/symbols.js",
-                    "line": 22,
-                    "column": 24
-                  }
-                },
-                "computed": false,
-                "location": {
-                  "file": "./integration_tests/symbols.js",
-                  "line": 22,
-                  "column": 17
-                }
-              },
-              "arguments": [
-                {
-                  "type": "string",
-                  "value": "shared",
-                  "location": {
-                    "file": "./integration_tests/symbols.js",
-                    "line": 22,
-                    "column": 28
-                  }
-                }
-              ],
+              "type": "identifier",
+              "value": "localA",
               "location": {
                 "file": "./integration_tests/symbols.js",
                 "line": 22,
-                "column": 27
+                "column": 17
               }
             },
             "computed": true,
@@ -1214,61 +1033,24 @@
           {
             "type": "member",
             "object": {
-              "type": "call",
-              "func": {
-                "type": "member",
-                "object": {
-                  "type": "identifier",
-                  "value": "Object",
-                  "location": {
-                    "file": "./integration_tests/symbols.js",
-                    "line": 23,
-                    "column": 13
-                  }
-                },
-                "property": {
-                  "type": "identifier",
-                  "value": "keys",
-                  "location": {
-                    "file": "./integration_tests/symbols.js",
-                    "line": 23,
-                    "column": 20
-                  }
-                },
-                "computed": false,
-                "location": {
-                  "file": "./integration_tests/symbols.js",
-                  "line": 23,
-                  "column": 13
-                }
-              },
-              "arguments": [
-                {
-                  "type": "identifier",
-                  "value": "box",
-                  "location": {
-                    "file": "./integration_tests/symbols.js",
-                    "line": 23,
-                    "column": 25
-                  }
-                }
-              ],
+              "type": "identifier",
+              "value": "box",
               "location": {
                 "file": "./integration_tests/symbols.js",
                 "line": 23,
-                "column": 24
+                "column": 13
               }
             },
             "property": {
               "type": "identifier",
-              "value": "length",
+              "value": "localB",
               "location": {
                 "file": "./integration_tests/symbols.js",
                 "line": 23,
-                "column": 30
+                "column": 17
               }
             },
-            "computed": false,
+            "computed": true,
             "location": {
               "file": "./integration_tests/symbols.js",
               "line": 23,
@@ -1285,6 +1067,224 @@
       "location": {
         "file": "./integration_tests/symbols.js",
         "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 24,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 24,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/symbols.js",
+            "line": 24,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "box",
+              "location": {
+                "file": "./integration_tests/symbols.js",
+                "line": 24,
+                "column": 13
+              }
+            },
+            "property": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "Symbol",
+                  "location": {
+                    "file": "./integration_tests/symbols.js",
+                    "line": 24,
+                    "column": 17
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "for",
+                  "location": {
+                    "file": "./integration_tests/symbols.js",
+                    "line": 24,
+                    "column": 24
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/symbols.js",
+                  "line": 24,
+                  "column": 17
+                }
+              },
+              "arguments": [
+                {
+                  "type": "string",
+                  "value": "shared",
+                  "location": {
+                    "file": "./integration_tests/symbols.js",
+                    "line": 24,
+                    "column": 28
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/symbols.js",
+                "line": 24,
+                "column": 27
+              }
+            },
+            "computed": true,
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 24,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/symbols.js",
+          "line": 24,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/symbols.js",
+        "line": 24,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 25,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 25,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/symbols.js",
+            "line": 25,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "member",
+            "object": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "Object",
+                  "location": {
+                    "file": "./integration_tests/symbols.js",
+                    "line": 25,
+                    "column": 13
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "keys",
+                  "location": {
+                    "file": "./integration_tests/symbols.js",
+                    "line": 25,
+                    "column": 20
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/symbols.js",
+                  "line": 25,
+                  "column": 13
+                }
+              },
+              "arguments": [
+                {
+                  "type": "identifier",
+                  "value": "box",
+                  "location": {
+                    "file": "./integration_tests/symbols.js",
+                    "line": 25,
+                    "column": 25
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/symbols.js",
+                "line": 25,
+                "column": 24
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "length",
+              "location": {
+                "file": "./integration_tests/symbols.js",
+                "line": 25,
+                "column": 30
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/symbols.js",
+              "line": 25,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/symbols.js",
+          "line": 25,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/symbols.js",
+        "line": 25,
         "column": 1
       }
     }

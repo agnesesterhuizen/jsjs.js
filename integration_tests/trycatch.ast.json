@@ -12,7 +12,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 1,
+              "line": 3,
               "column": 1
             }
           },
@@ -21,14 +21,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 1,
+              "line": 3,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/trycatch.js",
-            "line": 1,
+            "line": 3,
             "column": 1
           }
         },
@@ -38,20 +38,20 @@
             "value": "start",
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 1,
+              "line": 3,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/trycatch.js",
-          "line": 1,
+          "line": 3,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/trycatch.js",
-        "line": 1,
+        "line": 3,
         "column": 1
       }
     },
@@ -71,7 +71,7 @@
                   "value": "console",
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 4,
+                    "line": 6,
                     "column": 3
                   }
                 },
@@ -80,14 +80,14 @@
                   "value": "log",
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 4,
+                    "line": 6,
                     "column": 11
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/trycatch.js",
-                  "line": 4,
+                  "line": 6,
                   "column": 3
                 }
               },
@@ -97,20 +97,20 @@
                   "value": "inside try 1",
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 4,
+                    "line": 6,
                     "column": 15
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 4,
+                "line": 6,
                 "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 4,
+              "line": 6,
               "column": 3
             }
           },
@@ -121,20 +121,20 @@
               "value": "oops",
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 5,
+                "line": 7,
                 "column": 9
               }
             },
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 5,
+              "line": 7,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/trycatch.js",
-          "line": 3,
+          "line": 5,
           "column": 5
         }
       },
@@ -154,7 +154,7 @@
                     "value": "console",
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 7,
+                      "line": 9,
                       "column": 3
                     }
                   },
@@ -163,14 +163,14 @@
                     "value": "log",
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 7,
+                      "line": 9,
                       "column": 11
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 7,
+                    "line": 9,
                     "column": 3
                   }
                 },
@@ -183,7 +183,7 @@
                       "value": "caught 1: ",
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 7,
+                        "line": 9,
                         "column": 15
                       }
                     },
@@ -192,33 +192,33 @@
                       "value": "err",
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 7,
+                        "line": 9,
                         "column": 30
                       }
                     },
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 7,
+                      "line": 9,
                       "column": 28
                     }
                   }
                 ],
                 "location": {
                   "file": "./integration_tests/trycatch.js",
-                  "line": 7,
+                  "line": 9,
                   "column": 14
                 }
               },
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 7,
+                "line": 9,
                 "column": 3
               }
             }
           ],
           "location": {
             "file": "./integration_tests/trycatch.js",
-            "line": 6,
+            "line": 8,
             "column": 15
           }
         }
@@ -237,7 +237,7 @@
                   "value": "console",
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 9,
+                    "line": 11,
                     "column": 3
                   }
                 },
@@ -246,14 +246,14 @@
                   "value": "log",
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 9,
+                    "line": 11,
                     "column": 11
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/trycatch.js",
-                  "line": 9,
+                  "line": 11,
                   "column": 3
                 }
               },
@@ -263,33 +263,33 @@
                   "value": "finally 1",
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 9,
+                    "line": 11,
                     "column": 15
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 9,
+                "line": 11,
                 "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 9,
+              "line": 11,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/trycatch.js",
-          "line": 8,
+          "line": 10,
           "column": 11
         }
       },
       "location": {
         "file": "./integration_tests/trycatch.js",
-        "line": 3,
+        "line": 5,
         "column": 1
       }
     },
@@ -316,7 +316,7 @@
                         "value": "console",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 14,
+                          "line": 16,
                           "column": 5
                         }
                       },
@@ -325,14 +325,14 @@
                         "value": "log",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 14,
+                          "line": 16,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 14,
+                        "line": 16,
                         "column": 5
                       }
                     },
@@ -342,20 +342,20 @@
                         "value": "try return",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 14,
+                          "line": 16,
                           "column": 17
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 14,
+                      "line": 16,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 14,
+                    "line": 16,
                     "column": 5
                   }
                 },
@@ -366,20 +366,20 @@
                     "value": "return value",
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 15,
+                      "line": 17,
                       "column": 12
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 15,
+                    "line": 17,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 13,
+                "line": 15,
                 "column": 7
               }
             },
@@ -397,7 +397,7 @@
                         "value": "console",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 17,
+                          "line": 19,
                           "column": 5
                         }
                       },
@@ -406,14 +406,14 @@
                         "value": "log",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 17,
+                          "line": 19,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 17,
+                        "line": 19,
                         "column": 5
                       }
                     },
@@ -423,46 +423,46 @@
                         "value": "finally after return",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 17,
+                          "line": 19,
                           "column": 17
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 17,
+                      "line": 19,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 17,
+                    "line": 19,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 16,
+                "line": 18,
                 "column": 13
               }
             },
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 13,
+              "line": 15,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/trycatch.js",
-          "line": 12,
+          "line": 14,
           "column": 23
         }
       },
       "location": {
         "file": "./integration_tests/trycatch.js",
-        "line": 12,
+        "line": 14,
         "column": 1
       }
     },
@@ -477,7 +477,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 21,
+              "line": 23,
               "column": 1
             }
           },
@@ -486,14 +486,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 21,
+              "line": 23,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/trycatch.js",
-            "line": 21,
+            "line": 23,
             "column": 1
           }
         },
@@ -506,7 +506,7 @@
               "value": "returned: ",
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 21,
+                "line": 23,
                 "column": 13
               }
             },
@@ -517,284 +517,28 @@
                 "value": "testReturn",
                 "location": {
                   "file": "./integration_tests/trycatch.js",
-                  "line": 21,
+                  "line": 23,
                   "column": 28
                 }
               },
               "arguments": [],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 21,
+                "line": 23,
                 "column": 38
               }
             },
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 21,
+              "line": 23,
               "column": 26
             }
           }
         ],
         "location": {
           "file": "./integration_tests/trycatch.js",
-          "line": 21,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/trycatch.js",
-        "line": 21,
-        "column": 1
-      }
-    },
-    {
-      "type": "try",
-      "block": {
-        "type": "block",
-        "body": [
-          {
-            "type": "try",
-            "block": {
-              "type": "block",
-              "body": [
-                {
-                  "type": "expression",
-                  "expression": {
-                    "type": "call",
-                    "func": {
-                      "type": "member",
-                      "object": {
-                        "type": "identifier",
-                        "value": "console",
-                        "location": {
-                          "file": "./integration_tests/trycatch.js",
-                          "line": 25,
-                          "column": 5
-                        }
-                      },
-                      "property": {
-                        "type": "identifier",
-                        "value": "log",
-                        "location": {
-                          "file": "./integration_tests/trycatch.js",
-                          "line": 25,
-                          "column": 13
-                        }
-                      },
-                      "computed": false,
-                      "location": {
-                        "file": "./integration_tests/trycatch.js",
-                        "line": 25,
-                        "column": 5
-                      }
-                    },
-                    "arguments": [
-                      {
-                        "type": "string",
-                        "value": "nested try",
-                        "location": {
-                          "file": "./integration_tests/trycatch.js",
-                          "line": 25,
-                          "column": 17
-                        }
-                      }
-                    ],
-                    "location": {
-                      "file": "./integration_tests/trycatch.js",
-                      "line": 25,
-                      "column": 16
-                    }
-                  },
-                  "location": {
-                    "file": "./integration_tests/trycatch.js",
-                    "line": 25,
-                    "column": 5
-                  }
-                },
-                {
-                  "type": "throw",
-                  "expression": {
-                    "type": "string",
-                    "value": "inner error",
-                    "location": {
-                      "file": "./integration_tests/trycatch.js",
-                      "line": 26,
-                      "column": 11
-                    }
-                  },
-                  "location": {
-                    "file": "./integration_tests/trycatch.js",
-                    "line": 26,
-                    "column": 5
-                  }
-                }
-              ],
-              "location": {
-                "file": "./integration_tests/trycatch.js",
-                "line": 24,
-                "column": 7
-              }
-            },
-            "finalizer": {
-              "type": "block",
-              "body": [
-                {
-                  "type": "expression",
-                  "expression": {
-                    "type": "call",
-                    "func": {
-                      "type": "member",
-                      "object": {
-                        "type": "identifier",
-                        "value": "console",
-                        "location": {
-                          "file": "./integration_tests/trycatch.js",
-                          "line": 28,
-                          "column": 5
-                        }
-                      },
-                      "property": {
-                        "type": "identifier",
-                        "value": "log",
-                        "location": {
-                          "file": "./integration_tests/trycatch.js",
-                          "line": 28,
-                          "column": 13
-                        }
-                      },
-                      "computed": false,
-                      "location": {
-                        "file": "./integration_tests/trycatch.js",
-                        "line": 28,
-                        "column": 5
-                      }
-                    },
-                    "arguments": [
-                      {
-                        "type": "string",
-                        "value": "nested finally",
-                        "location": {
-                          "file": "./integration_tests/trycatch.js",
-                          "line": 28,
-                          "column": 17
-                        }
-                      }
-                    ],
-                    "location": {
-                      "file": "./integration_tests/trycatch.js",
-                      "line": 28,
-                      "column": 16
-                    }
-                  },
-                  "location": {
-                    "file": "./integration_tests/trycatch.js",
-                    "line": 28,
-                    "column": 5
-                  }
-                }
-              ],
-              "location": {
-                "file": "./integration_tests/trycatch.js",
-                "line": 27,
-                "column": 13
-              }
-            },
-            "location": {
-              "file": "./integration_tests/trycatch.js",
-              "line": 24,
-              "column": 3
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/trycatch.js",
           "line": 23,
-          "column": 5
-        }
-      },
-      "handler": {
-        "param": "e",
-        "body": {
-          "type": "block",
-          "body": [
-            {
-              "type": "expression",
-              "expression": {
-                "type": "call",
-                "func": {
-                  "type": "member",
-                  "object": {
-                    "type": "identifier",
-                    "value": "console",
-                    "location": {
-                      "file": "./integration_tests/trycatch.js",
-                      "line": 31,
-                      "column": 3
-                    }
-                  },
-                  "property": {
-                    "type": "identifier",
-                    "value": "log",
-                    "location": {
-                      "file": "./integration_tests/trycatch.js",
-                      "line": 31,
-                      "column": 11
-                    }
-                  },
-                  "computed": false,
-                  "location": {
-                    "file": "./integration_tests/trycatch.js",
-                    "line": 31,
-                    "column": 3
-                  }
-                },
-                "arguments": [
-                  {
-                    "type": "binary",
-                    "operator": "+",
-                    "left": {
-                      "type": "string",
-                      "value": "outer catch: ",
-                      "location": {
-                        "file": "./integration_tests/trycatch.js",
-                        "line": 31,
-                        "column": 15
-                      }
-                    },
-                    "right": {
-                      "type": "identifier",
-                      "value": "e",
-                      "location": {
-                        "file": "./integration_tests/trycatch.js",
-                        "line": 31,
-                        "column": 33
-                      }
-                    },
-                    "location": {
-                      "file": "./integration_tests/trycatch.js",
-                      "line": 31,
-                      "column": 31
-                    }
-                  }
-                ],
-                "location": {
-                  "file": "./integration_tests/trycatch.js",
-                  "line": 31,
-                  "column": 14
-                }
-              },
-              "location": {
-                "file": "./integration_tests/trycatch.js",
-                "line": 31,
-                "column": 3
-              }
-            }
-          ],
-          "location": {
-            "file": "./integration_tests/trycatch.js",
-            "line": 30,
-            "column": 13
-          }
+          "column": 12
         }
       },
       "location": {
@@ -824,7 +568,7 @@
                         "value": "console",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 36,
+                          "line": 27,
                           "column": 5
                         }
                       },
@@ -833,37 +577,37 @@
                         "value": "log",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 36,
+                          "line": 27,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 36,
+                        "line": 27,
                         "column": 5
                       }
                     },
                     "arguments": [
                       {
                         "type": "string",
-                        "value": "before rethrow",
+                        "value": "nested try",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 36,
+                          "line": 27,
                           "column": 17
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 36,
+                      "line": 27,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 36,
+                    "line": 27,
                     "column": 5
                   }
                 },
@@ -871,138 +615,100 @@
                   "type": "throw",
                   "expression": {
                     "type": "string",
-                    "value": "rethrow",
+                    "value": "inner error",
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 37,
+                      "line": 28,
                       "column": 11
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 37,
+                    "line": 28,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 35,
+                "line": 26,
                 "column": 7
               }
             },
-            "handler": {
-              "param": "e",
-              "body": {
-                "type": "block",
-                "body": [
-                  {
-                    "type": "expression",
-                    "expression": {
-                      "type": "call",
-                      "func": {
-                        "type": "member",
-                        "object": {
-                          "type": "identifier",
-                          "value": "console",
-                          "location": {
-                            "file": "./integration_tests/trycatch.js",
-                            "line": 39,
-                            "column": 5
-                          }
-                        },
-                        "property": {
-                          "type": "identifier",
-                          "value": "log",
-                          "location": {
-                            "file": "./integration_tests/trycatch.js",
-                            "line": 39,
-                            "column": 13
-                          }
-                        },
-                        "computed": false,
+            "finalizer": {
+              "type": "block",
+              "body": [
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 39,
+                          "line": 30,
                           "column": 5
                         }
                       },
-                      "arguments": [
-                        {
-                          "type": "binary",
-                          "operator": "+",
-                          "left": {
-                            "type": "string",
-                            "value": "caught before rethrow: ",
-                            "location": {
-                              "file": "./integration_tests/trycatch.js",
-                              "line": 39,
-                              "column": 17
-                            }
-                          },
-                          "right": {
-                            "type": "identifier",
-                            "value": "e",
-                            "location": {
-                              "file": "./integration_tests/trycatch.js",
-                              "line": 39,
-                              "column": 45
-                            }
-                          },
-                          "location": {
-                            "file": "./integration_tests/trycatch.js",
-                            "line": 39,
-                            "column": 43
-                          }
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/trycatch.js",
+                          "line": 30,
+                          "column": 13
                         }
-                      ],
+                      },
+                      "computed": false,
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 39,
-                        "column": 16
+                        "line": 30,
+                        "column": 5
                       }
                     },
+                    "arguments": [
+                      {
+                        "type": "string",
+                        "value": "nested finally",
+                        "location": {
+                          "file": "./integration_tests/trycatch.js",
+                          "line": 30,
+                          "column": 17
+                        }
+                      }
+                    ],
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 39,
-                      "column": 5
+                      "line": 30,
+                      "column": 16
                     }
                   },
-                  {
-                    "type": "throw",
-                    "expression": {
-                      "type": "string",
-                      "value": "rethrown",
-                      "location": {
-                        "file": "./integration_tests/trycatch.js",
-                        "line": 40,
-                        "column": 11
-                      }
-                    },
-                    "location": {
-                      "file": "./integration_tests/trycatch.js",
-                      "line": 40,
-                      "column": 5
-                    }
+                  "location": {
+                    "file": "./integration_tests/trycatch.js",
+                    "line": 30,
+                    "column": 5
                   }
-                ],
-                "location": {
-                  "file": "./integration_tests/trycatch.js",
-                  "line": 38,
-                  "column": 15
                 }
+              ],
+              "location": {
+                "file": "./integration_tests/trycatch.js",
+                "line": 29,
+                "column": 13
               }
             },
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 35,
+              "line": 26,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/trycatch.js",
-          "line": 34,
+          "line": 25,
           "column": 5
         }
       },
@@ -1022,7 +728,7 @@
                     "value": "console",
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 43,
+                      "line": 33,
                       "column": 3
                     }
                   },
@@ -1031,14 +737,308 @@
                     "value": "log",
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 43,
+                      "line": 33,
                       "column": 11
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 43,
+                    "line": 33,
+                    "column": 3
+                  }
+                },
+                "arguments": [
+                  {
+                    "type": "binary",
+                    "operator": "+",
+                    "left": {
+                      "type": "string",
+                      "value": "outer catch: ",
+                      "location": {
+                        "file": "./integration_tests/trycatch.js",
+                        "line": 33,
+                        "column": 15
+                      }
+                    },
+                    "right": {
+                      "type": "identifier",
+                      "value": "e",
+                      "location": {
+                        "file": "./integration_tests/trycatch.js",
+                        "line": 33,
+                        "column": 33
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/trycatch.js",
+                      "line": 33,
+                      "column": 31
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/trycatch.js",
+                  "line": 33,
+                  "column": 14
+                }
+              },
+              "location": {
+                "file": "./integration_tests/trycatch.js",
+                "line": 33,
+                "column": 3
+              }
+            }
+          ],
+          "location": {
+            "file": "./integration_tests/trycatch.js",
+            "line": 32,
+            "column": 13
+          }
+        }
+      },
+      "location": {
+        "file": "./integration_tests/trycatch.js",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "type": "try",
+      "block": {
+        "type": "block",
+        "body": [
+          {
+            "type": "try",
+            "block": {
+              "type": "block",
+              "body": [
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
+                        "location": {
+                          "file": "./integration_tests/trycatch.js",
+                          "line": 38,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/trycatch.js",
+                          "line": 38,
+                          "column": 13
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/trycatch.js",
+                        "line": 38,
+                        "column": 5
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "string",
+                        "value": "before rethrow",
+                        "location": {
+                          "file": "./integration_tests/trycatch.js",
+                          "line": 38,
+                          "column": 17
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/trycatch.js",
+                      "line": 38,
+                      "column": 16
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/trycatch.js",
+                    "line": 38,
+                    "column": 5
+                  }
+                },
+                {
+                  "type": "throw",
+                  "expression": {
+                    "type": "string",
+                    "value": "rethrow",
+                    "location": {
+                      "file": "./integration_tests/trycatch.js",
+                      "line": 39,
+                      "column": 11
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/trycatch.js",
+                    "line": 39,
+                    "column": 5
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/trycatch.js",
+                "line": 37,
+                "column": 7
+              }
+            },
+            "handler": {
+              "param": "e",
+              "body": {
+                "type": "block",
+                "body": [
+                  {
+                    "type": "expression",
+                    "expression": {
+                      "type": "call",
+                      "func": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "console",
+                          "location": {
+                            "file": "./integration_tests/trycatch.js",
+                            "line": 41,
+                            "column": 5
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "log",
+                          "location": {
+                            "file": "./integration_tests/trycatch.js",
+                            "line": 41,
+                            "column": 13
+                          }
+                        },
+                        "computed": false,
+                        "location": {
+                          "file": "./integration_tests/trycatch.js",
+                          "line": 41,
+                          "column": 5
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "binary",
+                          "operator": "+",
+                          "left": {
+                            "type": "string",
+                            "value": "caught before rethrow: ",
+                            "location": {
+                              "file": "./integration_tests/trycatch.js",
+                              "line": 41,
+                              "column": 17
+                            }
+                          },
+                          "right": {
+                            "type": "identifier",
+                            "value": "e",
+                            "location": {
+                              "file": "./integration_tests/trycatch.js",
+                              "line": 41,
+                              "column": 45
+                            }
+                          },
+                          "location": {
+                            "file": "./integration_tests/trycatch.js",
+                            "line": 41,
+                            "column": 43
+                          }
+                        }
+                      ],
+                      "location": {
+                        "file": "./integration_tests/trycatch.js",
+                        "line": 41,
+                        "column": 16
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/trycatch.js",
+                      "line": 41,
+                      "column": 5
+                    }
+                  },
+                  {
+                    "type": "throw",
+                    "expression": {
+                      "type": "string",
+                      "value": "rethrown",
+                      "location": {
+                        "file": "./integration_tests/trycatch.js",
+                        "line": 42,
+                        "column": 11
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/trycatch.js",
+                      "line": 42,
+                      "column": 5
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/trycatch.js",
+                  "line": 40,
+                  "column": 15
+                }
+              }
+            },
+            "location": {
+              "file": "./integration_tests/trycatch.js",
+              "line": 37,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/trycatch.js",
+          "line": 36,
+          "column": 5
+        }
+      },
+      "handler": {
+        "param": "e",
+        "body": {
+          "type": "block",
+          "body": [
+            {
+              "type": "expression",
+              "expression": {
+                "type": "call",
+                "func": {
+                  "type": "member",
+                  "object": {
+                    "type": "identifier",
+                    "value": "console",
+                    "location": {
+                      "file": "./integration_tests/trycatch.js",
+                      "line": 45,
+                      "column": 3
+                    }
+                  },
+                  "property": {
+                    "type": "identifier",
+                    "value": "log",
+                    "location": {
+                      "file": "./integration_tests/trycatch.js",
+                      "line": 45,
+                      "column": 11
+                    }
+                  },
+                  "computed": false,
+                  "location": {
+                    "file": "./integration_tests/trycatch.js",
+                    "line": 45,
                     "column": 3
                   }
                 },
@@ -1051,7 +1051,7 @@
                       "value": "outer after rethrow: ",
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 43,
+                        "line": 45,
                         "column": 15
                       }
                     },
@@ -1060,40 +1060,40 @@
                       "value": "e",
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 43,
+                        "line": 45,
                         "column": 41
                       }
                     },
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 43,
+                      "line": 45,
                       "column": 39
                     }
                   }
                 ],
                 "location": {
                   "file": "./integration_tests/trycatch.js",
-                  "line": 43,
+                  "line": 45,
                   "column": 14
                 }
               },
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 43,
+                "line": 45,
                 "column": 3
               }
             }
           ],
           "location": {
             "file": "./integration_tests/trycatch.js",
-            "line": 42,
+            "line": 44,
             "column": 13
           }
         }
       },
       "location": {
         "file": "./integration_tests/trycatch.js",
-        "line": 34,
+        "line": 36,
         "column": 1
       }
     },
@@ -1120,7 +1120,7 @@
                         "value": "console",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 48,
+                          "line": 50,
                           "column": 5
                         }
                       },
@@ -1129,14 +1129,14 @@
                         "value": "log",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 48,
+                          "line": 50,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 48,
+                        "line": 50,
                         "column": 5
                       }
                     },
@@ -1146,20 +1146,20 @@
                         "value": "try before return 2",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 48,
+                          "line": 50,
                           "column": 17
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 48,
+                      "line": 50,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 48,
+                    "line": 50,
                     "column": 5
                   }
                 },
@@ -1170,20 +1170,20 @@
                     "value": "try",
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 49,
+                      "line": 51,
                       "column": 12
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 49,
+                    "line": 51,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 47,
+                "line": 49,
                 "column": 7
               }
             },
@@ -1201,7 +1201,7 @@
                         "value": "console",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 51,
+                          "line": 53,
                           "column": 5
                         }
                       },
@@ -1210,14 +1210,14 @@
                         "value": "log",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 51,
+                          "line": 53,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/trycatch.js",
-                        "line": 51,
+                        "line": 53,
                         "column": 5
                       }
                     },
@@ -1227,20 +1227,20 @@
                         "value": "finally return override",
                         "location": {
                           "file": "./integration_tests/trycatch.js",
-                          "line": 51,
+                          "line": 53,
                           "column": 17
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 51,
+                      "line": 53,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 51,
+                    "line": 53,
                     "column": 5
                   }
                 },
@@ -1251,39 +1251,39 @@
                     "value": "finally",
                     "location": {
                       "file": "./integration_tests/trycatch.js",
-                      "line": 52,
+                      "line": 54,
                       "column": 12
                     }
                   },
                   "location": {
                     "file": "./integration_tests/trycatch.js",
-                    "line": 52,
+                    "line": 54,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 50,
+                "line": 52,
                 "column": 13
               }
             },
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 47,
+              "line": 49,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/trycatch.js",
-          "line": 46,
+          "line": 48,
           "column": 32
         }
       },
       "location": {
         "file": "./integration_tests/trycatch.js",
-        "line": 46,
+        "line": 48,
         "column": 1
       }
     },
@@ -1298,7 +1298,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 56,
+              "line": 58,
               "column": 1
             }
           },
@@ -1307,14 +1307,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 56,
+              "line": 58,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/trycatch.js",
-            "line": 56,
+            "line": 58,
             "column": 1
           }
         },
@@ -1327,7 +1327,7 @@
               "value": "finally override result: ",
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 56,
+                "line": 58,
                 "column": 13
               }
             },
@@ -1338,33 +1338,33 @@
                 "value": "testFinallyOverride",
                 "location": {
                   "file": "./integration_tests/trycatch.js",
-                  "line": 56,
+                  "line": 58,
                   "column": 43
                 }
               },
               "arguments": [],
               "location": {
                 "file": "./integration_tests/trycatch.js",
-                "line": 56,
+                "line": 58,
                 "column": 62
               }
             },
             "location": {
               "file": "./integration_tests/trycatch.js",
-              "line": 56,
+              "line": 58,
               "column": 41
             }
           }
         ],
         "location": {
           "file": "./integration_tests/trycatch.js",
-          "line": 56,
+          "line": 58,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/trycatch.js",
-        "line": 56,
+        "line": 58,
         "column": 1
       }
     }

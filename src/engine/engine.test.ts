@@ -1,11 +1,13 @@
-import { assertEquals } from "jsr:@std/assert/equals";
+import { assertEquals } from "@std/assert/equals";
 import { Lexer } from "../lexer.ts";
 import { Parser } from "../parser.ts";
 import { Engine } from "./engine.ts";
 
 const setupLogger = () => {
+  // deno-lint-ignore no-explicit-any
   const logs: any[] = [];
 
+  // deno-lint-ignore no-explicit-any
   const logger = (...data: any[]) => {
     logs.push(data);
   };

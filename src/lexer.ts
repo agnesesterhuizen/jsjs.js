@@ -1,4 +1,4 @@
-import moo from "npm:moo@^0.5.2";
+import moo from "moo";
 
 // Extract the needed functions from the moo object
 const { states, keywords } = moo;

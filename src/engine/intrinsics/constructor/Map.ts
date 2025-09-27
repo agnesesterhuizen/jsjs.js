@@ -1,6 +1,6 @@
-import { Runtime } from "../../runtime.ts";
-import { JSArray, JSFunction, JSMap, JSObject } from "../../objects.ts";
 import { todo } from "../../interpreter.ts";
+import { JSArray, JSFunction, JSObject } from "../../objects.ts";
+import { Runtime } from "../../runtime.ts";
 
 export const createMapConstructor = (runtime: Runtime): JSFunction => {
   const mapConstructor = runtime.newBuiltinFunction(

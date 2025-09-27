@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 /* This is a multi-line comment
    that spans multiple lines
    and includes special characters like / and *

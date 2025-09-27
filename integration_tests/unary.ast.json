@@ -12,132 +12,6 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 2,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 2,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/unary.js",
-            "line": 2,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "unary",
-            "operator": "!",
-            "expression": {
-              "type": "boolean",
-              "value": true,
-              "location": {
-                "file": "./integration_tests/unary.js",
-                "line": 2,
-                "column": 14
-              }
-            },
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 2,
-              "column": 13
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/unary.js",
-          "line": 2,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/unary.js",
-        "line": 2,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 3,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 3,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/unary.js",
-            "line": 3,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "unary",
-            "operator": "!",
-            "expression": {
-              "type": "boolean",
-              "value": false,
-              "location": {
-                "file": "./integration_tests/unary.js",
-                "line": 3,
-                "column": 14
-              }
-            },
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 3,
-              "column": 13
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/unary.js",
-          "line": 3,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/unary.js",
-        "line": 3,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/unary.js",
               "line": 4,
               "column": 1
             }
@@ -163,8 +37,8 @@
             "type": "unary",
             "operator": "!",
             "expression": {
-              "type": "number",
-              "value": 0,
+              "type": "boolean",
+              "value": true,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 4,
@@ -226,8 +100,8 @@
             "type": "unary",
             "operator": "!",
             "expression": {
-              "type": "number",
-              "value": 1,
+              "type": "boolean",
+              "value": false,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 5,
@@ -289,8 +163,8 @@
             "type": "unary",
             "operator": "!",
             "expression": {
-              "type": "string",
-              "value": "",
+              "type": "number",
+              "value": 0,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 6,
@@ -352,8 +226,8 @@
             "type": "unary",
             "operator": "!",
             "expression": {
-              "type": "string",
-              "value": "hello",
+              "type": "number",
+              "value": 1,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 7,
@@ -415,7 +289,8 @@
             "type": "unary",
             "operator": "!",
             "expression": {
-              "type": "null",
+              "type": "string",
+              "value": "",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 8,
@@ -477,8 +352,8 @@
             "type": "unary",
             "operator": "!",
             "expression": {
-              "type": "identifier",
-              "value": "undefined",
+              "type": "string",
+              "value": "hello",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 9,
@@ -515,7 +390,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 12,
+              "line": 10,
               "column": 1
             }
           },
@@ -524,46 +399,45 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 12,
+              "line": 10,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 12,
+            "line": 10,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "unary",
-            "operator": "typeof",
+            "operator": "!",
             "expression": {
-              "type": "identifier",
-              "value": "undefined",
+              "type": "null",
               "location": {
                 "file": "./integration_tests/unary.js",
-                "line": 12,
-                "column": 20
+                "line": 10,
+                "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 12,
+              "line": 10,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 12,
+          "line": 10,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 12,
+        "line": 10,
         "column": 1
       }
     },
@@ -578,7 +452,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 13,
+              "line": 11,
               "column": 1
             }
           },
@@ -587,45 +461,46 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 13,
+              "line": 11,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 13,
+            "line": 11,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "unary",
-            "operator": "typeof",
+            "operator": "!",
             "expression": {
-              "type": "null",
+              "type": "identifier",
+              "value": "undefined",
               "location": {
                 "file": "./integration_tests/unary.js",
-                "line": 13,
-                "column": 20
+                "line": 11,
+                "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 13,
+              "line": 11,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 13,
+          "line": 11,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 13,
+        "line": 11,
         "column": 1
       }
     },
@@ -665,8 +540,8 @@
             "type": "unary",
             "operator": "typeof",
             "expression": {
-              "type": "boolean",
-              "value": true,
+              "type": "identifier",
+              "value": "undefined",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 14,
@@ -728,8 +603,7 @@
             "type": "unary",
             "operator": "typeof",
             "expression": {
-              "type": "number",
-              "value": 42,
+              "type": "null",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 15,
@@ -791,8 +665,8 @@
             "type": "unary",
             "operator": "typeof",
             "expression": {
-              "type": "string",
-              "value": "hello",
+              "type": "boolean",
+              "value": true,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 16,
@@ -854,8 +728,8 @@
             "type": "unary",
             "operator": "typeof",
             "expression": {
-              "type": "object",
-              "properties": {},
+              "type": "number",
+              "value": 42,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 17,
@@ -917,8 +791,8 @@
             "type": "unary",
             "operator": "typeof",
             "expression": {
-              "type": "array",
-              "elements": [],
+              "type": "string",
+              "value": "hello",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 18,
@@ -945,21 +819,65 @@
       }
     },
     {
-      "type": "function_declaration",
-      "identifier": "testFunc",
-      "parameters": [],
-      "body": {
-        "type": "block",
-        "body": [],
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 19,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 19,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/unary.js",
+            "line": 19,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "unary",
+            "operator": "typeof",
+            "expression": {
+              "type": "object",
+              "properties": {},
+              "location": {
+                "file": "./integration_tests/unary.js",
+                "line": 19,
+                "column": 20
+              }
+            },
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 19,
+              "column": 13
+            }
+          }
+        ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 20,
-          "column": 21
+          "line": 19,
+          "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 20,
+        "line": 19,
         "column": 1
       }
     },
@@ -974,7 +892,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 21,
+              "line": 20,
               "column": 1
             }
           },
@@ -983,14 +901,96 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 21,
+              "line": 20,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 21,
+            "line": 20,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "unary",
+            "operator": "typeof",
+            "expression": {
+              "type": "array",
+              "elements": [],
+              "location": {
+                "file": "./integration_tests/unary.js",
+                "line": 20,
+                "column": 20
+              }
+            },
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 20,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/unary.js",
+          "line": 20,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/unary.js",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "type": "function_declaration",
+      "identifier": "testFunc",
+      "parameters": [],
+      "body": {
+        "type": "block",
+        "body": [],
+        "location": {
+          "file": "./integration_tests/unary.js",
+          "line": 22,
+          "column": 21
+        }
+      },
+      "location": {
+        "file": "./integration_tests/unary.js",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 23,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 23,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/unary.js",
+            "line": 23,
             "column": 1
           }
         },
@@ -1003,152 +1003,26 @@
               "value": "testFunc",
               "location": {
                 "file": "./integration_tests/unary.js",
-                "line": 21,
+                "line": 23,
                 "column": 20
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 21,
+              "line": 23,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 21,
+          "line": 23,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 21,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 24,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 24,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/unary.js",
-            "line": 24,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "unary",
-            "operator": "+",
-            "expression": {
-              "type": "number",
-              "value": 42,
-              "location": {
-                "file": "./integration_tests/unary.js",
-                "line": 24,
-                "column": 14
-              }
-            },
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 24,
-              "column": 13
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/unary.js",
-          "line": 24,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/unary.js",
-        "line": 24,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 25,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 25,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/unary.js",
-            "line": 25,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "unary",
-            "operator": "+",
-            "expression": {
-              "type": "string",
-              "value": "42",
-              "location": {
-                "file": "./integration_tests/unary.js",
-                "line": 25,
-                "column": 14
-              }
-            },
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 25,
-              "column": 13
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/unary.js",
-          "line": 25,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/unary.js",
-        "line": 25,
+        "line": 23,
         "column": 1
       }
     },
@@ -1188,8 +1062,8 @@
             "type": "unary",
             "operator": "+",
             "expression": {
-              "type": "boolean",
-              "value": true,
+              "type": "number",
+              "value": 42,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 26,
@@ -1251,8 +1125,8 @@
             "type": "unary",
             "operator": "+",
             "expression": {
-              "type": "boolean",
-              "value": false,
+              "type": "string",
+              "value": "42",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 27,
@@ -1314,7 +1188,8 @@
             "type": "unary",
             "operator": "+",
             "expression": {
-              "type": "null",
+              "type": "boolean",
+              "value": true,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 28,
@@ -1376,8 +1251,8 @@
             "type": "unary",
             "operator": "+",
             "expression": {
-              "type": "identifier",
-              "value": "undefined",
+              "type": "boolean",
+              "value": false,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 29,
@@ -1439,8 +1314,7 @@
             "type": "unary",
             "operator": "+",
             "expression": {
-              "type": "string",
-              "value": "hello",
+              "type": "null",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 30,
@@ -1477,7 +1351,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 33,
+              "line": 31,
               "column": 1
             }
           },
@@ -1486,37 +1360,46 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 33,
+              "line": 31,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 33,
+            "line": 31,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "number",
-            "value": -42,
+            "type": "unary",
+            "operator": "+",
+            "expression": {
+              "type": "identifier",
+              "value": "undefined",
+              "location": {
+                "file": "./integration_tests/unary.js",
+                "line": 31,
+                "column": 14
+              }
+            },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 33,
+              "line": 31,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 33,
+          "line": 31,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 33,
+        "line": 31,
         "column": 1
       }
     },
@@ -1531,7 +1414,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 34,
+              "line": 32,
               "column": 1
             }
           },
@@ -1540,46 +1423,46 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 34,
+              "line": 32,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 34,
+            "line": 32,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "unary",
-            "operator": "-",
+            "operator": "+",
             "expression": {
-              "type": "number",
-              "value": -42,
+              "type": "string",
+              "value": "hello",
               "location": {
                 "file": "./integration_tests/unary.js",
-                "line": 34,
-                "column": 15
+                "line": 32,
+                "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 34,
+              "line": 32,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 34,
+          "line": 32,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 34,
+        "line": 32,
         "column": 1
       }
     },
@@ -1616,17 +1499,8 @@
         },
         "arguments": [
           {
-            "type": "unary",
-            "operator": "-",
-            "expression": {
-              "type": "string",
-              "value": "42",
-              "location": {
-                "file": "./integration_tests/unary.js",
-                "line": 35,
-                "column": 14
-              }
-            },
+            "type": "number",
+            "value": -42,
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 35,
@@ -1682,12 +1556,12 @@
             "type": "unary",
             "operator": "-",
             "expression": {
-              "type": "boolean",
-              "value": true,
+              "type": "number",
+              "value": -42,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 36,
-                "column": 14
+                "column": 15
               }
             },
             "location": {
@@ -1745,8 +1619,8 @@
             "type": "unary",
             "operator": "-",
             "expression": {
-              "type": "boolean",
-              "value": false,
+              "type": "string",
+              "value": "42",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 37,
@@ -1808,7 +1682,8 @@
             "type": "unary",
             "operator": "-",
             "expression": {
-              "type": "null",
+              "type": "boolean",
+              "value": true,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 38,
@@ -1870,8 +1745,8 @@
             "type": "unary",
             "operator": "-",
             "expression": {
-              "type": "identifier",
-              "value": "undefined",
+              "type": "boolean",
+              "value": false,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 39,
@@ -1908,7 +1783,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 42,
+              "line": 40,
               "column": 1
             }
           },
@@ -1917,55 +1792,45 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 42,
+              "line": 40,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 42,
+            "line": 40,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "string",
-            "value": "void 123 = ",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 42,
-              "column": 13
-            }
-          },
-          {
             "type": "unary",
-            "operator": "void",
+            "operator": "-",
             "expression": {
-              "type": "number",
-              "value": 123,
+              "type": "null",
               "location": {
                 "file": "./integration_tests/unary.js",
-                "line": 42,
-                "column": 33
+                "line": 40,
+                "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 42,
-              "column": 28
+              "line": 40,
+              "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 42,
+          "line": 40,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 42,
+        "line": 40,
         "column": 1
       }
     },
@@ -1980,7 +1845,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 43,
+              "line": 41,
               "column": 1
             }
           },
@@ -1989,55 +1854,46 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 43,
+              "line": 41,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 43,
+            "line": 41,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "string",
-            "value": "void 'hello' = ",
-            "location": {
-              "file": "./integration_tests/unary.js",
-              "line": 43,
-              "column": 13
-            }
-          },
-          {
             "type": "unary",
-            "operator": "void",
+            "operator": "-",
             "expression": {
-              "type": "string",
-              "value": "hello",
+              "type": "identifier",
+              "value": "undefined",
               "location": {
                 "file": "./integration_tests/unary.js",
-                "line": 43,
-                "column": 37
+                "line": 41,
+                "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 43,
-              "column": 32
+              "line": 41,
+              "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 43,
+          "line": 41,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 43,
+        "line": 41,
         "column": 1
       }
     },
@@ -2075,7 +1931,7 @@
         "arguments": [
           {
             "type": "string",
-            "value": "void true = ",
+            "value": "void 123 = ",
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 44,
@@ -2086,18 +1942,18 @@
             "type": "unary",
             "operator": "void",
             "expression": {
-              "type": "boolean",
-              "value": true,
+              "type": "number",
+              "value": 123,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 44,
-                "column": 34
+                "column": 33
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 44,
-              "column": 29
+              "column": 28
             }
           }
         ],
@@ -2147,7 +2003,7 @@
         "arguments": [
           {
             "type": "string",
-            "value": "void null = ",
+            "value": "void 'hello' = ",
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 45,
@@ -2158,17 +2014,18 @@
             "type": "unary",
             "operator": "void",
             "expression": {
-              "type": "null",
+              "type": "string",
+              "value": "hello",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 45,
-                "column": 34
+                "column": 37
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 45,
-              "column": 29
+              "column": 32
             }
           }
         ],
@@ -2218,7 +2075,7 @@
         "arguments": [
           {
             "type": "string",
-            "value": "void undefined = ",
+            "value": "void true = ",
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 46,
@@ -2229,18 +2086,18 @@
             "type": "unary",
             "operator": "void",
             "expression": {
-              "type": "identifier",
-              "value": "undefined",
+              "type": "boolean",
+              "value": true,
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 46,
-                "column": 39
+                "column": 34
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 46,
-              "column": 34
+              "column": 29
             }
           }
         ],
@@ -2290,7 +2147,7 @@
         "arguments": [
           {
             "type": "string",
-            "value": "void {} = ",
+            "value": "void null = ",
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 47,
@@ -2301,18 +2158,17 @@
             "type": "unary",
             "operator": "void",
             "expression": {
-              "type": "object",
-              "properties": {},
+              "type": "null",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 47,
-                "column": 32
+                "column": 34
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 47,
-              "column": 27
+              "column": 29
             }
           }
         ],
@@ -2362,7 +2218,7 @@
         "arguments": [
           {
             "type": "string",
-            "value": "void [1, 2, 3] = ",
+            "value": "void undefined = ",
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 48,
@@ -2373,36 +2229,8 @@
             "type": "unary",
             "operator": "void",
             "expression": {
-              "type": "array",
-              "elements": [
-                {
-                  "type": "number",
-                  "value": 1,
-                  "location": {
-                    "file": "./integration_tests/unary.js",
-                    "line": 48,
-                    "column": 40
-                  }
-                },
-                {
-                  "type": "number",
-                  "value": 2,
-                  "location": {
-                    "file": "./integration_tests/unary.js",
-                    "line": 48,
-                    "column": 43
-                  }
-                },
-                {
-                  "type": "number",
-                  "value": 3,
-                  "location": {
-                    "file": "./integration_tests/unary.js",
-                    "line": 48,
-                    "column": 46
-                  }
-                }
-              ],
+              "type": "identifier",
+              "value": "undefined",
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 48,
@@ -2462,7 +2290,7 @@
         "arguments": [
           {
             "type": "string",
-            "value": "void function() {} = ",
+            "value": "void {} = ",
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 49,
@@ -2473,27 +2301,18 @@
             "type": "unary",
             "operator": "void",
             "expression": {
-              "type": "function",
-              "parameters": [],
-              "body": {
-                "type": "block",
-                "body": [],
-                "location": {
-                  "file": "./integration_tests/unary.js",
-                  "line": 49,
-                  "column": 55
-                }
-              },
+              "type": "object",
+              "properties": {},
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 49,
-                "column": 43
+                "column": 32
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
               "line": 49,
-              "column": 38
+              "column": 27
             }
           }
         ],
@@ -2520,7 +2339,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 52,
+              "line": 50,
               "column": 1
             }
           },
@@ -2529,55 +2348,83 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 52,
+              "line": 50,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 52,
+            "line": 50,
             "column": 1
           }
         },
         "arguments": [
           {
+            "type": "string",
+            "value": "void [1, 2, 3] = ",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 50,
+              "column": 13
+            }
+          },
+          {
             "type": "unary",
-            "operator": "!",
+            "operator": "void",
             "expression": {
-              "type": "unary",
-              "operator": "!",
-              "expression": {
-                "type": "number",
-                "value": 42,
-                "location": {
-                  "file": "./integration_tests/unary.js",
-                  "line": 52,
-                  "column": 15
+              "type": "array",
+              "elements": [
+                {
+                  "type": "number",
+                  "value": 1,
+                  "location": {
+                    "file": "./integration_tests/unary.js",
+                    "line": 50,
+                    "column": 40
+                  }
+                },
+                {
+                  "type": "number",
+                  "value": 2,
+                  "location": {
+                    "file": "./integration_tests/unary.js",
+                    "line": 50,
+                    "column": 43
+                  }
+                },
+                {
+                  "type": "number",
+                  "value": 3,
+                  "location": {
+                    "file": "./integration_tests/unary.js",
+                    "line": 50,
+                    "column": 46
+                  }
                 }
-              },
+              ],
               "location": {
                 "file": "./integration_tests/unary.js",
-                "line": 52,
-                "column": 14
+                "line": 50,
+                "column": 39
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 52,
-              "column": 13
+              "line": 50,
+              "column": 34
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 52,
+          "line": 50,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 52,
+        "line": 50,
         "column": 1
       }
     },
@@ -2592,7 +2439,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 53,
+              "line": 51,
               "column": 1
             }
           },
@@ -2601,55 +2448,64 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 53,
+              "line": 51,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/unary.js",
-            "line": 53,
+            "line": 51,
             "column": 1
           }
         },
         "arguments": [
           {
+            "type": "string",
+            "value": "void function() {} = ",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 51,
+              "column": 13
+            }
+          },
+          {
             "type": "unary",
-            "operator": "typeof",
+            "operator": "void",
             "expression": {
-              "type": "unary",
-              "operator": "typeof",
-              "expression": {
-                "type": "number",
-                "value": 42,
+              "type": "function",
+              "parameters": [],
+              "body": {
+                "type": "block",
+                "body": [],
                 "location": {
                   "file": "./integration_tests/unary.js",
-                  "line": 53,
-                  "column": 27
+                  "line": 51,
+                  "column": 55
                 }
               },
               "location": {
                 "file": "./integration_tests/unary.js",
-                "line": 53,
-                "column": 20
+                "line": 51,
+                "column": 43
               }
             },
             "location": {
               "file": "./integration_tests/unary.js",
-              "line": 53,
-              "column": 13
+              "line": 51,
+              "column": 38
             }
           }
         ],
         "location": {
           "file": "./integration_tests/unary.js",
-          "line": 53,
+          "line": 51,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/unary.js",
-        "line": 53,
+        "line": 51,
         "column": 1
       }
     },
@@ -2687,23 +2543,23 @@
         "arguments": [
           {
             "type": "unary",
-            "operator": "+",
+            "operator": "!",
             "expression": {
               "type": "unary",
-              "operator": "+",
+              "operator": "!",
               "expression": {
-                "type": "string",
-                "value": "42",
+                "type": "number",
+                "value": 42,
                 "location": {
                   "file": "./integration_tests/unary.js",
                   "line": 54,
-                  "column": 16
+                  "column": 15
                 }
               },
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 54,
-                "column": 15
+                "column": 14
               }
             },
             "location": {
@@ -2759,23 +2615,23 @@
         "arguments": [
           {
             "type": "unary",
-            "operator": "-",
+            "operator": "typeof",
             "expression": {
               "type": "unary",
-              "operator": "+",
+              "operator": "typeof",
               "expression": {
                 "type": "number",
                 "value": 42,
                 "location": {
                   "file": "./integration_tests/unary.js",
                   "line": 55,
-                  "column": 15
+                  "column": 27
                 }
               },
               "location": {
                 "file": "./integration_tests/unary.js",
                 "line": 55,
-                "column": 14
+                "column": 20
               }
             },
             "location": {
@@ -2794,6 +2650,150 @@
       "location": {
         "file": "./integration_tests/unary.js",
         "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 56,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 56,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/unary.js",
+            "line": 56,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "unary",
+            "operator": "+",
+            "expression": {
+              "type": "unary",
+              "operator": "+",
+              "expression": {
+                "type": "string",
+                "value": "42",
+                "location": {
+                  "file": "./integration_tests/unary.js",
+                  "line": 56,
+                  "column": 16
+                }
+              },
+              "location": {
+                "file": "./integration_tests/unary.js",
+                "line": 56,
+                "column": 15
+              }
+            },
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 56,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/unary.js",
+          "line": 56,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/unary.js",
+        "line": 56,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 57,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 57,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/unary.js",
+            "line": 57,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "unary",
+            "operator": "-",
+            "expression": {
+              "type": "unary",
+              "operator": "+",
+              "expression": {
+                "type": "number",
+                "value": 42,
+                "location": {
+                  "file": "./integration_tests/unary.js",
+                  "line": 57,
+                  "column": 15
+                }
+              },
+              "location": {
+                "file": "./integration_tests/unary.js",
+                "line": 57,
+                "column": 14
+              }
+            },
+            "location": {
+              "file": "./integration_tests/unary.js",
+              "line": 57,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/unary.js",
+          "line": 57,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/unary.js",
+        "line": 57,
         "column": 1
       }
     }

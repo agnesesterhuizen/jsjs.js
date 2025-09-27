@@ -13,7 +13,7 @@
               "name": "i",
               "location": {
                 "file": "./integration_tests/forloop.js",
-                "line": 1,
+                "line": 3,
                 "column": 10
               }
             },
@@ -22,7 +22,7 @@
               "value": 0,
               "location": {
                 "file": "./integration_tests/forloop.js",
-                "line": 1,
+                "line": 3,
                 "column": 14
               }
             }
@@ -31,7 +31,7 @@
         "varType": "var",
         "location": {
           "file": "./integration_tests/forloop.js",
-          "line": 1,
+          "line": 3,
           "column": 6
         }
       },
@@ -43,7 +43,7 @@
           "value": "i",
           "location": {
             "file": "./integration_tests/forloop.js",
-            "line": 1,
+            "line": 3,
             "column": 17
           }
         },
@@ -52,13 +52,13 @@
           "value": 10,
           "location": {
             "file": "./integration_tests/forloop.js",
-            "line": 1,
+            "line": 3,
             "column": 21
           }
         },
         "location": {
           "file": "./integration_tests/forloop.js",
-          "line": 1,
+          "line": 3,
           "column": 19
         }
       },
@@ -69,14 +69,14 @@
           "value": "i",
           "location": {
             "file": "./integration_tests/forloop.js",
-            "line": 1,
+            "line": 3,
             "column": 25
           }
         },
         "postfix": true,
         "location": {
           "file": "./integration_tests/forloop.js",
-          "line": 1,
+          "line": 3,
           "column": 25
         }
       },
@@ -94,7 +94,7 @@
                   "value": "console",
                   "location": {
                     "file": "./integration_tests/forloop.js",
-                    "line": 2,
+                    "line": 4,
                     "column": 3
                   }
                 },
@@ -103,14 +103,14 @@
                   "value": "log",
                   "location": {
                     "file": "./integration_tests/forloop.js",
-                    "line": 2,
+                    "line": 4,
                     "column": 11
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/forloop.js",
-                  "line": 2,
+                  "line": 4,
                   "column": 3
                 }
               },
@@ -120,33 +120,33 @@
                   "value": "i",
                   "location": {
                     "file": "./integration_tests/forloop.js",
-                    "line": 2,
+                    "line": 4,
                     "column": 15
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/forloop.js",
-                "line": 2,
+                "line": 4,
                 "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/forloop.js",
-              "line": 2,
+              "line": 4,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/forloop.js",
-          "line": 1,
+          "line": 3,
           "column": 30
         }
       },
       "location": {
         "file": "./integration_tests/forloop.js",
-        "line": 1,
+        "line": 3,
         "column": 1
       }
     }

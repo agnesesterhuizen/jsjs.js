@@ -1,4 +1,4 @@
-import { assertEquals } from "jsr:@std/assert/equals";
+import { assertEquals } from "@std/assert/equals";
 import { Lexer } from "../src/lexer.ts";
 import { Parser } from "../src/parser.ts";
 

@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 function huffmanEncoding(data) {
   const freqCounter = {};
 

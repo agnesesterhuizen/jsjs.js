@@ -1,4 +1,4 @@
-import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
+import { assertEquals, assertObjectMatch } from "@std/assert";
 import { Lexer } from "./lexer.ts";
 
 Deno.test("correctly lexes keywords", () => {

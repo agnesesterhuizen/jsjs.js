@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 console.log("for-in start");
 
 const proto = { inherited: true };
@@ -17,7 +19,8 @@ console.log(seen.join(","));
 const dest = { first: "", second: "", third: "" };
 const labels = ["first", "second", "third"];
 let index = 0;
-for (dest[labels[index++]] in obj) {}
+for (dest[labels[index++]] in obj) {
+}
 console.log(dest.first);
 console.log(dest.second);
 console.log(dest.third);

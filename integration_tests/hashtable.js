@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 class HashTable {
   constructor() {
     this.size = 10;

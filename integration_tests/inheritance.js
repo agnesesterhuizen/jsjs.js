@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 function Animal(name) {
   this.name = name;
   this.type = "animal";

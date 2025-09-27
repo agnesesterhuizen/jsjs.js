@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 const map = new Map();
 
 console.log("get a 1", map.get("a")); // undefined

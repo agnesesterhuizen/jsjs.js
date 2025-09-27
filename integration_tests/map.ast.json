@@ -11,7 +11,7 @@
             "name": "map",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 1,
+              "line": 3,
               "column": 7
             }
           },
@@ -21,113 +21,13 @@
             "arguments": [],
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 1,
+              "line": 3,
               "column": 13
             }
           }
         }
       ],
       "varType": "const",
-      "location": {
-        "file": "./integration_tests/map.js",
-        "line": 1,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 3,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 3,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/map.js",
-            "line": 3,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "string",
-            "value": "get a 1",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 3,
-              "column": 13
-            }
-          },
-          {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 3,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "get",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 3,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 3,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "a",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 3,
-                  "column": 32
-                }
-              }
-            ],
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 3,
-              "column": 31
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/map.js",
-          "line": 3,
-          "column": 12
-        }
-      },
       "location": {
         "file": "./integration_tests/map.js",
         "line": 3,
@@ -145,7 +45,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 4,
+              "line": 5,
               "column": 1
             }
           },
@@ -154,24 +54,24 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 4,
+              "line": 5,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 4,
+            "line": 5,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "string",
-            "value": "has a 1",
+            "value": "get a 1",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 4,
+              "line": 5,
               "column": 13
             }
           },
@@ -184,23 +84,23 @@
                 "value": "map",
                 "location": {
                   "file": "./integration_tests/map.js",
-                  "line": 4,
+                  "line": 5,
                   "column": 24
                 }
               },
               "property": {
                 "type": "identifier",
-                "value": "has",
+                "value": "get",
                 "location": {
                   "file": "./integration_tests/map.js",
-                  "line": 4,
+                  "line": 5,
                   "column": 28
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/map.js",
-                "line": 4,
+                "line": 5,
                 "column": 24
               }
             },
@@ -210,27 +110,27 @@
                 "value": "a",
                 "location": {
                   "file": "./integration_tests/map.js",
-                  "line": 4,
+                  "line": 5,
                   "column": 32
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 4,
+              "line": 5,
               "column": 31
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 4,
+          "line": 5,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 4,
+        "line": 5,
         "column": 1
       }
     },
@@ -242,7 +142,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 6,
@@ -251,11 +151,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "set",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 6,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -268,27 +168,64 @@
         "arguments": [
           {
             "type": "string",
-            "value": "b",
+            "value": "has a 1",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 6,
-              "column": 9
+              "column": 13
             }
           },
           {
-            "type": "number",
-            "value": 123,
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 6,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "has",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 6,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 6,
+                "column": 24
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "a",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 6,
+                  "column": 32
+                }
+              }
+            ],
             "location": {
               "file": "./integration_tests/map.js",
               "line": 6,
-              "column": 14
+              "column": 31
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 6,
-          "column": 8
+          "column": 12
         }
       },
       "location": {
@@ -305,107 +242,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 7,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 7,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/map.js",
-            "line": 7,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "string",
-            "value": "get b 1",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 7,
-              "column": 13
-            }
-          },
-          {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 7,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "get",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 7,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 7,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "b",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 7,
-                  "column": 32
-                }
-              }
-            ],
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 7,
-              "column": 31
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/map.js",
-          "line": 7,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/map.js",
-        "line": 7,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
+            "value": "map",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 8,
@@ -414,11 +251,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "set",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 8,
-              "column": 9
+              "column": 5
             }
           },
           "computed": false,
@@ -431,64 +268,27 @@
         "arguments": [
           {
             "type": "string",
-            "value": "has b 1",
+            "value": "b",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 8,
-              "column": 13
+              "column": 9
             }
           },
           {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 8,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "has",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 8,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 8,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "b",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 8,
-                  "column": 32
-                }
-              }
-            ],
+            "type": "number",
+            "value": 123,
             "location": {
               "file": "./integration_tests/map.js",
               "line": 8,
-              "column": 31
+              "column": 14
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 8,
-          "column": 12
+          "column": 8
         }
       },
       "location": {
@@ -505,7 +305,107 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 9,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 9,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/map.js",
+            "line": 9,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "get b 1",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 9,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 9,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "get",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 9,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 9,
+                "column": 24
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "b",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 9,
+                  "column": 32
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 9,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/map.js",
+          "line": 9,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/map.js",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 10,
@@ -514,11 +414,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "set",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 10,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -531,27 +431,64 @@
         "arguments": [
           {
             "type": "string",
-            "value": "b",
+            "value": "has b 1",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 10,
-              "column": 9
+              "column": 13
             }
           },
           {
-            "type": "number",
-            "value": 456,
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 10,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "has",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 10,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 10,
+                "column": 24
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "b",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 10,
+                  "column": 32
+                }
+              }
+            ],
             "location": {
               "file": "./integration_tests/map.js",
               "line": 10,
-              "column": 14
+              "column": 31
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 10,
-          "column": 8
+          "column": 12
         }
       },
       "location": {
@@ -568,95 +505,58 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "console",
+            "value": "map",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 11,
+              "line": 12,
               "column": 1
             }
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "set",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 11,
-              "column": 9
+              "line": 12,
+              "column": 5
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 11,
+            "line": 12,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "string",
-            "value": "get b 2",
+            "value": "b",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 11,
-              "column": 13
+              "line": 12,
+              "column": 9
             }
           },
           {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 11,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "get",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 11,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 11,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "b",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 11,
-                  "column": 32
-                }
-              }
-            ],
+            "type": "number",
+            "value": 456,
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 11,
-              "column": 31
+              "line": 12,
+              "column": 14
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 11,
-          "column": 12
+          "line": 12,
+          "column": 8
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 11,
+        "line": 12,
         "column": 1
       }
     },
@@ -668,7 +568,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 13,
@@ -677,11 +577,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "delete",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 13,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -694,18 +594,64 @@
         "arguments": [
           {
             "type": "string",
-            "value": "b",
+            "value": "get b 2",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 13,
-              "column": 12
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 13,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "get",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 13,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 13,
+                "column": 24
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "b",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 13,
+                  "column": 32
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 13,
+              "column": 31
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 13,
-          "column": 11
+          "column": 12
         }
       },
       "location": {
@@ -722,107 +668,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 14,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 14,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/map.js",
-            "line": 14,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "string",
-            "value": "get b 3",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 14,
-              "column": 13
-            }
-          },
-          {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 14,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "get",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 14,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 14,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "b",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 14,
-                  "column": 32
-                }
-              }
-            ],
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 14,
-              "column": 31
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/map.js",
-          "line": 14,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/map.js",
-        "line": 14,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
+            "value": "map",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 15,
@@ -831,11 +677,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "delete",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 15,
-              "column": 9
+              "column": 5
             }
           },
           "computed": false,
@@ -848,64 +694,18 @@
         "arguments": [
           {
             "type": "string",
-            "value": "has b 3",
+            "value": "b",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 15,
-              "column": 13
-            }
-          },
-          {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 15,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "has",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 15,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 15,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "b",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 15,
-                  "column": 32
-                }
-              }
-            ],
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 15,
-              "column": 31
+              "column": 12
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 15,
-          "column": 12
+          "column": 11
         }
       },
       "location": {
@@ -922,7 +722,107 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 16,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 16,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/map.js",
+            "line": 16,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "get b 3",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 16,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 16,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "get",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 16,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 16,
+                "column": 24
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "b",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 16,
+                  "column": 32
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 16,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/map.js",
+          "line": 16,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/map.js",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 17,
@@ -931,11 +831,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "set",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 17,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -948,27 +848,64 @@
         "arguments": [
           {
             "type": "string",
-            "value": "c",
+            "value": "has b 3",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 17,
-              "column": 9
+              "column": 13
             }
           },
           {
-            "type": "number",
-            "value": 789,
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 17,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "has",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 17,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 17,
+                "column": 24
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "b",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 17,
+                  "column": 32
+                }
+              }
+            ],
             "location": {
               "file": "./integration_tests/map.js",
               "line": 17,
-              "column": 14
+              "column": 31
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 17,
-          "column": 8
+          "column": 12
         }
       },
       "location": {
@@ -985,107 +922,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 18,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 18,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/map.js",
-            "line": 18,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "string",
-            "value": "get c 1",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 18,
-              "column": 13
-            }
-          },
-          {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 18,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "get",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 18,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 18,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "c",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 18,
-                  "column": 32
-                }
-              }
-            ],
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 18,
-              "column": 31
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/map.js",
-          "line": 18,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/map.js",
-        "line": 18,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
+            "value": "map",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 19,
@@ -1094,11 +931,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "set",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 19,
-              "column": 9
+              "column": 5
             }
           },
           "computed": false,
@@ -1111,64 +948,27 @@
         "arguments": [
           {
             "type": "string",
-            "value": "has c 1",
+            "value": "c",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 19,
-              "column": 13
+              "column": 9
             }
           },
           {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 19,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "has",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 19,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 19,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "c",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 19,
-                  "column": 32
-                }
-              }
-            ],
+            "type": "number",
+            "value": 789,
             "location": {
               "file": "./integration_tests/map.js",
               "line": 19,
-              "column": 31
+              "column": 14
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 19,
-          "column": 12
+          "column": 8
         }
       },
       "location": {
@@ -1185,7 +985,107 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 20,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 20,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/map.js",
+            "line": 20,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "get c 1",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 20,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 20,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "get",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 20,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 20,
+                "column": 24
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "c",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 20,
+                  "column": 32
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 20,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/map.js",
+          "line": 20,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/map.js",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 21,
@@ -1194,11 +1094,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "clear",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 21,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -1208,11 +1108,67 @@
             "column": 1
           }
         },
-        "arguments": [],
+        "arguments": [
+          {
+            "type": "string",
+            "value": "has c 1",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 21,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 21,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "has",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 21,
+                  "column": 28
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 21,
+                "column": 24
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "c",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 21,
+                  "column": 32
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 21,
+              "column": 31
+            }
+          }
+        ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 21,
-          "column": 10
+          "column": 12
         }
       },
       "location": {
@@ -1229,95 +1185,39 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "console",
+            "value": "map",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 22,
+              "line": 23,
               "column": 1
             }
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "clear",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 22,
-              "column": 9
+              "line": 23,
+              "column": 5
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 22,
+            "line": 23,
             "column": 1
           }
         },
-        "arguments": [
-          {
-            "type": "string",
-            "value": "get c 2",
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 22,
-              "column": 13
-            }
-          },
-          {
-            "type": "call",
-            "func": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "map",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 22,
-                  "column": 24
-                }
-              },
-              "property": {
-                "type": "identifier",
-                "value": "get",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 22,
-                  "column": 28
-                }
-              },
-              "computed": false,
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 22,
-                "column": 24
-              }
-            },
-            "arguments": [
-              {
-                "type": "string",
-                "value": "c",
-                "location": {
-                  "file": "./integration_tests/map.js",
-                  "line": 22,
-                  "column": 32
-                }
-              }
-            ],
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 22,
-              "column": 31
-            }
-          }
-        ],
+        "arguments": [],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 22,
-          "column": 12
+          "line": 23,
+          "column": 10
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 22,
+        "line": 23,
         "column": 1
       }
     },
@@ -1332,7 +1232,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 23,
+              "line": 24,
               "column": 1
             }
           },
@@ -1341,24 +1241,24 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 23,
+              "line": 24,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 23,
+            "line": 24,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "string",
-            "value": "has c 2",
+            "value": "get c 2",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 23,
+              "line": 24,
               "column": 13
             }
           },
@@ -1371,23 +1271,23 @@
                 "value": "map",
                 "location": {
                   "file": "./integration_tests/map.js",
-                  "line": 23,
+                  "line": 24,
                   "column": 24
                 }
               },
               "property": {
                 "type": "identifier",
-                "value": "has",
+                "value": "get",
                 "location": {
                   "file": "./integration_tests/map.js",
-                  "line": 23,
+                  "line": 24,
                   "column": 28
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/map.js",
-                "line": 23,
+                "line": 24,
                 "column": 24
               }
             },
@@ -1397,27 +1297,27 @@
                 "value": "c",
                 "location": {
                   "file": "./integration_tests/map.js",
-                  "line": 23,
+                  "line": 24,
                   "column": 32
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 23,
+              "line": 24,
               "column": 31
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 23,
+          "line": 24,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 23,
+        "line": 24,
         "column": 1
       }
     },
@@ -1455,7 +1355,7 @@
         "arguments": [
           {
             "type": "string",
-            "value": "size 1",
+            "value": "has c 2",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 25,
@@ -1463,30 +1363,49 @@
             }
           },
           {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "map",
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "map",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 25,
+                  "column": 24
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "has",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 25,
+                  "column": 28
+                }
+              },
+              "computed": false,
               "location": {
                 "file": "./integration_tests/map.js",
                 "line": 25,
-                "column": 23
+                "column": 24
               }
             },
-            "property": {
-              "type": "identifier",
-              "value": "size",
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 25,
-                "column": 27
+            "arguments": [
+              {
+                "type": "string",
+                "value": "c",
+                "location": {
+                  "file": "./integration_tests/map.js",
+                  "line": 25,
+                  "column": 32
+                }
               }
-            },
-            "computed": false,
+            ],
             "location": {
               "file": "./integration_tests/map.js",
               "line": 25,
-              "column": 23
+              "column": 31
             }
           }
         ],
@@ -1510,7 +1429,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 27,
@@ -1519,11 +1438,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "set",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 27,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -1536,27 +1455,45 @@
         "arguments": [
           {
             "type": "string",
-            "value": "d",
+            "value": "size 1",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 27,
-              "column": 9
+              "column": 13
             }
           },
           {
-            "type": "number",
-            "value": 101112,
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "map",
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 27,
+                "column": 23
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "size",
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 27,
+                "column": 27
+              }
+            },
+            "computed": false,
             "location": {
               "file": "./integration_tests/map.js",
               "line": 27,
-              "column": 14
+              "column": 23
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 27,
-          "column": 8
+          "column": 12
         }
       },
       "location": {
@@ -1573,76 +1510,58 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "console",
+            "value": "map",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 28,
+              "line": 29,
               "column": 1
             }
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "set",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 28,
-              "column": 9
+              "line": 29,
+              "column": 5
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 28,
+            "line": 29,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "string",
-            "value": "size 2",
+            "value": "d",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 28,
-              "column": 13
+              "line": 29,
+              "column": 9
             }
           },
           {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "map",
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 28,
-                "column": 23
-              }
-            },
-            "property": {
-              "type": "identifier",
-              "value": "size",
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 28,
-                "column": 27
-              }
-            },
-            "computed": false,
+            "type": "number",
+            "value": 101112,
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 28,
-              "column": 23
+              "line": 29,
+              "column": 14
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 28,
-          "column": 12
+          "line": 29,
+          "column": 8
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 28,
+        "line": 29,
         "column": 1
       }
     },
@@ -1654,7 +1573,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 30,
@@ -1663,11 +1582,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "set",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 30,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -1680,27 +1599,45 @@
         "arguments": [
           {
             "type": "string",
-            "value": "e",
+            "value": "size 2",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 30,
-              "column": 9
+              "column": 13
             }
           },
           {
-            "type": "number",
-            "value": 131415,
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "map",
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 30,
+                "column": 23
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "size",
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 30,
+                "column": 27
+              }
+            },
+            "computed": false,
             "location": {
               "file": "./integration_tests/map.js",
               "line": 30,
-              "column": 14
+              "column": 23
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 30,
-          "column": 8
+          "column": 12
         }
       },
       "location": {
@@ -1717,76 +1654,58 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "console",
+            "value": "map",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 31,
+              "line": 32,
               "column": 1
             }
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "set",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 31,
-              "column": 9
+              "line": 32,
+              "column": 5
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 31,
+            "line": 32,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "string",
-            "value": "size 3",
+            "value": "e",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 31,
-              "column": 13
+              "line": 32,
+              "column": 9
             }
           },
           {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "map",
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 31,
-                "column": 23
-              }
-            },
-            "property": {
-              "type": "identifier",
-              "value": "size",
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 31,
-                "column": 27
-              }
-            },
-            "computed": false,
+            "type": "number",
+            "value": 131415,
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 31,
-              "column": 23
+              "line": 32,
+              "column": 14
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 31,
-          "column": 12
+          "line": 32,
+          "column": 8
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 31,
+        "line": 32,
         "column": 1
       }
     },
@@ -1798,7 +1717,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 33,
@@ -1807,11 +1726,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "delete",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 33,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -1824,18 +1743,45 @@
         "arguments": [
           {
             "type": "string",
-            "value": "d",
+            "value": "size 3",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 33,
-              "column": 12
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "map",
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 33,
+                "column": 23
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "size",
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 33,
+                "column": 27
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 33,
+              "column": 23
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 33,
-          "column": 11
+          "column": 12
         }
       },
       "location": {
@@ -1852,76 +1798,49 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "console",
+            "value": "map",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 34,
+              "line": 35,
               "column": 1
             }
           },
           "property": {
             "type": "identifier",
-            "value": "log",
+            "value": "delete",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 34,
-              "column": 9
+              "line": 35,
+              "column": 5
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 34,
+            "line": 35,
             "column": 1
           }
         },
         "arguments": [
           {
             "type": "string",
-            "value": "size 4",
+            "value": "d",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 34,
-              "column": 13
-            }
-          },
-          {
-            "type": "member",
-            "object": {
-              "type": "identifier",
-              "value": "map",
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 34,
-                "column": 23
-              }
-            },
-            "property": {
-              "type": "identifier",
-              "value": "size",
-              "location": {
-                "file": "./integration_tests/map.js",
-                "line": 34,
-                "column": 27
-              }
-            },
-            "computed": false,
-            "location": {
-              "file": "./integration_tests/map.js",
-              "line": 34,
-              "column": 23
+              "line": 35,
+              "column": 12
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 34,
-          "column": 12
+          "line": 35,
+          "column": 11
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 34,
+        "line": 35,
         "column": 1
       }
     },
@@ -1933,7 +1852,7 @@
           "type": "member",
           "object": {
             "type": "identifier",
-            "value": "map",
+            "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 36,
@@ -1942,11 +1861,11 @@
           },
           "property": {
             "type": "identifier",
-            "value": "clear",
+            "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
               "line": 36,
-              "column": 5
+              "column": 9
             }
           },
           "computed": false,
@@ -1956,11 +1875,48 @@
             "column": 1
           }
         },
-        "arguments": [],
+        "arguments": [
+          {
+            "type": "string",
+            "value": "size 4",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 36,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "map",
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 36,
+                "column": 23
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "size",
+              "location": {
+                "file": "./integration_tests/map.js",
+                "line": 36,
+                "column": 27
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 36,
+              "column": 23
+            }
+          }
+        ],
         "location": {
           "file": "./integration_tests/map.js",
           "line": 36,
-          "column": 10
+          "column": 12
         }
       },
       "location": {
@@ -1977,10 +1933,54 @@
           "type": "member",
           "object": {
             "type": "identifier",
+            "value": "map",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 38,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "clear",
+            "location": {
+              "file": "./integration_tests/map.js",
+              "line": 38,
+              "column": 5
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/map.js",
+            "line": 38,
+            "column": 1
+          }
+        },
+        "arguments": [],
+        "location": {
+          "file": "./integration_tests/map.js",
+          "line": 38,
+          "column": 10
+        }
+      },
+      "location": {
+        "file": "./integration_tests/map.js",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
             "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 37,
+              "line": 39,
               "column": 1
             }
           },
@@ -1989,14 +1989,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 37,
+              "line": 39,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 37,
+            "line": 39,
             "column": 1
           }
         },
@@ -2006,7 +2006,7 @@
             "value": "size 5",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 37,
+              "line": 39,
               "column": 13
             }
           },
@@ -2017,7 +2017,7 @@
               "value": "map",
               "location": {
                 "file": "./integration_tests/map.js",
-                "line": 37,
+                "line": 39,
                 "column": 23
               }
             },
@@ -2026,27 +2026,27 @@
               "value": "size",
               "location": {
                 "file": "./integration_tests/map.js",
-                "line": 37,
+                "line": 39,
                 "column": 27
               }
             },
             "computed": false,
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 37,
+              "line": 39,
               "column": 23
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 37,
+          "line": 39,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 37,
+        "line": 39,
         "column": 1
       }
     },
@@ -2060,7 +2060,7 @@
             "name": "map2",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 39,
+              "line": 41,
               "column": 7
             }
           },
@@ -2079,69 +2079,13 @@
                         "value": "x",
                         "location": {
                           "file": "./integration_tests/map.js",
-                          "line": 40,
-                          "column": 4
-                        }
-                      },
-                      {
-                        "type": "number",
-                        "value": 1,
-                        "location": {
-                          "file": "./integration_tests/map.js",
-                          "line": 40,
-                          "column": 9
-                        }
-                      }
-                    ],
-                    "location": {
-                      "file": "./integration_tests/map.js",
-                      "line": 40,
-                      "column": 3
-                    }
-                  },
-                  {
-                    "type": "array",
-                    "elements": [
-                      {
-                        "type": "string",
-                        "value": "y",
-                        "location": {
-                          "file": "./integration_tests/map.js",
-                          "line": 41,
-                          "column": 4
-                        }
-                      },
-                      {
-                        "type": "number",
-                        "value": 2,
-                        "location": {
-                          "file": "./integration_tests/map.js",
-                          "line": 41,
-                          "column": 9
-                        }
-                      }
-                    ],
-                    "location": {
-                      "file": "./integration_tests/map.js",
-                      "line": 41,
-                      "column": 3
-                    }
-                  },
-                  {
-                    "type": "array",
-                    "elements": [
-                      {
-                        "type": "string",
-                        "value": "z",
-                        "location": {
-                          "file": "./integration_tests/map.js",
                           "line": 42,
                           "column": 4
                         }
                       },
                       {
                         "type": "number",
-                        "value": 3,
+                        "value": 1,
                         "location": {
                           "file": "./integration_tests/map.js",
                           "line": 42,
@@ -2154,18 +2098,74 @@
                       "line": 42,
                       "column": 3
                     }
+                  },
+                  {
+                    "type": "array",
+                    "elements": [
+                      {
+                        "type": "string",
+                        "value": "y",
+                        "location": {
+                          "file": "./integration_tests/map.js",
+                          "line": 43,
+                          "column": 4
+                        }
+                      },
+                      {
+                        "type": "number",
+                        "value": 2,
+                        "location": {
+                          "file": "./integration_tests/map.js",
+                          "line": 43,
+                          "column": 9
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/map.js",
+                      "line": 43,
+                      "column": 3
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "elements": [
+                      {
+                        "type": "string",
+                        "value": "z",
+                        "location": {
+                          "file": "./integration_tests/map.js",
+                          "line": 44,
+                          "column": 4
+                        }
+                      },
+                      {
+                        "type": "number",
+                        "value": 3,
+                        "location": {
+                          "file": "./integration_tests/map.js",
+                          "line": 44,
+                          "column": 9
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/map.js",
+                      "line": 44,
+                      "column": 3
+                    }
                   }
                 ],
                 "location": {
                   "file": "./integration_tests/map.js",
-                  "line": 39,
+                  "line": 41,
                   "column": 22
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 39,
+              "line": 41,
               "column": 14
             }
           }
@@ -2174,7 +2174,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 39,
+        "line": 41,
         "column": 1
       }
     },
@@ -2189,7 +2189,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 45,
+              "line": 47,
               "column": 1
             }
           },
@@ -2198,14 +2198,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 45,
+              "line": 47,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/map.js",
-            "line": 45,
+            "line": 47,
             "column": 1
           }
         },
@@ -2215,7 +2215,7 @@
             "value": "size 6",
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 45,
+              "line": 47,
               "column": 13
             }
           },
@@ -2226,7 +2226,7 @@
               "value": "map2",
               "location": {
                 "file": "./integration_tests/map.js",
-                "line": 45,
+                "line": 47,
                 "column": 23
               }
             },
@@ -2235,27 +2235,27 @@
               "value": "size",
               "location": {
                 "file": "./integration_tests/map.js",
-                "line": 45,
+                "line": 47,
                 "column": 28
               }
             },
             "computed": false,
             "location": {
               "file": "./integration_tests/map.js",
-              "line": 45,
+              "line": 47,
               "column": 23
             }
           }
         ],
         "location": {
           "file": "./integration_tests/map.js",
-          "line": 45,
+          "line": 47,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/map.js",
-        "line": 45,
+        "line": 47,
         "column": 1
       }
     }

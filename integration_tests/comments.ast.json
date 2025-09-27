@@ -11,7 +11,7 @@
             "name": "x",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 5,
+              "line": 7,
               "column": 7
             }
           },
@@ -20,7 +20,7 @@
             "value": 42,
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 5,
+              "line": 7,
               "column": 11
             }
           }
@@ -29,7 +29,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/comments.js",
-        "line": 5,
+        "line": 7,
         "column": 1
       }
     },
@@ -43,7 +43,7 @@
             "name": "y",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 8,
+              "line": 10,
               "column": 7
             }
           },
@@ -52,7 +52,7 @@
             "value": "hello",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 8,
+              "line": 10,
               "column": 43
             }
           }
@@ -61,7 +61,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/comments.js",
-        "line": 8,
+        "line": 10,
         "column": 1
       }
     },
@@ -75,7 +75,7 @@
             "name": "z",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 15,
+              "line": 17,
               "column": 7
             }
           },
@@ -84,7 +84,7 @@
             "value": true,
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 15,
+              "line": 17,
               "column": 11
             }
           }
@@ -93,7 +93,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/comments.js",
-        "line": 15,
+        "line": 17,
         "column": 1
       }
     },
@@ -108,7 +108,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 18,
+              "line": 20,
               "column": 1
             }
           },
@@ -117,14 +117,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 18,
+              "line": 20,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/comments.js",
-            "line": 18,
+            "line": 20,
             "column": 1
           }
         },
@@ -134,7 +134,7 @@
             "value": "x",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 18,
+              "line": 20,
               "column": 13
             }
           },
@@ -143,7 +143,7 @@
             "value": "y",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 18,
+              "line": 20,
               "column": 16
             }
           },
@@ -152,20 +152,20 @@
             "value": "z",
             "location": {
               "file": "./integration_tests/comments.js",
-              "line": 18,
+              "line": 20,
               "column": 19
             }
           }
         ],
         "location": {
           "file": "./integration_tests/comments.js",
-          "line": 18,
+          "line": 20,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/comments.js",
-        "line": 18,
+        "line": 20,
         "column": 1
       }
     }

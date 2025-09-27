@@ -11,7 +11,7 @@
             "name": "x",
             "location": {
               "file": "./integration_tests/if.js",
-              "line": 1,
+              "line": 3,
               "column": 5
             }
           },
@@ -20,7 +20,7 @@
             "value": true,
             "location": {
               "file": "./integration_tests/if.js",
-              "line": 1,
+              "line": 3,
               "column": 9
             }
           }
@@ -29,7 +29,7 @@
       "varType": "let",
       "location": {
         "file": "./integration_tests/if.js",
-        "line": 1,
+        "line": 3,
         "column": 1
       }
     },
@@ -40,75 +40,11 @@
         "value": "x",
         "location": {
           "file": "./integration_tests/if.js",
-          "line": 3,
+          "line": 5,
           "column": 5
         }
       },
       "ifBody": {
-        "type": "block",
-        "body": [
-          {
-            "type": "expression",
-            "expression": {
-              "type": "call",
-              "func": {
-                "type": "member",
-                "object": {
-                  "type": "identifier",
-                  "value": "console",
-                  "location": {
-                    "file": "./integration_tests/if.js",
-                    "line": 4,
-                    "column": 3
-                  }
-                },
-                "property": {
-                  "type": "identifier",
-                  "value": "log",
-                  "location": {
-                    "file": "./integration_tests/if.js",
-                    "line": 4,
-                    "column": 11
-                  }
-                },
-                "computed": false,
-                "location": {
-                  "file": "./integration_tests/if.js",
-                  "line": 4,
-                  "column": 3
-                }
-              },
-              "arguments": [
-                {
-                  "type": "string",
-                  "value": "1: true",
-                  "location": {
-                    "file": "./integration_tests/if.js",
-                    "line": 4,
-                    "column": 15
-                  }
-                }
-              ],
-              "location": {
-                "file": "./integration_tests/if.js",
-                "line": 4,
-                "column": 14
-              }
-            },
-            "location": {
-              "file": "./integration_tests/if.js",
-              "line": 4,
-              "column": 3
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/if.js",
-          "line": 3,
-          "column": 8
-        }
-      },
-      "elseBody": {
         "type": "block",
         "body": [
           {
@@ -145,7 +81,7 @@
               "arguments": [
                 {
                   "type": "string",
-                  "value": "1: false",
+                  "value": "1: true",
                   "location": {
                     "file": "./integration_tests/if.js",
                     "line": 6,
@@ -172,59 +108,7 @@
           "column": 8
         }
       },
-      "location": {
-        "file": "./integration_tests/if.js",
-        "line": 3,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "assignment",
-        "operator": "=",
-        "left": {
-          "type": "pattern_identifier",
-          "name": "x",
-          "location": {
-            "file": "./integration_tests/if.js",
-            "line": 9,
-            "column": 1
-          }
-        },
-        "right": {
-          "type": "boolean",
-          "value": false,
-          "location": {
-            "file": "./integration_tests/if.js",
-            "line": 9,
-            "column": 5
-          }
-        },
-        "location": {
-          "file": "./integration_tests/if.js",
-          "line": 9,
-          "column": 1
-        }
-      },
-      "location": {
-        "file": "./integration_tests/if.js",
-        "line": 9,
-        "column": 1
-      }
-    },
-    {
-      "type": "if",
-      "condition": {
-        "type": "identifier",
-        "value": "x",
-        "location": {
-          "file": "./integration_tests/if.js",
-          "line": 11,
-          "column": 5
-        }
-      },
-      "ifBody": {
+      "elseBody": {
         "type": "block",
         "body": [
           {
@@ -238,7 +122,7 @@
                   "value": "console",
                   "location": {
                     "file": "./integration_tests/if.js",
-                    "line": 12,
+                    "line": 8,
                     "column": 3
                   }
                 },
@@ -247,48 +131,100 @@
                   "value": "log",
                   "location": {
                     "file": "./integration_tests/if.js",
-                    "line": 12,
+                    "line": 8,
                     "column": 11
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/if.js",
-                  "line": 12,
+                  "line": 8,
                   "column": 3
                 }
               },
               "arguments": [
                 {
                   "type": "string",
-                  "value": "2: true",
+                  "value": "1: false",
                   "location": {
                     "file": "./integration_tests/if.js",
-                    "line": 12,
+                    "line": 8,
                     "column": 15
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/if.js",
-                "line": 12,
+                "line": 8,
                 "column": 14
               }
             },
             "location": {
               "file": "./integration_tests/if.js",
-              "line": 12,
+              "line": 8,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/if.js",
-          "line": 11,
+          "line": 7,
           "column": 8
         }
       },
-      "elseBody": {
+      "location": {
+        "file": "./integration_tests/if.js",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_identifier",
+          "name": "x",
+          "location": {
+            "file": "./integration_tests/if.js",
+            "line": 11,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "boolean",
+          "value": false,
+          "location": {
+            "file": "./integration_tests/if.js",
+            "line": 11,
+            "column": 5
+          }
+        },
+        "location": {
+          "file": "./integration_tests/if.js",
+          "line": 11,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/if.js",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "type": "if",
+      "condition": {
+        "type": "identifier",
+        "value": "x",
+        "location": {
+          "file": "./integration_tests/if.js",
+          "line": 13,
+          "column": 5
+        }
+      },
+      "ifBody": {
         "type": "block",
         "body": [
           {
@@ -325,7 +261,7 @@
               "arguments": [
                 {
                   "type": "string",
-                  "value": "2: false",
+                  "value": "2: true",
                   "location": {
                     "file": "./integration_tests/if.js",
                     "line": 14,
@@ -352,9 +288,73 @@
           "column": 8
         }
       },
+      "elseBody": {
+        "type": "block",
+        "body": [
+          {
+            "type": "expression",
+            "expression": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "console",
+                  "location": {
+                    "file": "./integration_tests/if.js",
+                    "line": 16,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "log",
+                  "location": {
+                    "file": "./integration_tests/if.js",
+                    "line": 16,
+                    "column": 11
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/if.js",
+                  "line": 16,
+                  "column": 3
+                }
+              },
+              "arguments": [
+                {
+                  "type": "string",
+                  "value": "2: false",
+                  "location": {
+                    "file": "./integration_tests/if.js",
+                    "line": 16,
+                    "column": 15
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/if.js",
+                "line": 16,
+                "column": 14
+              }
+            },
+            "location": {
+              "file": "./integration_tests/if.js",
+              "line": 16,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/if.js",
+          "line": 15,
+          "column": 8
+        }
+      },
       "location": {
         "file": "./integration_tests/if.js",
-        "line": 11,
+        "line": 13,
         "column": 1
       }
     }

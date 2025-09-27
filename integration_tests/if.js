@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 let x = true;
 
 if (x) {

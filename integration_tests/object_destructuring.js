@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 const person = {
   name: "Alice",
   age: 30,
@@ -16,7 +18,10 @@ console.log("nested:", city, nickname);
 
 let aliasName;
 let aliasCity;
-({ name: aliasName, address: { city: aliasCity } } = person);
+({
+  name: aliasName,
+  address: { city: aliasCity },
+} = person);
 console.log("assignment:", aliasName, aliasCity);
 
 const {
@@ -42,6 +47,9 @@ const people = [
   },
 ];
 
-for (const { name: loopName, address: { city: loopCity } } of people) {
+for (const {
+  name: loopName,
+  address: { city: loopCity },
+} of people) {
   console.log("loop:", loopName, loopCity);
 }

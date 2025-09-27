@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 const x = "test";
 
 switch (x) {

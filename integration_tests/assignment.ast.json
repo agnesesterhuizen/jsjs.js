@@ -11,7 +11,7 @@
             "name": "total",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 1,
+              "line": 2,
               "column": 5
             }
           },
@@ -20,7 +20,7 @@
             "value": 5,
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 1,
+              "line": 2,
               "column": 13
             }
           }
@@ -29,7 +29,7 @@
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 1,
+        "line": 2,
         "column": 1
       }
     },
@@ -43,7 +43,7 @@
           "name": "total",
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 2,
+            "line": 3,
             "column": 1
           }
         },
@@ -52,19 +52,19 @@
           "value": 3,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 2,
+            "line": 3,
             "column": 10
           }
         },
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 2,
+          "line": 3,
           "column": 1
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 2,
+        "line": 3,
         "column": 1
       }
     },
@@ -79,7 +79,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 3,
+              "line": 4,
               "column": 1
             }
           },
@@ -88,14 +88,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 3,
+              "line": 4,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 3,
+            "line": 4,
             "column": 1
           }
         },
@@ -105,7 +105,7 @@
             "value": "total += 3:",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 3,
+              "line": 4,
               "column": 13
             }
           },
@@ -114,20 +114,20 @@
             "value": "total",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 3,
+              "line": 4,
               "column": 28
             }
           }
         ],
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 3,
+          "line": 4,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 3,
+        "line": 4,
         "column": 1
       }
     },
@@ -141,7 +141,7 @@
             "name": "difference",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 5,
+              "line": 6,
               "column": 5
             }
           },
@@ -150,7 +150,7 @@
             "value": 10,
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 5,
+              "line": 6,
               "column": 18
             }
           }
@@ -159,7 +159,7 @@
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 5,
+        "line": 6,
         "column": 1
       }
     },
@@ -173,7 +173,7 @@
           "name": "difference",
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 6,
+            "line": 7,
             "column": 1
           }
         },
@@ -182,19 +182,19 @@
           "value": 4,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 6,
+            "line": 7,
             "column": 15
           }
         },
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 6,
+          "line": 7,
           "column": 1
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 6,
+        "line": 7,
         "column": 1
       }
     },
@@ -209,7 +209,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 7,
+              "line": 8,
               "column": 1
             }
           },
@@ -218,14 +218,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 7,
+              "line": 8,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 7,
+            "line": 8,
             "column": 1
           }
         },
@@ -235,7 +235,7 @@
             "value": "difference -= 4:",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 7,
+              "line": 8,
               "column": 13
             }
           },
@@ -244,20 +244,20 @@
             "value": "difference",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 7,
+              "line": 8,
               "column": 33
             }
           }
         ],
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 7,
+          "line": 8,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 7,
+        "line": 8,
         "column": 1
       }
     },
@@ -271,7 +271,7 @@
             "name": "product",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 9,
+              "line": 10,
               "column": 5
             }
           },
@@ -280,7 +280,7 @@
             "value": 2,
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 9,
+              "line": 10,
               "column": 15
             }
           }
@@ -289,7 +289,7 @@
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 9,
+        "line": 10,
         "column": 1
       }
     },
@@ -303,7 +303,7 @@
           "name": "product",
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 10,
+            "line": 11,
             "column": 1
           }
         },
@@ -312,19 +312,19 @@
           "value": 6,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 10,
+            "line": 11,
             "column": 12
           }
         },
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 10,
+          "line": 11,
           "column": 1
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 10,
+        "line": 11,
         "column": 1
       }
     },
@@ -339,7 +339,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 11,
+              "line": 12,
               "column": 1
             }
           },
@@ -348,14 +348,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 11,
+              "line": 12,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 11,
+            "line": 12,
             "column": 1
           }
         },
@@ -365,7 +365,7 @@
             "value": "product *= 6:",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 11,
+              "line": 12,
               "column": 13
             }
           },
@@ -374,20 +374,20 @@
             "value": "product",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 11,
+              "line": 12,
               "column": 30
             }
           }
         ],
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 11,
+          "line": 12,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 11,
+        "line": 12,
         "column": 1
       }
     },
@@ -401,7 +401,7 @@
             "name": "quotient",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 13,
+              "line": 14,
               "column": 5
             }
           },
@@ -410,7 +410,7 @@
             "value": 24,
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 13,
+              "line": 14,
               "column": 16
             }
           }
@@ -419,7 +419,7 @@
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 13,
+        "line": 14,
         "column": 1
       }
     },
@@ -433,7 +433,7 @@
           "name": "quotient",
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 14,
+            "line": 15,
             "column": 1
           }
         },
@@ -442,19 +442,19 @@
           "value": 3,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 14,
+            "line": 15,
             "column": 13
           }
         },
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 14,
+          "line": 15,
           "column": 1
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 14,
+        "line": 15,
         "column": 1
       }
     },
@@ -469,7 +469,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 15,
+              "line": 16,
               "column": 1
             }
           },
@@ -478,14 +478,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 15,
+              "line": 16,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 15,
+            "line": 16,
             "column": 1
           }
         },
@@ -495,7 +495,7 @@
             "value": "quotient /= 3:",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 15,
+              "line": 16,
               "column": 13
             }
           },
@@ -504,20 +504,20 @@
             "value": "quotient",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 15,
+              "line": 16,
               "column": 31
             }
           }
         ],
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 15,
+          "line": 16,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 15,
+        "line": 16,
         "column": 1
       }
     },
@@ -531,7 +531,7 @@
             "name": "chain",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 17,
+              "line": 18,
               "column": 5
             }
           },
@@ -540,7 +540,7 @@
             "value": 1,
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 17,
+              "line": 18,
               "column": 13
             }
           }
@@ -549,7 +549,7 @@
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 17,
+        "line": 18,
         "column": 1
       }
     },
@@ -563,48 +563,13 @@
           "name": "chain",
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 18,
-            "column": 1
-          }
-        },
-        "right": {
-          "type": "number",
-          "value": 2,
-          "location": {
-            "file": "./integration_tests/assignment.js",
-            "line": 18,
-            "column": 10
-          }
-        },
-        "location": {
-          "file": "./integration_tests/assignment.js",
-          "line": 18,
-          "column": 1
-        }
-      },
-      "location": {
-        "file": "./integration_tests/assignment.js",
-        "line": 18,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "assignment",
-        "operator": "*=",
-        "left": {
-          "type": "pattern_identifier",
-          "name": "chain",
-          "location": {
-            "file": "./integration_tests/assignment.js",
             "line": 19,
             "column": 1
           }
         },
         "right": {
           "type": "number",
-          "value": 5,
+          "value": 2,
           "location": {
             "file": "./integration_tests/assignment.js",
             "line": 19,
@@ -627,7 +592,7 @@
       "type": "expression",
       "expression": {
         "type": "assignment",
-        "operator": "-=",
+        "operator": "*=",
         "left": {
           "type": "pattern_identifier",
           "name": "chain",
@@ -639,7 +604,7 @@
         },
         "right": {
           "type": "number",
-          "value": 3,
+          "value": 5,
           "location": {
             "file": "./integration_tests/assignment.js",
             "line": 20,
@@ -662,7 +627,7 @@
       "type": "expression",
       "expression": {
         "type": "assignment",
-        "operator": "/=",
+        "operator": "-=",
         "left": {
           "type": "pattern_identifier",
           "name": "chain",
@@ -674,7 +639,7 @@
         },
         "right": {
           "type": "number",
-          "value": 2,
+          "value": 3,
           "location": {
             "file": "./integration_tests/assignment.js",
             "line": 21,
@@ -696,6 +661,41 @@
     {
       "type": "expression",
       "expression": {
+        "type": "assignment",
+        "operator": "/=",
+        "left": {
+          "type": "pattern_identifier",
+          "name": "chain",
+          "location": {
+            "file": "./integration_tests/assignment.js",
+            "line": 22,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "number",
+          "value": 2,
+          "location": {
+            "file": "./integration_tests/assignment.js",
+            "line": 22,
+            "column": 10
+          }
+        },
+        "location": {
+          "file": "./integration_tests/assignment.js",
+          "line": 22,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/assignment.js",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
         "type": "call",
         "func": {
           "type": "member",
@@ -704,7 +704,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 22,
+              "line": 23,
               "column": 1
             }
           },
@@ -713,14 +713,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 22,
+              "line": 23,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/assignment.js",
-            "line": 22,
+            "line": 23,
             "column": 1
           }
         },
@@ -730,7 +730,7 @@
             "value": "chain result:",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 22,
+              "line": 23,
               "column": 13
             }
           },
@@ -739,20 +739,20 @@
             "value": "chain",
             "location": {
               "file": "./integration_tests/assignment.js",
-              "line": 22,
+              "line": 23,
               "column": 30
             }
           }
         ],
         "location": {
           "file": "./integration_tests/assignment.js",
-          "line": 22,
+          "line": 23,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/assignment.js",
-        "line": 22,
+        "line": 23,
         "column": 1
       }
     }

@@ -11,7 +11,7 @@
             "name": "i",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 1,
+              "line": 3,
               "column": 5
             }
           },
@@ -20,76 +20,13 @@
             "value": 0,
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 1,
+              "line": 3,
               "column": 9
             }
           }
         }
       ],
       "varType": "let",
-      "location": {
-        "file": "./integration_tests/increment_decrement.js",
-        "line": 1,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/increment_decrement.js",
-              "line": 3,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/increment_decrement.js",
-              "line": 3,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/increment_decrement.js",
-            "line": 3,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "increment",
-            "expression": {
-              "type": "identifier",
-              "value": "i",
-              "location": {
-                "file": "./integration_tests/increment_decrement.js",
-                "line": 3,
-                "column": 13
-              }
-            },
-            "postfix": true,
-            "location": {
-              "file": "./integration_tests/increment_decrement.js",
-              "line": 3,
-              "column": 13
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/increment_decrement.js",
-          "line": 3,
-          "column": 12
-        }
-      },
       "location": {
         "file": "./integration_tests/increment_decrement.js",
         "line": 3,
@@ -107,7 +44,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 4,
+              "line": 5,
               "column": 1
             }
           },
@@ -116,72 +53,46 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 4,
+              "line": 5,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/increment_decrement.js",
-            "line": 4,
+            "line": 5,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "identifier",
-            "value": "i",
+            "type": "increment",
+            "expression": {
+              "type": "identifier",
+              "value": "i",
+              "location": {
+                "file": "./integration_tests/increment_decrement.js",
+                "line": 5,
+                "column": 13
+              }
+            },
+            "postfix": true,
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 4,
+              "line": 5,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/increment_decrement.js",
-          "line": 4,
+          "line": 5,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/increment_decrement.js",
-        "line": 4,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "assignment",
-        "operator": "=",
-        "left": {
-          "type": "pattern_identifier",
-          "name": "i",
-          "location": {
-            "file": "./integration_tests/increment_decrement.js",
-            "line": 6,
-            "column": 1
-          }
-        },
-        "right": {
-          "type": "number",
-          "value": 10,
-          "location": {
-            "file": "./integration_tests/increment_decrement.js",
-            "line": 6,
-            "column": 5
-          }
-        },
-        "location": {
-          "file": "./integration_tests/increment_decrement.js",
-          "line": 6,
-          "column": 1
-        }
-      },
-      "location": {
-        "file": "./integration_tests/increment_decrement.js",
-        "line": 6,
+        "line": 5,
         "column": 1
       }
     },
@@ -196,7 +107,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 8,
+              "line": 6,
               "column": 1
             }
           },
@@ -205,41 +116,67 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 8,
+              "line": 6,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/increment_decrement.js",
-            "line": 8,
+            "line": 6,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "increment",
-            "expression": {
-              "type": "identifier",
-              "value": "i",
-              "location": {
-                "file": "./integration_tests/increment_decrement.js",
-                "line": 8,
-                "column": 15
-              }
-            },
-            "postfix": false,
+            "type": "identifier",
+            "value": "i",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 8,
+              "line": 6,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/increment_decrement.js",
-          "line": 8,
+          "line": 6,
           "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/increment_decrement.js",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_identifier",
+          "name": "i",
+          "location": {
+            "file": "./integration_tests/increment_decrement.js",
+            "line": 8,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "number",
+          "value": 10,
+          "location": {
+            "file": "./integration_tests/increment_decrement.js",
+            "line": 8,
+            "column": 5
+          }
+        },
+        "location": {
+          "file": "./integration_tests/increment_decrement.js",
+          "line": 8,
+          "column": 1
         }
       },
       "location": {
@@ -259,7 +196,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 9,
+              "line": 10,
               "column": 1
             }
           },
@@ -268,72 +205,46 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 9,
+              "line": 10,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/increment_decrement.js",
-            "line": 9,
+            "line": 10,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "identifier",
-            "value": "i",
+            "type": "increment",
+            "expression": {
+              "type": "identifier",
+              "value": "i",
+              "location": {
+                "file": "./integration_tests/increment_decrement.js",
+                "line": 10,
+                "column": 15
+              }
+            },
+            "postfix": false,
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 9,
+              "line": 10,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/increment_decrement.js",
-          "line": 9,
+          "line": 10,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/increment_decrement.js",
-        "line": 9,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "assignment",
-        "operator": "=",
-        "left": {
-          "type": "pattern_identifier",
-          "name": "i",
-          "location": {
-            "file": "./integration_tests/increment_decrement.js",
-            "line": 11,
-            "column": 1
-          }
-        },
-        "right": {
-          "type": "number",
-          "value": 20,
-          "location": {
-            "file": "./integration_tests/increment_decrement.js",
-            "line": 11,
-            "column": 5
-          }
-        },
-        "location": {
-          "file": "./integration_tests/increment_decrement.js",
-          "line": 11,
-          "column": 1
-        }
-      },
-      "location": {
-        "file": "./integration_tests/increment_decrement.js",
-        "line": 11,
+        "line": 10,
         "column": 1
       }
     },
@@ -348,7 +259,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 13,
+              "line": 11,
               "column": 1
             }
           },
@@ -357,41 +268,67 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 13,
+              "line": 11,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/increment_decrement.js",
-            "line": 13,
+            "line": 11,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "decrement",
-            "expression": {
-              "type": "identifier",
-              "value": "i",
-              "location": {
-                "file": "./integration_tests/increment_decrement.js",
-                "line": 13,
-                "column": 13
-              }
-            },
-            "postfix": true,
+            "type": "identifier",
+            "value": "i",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 13,
+              "line": 11,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/increment_decrement.js",
-          "line": 13,
+          "line": 11,
           "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/increment_decrement.js",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_identifier",
+          "name": "i",
+          "location": {
+            "file": "./integration_tests/increment_decrement.js",
+            "line": 13,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "number",
+          "value": 20,
+          "location": {
+            "file": "./integration_tests/increment_decrement.js",
+            "line": 13,
+            "column": 5
+          }
+        },
+        "location": {
+          "file": "./integration_tests/increment_decrement.js",
+          "line": 13,
+          "column": 1
         }
       },
       "location": {
@@ -411,7 +348,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 14,
+              "line": 15,
               "column": 1
             }
           },
@@ -420,72 +357,46 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 14,
+              "line": 15,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/increment_decrement.js",
-            "line": 14,
+            "line": 15,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "identifier",
-            "value": "i",
+            "type": "decrement",
+            "expression": {
+              "type": "identifier",
+              "value": "i",
+              "location": {
+                "file": "./integration_tests/increment_decrement.js",
+                "line": 15,
+                "column": 13
+              }
+            },
+            "postfix": true,
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 14,
+              "line": 15,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/increment_decrement.js",
-          "line": 14,
+          "line": 15,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/increment_decrement.js",
-        "line": 14,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "assignment",
-        "operator": "=",
-        "left": {
-          "type": "pattern_identifier",
-          "name": "i",
-          "location": {
-            "file": "./integration_tests/increment_decrement.js",
-            "line": 16,
-            "column": 1
-          }
-        },
-        "right": {
-          "type": "number",
-          "value": 30,
-          "location": {
-            "file": "./integration_tests/increment_decrement.js",
-            "line": 16,
-            "column": 5
-          }
-        },
-        "location": {
-          "file": "./integration_tests/increment_decrement.js",
-          "line": 16,
-          "column": 1
-        }
-      },
-      "location": {
-        "file": "./integration_tests/increment_decrement.js",
-        "line": 16,
+        "line": 15,
         "column": 1
       }
     },
@@ -500,7 +411,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 18,
+              "line": 16,
               "column": 1
             }
           },
@@ -509,41 +420,67 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 18,
+              "line": 16,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/increment_decrement.js",
-            "line": 18,
+            "line": 16,
             "column": 1
           }
         },
         "arguments": [
           {
-            "type": "decrement",
-            "expression": {
-              "type": "identifier",
-              "value": "i",
-              "location": {
-                "file": "./integration_tests/increment_decrement.js",
-                "line": 18,
-                "column": 15
-              }
-            },
-            "postfix": false,
+            "type": "identifier",
+            "value": "i",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 18,
+              "line": 16,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/increment_decrement.js",
-          "line": 18,
+          "line": 16,
           "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/increment_decrement.js",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_identifier",
+          "name": "i",
+          "location": {
+            "file": "./integration_tests/increment_decrement.js",
+            "line": 18,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "number",
+          "value": 30,
+          "location": {
+            "file": "./integration_tests/increment_decrement.js",
+            "line": 18,
+            "column": 5
+          }
+        },
+        "location": {
+          "file": "./integration_tests/increment_decrement.js",
+          "line": 18,
+          "column": 1
         }
       },
       "location": {
@@ -563,7 +500,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 19,
+              "line": 20,
               "column": 1
             }
           },
@@ -572,14 +509,77 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 19,
+              "line": 20,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/increment_decrement.js",
-            "line": 19,
+            "line": 20,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "decrement",
+            "expression": {
+              "type": "identifier",
+              "value": "i",
+              "location": {
+                "file": "./integration_tests/increment_decrement.js",
+                "line": 20,
+                "column": 15
+              }
+            },
+            "postfix": false,
+            "location": {
+              "file": "./integration_tests/increment_decrement.js",
+              "line": 20,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/increment_decrement.js",
+          "line": 20,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/increment_decrement.js",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/increment_decrement.js",
+              "line": 21,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/increment_decrement.js",
+              "line": 21,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/increment_decrement.js",
+            "line": 21,
             "column": 1
           }
         },
@@ -589,20 +589,20 @@
             "value": "i",
             "location": {
               "file": "./integration_tests/increment_decrement.js",
-              "line": 19,
+              "line": 21,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/increment_decrement.js",
-          "line": 19,
+          "line": 21,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/increment_decrement.js",
-        "line": 19,
+        "line": 21,
         "column": 1
       }
     }

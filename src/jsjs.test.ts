@@ -1,7 +1,8 @@
-import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
+import { assertEquals, assertObjectMatch } from "@std/assert";
 import { JSJS } from "./jsjs.ts";
 import { Statement } from "./ast.ts";
 
+// deno-lint-ignore no-explicit-any
 const textExpression = (source: string, expression: any) => {
   const p = new JSJS();
   const ast = p.parse("TEST", source);
@@ -13,6 +14,7 @@ const textExpression = (source: string, expression: any) => {
   assertObjectMatch(ast.body[0], expected);
 };
 
+// deno-lint-ignore no-explicit-any
 const testStatement = (source: string, statement: any) => {
   const p = new JSJS();
   const ast = p.parse("TEST", source);
@@ -41,9 +43,7 @@ const patternProperty = (
   ...overrides,
 });
 
-const objectPattern = (
-  properties: Record<string, unknown>[]
-) => ({
+const objectPattern = (properties: Record<string, unknown>[]) => ({
   type: "pattern_object",
   properties,
 });

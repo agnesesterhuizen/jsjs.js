@@ -12,78 +12,6 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/arithmetic.js",
-              "line": 1,
-              "column": 1
-            }
-          },
-          "property": {
-            "type": "identifier",
-            "value": "log",
-            "location": {
-              "file": "./integration_tests/arithmetic.js",
-              "line": 1,
-              "column": 9
-            }
-          },
-          "computed": false,
-          "location": {
-            "file": "./integration_tests/arithmetic.js",
-            "line": 1,
-            "column": 1
-          }
-        },
-        "arguments": [
-          {
-            "type": "binary",
-            "operator": "+",
-            "left": {
-              "type": "number",
-              "value": 1,
-              "location": {
-                "file": "./integration_tests/arithmetic.js",
-                "line": 1,
-                "column": 13
-              }
-            },
-            "right": {
-              "type": "number",
-              "value": 2,
-              "location": {
-                "file": "./integration_tests/arithmetic.js",
-                "line": 1,
-                "column": 17
-              }
-            },
-            "location": {
-              "file": "./integration_tests/arithmetic.js",
-              "line": 1,
-              "column": 15
-            }
-          }
-        ],
-        "location": {
-          "file": "./integration_tests/arithmetic.js",
-          "line": 1,
-          "column": 12
-        }
-      },
-      "location": {
-        "file": "./integration_tests/arithmetic.js",
-        "line": 1,
-        "column": 1
-      }
-    },
-    {
-      "type": "expression",
-      "expression": {
-        "type": "call",
-        "func": {
-          "type": "member",
-          "object": {
-            "type": "identifier",
-            "value": "console",
-            "location": {
-              "file": "./integration_tests/arithmetic.js",
               "line": 2,
               "column": 1
             }
@@ -107,7 +35,7 @@
         "arguments": [
           {
             "type": "binary",
-            "operator": "-",
+            "operator": "+",
             "left": {
               "type": "number",
               "value": 1,
@@ -179,7 +107,7 @@
         "arguments": [
           {
             "type": "binary",
-            "operator": "*",
+            "operator": "-",
             "left": {
               "type": "number",
               "value": 1,
@@ -251,7 +179,7 @@
         "arguments": [
           {
             "type": "binary",
-            "operator": "/",
+            "operator": "*",
             "left": {
               "type": "number",
               "value": 1,
@@ -323,10 +251,10 @@
         "arguments": [
           {
             "type": "binary",
-            "operator": "%",
+            "operator": "/",
             "left": {
               "type": "number",
-              "value": 5,
+              "value": 1,
               "location": {
                 "file": "./integration_tests/arithmetic.js",
                 "line": 5,
@@ -358,6 +286,78 @@
       "location": {
         "file": "./integration_tests/arithmetic.js",
         "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/arithmetic.js",
+              "line": 6,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/arithmetic.js",
+              "line": 6,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/arithmetic.js",
+            "line": 6,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "binary",
+            "operator": "%",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/arithmetic.js",
+                "line": 6,
+                "column": 13
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/arithmetic.js",
+                "line": 6,
+                "column": 17
+              }
+            },
+            "location": {
+              "file": "./integration_tests/arithmetic.js",
+              "line": 6,
+              "column": 15
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/arithmetic.js",
+          "line": 6,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/arithmetic.js",
+        "line": 6,
         "column": 1
       }
     }

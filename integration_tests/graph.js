@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 function dijkstra(graph, start) {
   const visited = {};
   const distances = {};

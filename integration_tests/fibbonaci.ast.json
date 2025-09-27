@@ -11,7 +11,7 @@
             "name": "n",
             "location": {
               "file": "./integration_tests/fibbonaci.js",
-              "line": 1,
+              "line": 3,
               "column": 20
             }
           },
@@ -31,7 +31,7 @@
                 "value": "n",
                 "location": {
                   "file": "./integration_tests/fibbonaci.js",
-                  "line": 2,
+                  "line": 4,
                   "column": 7
                 }
               },
@@ -40,13 +40,13 @@
                 "value": 0,
                 "location": {
                   "file": "./integration_tests/fibbonaci.js",
-                  "line": 2,
+                  "line": 4,
                   "column": 12
                 }
               },
               "location": {
                 "file": "./integration_tests/fibbonaci.js",
-                "line": 2,
+                "line": 4,
                 "column": 9
               }
             },
@@ -60,20 +60,20 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/fibbonaci.js",
-                      "line": 3,
+                      "line": 5,
                       "column": 12
                     }
                   },
                   "location": {
                     "file": "./integration_tests/fibbonaci.js",
-                    "line": 3,
+                    "line": 5,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/fibbonaci.js",
-                "line": 2,
+                "line": 4,
                 "column": 15
               }
             },
@@ -87,7 +87,7 @@
                   "value": "n",
                   "location": {
                     "file": "./integration_tests/fibbonaci.js",
-                    "line": 4,
+                    "line": 6,
                     "column": 14
                   }
                 },
@@ -96,13 +96,13 @@
                   "value": 1,
                   "location": {
                     "file": "./integration_tests/fibbonaci.js",
-                    "line": 4,
+                    "line": 6,
                     "column": 19
                   }
                 },
                 "location": {
                   "file": "./integration_tests/fibbonaci.js",
-                  "line": 4,
+                  "line": 6,
                   "column": 16
                 }
               },
@@ -116,20 +116,20 @@
                       "value": 1,
                       "location": {
                         "file": "./integration_tests/fibbonaci.js",
-                        "line": 5,
+                        "line": 7,
                         "column": 12
                       }
                     },
                     "location": {
                       "file": "./integration_tests/fibbonaci.js",
-                      "line": 5,
+                      "line": 7,
                       "column": 5
                     }
                   }
                 ],
                 "location": {
                   "file": "./integration_tests/fibbonaci.js",
-                  "line": 4,
+                  "line": 6,
                   "column": 22
                 }
               },
@@ -148,7 +148,7 @@
                           "value": "fibonacci",
                           "location": {
                             "file": "./integration_tests/fibbonaci.js",
-                            "line": 7,
+                            "line": 9,
                             "column": 12
                           }
                         },
@@ -161,7 +161,7 @@
                               "value": "n",
                               "location": {
                                 "file": "./integration_tests/fibbonaci.js",
-                                "line": 7,
+                                "line": 9,
                                 "column": 22
                               }
                             },
@@ -170,20 +170,20 @@
                               "value": 1,
                               "location": {
                                 "file": "./integration_tests/fibbonaci.js",
-                                "line": 7,
+                                "line": 9,
                                 "column": 26
                               }
                             },
                             "location": {
                               "file": "./integration_tests/fibbonaci.js",
-                              "line": 7,
+                              "line": 9,
                               "column": 24
                             }
                           }
                         ],
                         "location": {
                           "file": "./integration_tests/fibbonaci.js",
-                          "line": 7,
+                          "line": 9,
                           "column": 21
                         }
                       },
@@ -194,7 +194,7 @@
                           "value": "fibonacci",
                           "location": {
                             "file": "./integration_tests/fibbonaci.js",
-                            "line": 7,
+                            "line": 9,
                             "column": 31
                           }
                         },
@@ -207,7 +207,7 @@
                               "value": "n",
                               "location": {
                                 "file": "./integration_tests/fibbonaci.js",
-                                "line": 7,
+                                "line": 9,
                                 "column": 41
                               }
                             },
@@ -216,64 +216,64 @@
                               "value": 2,
                               "location": {
                                 "file": "./integration_tests/fibbonaci.js",
-                                "line": 7,
+                                "line": 9,
                                 "column": 45
                               }
                             },
                             "location": {
                               "file": "./integration_tests/fibbonaci.js",
-                              "line": 7,
+                              "line": 9,
                               "column": 43
                             }
                           }
                         ],
                         "location": {
                           "file": "./integration_tests/fibbonaci.js",
-                          "line": 7,
+                          "line": 9,
                           "column": 40
                         }
                       },
                       "location": {
                         "file": "./integration_tests/fibbonaci.js",
-                        "line": 7,
+                        "line": 9,
                         "column": 29
                       }
                     },
                     "location": {
                       "file": "./integration_tests/fibbonaci.js",
-                      "line": 7,
+                      "line": 9,
                       "column": 5
                     }
                   }
                 ],
                 "location": {
                   "file": "./integration_tests/fibbonaci.js",
-                  "line": 6,
+                  "line": 8,
                   "column": 10
                 }
               },
               "location": {
                 "file": "./integration_tests/fibbonaci.js",
-                "line": 4,
+                "line": 6,
                 "column": 10
               }
             },
             "location": {
               "file": "./integration_tests/fibbonaci.js",
-              "line": 2,
+              "line": 4,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/fibbonaci.js",
-          "line": 1,
+          "line": 3,
           "column": 23
         }
       },
       "location": {
         "file": "./integration_tests/fibbonaci.js",
-        "line": 1,
+        "line": 3,
         "column": 1
       }
     },
@@ -287,7 +287,7 @@
             "name": "res",
             "location": {
               "file": "./integration_tests/fibbonaci.js",
-              "line": 11,
+              "line": 13,
               "column": 7
             }
           },
@@ -298,7 +298,7 @@
               "value": "fibonacci",
               "location": {
                 "file": "./integration_tests/fibbonaci.js",
-                "line": 11,
+                "line": 13,
                 "column": 13
               }
             },
@@ -308,14 +308,14 @@
                 "value": 10,
                 "location": {
                   "file": "./integration_tests/fibbonaci.js",
-                  "line": 11,
+                  "line": 13,
                   "column": 23
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/fibbonaci.js",
-              "line": 11,
+              "line": 13,
               "column": 22
             }
           }
@@ -324,7 +324,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/fibbonaci.js",
-        "line": 11,
+        "line": 13,
         "column": 1
       }
     },
@@ -339,7 +339,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/fibbonaci.js",
-              "line": 13,
+              "line": 15,
               "column": 1
             }
           },
@@ -348,14 +348,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/fibbonaci.js",
-              "line": 13,
+              "line": 15,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/fibbonaci.js",
-            "line": 13,
+            "line": 15,
             "column": 1
           }
         },
@@ -365,20 +365,20 @@
             "value": "res",
             "location": {
               "file": "./integration_tests/fibbonaci.js",
-              "line": 13,
+              "line": 15,
               "column": 13
             }
           }
         ],
         "location": {
           "file": "./integration_tests/fibbonaci.js",
-          "line": 13,
+          "line": 15,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/fibbonaci.js",
-        "line": 13,
+        "line": 15,
         "column": 1
       }
     }

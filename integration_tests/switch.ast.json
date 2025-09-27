@@ -11,7 +11,7 @@
             "name": "x",
             "location": {
               "file": "./integration_tests/switch.js",
-              "line": 1,
+              "line": 3,
               "column": 7
             }
           },
@@ -20,7 +20,7 @@
             "value": "test",
             "location": {
               "file": "./integration_tests/switch.js",
-              "line": 1,
+              "line": 3,
               "column": 11
             }
           }
@@ -29,7 +29,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/switch.js",
-        "line": 1,
+        "line": 3,
         "column": 1
       }
     },
@@ -40,7 +40,7 @@
         "value": "x",
         "location": {
           "file": "./integration_tests/switch.js",
-          "line": 3,
+          "line": 5,
           "column": 9
         }
       },
@@ -51,7 +51,7 @@
             "value": "x",
             "location": {
               "file": "./integration_tests/switch.js",
-              "line": 4,
+              "line": 6,
               "column": 8
             }
           },
@@ -60,7 +60,7 @@
               "type": "break",
               "location": {
                 "file": "./integration_tests/switch.js",
-                "line": 5,
+                "line": 7,
                 "column": 5
               }
             }
@@ -72,7 +72,7 @@
             "value": "y",
             "location": {
               "file": "./integration_tests/switch.js",
-              "line": 6,
+              "line": 8,
               "column": 8
             }
           },
@@ -84,14 +84,14 @@
                   "type": "break",
                   "location": {
                     "file": "./integration_tests/switch.js",
-                    "line": 7,
+                    "line": 9,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/switch.js",
-                "line": 6,
+                "line": 8,
                 "column": 13
               }
             }
@@ -103,7 +103,7 @@
             "value": "test",
             "location": {
               "file": "./integration_tests/switch.js",
-              "line": 11,
+              "line": 13,
               "column": 8
             }
           },
@@ -122,7 +122,7 @@
                         "value": "console",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 12,
+                          "line": 14,
                           "column": 5
                         }
                       },
@@ -131,14 +131,14 @@
                         "value": "log",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 12,
+                          "line": 14,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/switch.js",
-                        "line": 12,
+                        "line": 14,
                         "column": 5
                       }
                     },
@@ -148,27 +148,27 @@
                         "value": "match",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 12,
+                          "line": 14,
                           "column": 17
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/switch.js",
-                      "line": 12,
+                      "line": 14,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/switch.js",
-                    "line": 12,
+                    "line": 14,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/switch.js",
-                "line": 11,
+                "line": 13,
                 "column": 16
               }
             }
@@ -180,7 +180,7 @@
             "value": "after",
             "location": {
               "file": "./integration_tests/switch.js",
-              "line": 15,
+              "line": 17,
               "column": 8
             }
           },
@@ -199,7 +199,7 @@
                         "value": "console",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 16,
+                          "line": 18,
                           "column": 5
                         }
                       },
@@ -208,14 +208,14 @@
                         "value": "log",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 16,
+                          "line": 18,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/switch.js",
-                        "line": 16,
+                        "line": 18,
                         "column": 5
                       }
                     },
@@ -225,20 +225,20 @@
                         "value": "next case",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 16,
+                          "line": 18,
                           "column": 17
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/switch.js",
-                      "line": 16,
+                      "line": 18,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/switch.js",
-                    "line": 16,
+                    "line": 18,
                     "column": 5
                   }
                 },
@@ -246,14 +246,14 @@
                   "type": "break",
                   "location": {
                     "file": "./integration_tests/switch.js",
-                    "line": 17,
+                    "line": 19,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/switch.js",
-                "line": 15,
+                "line": 17,
                 "column": 17
               }
             }
@@ -265,7 +265,7 @@
             "value": "after break",
             "location": {
               "file": "./integration_tests/switch.js",
-              "line": 20,
+              "line": 22,
               "column": 8
             }
           },
@@ -284,7 +284,7 @@
                         "value": "console",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 21,
+                          "line": 23,
                           "column": 5
                         }
                       },
@@ -293,14 +293,14 @@
                         "value": "log",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 21,
+                          "line": 23,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/switch.js",
-                        "line": 21,
+                        "line": 23,
                         "column": 5
                       }
                     },
@@ -310,20 +310,20 @@
                         "value": "error: fell though after break",
                         "location": {
                           "file": "./integration_tests/switch.js",
-                          "line": 21,
+                          "line": 23,
                           "column": 17
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/switch.js",
-                      "line": 21,
+                      "line": 23,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/switch.js",
-                    "line": 21,
+                    "line": 23,
                     "column": 5
                   }
                 },
@@ -331,14 +331,14 @@
                   "type": "break",
                   "location": {
                     "file": "./integration_tests/switch.js",
-                    "line": 22,
+                    "line": 24,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/switch.js",
-                "line": 20,
+                "line": 22,
                 "column": 23
               }
             }
@@ -356,7 +356,7 @@
               "value": "console",
               "location": {
                 "file": "./integration_tests/switch.js",
-                "line": 26,
+                "line": 28,
                 "column": 5
               }
             },
@@ -365,14 +365,14 @@
               "value": "log",
               "location": {
                 "file": "./integration_tests/switch.js",
-                "line": 26,
+                "line": 28,
                 "column": 13
               }
             },
             "computed": false,
             "location": {
               "file": "./integration_tests/switch.js",
-              "line": 26,
+              "line": 28,
               "column": 5
             }
           },
@@ -382,26 +382,26 @@
               "value": "default",
               "location": {
                 "file": "./integration_tests/switch.js",
-                "line": 26,
+                "line": 28,
                 "column": 17
               }
             }
           ],
           "location": {
             "file": "./integration_tests/switch.js",
-            "line": 26,
+            "line": 28,
             "column": 16
           }
         },
         "location": {
           "file": "./integration_tests/switch.js",
-          "line": 26,
+          "line": 28,
           "column": 5
         }
       },
       "location": {
         "file": "./integration_tests/switch.js",
-        "line": 3,
+        "line": 5,
         "column": 1
       }
     }

@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 console.log(123);
 console.log(0.123);
 console.log("str");

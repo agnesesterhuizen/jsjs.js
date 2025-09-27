@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 let i = 0;
 
 console.log(i++); // 0

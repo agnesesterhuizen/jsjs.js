@@ -11,7 +11,7 @@
             "name": "data",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 1,
+              "line": 3,
               "column": 26
             }
           },
@@ -31,7 +31,7 @@
                   "name": "freqCounter",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 2,
+                    "line": 4,
                     "column": 9
                   }
                 },
@@ -40,7 +40,7 @@
                   "properties": {},
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 2,
+                    "line": 4,
                     "column": 23
                   }
                 }
@@ -49,7 +49,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 2,
+              "line": 4,
               "column": 3
             }
           },
@@ -63,7 +63,7 @@
                   "name": "i",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 4,
+                    "line": 6,
                     "column": 7
                   }
                 },
@@ -72,7 +72,7 @@
                   "value": 0,
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 4,
+                    "line": 6,
                     "column": 11
                   }
                 }
@@ -81,7 +81,7 @@
             "varType": "let",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 4,
+              "line": 6,
               "column": 3
             }
           },
@@ -95,7 +95,7 @@
                 "value": "i",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 5,
+                  "line": 7,
                   "column": 10
                 }
               },
@@ -106,7 +106,7 @@
                   "value": "data",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 5,
+                    "line": 7,
                     "column": 14
                   }
                 },
@@ -115,20 +115,20 @@
                   "value": "length",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 5,
+                    "line": 7,
                     "column": 19
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 5,
+                  "line": 7,
                   "column": 14
                 }
               },
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 5,
+                "line": 7,
                 "column": 12
               }
             },
@@ -145,7 +145,7 @@
                         "name": "char",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 6,
+                          "line": 8,
                           "column": 11
                         }
                       },
@@ -156,7 +156,7 @@
                           "value": "data",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 6,
+                            "line": 8,
                             "column": 18
                           }
                         },
@@ -165,14 +165,14 @@
                           "value": "i",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 6,
+                            "line": 8,
                             "column": 23
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 6,
+                          "line": 8,
                           "column": 18
                         }
                       }
@@ -181,7 +181,7 @@
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 6,
+                    "line": 8,
                     "column": 5
                   }
                 },
@@ -197,7 +197,7 @@
                         "value": "freqCounter",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 7,
+                          "line": 9,
                           "column": 5
                         }
                       },
@@ -206,14 +206,14 @@
                         "value": "char",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 7,
+                          "line": 9,
                           "column": 17
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 7,
+                        "line": 9,
                         "column": 5
                       }
                     },
@@ -230,7 +230,7 @@
                             "value": "freqCounter",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 7,
+                              "line": 9,
                               "column": 26
                             }
                           },
@@ -239,14 +239,14 @@
                             "value": "char",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 7,
+                              "line": 9,
                               "column": 38
                             }
                           },
                           "computed": true,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 7,
+                            "line": 9,
                             "column": 26
                           }
                         },
@@ -255,13 +255,13 @@
                           "value": 0,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 7,
+                            "line": 9,
                             "column": 47
                           }
                         },
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 7,
+                          "line": 9,
                           "column": 44
                         }
                       },
@@ -270,25 +270,25 @@
                         "value": 1,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 7,
+                          "line": 9,
                           "column": 52
                         }
                       },
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 7,
+                        "line": 9,
                         "column": 50
                       }
                     },
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 7,
+                      "line": 9,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 7,
+                    "line": 9,
                     "column": 5
                   }
                 },
@@ -302,7 +302,7 @@
                       "name": "i",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 8,
+                        "line": 10,
                         "column": 5
                       }
                     },
@@ -314,7 +314,7 @@
                         "value": "i",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 8,
+                          "line": 10,
                           "column": 9
                         }
                       },
@@ -323,38 +323,38 @@
                         "value": 1,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 8,
+                          "line": 10,
                           "column": 13
                         }
                       },
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 8,
+                        "line": 10,
                         "column": 11
                       }
                     },
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 8,
+                      "line": 10,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 8,
+                    "line": 10,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 5,
+                "line": 7,
                 "column": 27
               }
             },
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 5,
+              "line": 7,
               "column": 3
             }
           },
@@ -368,7 +368,7 @@
                   "name": "priorityQueue",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 11,
+                    "line": 13,
                     "column": 9
                   }
                 },
@@ -378,77 +378,8 @@
                   "arguments": [],
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 11,
+                    "line": 13,
                     "column": 25
-                  }
-                }
-              }
-            ],
-            "varType": "const",
-            "location": {
-              "file": "./integration_tests/huffman.js",
-              "line": 11,
-              "column": 3
-            }
-          },
-          {
-            "type": "variable_declaration",
-            "declarationType": "var",
-            "declarations": [
-              {
-                "id": {
-                  "type": "pattern_identifier",
-                  "name": "chars",
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 13,
-                    "column": 9
-                  }
-                },
-                "value": {
-                  "type": "call",
-                  "func": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "Object",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 13,
-                        "column": 17
-                      }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "keys",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 13,
-                        "column": 24
-                      }
-                    },
-                    "computed": false,
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 13,
-                      "column": 17
-                    }
-                  },
-                  "arguments": [
-                    {
-                      "type": "identifier",
-                      "value": "freqCounter",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 13,
-                        "column": 29
-                      }
-                    }
-                  ],
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 13,
-                    "column": 28
                   }
                 }
               }
@@ -467,10 +398,79 @@
               {
                 "id": {
                   "type": "pattern_identifier",
+                  "name": "chars",
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 15,
+                    "column": 9
+                  }
+                },
+                "value": {
+                  "type": "call",
+                  "func": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "Object",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 15,
+                        "column": 17
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "keys",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 15,
+                        "column": 24
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/huffman.js",
+                      "line": 15,
+                      "column": 17
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "identifier",
+                      "value": "freqCounter",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 15,
+                        "column": 29
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 15,
+                    "column": 28
+                  }
+                }
+              }
+            ],
+            "varType": "const",
+            "location": {
+              "file": "./integration_tests/huffman.js",
+              "line": 15,
+              "column": 3
+            }
+          },
+          {
+            "type": "variable_declaration",
+            "declarationType": "var",
+            "declarations": [
+              {
+                "id": {
+                  "type": "pattern_identifier",
                   "name": "j",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 14,
+                    "line": 16,
                     "column": 7
                   }
                 },
@@ -479,7 +479,7 @@
                   "value": 0,
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 14,
+                    "line": 16,
                     "column": 11
                   }
                 }
@@ -488,7 +488,7 @@
             "varType": "let",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 14,
+              "line": 16,
               "column": 3
             }
           },
@@ -502,7 +502,7 @@
                 "value": "j",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 15,
+                  "line": 17,
                   "column": 10
                 }
               },
@@ -513,7 +513,7 @@
                   "value": "chars",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 15,
+                    "line": 17,
                     "column": 14
                   }
                 },
@@ -522,20 +522,20 @@
                   "value": "length",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 15,
+                    "line": 17,
                     "column": 20
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 15,
+                  "line": 17,
                   "column": 14
                 }
               },
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 15,
+                "line": 17,
                 "column": 12
               }
             },
@@ -552,7 +552,7 @@
                         "name": "char",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 16,
+                          "line": 18,
                           "column": 11
                         }
                       },
@@ -563,7 +563,7 @@
                           "value": "chars",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 16,
+                            "line": 18,
                             "column": 18
                           }
                         },
@@ -572,14 +572,14 @@
                           "value": "j",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 16,
+                            "line": 18,
                             "column": 24
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 16,
+                          "line": 18,
                           "column": 18
                         }
                       }
@@ -588,7 +588,7 @@
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 16,
+                    "line": 18,
                     "column": 5
                   }
                 },
@@ -603,7 +603,7 @@
                         "value": "priorityQueue",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 17,
+                          "line": 19,
                           "column": 5
                         }
                       },
@@ -612,14 +612,14 @@
                         "value": "enqueue",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 17,
+                          "line": 19,
                           "column": 19
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 17,
+                        "line": 19,
                         "column": 5
                       }
                     },
@@ -633,7 +633,7 @@
                             "value": "char",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 17,
+                              "line": 19,
                               "column": 43
                             }
                           },
@@ -644,7 +644,7 @@
                               "value": "freqCounter",
                               "location": {
                                 "file": "./integration_tests/huffman.js",
-                                "line": 17,
+                                "line": 19,
                                 "column": 49
                               }
                             },
@@ -653,34 +653,34 @@
                               "value": "char",
                               "location": {
                                 "file": "./integration_tests/huffman.js",
-                                "line": 17,
+                                "line": 19,
                                 "column": 61
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 17,
+                              "line": 19,
                               "column": 49
                             }
                           }
                         ],
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 17,
+                          "line": 19,
                           "column": 27
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 17,
+                      "line": 19,
                       "column": 26
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 17,
+                    "line": 19,
                     "column": 5
                   }
                 },
@@ -694,7 +694,7 @@
                       "name": "j",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 18,
+                        "line": 20,
                         "column": 5
                       }
                     },
@@ -706,7 +706,7 @@
                         "value": "j",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 18,
+                          "line": 20,
                           "column": 9
                         }
                       },
@@ -715,38 +715,38 @@
                         "value": 1,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 18,
+                          "line": 20,
                           "column": 13
                         }
                       },
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 18,
+                        "line": 20,
                         "column": 11
                       }
                     },
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 18,
+                      "line": 20,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 18,
+                    "line": 20,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 15,
+                "line": 17,
                 "column": 28
               }
             },
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 15,
+              "line": 17,
               "column": 3
             }
           },
@@ -764,7 +764,7 @@
                     "value": "priorityQueue",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 21,
+                      "line": 23,
                       "column": 10
                     }
                   },
@@ -773,21 +773,21 @@
                     "value": "size",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 21,
+                      "line": 23,
                       "column": 24
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 21,
+                    "line": 23,
                     "column": 10
                   }
                 },
                 "arguments": [],
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 21,
+                  "line": 23,
                   "column": 28
                 }
               },
@@ -796,13 +796,13 @@
                 "value": 1,
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 21,
+                  "line": 23,
                   "column": 33
                 }
               },
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 21,
+                "line": 23,
                 "column": 31
               }
             },
@@ -819,7 +819,7 @@
                         "name": "leftNode",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 22,
+                          "line": 24,
                           "column": 11
                         }
                       },
@@ -832,7 +832,7 @@
                             "value": "priorityQueue",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 22,
+                              "line": 24,
                               "column": 22
                             }
                           },
@@ -841,21 +841,21 @@
                             "value": "dequeue",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 22,
+                              "line": 24,
                               "column": 36
                             }
                           },
                           "computed": false,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 22,
+                            "line": 24,
                             "column": 22
                           }
                         },
                         "arguments": [],
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 22,
+                          "line": 24,
                           "column": 43
                         }
                       }
@@ -864,7 +864,7 @@
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 22,
+                    "line": 24,
                     "column": 5
                   }
                 },
@@ -878,7 +878,7 @@
                         "name": "rightNode",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 23,
+                          "line": 25,
                           "column": 11
                         }
                       },
@@ -891,7 +891,7 @@
                             "value": "priorityQueue",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 23,
+                              "line": 25,
                               "column": 23
                             }
                           },
@@ -900,21 +900,21 @@
                             "value": "dequeue",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 23,
+                              "line": 25,
                               "column": 37
                             }
                           },
                           "computed": false,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 23,
+                            "line": 25,
                             "column": 23
                           }
                         },
                         "arguments": [],
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 23,
+                          "line": 25,
                           "column": 44
                         }
                       }
@@ -923,7 +923,7 @@
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 23,
+                    "line": 25,
                     "column": 5
                   }
                 },
@@ -937,7 +937,7 @@
                         "name": "combinedFreq",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 24,
+                          "line": 26,
                           "column": 11
                         }
                       },
@@ -951,7 +951,7 @@
                             "value": "leftNode",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 24,
+                              "line": 26,
                               "column": 26
                             }
                           },
@@ -960,14 +960,14 @@
                             "value": "freq",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 24,
+                              "line": 26,
                               "column": 35
                             }
                           },
                           "computed": false,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 24,
+                            "line": 26,
                             "column": 26
                           }
                         },
@@ -978,7 +978,7 @@
                             "value": "rightNode",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 24,
+                              "line": 26,
                               "column": 42
                             }
                           },
@@ -987,20 +987,20 @@
                             "value": "freq",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 24,
+                              "line": 26,
                               "column": 52
                             }
                           },
                           "computed": false,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 24,
+                            "line": 26,
                             "column": 42
                           }
                         },
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 24,
+                          "line": 26,
                           "column": 40
                         }
                       }
@@ -1009,7 +1009,7 @@
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 24,
+                    "line": 26,
                     "column": 5
                   }
                 },
@@ -1024,7 +1024,7 @@
                         "value": "priorityQueue",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 25,
+                          "line": 27,
                           "column": 5
                         }
                       },
@@ -1033,14 +1033,14 @@
                         "value": "enqueue",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 25,
+                          "line": 27,
                           "column": 19
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 25,
+                        "line": 27,
                         "column": 5
                       }
                     },
@@ -1053,7 +1053,7 @@
                             "type": "null",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 26,
+                              "line": 28,
                               "column": 23
                             }
                           },
@@ -1062,7 +1062,7 @@
                             "value": "combinedFreq",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 26,
+                              "line": 28,
                               "column": 29
                             }
                           },
@@ -1071,7 +1071,7 @@
                             "value": "leftNode",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 26,
+                              "line": 28,
                               "column": 43
                             }
                           },
@@ -1080,40 +1080,40 @@
                             "value": "rightNode",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 26,
+                              "line": 28,
                               "column": 53
                             }
                           }
                         ],
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 26,
+                          "line": 28,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 25,
+                      "line": 27,
                       "column": 26
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 25,
+                    "line": 27,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 21,
+                "line": 23,
                 "column": 36
               }
             },
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 21,
+              "line": 23,
               "column": 3
             }
           },
@@ -1127,7 +1127,7 @@
                   "name": "huffmanCode",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 30,
+                    "line": 32,
                     "column": 9
                   }
                 },
@@ -1136,7 +1136,7 @@
                   "properties": {},
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 30,
+                    "line": 32,
                     "column": 23
                   }
                 }
@@ -1145,7 +1145,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 30,
+              "line": 32,
               "column": 3
             }
           },
@@ -1158,7 +1158,7 @@
                 "value": "generateCode",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 31,
+                  "line": 33,
                   "column": 3
                 }
               },
@@ -1172,7 +1172,7 @@
                       "value": "priorityQueue",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 31,
+                        "line": 33,
                         "column": 16
                       }
                     },
@@ -1181,21 +1181,21 @@
                       "value": "peek",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 31,
+                        "line": 33,
                         "column": 30
                       }
                     },
                     "computed": false,
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 31,
+                      "line": 33,
                       "column": 16
                     }
                   },
                   "arguments": [],
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 31,
+                    "line": 33,
                     "column": 34
                   }
                 },
@@ -1204,7 +1204,7 @@
                   "value": "",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 31,
+                    "line": 33,
                     "column": 38
                   }
                 },
@@ -1213,49 +1213,17 @@
                   "value": "huffmanCode",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 31,
+                    "line": 33,
                     "column": 42
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 31,
+                "line": 33,
                 "column": 15
               }
             },
-            "location": {
-              "file": "./integration_tests/huffman.js",
-              "line": 31,
-              "column": 3
-            }
-          },
-          {
-            "type": "variable_declaration",
-            "declarationType": "var",
-            "declarations": [
-              {
-                "id": {
-                  "type": "pattern_identifier",
-                  "name": "encodedData",
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 33,
-                    "column": 7
-                  }
-                },
-                "value": {
-                  "type": "string",
-                  "value": "",
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 33,
-                    "column": 21
-                  }
-                }
-              }
-            ],
-            "varType": "let",
             "location": {
               "file": "./integration_tests/huffman.js",
               "line": 33,
@@ -1269,7 +1237,7 @@
               {
                 "id": {
                   "type": "pattern_identifier",
-                  "name": "k",
+                  "name": "encodedData",
                   "location": {
                     "file": "./integration_tests/huffman.js",
                     "line": 35,
@@ -1277,12 +1245,12 @@
                   }
                 },
                 "value": {
-                  "type": "number",
-                  "value": 0,
+                  "type": "string",
+                  "value": "",
                   "location": {
                     "file": "./integration_tests/huffman.js",
                     "line": 35,
-                    "column": 11
+                    "column": 21
                   }
                 }
               }
@@ -1291,6 +1259,38 @@
             "location": {
               "file": "./integration_tests/huffman.js",
               "line": 35,
+              "column": 3
+            }
+          },
+          {
+            "type": "variable_declaration",
+            "declarationType": "var",
+            "declarations": [
+              {
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "k",
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 37,
+                    "column": 7
+                  }
+                },
+                "value": {
+                  "type": "number",
+                  "value": 0,
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 37,
+                    "column": 11
+                  }
+                }
+              }
+            ],
+            "varType": "let",
+            "location": {
+              "file": "./integration_tests/huffman.js",
+              "line": 37,
               "column": 3
             }
           },
@@ -1304,7 +1304,7 @@
                 "value": "k",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 36,
+                  "line": 38,
                   "column": 10
                 }
               },
@@ -1315,7 +1315,7 @@
                   "value": "data",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 36,
+                    "line": 38,
                     "column": 14
                   }
                 },
@@ -1324,20 +1324,20 @@
                   "value": "length",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 36,
+                    "line": 38,
                     "column": 19
                   }
                 },
                 "computed": false,
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 36,
+                  "line": 38,
                   "column": 14
                 }
               },
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 36,
+                "line": 38,
                 "column": 12
               }
             },
@@ -1354,7 +1354,7 @@
                         "name": "char",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 37,
+                          "line": 39,
                           "column": 11
                         }
                       },
@@ -1365,7 +1365,7 @@
                           "value": "data",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 37,
+                            "line": 39,
                             "column": 18
                           }
                         },
@@ -1374,14 +1374,14 @@
                           "value": "k",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 37,
+                            "line": 39,
                             "column": 23
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 37,
+                          "line": 39,
                           "column": 18
                         }
                       }
@@ -1390,7 +1390,7 @@
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 37,
+                    "line": 39,
                     "column": 5
                   }
                 },
@@ -1404,7 +1404,7 @@
                       "name": "encodedData",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 38,
+                        "line": 40,
                         "column": 5
                       }
                     },
@@ -1416,7 +1416,7 @@
                         "value": "encodedData",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 38,
+                          "line": 40,
                           "column": 19
                         }
                       },
@@ -1427,7 +1427,7 @@
                           "value": "huffmanCode",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 38,
+                            "line": 40,
                             "column": 33
                           }
                         },
@@ -1436,32 +1436,32 @@
                           "value": "char",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 38,
+                            "line": 40,
                             "column": 45
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 38,
+                          "line": 40,
                           "column": 33
                         }
                       },
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 38,
+                        "line": 40,
                         "column": 31
                       }
                     },
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 38,
+                      "line": 40,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 38,
+                    "line": 40,
                     "column": 5
                   }
                 },
@@ -1475,7 +1475,7 @@
                       "name": "k",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 39,
+                        "line": 41,
                         "column": 5
                       }
                     },
@@ -1487,7 +1487,7 @@
                         "value": "k",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 39,
+                          "line": 41,
                           "column": 9
                         }
                       },
@@ -1496,38 +1496,38 @@
                         "value": 1,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 39,
+                          "line": 41,
                           "column": 13
                         }
                       },
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 39,
+                        "line": 41,
                         "column": 11
                       }
                     },
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 39,
+                      "line": 41,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 39,
+                    "line": 41,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 36,
+                "line": 38,
                 "column": 27
               }
             },
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 36,
+              "line": 38,
               "column": 3
             }
           },
@@ -1538,26 +1538,26 @@
               "value": "encodedData",
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 42,
+                "line": 44,
                 "column": 10
               }
             },
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 42,
+              "line": 44,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/huffman.js",
-          "line": 1,
+          "line": 3,
           "column": 32
         }
       },
       "location": {
         "file": "./integration_tests/huffman.js",
-        "line": 1,
+        "line": 3,
         "column": 1
       }
     },
@@ -1584,7 +1584,7 @@
                       "value": "this",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 47,
+                        "line": 49,
                         "column": 5
                       }
                     },
@@ -1593,14 +1593,14 @@
                       "value": "queue",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 47,
+                        "line": 49,
                         "column": 10
                       }
                     },
                     "computed": false,
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 47,
+                      "line": 49,
                       "column": 5
                     }
                   },
@@ -1609,26 +1609,26 @@
                     "elements": [],
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 47,
+                      "line": 49,
                       "column": 18
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 47,
+                    "line": 49,
                     "column": 5
                   }
                 },
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 47,
+                  "line": 49,
                   "column": 5
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 46,
+              "line": 48,
               "column": 17
             }
           },
@@ -1643,7 +1643,7 @@
                 "name": "node",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 50,
+                  "line": 52,
                   "column": 11
                 }
               },
@@ -1663,7 +1663,7 @@
                       "name": "added",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 51,
+                        "line": 53,
                         "column": 9
                       }
                     },
@@ -1672,7 +1672,7 @@
                       "value": false,
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 51,
+                        "line": 53,
                         "column": 17
                       }
                     }
@@ -1681,7 +1681,7 @@
                 "varType": "let",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 51,
+                  "line": 53,
                   "column": 5
                 }
               },
@@ -1695,7 +1695,7 @@
                       "name": "i",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 52,
+                        "line": 54,
                         "column": 9
                       }
                     },
@@ -1704,7 +1704,7 @@
                       "value": 0,
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 52,
+                        "line": 54,
                         "column": 13
                       }
                     }
@@ -1713,7 +1713,7 @@
                 "varType": "let",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 52,
+                  "line": 54,
                   "column": 5
                 }
               },
@@ -1727,7 +1727,7 @@
                     "value": "i",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 53,
+                      "line": 55,
                       "column": 12
                     }
                   },
@@ -1740,7 +1740,7 @@
                         "value": "this",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 53,
+                          "line": 55,
                           "column": 16
                         }
                       },
@@ -1749,14 +1749,14 @@
                         "value": "queue",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 53,
+                          "line": 55,
                           "column": 21
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 53,
+                        "line": 55,
                         "column": 16
                       }
                     },
@@ -1765,20 +1765,20 @@
                       "value": "length",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 53,
+                        "line": 55,
                         "column": 27
                       }
                     },
                     "computed": false,
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 53,
+                      "line": 55,
                       "column": 16
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 53,
+                    "line": 55,
                     "column": 14
                   }
                 },
@@ -1797,7 +1797,7 @@
                             "value": "node",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 54,
+                              "line": 56,
                               "column": 11
                             }
                           },
@@ -1806,14 +1806,14 @@
                             "value": "freq",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 54,
+                              "line": 56,
                               "column": 16
                             }
                           },
                           "computed": false,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 54,
+                            "line": 56,
                             "column": 11
                           }
                         },
@@ -1828,7 +1828,7 @@
                                 "value": "this",
                                 "location": {
                                   "file": "./integration_tests/huffman.js",
-                                  "line": 54,
+                                  "line": 56,
                                   "column": 23
                                 }
                               },
@@ -1837,14 +1837,14 @@
                                 "value": "queue",
                                 "location": {
                                   "file": "./integration_tests/huffman.js",
-                                  "line": 54,
+                                  "line": 56,
                                   "column": 28
                                 }
                               },
                               "computed": false,
                               "location": {
                                 "file": "./integration_tests/huffman.js",
-                                "line": 54,
+                                "line": 56,
                                 "column": 23
                               }
                             },
@@ -1853,14 +1853,14 @@
                               "value": "i",
                               "location": {
                                 "file": "./integration_tests/huffman.js",
-                                "line": 54,
+                                "line": 56,
                                 "column": 34
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 54,
+                              "line": 56,
                               "column": 23
                             }
                           },
@@ -1869,20 +1869,20 @@
                             "value": "freq",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 54,
+                              "line": 56,
                               "column": 37
                             }
                           },
                           "computed": false,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 54,
+                            "line": 56,
                             "column": 23
                           }
                         },
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 54,
+                          "line": 56,
                           "column": 21
                         }
                       },
@@ -1902,7 +1902,7 @@
                                     "value": "this",
                                     "location": {
                                       "file": "./integration_tests/huffman.js",
-                                      "line": 55,
+                                      "line": 57,
                                       "column": 9
                                     }
                                   },
@@ -1911,14 +1911,14 @@
                                     "value": "queue",
                                     "location": {
                                       "file": "./integration_tests/huffman.js",
-                                      "line": 55,
+                                      "line": 57,
                                       "column": 14
                                     }
                                   },
                                   "computed": false,
                                   "location": {
                                     "file": "./integration_tests/huffman.js",
-                                    "line": 55,
+                                    "line": 57,
                                     "column": 9
                                   }
                                 },
@@ -1927,14 +1927,14 @@
                                   "value": "splice",
                                   "location": {
                                     "file": "./integration_tests/huffman.js",
-                                    "line": 55,
+                                    "line": 57,
                                     "column": 20
                                   }
                                 },
                                 "computed": false,
                                 "location": {
                                   "file": "./integration_tests/huffman.js",
-                                  "line": 55,
+                                  "line": 57,
                                   "column": 9
                                 }
                               },
@@ -1944,7 +1944,7 @@
                                   "value": "i",
                                   "location": {
                                     "file": "./integration_tests/huffman.js",
-                                    "line": 55,
+                                    "line": 57,
                                     "column": 27
                                   }
                                 },
@@ -1953,7 +1953,7 @@
                                   "value": 0,
                                   "location": {
                                     "file": "./integration_tests/huffman.js",
-                                    "line": 55,
+                                    "line": 57,
                                     "column": 30
                                   }
                                 },
@@ -1962,20 +1962,20 @@
                                   "value": "node",
                                   "location": {
                                     "file": "./integration_tests/huffman.js",
-                                    "line": 55,
+                                    "line": 57,
                                     "column": 33
                                   }
                                 }
                               ],
                               "location": {
                                 "file": "./integration_tests/huffman.js",
-                                "line": 55,
+                                "line": 57,
                                 "column": 26
                               }
                             },
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 55,
+                              "line": 57,
                               "column": 9
                             }
                           },
@@ -1989,7 +1989,7 @@
                                 "name": "added",
                                 "location": {
                                   "file": "./integration_tests/huffman.js",
-                                  "line": 56,
+                                  "line": 58,
                                   "column": 9
                                 }
                               },
@@ -1998,19 +1998,19 @@
                                 "value": true,
                                 "location": {
                                   "file": "./integration_tests/huffman.js",
-                                  "line": 56,
+                                  "line": 58,
                                   "column": 17
                                 }
                               },
                               "location": {
                                 "file": "./integration_tests/huffman.js",
-                                "line": 56,
+                                "line": 58,
                                 "column": 9
                               }
                             },
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 56,
+                              "line": 58,
                               "column": 9
                             }
                           },
@@ -2018,20 +2018,20 @@
                             "type": "break",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 57,
+                              "line": 59,
                               "column": 9
                             }
                           }
                         ],
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 54,
+                          "line": 56,
                           "column": 43
                         }
                       },
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 54,
+                        "line": 56,
                         "column": 7
                       }
                     },
@@ -2045,7 +2045,7 @@
                           "name": "i",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 59,
+                            "line": 61,
                             "column": 7
                           }
                         },
@@ -2057,7 +2057,7 @@
                             "value": "i",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 59,
+                              "line": 61,
                               "column": 11
                             }
                           },
@@ -2066,38 +2066,38 @@
                             "value": 1,
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 59,
+                              "line": 61,
                               "column": 15
                             }
                           },
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 59,
+                            "line": 61,
                             "column": 13
                           }
                         },
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 59,
+                          "line": 61,
                           "column": 7
                         }
                       },
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 59,
+                        "line": 61,
                         "column": 7
                       }
                     }
                   ],
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 53,
+                    "line": 55,
                     "column": 35
                   }
                 },
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 53,
+                  "line": 55,
                   "column": 5
                 }
               },
@@ -2111,13 +2111,13 @@
                     "value": "added",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 61,
+                      "line": 63,
                       "column": 10
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 61,
+                    "line": 63,
                     "column": 9
                   }
                 },
@@ -2137,7 +2137,7 @@
                               "value": "this",
                               "location": {
                                 "file": "./integration_tests/huffman.js",
-                                "line": 62,
+                                "line": 64,
                                 "column": 7
                               }
                             },
@@ -2146,14 +2146,14 @@
                               "value": "queue",
                               "location": {
                                 "file": "./integration_tests/huffman.js",
-                                "line": 62,
+                                "line": 64,
                                 "column": 12
                               }
                             },
                             "computed": false,
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 62,
+                              "line": 64,
                               "column": 7
                             }
                           },
@@ -2162,14 +2162,14 @@
                             "value": "push",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 62,
+                              "line": 64,
                               "column": 18
                             }
                           },
                           "computed": false,
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 62,
+                            "line": 64,
                             "column": 7
                           }
                         },
@@ -2179,40 +2179,40 @@
                             "value": "node",
                             "location": {
                               "file": "./integration_tests/huffman.js",
-                              "line": 62,
+                              "line": 64,
                               "column": 23
                             }
                           }
                         ],
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 62,
+                          "line": 64,
                           "column": 22
                         }
                       },
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 62,
+                        "line": 64,
                         "column": 7
                       }
                     }
                   ],
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 61,
+                    "line": 63,
                     "column": 17
                   }
                 },
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 61,
+                  "line": 63,
                   "column": 5
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 50,
+              "line": 52,
               "column": 17
             }
           },
@@ -2237,7 +2237,7 @@
                         "value": "this",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 67,
+                          "line": 69,
                           "column": 12
                         }
                       },
@@ -2246,14 +2246,14 @@
                         "value": "queue",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 67,
+                          "line": 69,
                           "column": 17
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 67,
+                        "line": 69,
                         "column": 12
                       }
                     },
@@ -2262,34 +2262,34 @@
                       "value": "shift",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 67,
+                        "line": 69,
                         "column": 23
                       }
                     },
                     "computed": false,
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 67,
+                      "line": 69,
                       "column": 12
                     }
                   },
                   "arguments": [],
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 67,
+                    "line": 69,
                     "column": 28
                   }
                 },
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 67,
+                  "line": 69,
                   "column": 5
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 66,
+              "line": 68,
               "column": 13
             }
           },
@@ -2312,7 +2312,7 @@
                       "value": "this",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 71,
+                        "line": 73,
                         "column": 12
                       }
                     },
@@ -2321,14 +2321,14 @@
                       "value": "queue",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 71,
+                        "line": 73,
                         "column": 17
                       }
                     },
                     "computed": false,
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 71,
+                      "line": 73,
                       "column": 12
                     }
                   },
@@ -2337,27 +2337,27 @@
                     "value": "length",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 71,
+                      "line": 73,
                       "column": 23
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 71,
+                    "line": 73,
                     "column": 12
                   }
                 },
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 71,
+                  "line": 73,
                   "column": 5
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 70,
+              "line": 72,
               "column": 10
             }
           },
@@ -2380,7 +2380,7 @@
                       "value": "this",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 75,
+                        "line": 77,
                         "column": 12
                       }
                     },
@@ -2389,14 +2389,14 @@
                       "value": "queue",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 75,
+                        "line": 77,
                         "column": 17
                       }
                     },
                     "computed": false,
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 75,
+                      "line": 77,
                       "column": 12
                     }
                   },
@@ -2405,27 +2405,27 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 75,
+                      "line": 77,
                       "column": 23
                     }
                   },
                   "computed": true,
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 75,
+                    "line": 77,
                     "column": 12
                   }
                 },
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 75,
+                  "line": 77,
                   "column": 5
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 74,
+              "line": 76,
               "column": 10
             }
           },
@@ -2434,7 +2434,7 @@
       ],
       "location": {
         "file": "./integration_tests/huffman.js",
-        "line": 45,
+        "line": 47,
         "column": 1
       }
     },
@@ -2452,7 +2452,7 @@
                 "name": "char",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 80,
+                  "line": 82,
                   "column": 15
                 }
               },
@@ -2464,7 +2464,7 @@
                 "name": "freq",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 80,
+                  "line": 82,
                   "column": 21
                 }
               },
@@ -2476,7 +2476,7 @@
                 "name": "left",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 80,
+                  "line": 82,
                   "column": 27
                 }
               },
@@ -2488,7 +2488,7 @@
                 "name": "right",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 80,
+                  "line": 82,
                   "column": 33
                 }
               },
@@ -2510,119 +2510,13 @@
                       "value": "this",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 81,
-                        "column": 5
-                      }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "char",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 81,
-                        "column": 10
-                      }
-                    },
-                    "computed": false,
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 81,
-                      "column": 5
-                    }
-                  },
-                  "right": {
-                    "type": "identifier",
-                    "value": "char",
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 81,
-                      "column": 17
-                    }
-                  },
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 81,
-                    "column": 5
-                  }
-                },
-                "location": {
-                  "file": "./integration_tests/huffman.js",
-                  "line": 81,
-                  "column": 5
-                }
-              },
-              {
-                "type": "expression",
-                "expression": {
-                  "type": "assignment",
-                  "operator": "=",
-                  "left": {
-                    "type": "pattern_member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "this",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 82,
-                        "column": 5
-                      }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "freq",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 82,
-                        "column": 10
-                      }
-                    },
-                    "computed": false,
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 82,
-                      "column": 5
-                    }
-                  },
-                  "right": {
-                    "type": "identifier",
-                    "value": "freq",
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 82,
-                      "column": 17
-                    }
-                  },
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 82,
-                    "column": 5
-                  }
-                },
-                "location": {
-                  "file": "./integration_tests/huffman.js",
-                  "line": 82,
-                  "column": 5
-                }
-              },
-              {
-                "type": "expression",
-                "expression": {
-                  "type": "assignment",
-                  "operator": "=",
-                  "left": {
-                    "type": "pattern_member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "this",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
                         "line": 83,
                         "column": 5
                       }
                     },
                     "property": {
                       "type": "identifier",
-                      "value": "left",
+                      "value": "char",
                       "location": {
                         "file": "./integration_tests/huffman.js",
                         "line": 83,
@@ -2638,7 +2532,7 @@
                   },
                   "right": {
                     "type": "identifier",
-                    "value": "left",
+                    "value": "char",
                     "location": {
                       "file": "./integration_tests/huffman.js",
                       "line": 83,
@@ -2675,7 +2569,7 @@
                     },
                     "property": {
                       "type": "identifier",
-                      "value": "right",
+                      "value": "freq",
                       "location": {
                         "file": "./integration_tests/huffman.js",
                         "line": 84,
@@ -2691,11 +2585,11 @@
                   },
                   "right": {
                     "type": "identifier",
-                    "value": "right",
+                    "value": "freq",
                     "location": {
                       "file": "./integration_tests/huffman.js",
                       "line": 84,
-                      "column": 18
+                      "column": 17
                     }
                   },
                   "location": {
@@ -2709,11 +2603,117 @@
                   "line": 84,
                   "column": 5
                 }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "pattern_member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 85,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "left",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 85,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/huffman.js",
+                      "line": 85,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "left",
+                    "location": {
+                      "file": "./integration_tests/huffman.js",
+                      "line": 85,
+                      "column": 17
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 85,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/huffman.js",
+                  "line": 85,
+                  "column": 5
+                }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "pattern_member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 86,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "right",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 86,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/huffman.js",
+                      "line": 86,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "right",
+                    "location": {
+                      "file": "./integration_tests/huffman.js",
+                      "line": 86,
+                      "column": 18
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 86,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/huffman.js",
+                  "line": 86,
+                  "column": 5
+                }
               }
             ],
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 80,
+              "line": 82,
               "column": 40
             }
           },
@@ -2722,7 +2722,7 @@
       ],
       "location": {
         "file": "./integration_tests/huffman.js",
-        "line": 79,
+        "line": 81,
         "column": 1
       }
     },
@@ -2736,7 +2736,7 @@
             "name": "node",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 88,
+              "line": 90,
               "column": 23
             }
           },
@@ -2748,7 +2748,7 @@
             "name": "code",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 88,
+              "line": 90,
               "column": 29
             }
           },
@@ -2760,7 +2760,7 @@
             "name": "huffmanCode",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 88,
+              "line": 90,
               "column": 35
             }
           },
@@ -2779,7 +2779,7 @@
                 "value": "node",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 89,
+                  "line": 91,
                   "column": 7
                 }
               },
@@ -2788,14 +2788,14 @@
                 "value": "char",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 89,
+                  "line": 91,
                   "column": 12
                 }
               },
               "computed": false,
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 89,
+                "line": 91,
                 "column": 7
               }
             },
@@ -2814,7 +2814,7 @@
                         "value": "huffmanCode",
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 90,
+                          "line": 92,
                           "column": 5
                         }
                       },
@@ -2825,7 +2825,7 @@
                           "value": "node",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 90,
+                            "line": 92,
                             "column": 17
                           }
                         },
@@ -2834,21 +2834,21 @@
                           "value": "char",
                           "location": {
                             "file": "./integration_tests/huffman.js",
-                            "line": 90,
+                            "line": 92,
                             "column": 22
                           }
                         },
                         "computed": false,
                         "location": {
                           "file": "./integration_tests/huffman.js",
-                          "line": 90,
+                          "line": 92,
                           "column": 17
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 90,
+                        "line": 92,
                         "column": 5
                       }
                     },
@@ -2857,19 +2857,19 @@
                       "value": "code",
                       "location": {
                         "file": "./integration_tests/huffman.js",
-                        "line": 90,
+                        "line": 92,
                         "column": 30
                       }
                     },
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 90,
+                      "line": 92,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 90,
+                    "line": 92,
                     "column": 5
                   }
                 },
@@ -2877,20 +2877,20 @@
                   "type": "return",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 91,
+                    "line": 93,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 89,
+                "line": 91,
                 "column": 18
               }
             },
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 89,
+              "line": 91,
               "column": 3
             }
           },
@@ -2903,7 +2903,7 @@
                 "value": "generateCode",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 93,
+                  "line": 95,
                   "column": 3
                 }
               },
@@ -2915,7 +2915,7 @@
                     "value": "node",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 93,
+                      "line": 95,
                       "column": 16
                     }
                   },
@@ -2924,14 +2924,14 @@
                     "value": "left",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 93,
+                      "line": 95,
                       "column": 21
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 93,
+                    "line": 95,
                     "column": 16
                   }
                 },
@@ -2943,7 +2943,7 @@
                     "value": "code",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 93,
+                      "line": 95,
                       "column": 27
                     }
                   },
@@ -2952,13 +2952,13 @@
                     "value": "0",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 93,
+                      "line": 95,
                       "column": 34
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 93,
+                    "line": 95,
                     "column": 32
                   }
                 },
@@ -2967,20 +2967,20 @@
                   "value": "huffmanCode",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 93,
+                    "line": 95,
                     "column": 39
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 93,
+                "line": 95,
                 "column": 15
               }
             },
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 93,
+              "line": 95,
               "column": 3
             }
           },
@@ -2993,7 +2993,7 @@
                 "value": "generateCode",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 94,
+                  "line": 96,
                   "column": 3
                 }
               },
@@ -3005,7 +3005,7 @@
                     "value": "node",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 94,
+                      "line": 96,
                       "column": 16
                     }
                   },
@@ -3014,14 +3014,14 @@
                     "value": "right",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 94,
+                      "line": 96,
                       "column": 21
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 94,
+                    "line": 96,
                     "column": 16
                   }
                 },
@@ -3033,7 +3033,7 @@
                     "value": "code",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 94,
+                      "line": 96,
                       "column": 28
                     }
                   },
@@ -3042,13 +3042,13 @@
                     "value": "1",
                     "location": {
                       "file": "./integration_tests/huffman.js",
-                      "line": 94,
+                      "line": 96,
                       "column": 35
                     }
                   },
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 94,
+                    "line": 96,
                     "column": 33
                   }
                 },
@@ -3057,33 +3057,33 @@
                   "value": "huffmanCode",
                   "location": {
                     "file": "./integration_tests/huffman.js",
-                    "line": 94,
+                    "line": 96,
                     "column": 40
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 94,
+                "line": 96,
                 "column": 15
               }
             },
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 94,
+              "line": 96,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/huffman.js",
-          "line": 88,
+          "line": 90,
           "column": 48
         }
       },
       "location": {
         "file": "./integration_tests/huffman.js",
-        "line": 88,
+        "line": 90,
         "column": 1
       }
     },
@@ -3098,7 +3098,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 97,
+              "line": 99,
               "column": 1
             }
           },
@@ -3107,14 +3107,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 97,
+              "line": 99,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/huffman.js",
-            "line": 97,
+            "line": 99,
             "column": 1
           }
         },
@@ -3126,7 +3126,7 @@
               "value": "huffmanEncoding",
               "location": {
                 "file": "./integration_tests/huffman.js",
-                "line": 97,
+                "line": 99,
                 "column": 13
               }
             },
@@ -3136,27 +3136,27 @@
                 "value": "aaaaabbbcccc",
                 "location": {
                   "file": "./integration_tests/huffman.js",
-                  "line": 97,
+                  "line": 99,
                   "column": 29
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/huffman.js",
-              "line": 97,
+              "line": 99,
               "column": 28
             }
           }
         ],
         "location": {
           "file": "./integration_tests/huffman.js",
-          "line": 97,
+          "line": 99,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/huffman.js",
-        "line": 97,
+        "line": 99,
         "column": 1
       }
     }

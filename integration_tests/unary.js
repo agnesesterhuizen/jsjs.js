@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 // Logical NOT operator (!)
 console.log(!true); // false
 console.log(!false); // true
