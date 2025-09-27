@@ -566,6 +566,9 @@ export class Interpreter {
 
         return this.runtime.newString(pieces.join(""));
       }
+      case "regex": {
+        return this.runtime.newRegExp(expression.pattern, expression.flags);
+      }
       case "boolean":
         return this.runtime.newBoolean(expression.value);
       case "null":

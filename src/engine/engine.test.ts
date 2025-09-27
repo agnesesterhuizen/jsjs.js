@@ -74,3 +74,28 @@ second line\`;
   assertEquals(logs[3], ["outer inner 5"]);
   assertEquals(logs[4], ["backtick: `"]);
 });
+
+Deno.test("interpreter: regex literals", () => {
+  const src = `
+    const re = /ab+/g;
+    console.log(re.test("abbb"));
+    console.log(re.test("ac"));
+    const match = re.exec("xabab");
+    console.log(match[0]);
+    console.log(re.lastIndex);
+    console.log(re.source);
+    console.log(re.flags);
+    console.log(re.toString());
+  `;
+
+  const { logs } = run(src);
+
+  assertEquals(logs.length, 7);
+  assertEquals(logs[0], ["true"]);
+  assertEquals(logs[1], ["false"]);
+  assertEquals(logs[2], ["ab"]);
+  assertEquals(logs[3], ["3"]);
+  assertEquals(logs[4], ["ab+"]);
+  assertEquals(logs[5], ["g"]);
+  assertEquals(logs[6], ["/ab+/g"]);
+});

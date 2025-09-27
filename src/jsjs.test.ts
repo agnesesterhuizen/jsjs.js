@@ -80,6 +80,20 @@ Deno.test("parser: expressions", async (t) => {
       ],
     })
   );
+  await t.step("parses regex literal", () =>
+    textExpression("/abc/;", {
+      type: "regex",
+      pattern: "abc",
+      flags: "",
+    })
+  );
+  await t.step("parses regex literal with flags", () =>
+    textExpression("/a+/gi;", {
+      type: "regex",
+      pattern: "a+",
+      flags: "gi",
+    })
+  );
   await t.step("parses boolean literal: true", () =>
     textExpression("true;", { type: "boolean", value: true })
   );
@@ -836,6 +850,26 @@ Deno.test("parser:statement", async (t) => {
         ],
       },
       elseBody: undefined,
+    });
+  });
+  await t.step("parses if statement with regex literal", () => {
+    testStatement('if (true) /abc/.test("abc");', {
+      type: "if",
+      condition: { type: "boolean", value: true },
+      ifBody: {
+        type: "expression",
+        expression: {
+          type: "call",
+          func: {
+            type: "member",
+            object: {
+              type: "regex",
+              pattern: "abc",
+              flags: "",
+            },
+          },
+        },
+      },
     });
   });
   await t.step("parses if/else statement", () => {

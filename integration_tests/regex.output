@@ -1,0 +1,18 @@
+hello world
+world
+11
+hello there
+there
+11
+no-match
+hello regex
+regex
+11
+hello (\w+)
+g
+/hello (\w+)/g
+true
+false
+/[-\/\\^$*+?.()|[\]{}]/g
+[-\/\\^$*+?.()|[\]{}]
+g

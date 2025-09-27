@@ -7,6 +7,7 @@ type ObjectType =
   | "null"
   | "number"
   | "object"
+  | "regex"
   | "string"
   | "undefined";
 
@@ -150,5 +151,28 @@ export class JSFunction extends JSObject {
 
   typeof() {
     return "function";
+  }
+}
+
+export class JSRegExp extends JSObject {
+  type: ObjectType = "regex";
+  pattern: string;
+  flags: string;
+  value: RegExp;
+  lastIndex = 0;
+
+  constructor(pattern: string, flags: string) {
+    super();
+    this.pattern = pattern;
+    this.flags = flags;
+    this.value = new RegExp(pattern, flags);
+  }
+
+  toString() {
+    return `/${this.pattern}/${this.flags}`;
+  }
+
+  typeof() {
+    return "object";
   }
 }

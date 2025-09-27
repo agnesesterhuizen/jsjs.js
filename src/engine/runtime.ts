@@ -8,6 +8,7 @@ import { createArrayPrototype } from "./intrinsics/prototype/Array.ts";
 import { createFunctionPrototype } from "./intrinsics/prototype/Function.ts";
 import { createObjectPrototype } from "./intrinsics/prototype/Object.ts";
 import { createStringPrototype } from "./intrinsics/prototype/String.ts";
+import { createRegExpPrototype } from "./intrinsics/prototype/RegExp.ts";
 import {
   JSObject,
   JSUndefined,
@@ -18,6 +19,7 @@ import {
   BuiltInFunction,
   JSArray,
   JSNull,
+  JSRegExp,
 } from "./objects.ts";
 
 type Binding = {
@@ -68,6 +70,10 @@ export class Runtime {
     // string
     const stringPrototype = createStringPrototype(this);
     this.intrinsics["StringPrototype"] = stringPrototype;
+
+    // regexp
+    const regExpPrototype = createRegExpPrototype(this);
+    this.intrinsics["RegExpPrototype"] = regExpPrototype;
 
     // other
     const mathConstructor = createMathConstructor(this);
@@ -175,6 +181,40 @@ export class Runtime {
     array.elements = elements;
     array.prototype = this.intrinsics["ArrayPrototype"] as JSObject;
     return array;
+  }
+
+  newRegExp(pattern: string, flags: string): JSRegExp {
+    const regexp = new JSRegExp(pattern, flags);
+    const regexPrototype = this.intrinsics["RegExpPrototype"] as
+      | JSObject
+      | undefined;
+
+    if (regexPrototype) {
+      regexp.prototype = regexPrototype;
+    } else {
+      const objectPrototype = this.intrinsics["ObjectPrototype"] as JSObject;
+      regexp.prototype = objectPrototype;
+    }
+
+    this.setProperty(regexp, "lastIndex", this.newNumber(regexp.lastIndex));
+
+    const setBooleanProperty = (name: string, value: boolean) => {
+      this.setProperty(regexp, name, this.newBoolean(value));
+    };
+
+    this.setProperty(regexp, "source", this.newString(pattern));
+    this.setProperty(regexp, "flags", this.newString(flags));
+    setBooleanProperty("global", regexp.value.global);
+    setBooleanProperty("ignoreCase", regexp.value.ignoreCase);
+    setBooleanProperty("multiline", regexp.value.multiline);
+    setBooleanProperty(
+      "dotAll",
+      (regexp.value as RegExp & { dotAll?: boolean }).dotAll ?? false
+    );
+    setBooleanProperty("unicode", regexp.value.unicode);
+    setBooleanProperty("sticky", regexp.value.sticky);
+
+    return regexp;
   }
 
   //#endregion type factories
@@ -331,6 +371,15 @@ export class Runtime {
       if (!isNaN(n)) {
         arr.elements[n] = value;
         return value;
+      }
+    }
+
+    if (object.type === "regex" && property === "lastIndex") {
+      const regex = object as JSRegExp;
+      if (value.type === "number") {
+        const num = value as JSNumber;
+        regex.lastIndex = num.value;
+        regex.value.lastIndex = num.value;
       }
     }
 

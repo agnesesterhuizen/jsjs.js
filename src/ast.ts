@@ -121,6 +121,11 @@ export type Expression = WithLocation<
       quasis: string[];
       expressions: Expression[];
     }
+  | {
+      type: "regex";
+      pattern: string;
+      flags: string;
+    }
   | { type: "boolean"; value: boolean }
   | { type: "identifier"; value: string }
   | { type: "null" }

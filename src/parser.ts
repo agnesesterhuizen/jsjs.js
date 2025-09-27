@@ -714,6 +714,16 @@ export class Parser {
         break;
       }
 
+      case "regex": {
+        const pattern = token.value;
+        const flags = (token as Token & { regexFlags?: string }).regexFlags ?? "";
+        left = withLocation(
+          { type: "regex", pattern, flags },
+          token
+        );
+        break;
+      }
+
       case "template_start": {
         left = this.parseTemplateLiteral(token);
         break;
@@ -1542,6 +1552,7 @@ export class Parser {
       case "number":
       case "string":
       case "identifier":
+      case "regex":
       case "left_paren":
       case "left_bracket":
       case "template_start":
