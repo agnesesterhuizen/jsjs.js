@@ -38,6 +38,16 @@ console.log(-false); // -0
 console.log(-null); // -0
 console.log(-undefined); // NaN
 
+// void
+console.log("void 123 = ", void 123); // undefined
+console.log("void 'hello' = ", void "hello"); // undefined
+console.log("void true = ", void true); // undefined
+console.log("void null = ", void null); // undefined
+console.log("void undefined = ", void undefined); // undefined
+console.log("void {} = ", void {}); // undefined
+console.log("void [1, 2, 3] = ", void [1, 2, 3]); // undefined
+console.log("void function() {} = ", void function () {}); // undefined
+
 // Complex expressions
 console.log(!!42); // true
 console.log(typeof typeof 42); // "string"

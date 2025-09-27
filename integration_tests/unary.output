@@ -28,6 +28,14 @@ NaN
 0
 0
 NaN
+void 123 =  undefined
+void 'hello' =  undefined
+void true =  undefined
+void null =  undefined
+void undefined =  undefined
+void {} =  undefined
+void [1, 2, 3] =  undefined
+void function() {} =  undefined
 true
 string
 42

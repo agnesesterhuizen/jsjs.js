@@ -779,6 +779,12 @@ export class Interpreter {
           return this.runtime.newString(operand.typeof());
         }
 
+        if (expression.operator === "void") {
+          // evaluate the expression, return undefined
+          this.executeExpression(expression.expression);
+          return this.runtime.newUndefined();
+        }
+
         if (expression.operator === "+") {
           const operand = this.executeExpression(expression.expression);
           const numberVal = this.runtime.toNumber(operand, expression);

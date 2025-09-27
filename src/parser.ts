@@ -724,8 +724,12 @@ export class Parser {
 
     let operator: UnaryOperator;
 
-    if (token.type === "keyword" && token.value === "typeof") {
-      operator = "typeof";
+    if (token.type === "keyword") {
+      if (token.value === "typeof") {
+        operator = "typeof";
+      } else if (token.value === "void") {
+        operator = "void";
+      }
     } else if (token.type === "not") {
       operator = "!";
     } else if (token.type === "plus") {
@@ -815,7 +819,7 @@ export class Parser {
             break;
           }
 
-          if (token.value === "typeof") {
+          if (token.value === "typeof" || token.value === "void") {
             this.backup();
             left = this.parseUnaryExpression();
             break;
@@ -1828,7 +1832,8 @@ export class Parser {
           token.value === "new" ||
           token.value === "null" ||
           token.value === "super" ||
-          token.value === "typeof"
+          token.value === "typeof" ||
+          token.value === "void"
         ) {
           return this.parseExpressionStatement(allowComma);
         }

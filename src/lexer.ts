@@ -59,6 +59,7 @@ const keywordTypes = keywords({
     "try",
     "typeof",
     "var",
+    "void",
     "while",
   ],
 });
