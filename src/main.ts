@@ -1,5 +1,5 @@
 import { JSJS } from "./jsjs.ts";
-import { parseArgs } from "jsr:@std/cli/parse-args";
+import { parseArgs } from "@std/cli/parse-args";
 import { Lexer } from "./lexer.ts";
 import { Parser } from "./parser.ts";
 
