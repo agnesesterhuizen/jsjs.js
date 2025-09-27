@@ -1,0 +1,149 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "identifier": "x",
+          "value": {
+            "type": "number",
+            "value": 42,
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 5,
+              "column": 11
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/comments.js",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "identifier": "y",
+          "value": {
+            "type": "string",
+            "value": "hello",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 8,
+              "column": 43
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/comments.js",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "identifier": "z",
+          "value": {
+            "type": "boolean",
+            "value": true,
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 15,
+              "column": 11
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/comments.js",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 18,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 18,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/comments.js",
+            "line": 18,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "identifier",
+            "value": "x",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 18,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "y",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 18,
+              "column": 16
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "z",
+            "location": {
+              "file": "./integration_tests/comments.js",
+              "line": 18,
+              "column": 19
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/comments.js",
+          "line": 18,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/comments.js",
+        "line": 18,
+        "column": 1
+      }
+    }
+  ]
+}

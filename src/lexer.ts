@@ -76,7 +76,7 @@ const commonRules = {
   right_paren: ")",
   left_bracket: "[",
   right_bracket: "]",
-  comment: /\/\/.*/,
+  comment: [{ match: /\/\*[\s\S]*?\*\//, lineBreaks: true }, /\/\/.*/],
   comma: ",",
   increment: "++",
   plus_equals: "+=",
@@ -152,7 +152,8 @@ const templateExpressionNestedRules = {
 type MainTokenType = keyof typeof mainRules;
 type TemplateTokenType = keyof typeof templateRules;
 type TemplateExpressionTokenType = keyof typeof templateExpressionRules;
-type TemplateExpressionNestedTokenType = keyof typeof templateExpressionNestedRules;
+type TemplateExpressionNestedTokenType =
+  keyof typeof templateExpressionNestedRules;
 
 export type TokenType =
   | MainTokenType
@@ -169,8 +170,21 @@ export type Token = MooToken & {
 
 type ParenContext = "control" | "normal";
 
-const CONTROL_KEYWORDS = new Set(["if", "while", "for", "with", "switch", "catch"]);
-const KEYWORDS_ENDING_EXPRESSION = new Set(["true", "false", "null", "this", "super"]);
+const CONTROL_KEYWORDS = new Set([
+  "if",
+  "while",
+  "for",
+  "with",
+  "switch",
+  "catch",
+]);
+const KEYWORDS_ENDING_EXPRESSION = new Set([
+  "true",
+  "false",
+  "null",
+  "this",
+  "super",
+]);
 const KEYWORDS_ALLOW_REGEX = new Set([
   "return",
   "case",
@@ -228,14 +242,12 @@ const TOKEN_TYPES_ALLOW_REGEX = new Set([
 ]);
 
 export class Lexer {
-  lexer = states(
-    {
-      main: mainRules,
-      template: templateRules,
-      template_expression: templateExpressionRules,
-      template_expression_nested: templateExpressionNestedRules,
-    } as MooStates
-  );
+  lexer = states({
+    main: mainRules,
+    template: templateRules,
+    template_expression: templateExpressionRules,
+    template_expression_nested: templateExpressionNestedRules,
+  } as MooStates);
 
   run(filename: string, src: string): Token[] {
     this.lexer.reset(src);
@@ -270,7 +282,10 @@ export class Lexer {
           processed.push(token);
           canRegex = false;
 
-          while (i + 1 < rawTokens.length && rawTokens[i + 1].offset < scanned.end) {
+          while (
+            i + 1 < rawTokens.length &&
+            rawTokens[i + 1].offset < scanned.end
+          ) {
             i++;
           }
 

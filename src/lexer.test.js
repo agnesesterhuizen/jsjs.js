@@ -37,6 +37,92 @@ Deno.test("correctly lexes identifier that starts with keyword", () => {
   });
 });
 
+Deno.test("correctly lexes single-line comments", () => {
+  const lexer = new Lexer();
+  const src = `// this is a comment
+const x = 1;`;
+
+  const tokens = lexer.run("", src);
+
+  assertEquals(tokens.length, 5);
+  assertObjectMatch(tokens[0], {
+    type: "keyword",
+    value: "const",
+  });
+});
+
+Deno.test("correctly lexes basic multi-line comments", () => {
+  const lexer = new Lexer();
+  const src = `/* this is a
+multi-line comment */
+const x = 1;`;
+
+  const tokens = lexer.run("", src);
+
+  assertEquals(tokens.length, 5);
+  assertObjectMatch(tokens[0], {
+    type: "keyword",
+    value: "const",
+  });
+});
+
+Deno.test(
+  "correctly handles multi-line comments with special characters",
+  () => {
+    const lexer = new Lexer();
+    const src = `/* comment /
+/
+comment
+*/
+let y = 2;`;
+
+    const tokens = lexer.run("", src);
+
+    assertEquals(tokens.length, 5);
+    assertObjectMatch(tokens[0], {
+      type: "keyword",
+      value: "let",
+    });
+  }
+);
+
+Deno.test("correctly handles multiple comments", () => {
+  const lexer = new Lexer();
+  const src = `// single line comment
+/* multi-line
+   comment */
+const x = /* inline comment */ 5;`;
+
+  const tokens = lexer.run("", src);
+
+  assertEquals(tokens.length, 5);
+  assertObjectMatch(tokens[0], {
+    type: "keyword",
+    value: "const",
+  });
+  assertObjectMatch(tokens[2], {
+    type: "equals",
+    value: "=",
+  });
+  assertObjectMatch(tokens[3], {
+    type: "number",
+    value: "5",
+  });
+});
+
+Deno.test("correctly handles comments inside strings", () => {
+  const lexer = new Lexer();
+  const src = `const str = "This /* is not a comment */";`;
+
+  const tokens = lexer.run("", src);
+
+  assertEquals(tokens.length, 5); // const, str, =, string, ;
+  assertObjectMatch(tokens[3], {
+    type: "string",
+    value: "This /* is not a comment */",
+  });
+});
+
 Deno.test("strings with lexable characters in them", () => {
   const lexer = new Lexer();
   const src = `"join(','):"`;
@@ -55,19 +141,19 @@ Deno.test("lexes arithmetic assignment operators", () => {
 
   const tokens = lexer.run("", src);
 
-  assertEquals(tokens.map((t) => t.type), [
-    "plus_equals",
-    "minus_equals",
-    "multiply_equals",
-    "divide_equals",
-  ]);
+  assertEquals(
+    tokens.map((t) => t.type),
+    ["plus_equals", "minus_equals", "multiply_equals", "divide_equals"]
+  );
 });
 
 Deno.test("lexes regex literal", () => {
   const lexer = new Lexer();
   const src = `if (true) /abc/g;`;
 
-  const tokens = lexer.run("", src).filter((t) => t.type !== "keyword" || t.value !== "if");
+  const tokens = lexer
+    .run("", src)
+    .filter((t) => t.type !== "keyword" || t.value !== "if");
 
   const regexToken = tokens.find((t) => t.type === "regex");
 
@@ -84,12 +170,10 @@ Deno.test("does not mistake division for regex", () => {
 
   const tokens = lexer.run("", src);
 
-  assertEquals(tokens.map((t) => t.type), [
-    "identifier",
-    "divide",
-    "identifier",
-    "semicolon",
-  ]);
+  assertEquals(
+    tokens.map((t) => t.type),
+    ["identifier", "divide", "identifier", "semicolon"]
+  );
 });
 
 Deno.test("lexes regex literal with character classes and escapes", () => {
