@@ -1,4 +1,5 @@
 import {
+  AssignmentOperator,
   ClassMethodDeclaration,
   ClassPropertyDeclaration,
   Expression,
@@ -56,6 +57,16 @@ function withLocation<T extends { type: string }>(
     },
   };
 }
+
+const ASSIGNMENT_TOKEN_TO_OPERATOR: Partial<
+  Record<TokenType, AssignmentOperator>
+> = {
+  equals: "=",
+  plus_equals: "+=",
+  minus_equals: "-=",
+  multiply_equals: "*=",
+  divide_equals: "/=",
+};
 
 export class Parser {
   index = 0;
@@ -616,20 +627,25 @@ export class Parser {
       }
     }
 
-    if (this.peekNextToken()?.type === "equals") {
-      this.nextToken();
+    const assignmentToken = this.peekNextToken();
 
-      const value = this.parseExpression();
+    if (assignmentToken) {
+      const operator = ASSIGNMENT_TOKEN_TO_OPERATOR[assignmentToken.type];
+      if (operator) {
+        this.nextToken();
 
-      return withLocation(
-        {
-          type: "assignment",
-          operator: "=",
-          left,
-          right: value,
-        },
-        token
-      );
+        const value = this.parseExpression();
+
+        return withLocation(
+          {
+            type: "assignment",
+            operator,
+            left,
+            right: value,
+          },
+          token
+        );
+      }
     }
 
     return left;

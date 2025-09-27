@@ -1,0 +1,5 @@
+total += 3: 8
+difference -= 4: 6
+product *= 6: 12
+quotient /= 3: 8
+chain result: 6

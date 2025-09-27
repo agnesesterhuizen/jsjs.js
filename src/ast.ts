@@ -44,6 +44,8 @@ export const TOKEN_TO_OPERATOR: Partial<Record<TokenType, Operator>> = {
   logical_and: "&",
 };
 
+export type AssignmentOperator = "=" | "+=" | "-=" | "*=" | "/=";
+
 export const getOperatorFromToken = (token: Token): Operator => {
   const op = TOKEN_TO_OPERATOR[token.type];
   if (!op) {
@@ -121,7 +123,7 @@ export type Expression = WithLocation<
     }
   | {
       type: "assignment";
-      operator: "=";
+      operator: AssignmentOperator;
       left: Expression;
       right: Expression;
     }

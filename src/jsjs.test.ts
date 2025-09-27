@@ -112,6 +112,38 @@ Deno.test("parser: expressions", async (t) => {
       right: { type: "number", value: 123 },
     })
   );
+  await t.step("parses arithmetic assignment expression - plus", () =>
+    textExpression("x += 5;", {
+      type: "assignment",
+      operator: "+=",
+      left: { type: "identifier", value: "x" },
+      right: { type: "number", value: 5 },
+    })
+  );
+  await t.step("parses arithmetic assignment expression - minus", () =>
+    textExpression("y -= 2;", {
+      type: "assignment",
+      operator: "-=",
+      left: { type: "identifier", value: "y" },
+      right: { type: "number", value: 2 },
+    })
+  );
+  await t.step("parses arithmetic assignment expression - multiply", () =>
+    textExpression("value *= 10;", {
+      type: "assignment",
+      operator: "*=",
+      left: { type: "identifier", value: "value" },
+      right: { type: "number", value: 10 },
+    })
+  );
+  await t.step("parses arithmetic assignment expression - divide", () =>
+    textExpression("total /= 2;", {
+      type: "assignment",
+      operator: "/=",
+      left: { type: "identifier", value: "total" },
+      right: { type: "number", value: 2 },
+    })
+  );
   await t.step("parses member expression", () =>
     textExpression("a.b;", {
       type: "member",

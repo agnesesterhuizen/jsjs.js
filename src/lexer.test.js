@@ -1,4 +1,4 @@
-import { assertObjectMatch } from "jsr:@std/assert";
+import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
 import { Lexer } from "./lexer.ts";
 
 Deno.test("correctly lexes keywords", () => {
@@ -47,4 +47,18 @@ Deno.test("strings with lexable characters in them", () => {
     type: "string",
     value: "join(','):",
   });
+});
+
+Deno.test("lexes arithmetic assignment operators", () => {
+  const lexer = new Lexer();
+  const src = "+= -= *= /=";
+
+  const tokens = lexer.run("", src);
+
+  assertEquals(tokens.map((t) => t.type), [
+    "plus_equals",
+    "minus_equals",
+    "multiply_equals",
+    "divide_equals",
+  ]);
 });

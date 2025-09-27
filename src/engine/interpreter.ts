@@ -1,4 +1,11 @@
-import { Expression, Operator, Program, Statement, Location } from "../ast.ts";
+import {
+  AssignmentOperator,
+  Expression,
+  Operator,
+  Program,
+  Statement,
+  Location,
+} from "../ast.ts";
 import {
   JSBoolean,
   JSFunction,
@@ -350,6 +357,123 @@ export class Interpreter {
     );
   }
 
+  applyAssignmentOperator(
+    operator: AssignmentOperator,
+    current: JSObject,
+    value: JSObject,
+    expression: Extract<Expression, { type: "assignment" }>
+  ): JSObject {
+    switch (operator) {
+      case "=":
+        return value;
+      case "+=": {
+        if (current.type === "string" || value.type === "string") {
+          return this.runtime.newString(current.toString() + value.toString());
+        }
+        if (current.type === "number" && value.type === "number") {
+          return this.runtime.newNumber(
+            (current as JSNumber).value + (value as JSNumber).value
+          );
+        }
+        break;
+      }
+      case "-=":
+        if (current.type === "number" && value.type === "number") {
+          return this.runtime.newNumber(
+            (current as JSNumber).value - (value as JSNumber).value
+          );
+        }
+        break;
+      case "*=":
+        if (current.type === "number" && value.type === "number") {
+          return this.runtime.newNumber(
+            (current as JSNumber).value * (value as JSNumber).value
+          );
+        }
+        break;
+      case "/=":
+        if (current.type === "number" && value.type === "number") {
+          return this.runtime.newNumber(
+            (current as JSNumber).value / (value as JSNumber).value
+          );
+        }
+        break;
+    }
+
+    throw todo(
+      `assignment operator ${operator} with ${current.type} and ${value.type}`,
+      expression
+    );
+  }
+
+  executeAssignmentExpression(
+    expression: Extract<Expression, { type: "assignment" }>
+  ) {
+    const rightValue = this.executeExpression(expression.right);
+
+    if (expression.left.type === "identifier") {
+      if (expression.operator === "=") {
+        this.runtime.setVariable(expression.left.value, rightValue);
+        return rightValue;
+      }
+
+      const currentValue = this.runtime.lookupVariable(expression.left.value);
+      const newValue = this.applyAssignmentOperator(
+        expression.operator,
+        currentValue,
+        rightValue,
+        expression
+      );
+      this.runtime.setVariable(expression.left.value, newValue);
+      return newValue;
+    }
+
+    if (expression.left.type === "member") {
+      const memberExpression = expression.left;
+      const object = this.executeExpression(memberExpression.object);
+
+      if (object.type === "undefined" || object.type === "null") {
+        throw typeError("Cannot set properties of " + object.type, expression);
+      }
+
+      let propertyName: string;
+
+      if (memberExpression.computed) {
+        const computedProperty = this.executeExpression(
+          memberExpression.property
+        );
+        propertyName = computedProperty.toString();
+      } else {
+        if (memberExpression.property.type !== "identifier") {
+          throw referenceError(
+            "Invalid left-hand side in assignment",
+            expression
+          );
+        }
+
+        propertyName = memberExpression.property.value;
+      }
+
+      if (expression.operator === "=") {
+        this.runtime.setProperty(object, propertyName, rightValue);
+        return rightValue;
+      }
+
+      const currentValue = this.runtime.getProperty(object, propertyName);
+      const newValue = this.applyAssignmentOperator(
+        expression.operator,
+        currentValue,
+        rightValue,
+        expression
+      );
+
+      this.runtime.setProperty(object, propertyName, newValue);
+      return newValue;
+    }
+
+    throw referenceError("Invalid left-hand side in assignment", expression);
+  }
+
   call(thisArg: JSObject, fn: JSFunction, args: JSObject[]): JSObject {
     if (fn.isBuiltIn) {
       const func = fn.builtInFunction;
@@ -485,53 +609,7 @@ export class Interpreter {
       }
 
       case "assignment": {
-        if (expression.operator !== "=") {
-          throw todo("non = assignment", expression);
-        }
-
-        if (expression.left.type === "identifier") {
-          const value = this.executeExpression(expression.right);
-          this.runtime.setVariable(expression.left.value, value);
-          return value;
-        }
-
-        if (expression.left.type === "member") {
-          const memberExpression = expression.left;
-          const object = this.executeExpression(memberExpression.object);
-
-          if (object.type === "undefined" || object.type === "null") {
-            throw typeError(
-              "Cannot set properties of " + object.type,
-              expression
-            );
-          }
-
-          let property: JSObject;
-
-          if (memberExpression.computed) {
-            property = this.executeExpression(memberExpression.property);
-          } else {
-            if (memberExpression.property.type !== "identifier") {
-              throw referenceError(
-                "Invalid left-hand side in assignment",
-                expression
-              );
-            }
-
-            property = this.runtime.newString(memberExpression.property.value);
-          }
-
-          const value = this.executeExpression(expression.right);
-
-          this.runtime.setProperty(object, property.toString(), value);
-
-          return value;
-        }
-
-        throw referenceError(
-          "Invalid left-hand side in assignment",
-          expression
-        );
+        return this.executeAssignmentExpression(expression);
       }
 
       case "binary": {
