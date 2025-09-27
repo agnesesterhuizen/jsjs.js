@@ -590,9 +590,33 @@ export class Interpreter {
         }
       }
 
-      case "not": {
-        const operand = this.executeExpression(expression.expression);
-        return this.runtime.newBoolean(!operand.isTruthy());
+      case "unary": {
+        if (expression.operator === "!") {
+          const operand = this.executeExpression(expression.expression);
+          return this.runtime.newBoolean(!operand.isTruthy());
+        }
+
+        if (expression.operator === "typeof") {
+          if (expression.expression.type === "identifier") {
+            const binding = this.runtime.lookupBinding(
+              expression.expression.value
+            );
+
+            if (binding) {
+              if (binding.initialized) {
+                return this.runtime.newString(binding.value.typeof());
+              } else {
+                return this.runtime.newString("undefined");
+              }
+            }
+          }
+
+          const operand = this.executeExpression(expression.expression);
+
+          return this.runtime.newString(operand.typeof());
+        }
+
+        break;
       }
 
       case "super_call": {

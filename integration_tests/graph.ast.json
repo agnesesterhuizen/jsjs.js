@@ -850,7 +850,8 @@
                           "type": "binary",
                           "operator": "&&",
                           "left": {
-                            "type": "not",
+                            "type": "unary",
+                            "operator": "!",
                             "expression": {
                               "type": "member",
                               "object": {

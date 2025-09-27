@@ -10,6 +10,7 @@ import {
   TOKEN_TO_OPERATOR,
   SwitchCase,
   WithLocation,
+  UnaryOperator,
 } from "./ast.ts";
 import { Token, TokenType } from "./lexer.ts";
 
@@ -33,13 +34,10 @@ const unexpectedToken = (expected: TokenType, actual: Token): ParseError => {
   throw new Error(JSON.stringify(err));
 };
 
-const syntaxError = (token: Token) => {
+const syntaxError = (message: string, token: Token) => {
   const err = {
     type: "syntax_error",
-    message:
-      "const declaration must have initial value" +
-      " in " +
-      `${token.filename}:${token.line}:${token.col}`,
+    message: message + " in " + `${token.filename}:${token.line}:${token.col}`,
   };
 
   throw new Error(JSON.stringify(err));
@@ -288,14 +286,27 @@ export class Parser {
     return false;
   }
 
-  parseNotExpression(): Expression {
-    const token = this.expect("not");
+  parseUnaryExpression(): Expression {
+    const token = this.tokens[this.index];
+
+    let operator: UnaryOperator;
+
+    if (token.type === "keyword" && token.value === "typeof") {
+      operator = "typeof";
+    } else if (token.type === "not") {
+      operator = "!";
+    } else {
+      throw syntaxError(`${token.value} is not an operator`, token);
+    }
+
+    this.index++;
 
     const expression = this.parseExpression(15);
 
     return withLocation(
       {
-        type: "not",
+        type: "unary",
+        operator,
         expression,
       },
       token
@@ -348,6 +359,12 @@ export class Parser {
 
         if (token.value === "null") {
           left = withLocation({ type: "null" }, token);
+          break;
+        }
+
+        if (token.value === "typeof") {
+          this.backup();
+          left = this.parseUnaryExpression();
           break;
         }
 
@@ -452,7 +469,7 @@ export class Parser {
             );
             break;
           } else {
-            throw syntaxError(token);
+            throw syntaxError(`invalid use of super`, token);
           }
         }
 
@@ -480,7 +497,7 @@ export class Parser {
 
       case "not": {
         this.index--;
-        left = this.parseNotExpression();
+        left = this.parseUnaryExpression();
         break;
       }
 
@@ -665,7 +682,8 @@ export class Parser {
     const identifierToken = this.expect("identifier");
 
     if (!this.nextTokenIsType("equals")) {
-      if (keywordToken.value === "const") syntaxError(keywordToken);
+      if (keywordToken.value === "const")
+        syntaxError("const declaration must have initial value", keywordToken);
 
       return withLocation(
         {
@@ -1092,7 +1110,8 @@ export class Parser {
           token.value === "false" ||
           token.value === "new" ||
           token.value === "null" ||
-          token.value === "super"
+          token.value === "super" ||
+          token.value === "typeof"
         ) {
           return this.parseExpressionStatement();
         }

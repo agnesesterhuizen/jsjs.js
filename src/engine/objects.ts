@@ -29,6 +29,10 @@ export class JSObject {
   isTruthy() {
     return true;
   }
+
+  typeof() {
+    return "object";
+  }
 }
 
 export class JSUndefined extends JSObject {
@@ -40,6 +44,10 @@ export class JSUndefined extends JSObject {
 
   isTruthy() {
     return false;
+  }
+
+  typeof() {
+    return "undefined";
   }
 }
 
@@ -66,6 +74,10 @@ export class JSNumber extends JSObject {
   isTruthy() {
     return this.value !== 0 && !Number.isNaN(this.value);
   }
+
+  typeof() {
+    return "number";
+  }
 }
 
 export class JSString extends JSObject {
@@ -84,6 +96,10 @@ export class JSString extends JSObject {
   isTruthy() {
     return this.value !== "";
   }
+
+  typeof() {
+    return "string";
+  }
 }
 
 export class JSBoolean extends JSObject {
@@ -96,6 +112,10 @@ export class JSBoolean extends JSObject {
 
   isTruthy() {
     return this.value;
+  }
+
+  typeof() {
+    return "boolean";
   }
 }
 
@@ -126,5 +146,9 @@ export class JSFunction extends JSObject {
 
   toString() {
     return "TODO: function string";
+  }
+
+  typeof() {
+    return "function";
   }
 }

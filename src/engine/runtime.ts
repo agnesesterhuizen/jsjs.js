@@ -246,6 +246,19 @@ export class Runtime {
     }
   }
 
+  lookupBinding(name: string): Binding {
+    let index = this.scope;
+    while (index >= 0) {
+      const scope = this.scopes[index];
+      if (name in scope) {
+        return scope[name];
+      }
+      index--;
+    }
+
+    return null;
+  }
+
   lookupVariable(name: string): JSObject {
     let index = this.scope;
     while (index >= 0) {

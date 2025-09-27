@@ -1894,7 +1894,8 @@
               {
                 "type": "if",
                 "condition": {
-                  "type": "not",
+                  "type": "unary",
+                  "operator": "!",
                   "expression": {
                     "type": "identifier",
                     "value": "added",

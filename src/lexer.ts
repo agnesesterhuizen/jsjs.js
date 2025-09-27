@@ -51,6 +51,7 @@ const rules = {
         "super",
         "switch",
         "true",
+        "typeof",
         "var",
         "while",
       ],

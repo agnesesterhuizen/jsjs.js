@@ -260,8 +260,17 @@ Deno.test("parser: expressions", async (t) => {
 
   await t.step("parses not expression", () =>
     textExpression("!1;", {
-      type: "not",
+      type: "unary",
+      operator: "!",
       expression: { type: "number", value: 1 },
+    })
+  );
+
+  await t.step("parses typeof expression", () =>
+    textExpression("typeof x;", {
+      type: "unary",
+      operator: "typeof",
+      expression: { type: "identifier", value: "x" },
     })
   );
 

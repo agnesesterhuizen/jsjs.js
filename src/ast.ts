@@ -1,5 +1,7 @@
 import { Token, TokenType } from "./lexer.ts";
 
+export type UnaryOperator = "!" | "typeof";
+
 export type Operator =
   | "+"
   | "*"
@@ -108,7 +110,7 @@ export type Expression = WithLocation<
       property: Expression;
       computed: boolean;
     }
-  | { type: "not"; expression: Expression }
+  | { type: "unary"; operator: UnaryOperator; expression: Expression }
   | { type: "binary"; left: Expression; right: Expression; operator: Operator }
   | { type: "call"; func: Expression; arguments: Expression[] }
   | {
