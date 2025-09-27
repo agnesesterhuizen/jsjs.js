@@ -20,6 +20,34 @@ const testStatement = (source: string, statement: any) => {
   assertObjectMatch(ast.body[0], statement);
 };
 
+const identifierPattern = (name: string) => ({
+  type: "pattern_identifier",
+  name,
+});
+
+const parameter = (name: string, overrides: Record<string, unknown> = {}) => ({
+  name,
+  pattern: identifierPattern(name),
+  ...overrides,
+});
+
+const patternProperty = (
+  key: string,
+  overrides: Record<string, unknown> = {}
+) => ({
+  type: "pattern_property",
+  key,
+  value: identifierPattern(key),
+  ...overrides,
+});
+
+const objectPattern = (
+  properties: Record<string, unknown>[]
+) => ({
+  type: "pattern_object",
+  properties,
+});
+
 Deno.test("parser: expressions", async (t) => {
   await t.step("parses expression in parens", () =>
     textExpression("(123);", { type: "number", value: 123 })
@@ -523,7 +551,7 @@ Deno.test("parser: expressions", async (t) => {
     await t.step("parses function expression with single parameter", () =>
       textExpression("(function(a){});", {
         type: "function",
-        parameters: [{ name: "a" }],
+        parameters: [parameter("a")],
         body: {
           type: "block",
           body: [],
@@ -533,7 +561,7 @@ Deno.test("parser: expressions", async (t) => {
     await t.step("parses function expression with parameters", () =>
       textExpression("(function(a,b,c){});", {
         type: "function",
-        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        parameters: ["a", "b", "c"].map((name) => parameter(name)),
         body: {
           type: "block",
           body: [],
@@ -583,7 +611,7 @@ Deno.test("parser: expressions", async (t) => {
     await t.step("parses function expression", () =>
       textExpression('(function(a,b,c){ 123; test; "hello";});', {
         type: "function",
-        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        parameters: ["a", "b", "c"].map((name) => parameter(name)),
         body: {
           type: "block",
           body: [
@@ -636,12 +664,7 @@ Deno.test("parser: expressions", async (t) => {
       () =>
         textExpression("((...a) => {});", {
           type: "function",
-          parameters: [
-            {
-              name: "a",
-              spread: true,
-            },
-          ],
+          parameters: [parameter("a", { spread: true })],
           body: {
             type: "block",
             body: [],
@@ -668,10 +691,30 @@ Deno.test("parser: expressions", async (t) => {
           },
         })
     );
+    await t.step(
+      "parses arrow function expression with destructured parameter",
+      () =>
+        textExpression("((feature, { location }) => location);", {
+          type: "function",
+          parameters: [
+            parameter("feature"),
+            {
+              pattern: objectPattern([patternProperty("location")]),
+            },
+          ],
+          body: {
+            type: "expression",
+            expression: {
+              type: "identifier",
+              value: "location",
+            },
+          },
+        })
+    );
     await t.step("parses function expression with single parameter", () =>
       textExpression("((a) => {});", {
         type: "function",
-        parameters: ["a"].map((name) => ({ name })),
+        parameters: ["a"].map((name) => parameter(name)),
         body: {
           type: "block",
           body: [],
@@ -681,7 +724,7 @@ Deno.test("parser: expressions", async (t) => {
     await t.step("parses function expression with parameters", () =>
       textExpression("((a,b,c) => {});", {
         type: "function",
-        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        parameters: ["a", "b", "c"].map((name) => parameter(name)),
         body: {
           type: "block",
           body: [],
@@ -731,7 +774,7 @@ Deno.test("parser: expressions", async (t) => {
     await t.step("parses function expression", () =>
       textExpression('((a,b,c) => { 123; test; "hello";});', {
         type: "function",
-        parameters: ["a", "b", "c"].map((name) => ({ name })),
+        parameters: ["a", "b", "c"].map((name) => parameter(name)),
         body: {
           type: "block",
           body: [
@@ -877,7 +920,7 @@ Deno.test("parser:statement", async (t) => {
     testStatement("function x(a,b,c) { 123; }", {
       type: "function_declaration",
       identifier: "x",
-      parameters: ["a", "b", "c"].map((name) => ({ name })),
+      parameters: ["a", "b", "c"].map((name) => parameter(name)),
       body: {
         type: "block",
         body: [
@@ -1330,7 +1373,7 @@ Deno.test("parser:statement", async (t) => {
         methods: [
           {
             name: "y",
-            parameters: [{ name: "expression" }],
+            parameters: [parameter("expression")],
             body: {
               type: "block",
               body: [
@@ -1465,7 +1508,7 @@ Deno.test("parser:statement", async (t) => {
       properties: {
         test: {
           type: "function",
-          parameters: [{ name: "a" }, { name: "b" }],
+          parameters: [parameter("a"), parameter("b")],
           body: {
             type: "block",
             body: [
@@ -1717,7 +1760,7 @@ Deno.test("parser:statement", async (t) => {
       methods: [
         {
           name: "y",
-          parameters: ["a", "b", "c"].map((name) => ({ name })),
+          parameters: ["a", "b", "c"].map((name) => parameter(name)),
           body: {
             type: "block",
             body: [],
@@ -1735,7 +1778,7 @@ Deno.test("parser:statement", async (t) => {
       methods: [
         {
           name: "y",
-          parameters: [{ name: "a", spread: true }],
+          parameters: [parameter("a", { spread: true })],
           body: {
             type: "block",
             body: [],
@@ -1796,7 +1839,7 @@ Deno.test("parser:statement", async (t) => {
       methods: [
         {
           name: "y",
-          parameters: ["message"].map((name) => ({ name })),
+          parameters: ["message"].map((name) => parameter(name)),
           body: {
             type: "block",
             body: [
@@ -1880,7 +1923,7 @@ Deno.test("parser:statement", async (t) => {
       methods: [
         {
           name: "y",
-          parameters: ["a", "b", "c"].map((name) => ({ name })),
+          parameters: ["a", "b", "c"].map((name) => parameter(name)),
           body: {
             type: "block",
             body: [],

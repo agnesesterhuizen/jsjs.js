@@ -6,9 +6,27 @@
       "identifier": "dijkstra",
       "parameters": [
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "graph",
+            "location": {
+              "file": "./integration_tests/graph.js",
+              "line": 1,
+              "column": 19
+            }
+          },
           "name": "graph"
         },
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "start",
+            "location": {
+              "file": "./integration_tests/graph.js",
+              "line": 1,
+              "column": 26
+            }
+          },
           "name": "start"
         }
       ],

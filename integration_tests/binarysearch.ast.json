@@ -6,9 +6,27 @@
       "identifier": "binarySearch",
       "parameters": [
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "arr",
+            "location": {
+              "file": "./integration_tests/binarysearch.js",
+              "line": 1,
+              "column": 23
+            }
+          },
           "name": "arr"
         },
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "x",
+            "location": {
+              "file": "./integration_tests/binarysearch.js",
+              "line": 1,
+              "column": 28
+            }
+          },
           "name": "x"
         }
       ],

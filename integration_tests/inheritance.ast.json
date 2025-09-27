@@ -6,6 +6,15 @@
       "identifier": "Animal",
       "parameters": [
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "name",
+            "location": {
+              "file": "./integration_tests/inheritance.js",
+              "line": 1,
+              "column": 17
+            }
+          },
           "name": "name"
         }
       ],
@@ -386,9 +395,27 @@
       "identifier": "Dog",
       "parameters": [
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "name",
+            "location": {
+              "file": "./integration_tests/inheritance.js",
+              "line": 14,
+              "column": 14
+            }
+          },
           "name": "name"
         },
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "breed",
+            "location": {
+              "file": "./integration_tests/inheritance.js",
+              "line": 14,
+              "column": 20
+            }
+          },
           "name": "breed"
         }
       ],

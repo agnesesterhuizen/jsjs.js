@@ -6,6 +6,15 @@
       "identifier": "quickSort",
       "parameters": [
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "arr",
+            "location": {
+              "file": "./integration_tests/quicksort.js",
+              "line": 1,
+              "column": 20
+            }
+          },
           "name": "arr"
         }
       ],

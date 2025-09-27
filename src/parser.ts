@@ -282,7 +282,7 @@ export class Parser {
   parseFunctionExpression(): Expression {
     const token = this.expectWithValue("keyword", "function");
 
-    let identifier: string;
+    let identifier: string | undefined;
 
     if (this.nextTokenIsType("identifier")) {
       const identifierToken = this.expect("identifier");
@@ -829,38 +829,8 @@ export class Parser {
           }
 
           if (token.value === "function") {
-            let identifier: string;
-
-            if (this.peekNextToken()?.type === "identifier") {
-              identifier = this.expect("identifier").value;
-            }
-
-            const parameters: Parameter[] = [];
-
-            this.expect("left_paren");
-
-            while (this.peekNextToken()?.type !== "right_paren") {
-              const param = this.expect("identifier");
-              parameters.push({ name: param.value });
-
-              if (this.peekNextToken()?.type !== "right_paren") {
-                this.expect("comma");
-              }
-            }
-
-            this.expect("right_paren");
-
-            const body = this.parseBlockStatement();
-
-            left = withLocation(
-              {
-                type: "function",
-                identifier: identifier,
-                parameters,
-                body,
-              },
-              token
-            );
+            this.backup();
+            left = this.parseFunctionExpression();
             break;
           }
 
@@ -1724,13 +1694,25 @@ export class Parser {
       if (this.peekNextToken()?.type === "spread") {
         this.expect("spread");
 
-        const identifier = this.expect("identifier");
-        params.push({ name: identifier.value, spread: true });
+        const pattern = this.parseBindingPattern();
+        if (pattern.type !== "pattern_identifier") {
+          syntaxError(
+            "Rest parameter must be an identifier",
+            this.tokens[this.index - 1]
+          );
+        }
+
+        const param: Parameter = { pattern, spread: true };
+        if (pattern.type === "pattern_identifier") {
+          param.name = pattern.name;
+        }
+
+        params.push(param);
         consumedSpread = true;
         break;
       }
 
-      const identifierToken = this.expect("identifier");
+      const pattern = this.parseBindingPattern();
       let defaultValue: Expression | undefined;
 
       if (allowDefaults && this.peekNextToken()?.type === "equals") {
@@ -1738,7 +1720,12 @@ export class Parser {
         defaultValue = this.parseExpression(0, false);
       }
 
-      params.push({ name: identifierToken.value, defaultValue });
+      const param: Parameter = { pattern, defaultValue };
+      if (pattern.type === "pattern_identifier") {
+        param.name = pattern.name;
+      }
+
+      params.push(param);
 
       if (this.peekNextToken()?.type !== "right_paren") {
         this.expect("comma");

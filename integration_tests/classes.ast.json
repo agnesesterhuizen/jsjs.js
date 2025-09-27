@@ -10,6 +10,15 @@
           "name": "constructor",
           "parameters": [
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "name",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 2,
+                  "column": 15
+                }
+              },
               "name": "name"
             }
           ],
@@ -265,9 +274,27 @@
           "name": "constructor",
           "parameters": [
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "name",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 17,
+                  "column": 15
+                }
+              },
               "name": "name"
             },
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "breed",
+                "location": {
+                  "file": "./integration_tests/classes.js",
+                  "line": 17,
+                  "column": 21
+                }
+              },
               "name": "breed"
             }
           ],

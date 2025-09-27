@@ -73,7 +73,8 @@ export const OPERATOR_PRECEDENCE: Record<Operator, number> = {
   "%": 9,
 };
 export type Parameter = {
-  name: string;
+  pattern: Pattern;
+  name?: string;
   spread?: boolean;
   defaultValue?: Expression;
 };

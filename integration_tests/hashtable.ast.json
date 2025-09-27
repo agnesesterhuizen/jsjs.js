@@ -242,9 +242,27 @@
           "name": "put",
           "parameters": [
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "key",
+                "location": {
+                  "file": "./integration_tests/hashtable.js",
+                  "line": 8,
+                  "column": 7
+                }
+              },
               "name": "key"
             },
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "data",
+                "location": {
+                  "file": "./integration_tests/hashtable.js",
+                  "line": 8,
+                  "column": 12
+                }
+              },
               "name": "data"
             }
           ],
@@ -813,6 +831,15 @@
           "name": "get",
           "parameters": [
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "key",
+                "location": {
+                  "file": "./integration_tests/hashtable.js",
+                  "line": 22,
+                  "column": 7
+                }
+              },
               "name": "key"
             }
           ],
@@ -1230,6 +1257,15 @@
           "name": "hashFunction",
           "parameters": [
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "key",
+                "location": {
+                  "file": "./integration_tests/hashtable.js",
+                  "line": 34,
+                  "column": 16
+                }
+              },
               "name": "key"
             }
           ],

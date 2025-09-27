@@ -2447,9 +2447,27 @@
             "type": "function",
             "parameters": [
               {
+                "pattern": {
+                  "type": "pattern_identifier",
+                  "name": "item",
+                  "location": {
+                    "file": "./integration_tests/array.js",
+                    "line": 46,
+                    "column": 32
+                  }
+                },
                 "name": "item"
               },
               {
+                "pattern": {
+                  "type": "pattern_identifier",
+                  "name": "index",
+                  "location": {
+                    "file": "./integration_tests/array.js",
+                    "line": 46,
+                    "column": 38
+                  }
+                },
                 "name": "index"
               }
             ],

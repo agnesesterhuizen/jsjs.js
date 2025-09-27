@@ -712,7 +712,10 @@ export class Interpreter {
         }
 
         const restArray = this.runtime.newArray(restArgs);
-        this.runtime.declareVariable(parameter.name, restArray);
+        this.assignPattern(parameter.pattern, restArray, {
+          kind: "var",
+          declaration: true,
+        });
         continue;
       }
 
@@ -727,7 +730,10 @@ export class Interpreter {
         value = this.executeExpression(parameter.defaultValue);
       }
 
-      this.runtime.declareVariable(parameter.name, value);
+      this.assignPattern(parameter.pattern, value, {
+        kind: "var",
+        declaration: true,
+      });
       argIndex++;
     }
 

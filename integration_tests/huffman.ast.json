@@ -6,6 +6,15 @@
       "identifier": "huffmanEncoding",
       "parameters": [
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "data",
+            "location": {
+              "file": "./integration_tests/huffman.js",
+              "line": 1,
+              "column": 26
+            }
+          },
           "name": "data"
         }
       ],
@@ -1629,6 +1638,15 @@
           "name": "enqueue",
           "parameters": [
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "node",
+                "location": {
+                  "file": "./integration_tests/huffman.js",
+                  "line": 50,
+                  "column": 11
+                }
+              },
               "name": "node"
             }
           ],
@@ -2429,15 +2447,51 @@
           "name": "constructor",
           "parameters": [
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "char",
+                "location": {
+                  "file": "./integration_tests/huffman.js",
+                  "line": 80,
+                  "column": 15
+                }
+              },
               "name": "char"
             },
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "freq",
+                "location": {
+                  "file": "./integration_tests/huffman.js",
+                  "line": 80,
+                  "column": 21
+                }
+              },
               "name": "freq"
             },
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "left",
+                "location": {
+                  "file": "./integration_tests/huffman.js",
+                  "line": 80,
+                  "column": 27
+                }
+              },
               "name": "left"
             },
             {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "right",
+                "location": {
+                  "file": "./integration_tests/huffman.js",
+                  "line": 80,
+                  "column": 33
+                }
+              },
               "name": "right"
             }
           ],
@@ -2677,12 +2731,39 @@
       "identifier": "generateCode",
       "parameters": [
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "node",
+            "location": {
+              "file": "./integration_tests/huffman.js",
+              "line": 88,
+              "column": 23
+            }
+          },
           "name": "node"
         },
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "code",
+            "location": {
+              "file": "./integration_tests/huffman.js",
+              "line": 88,
+              "column": 29
+            }
+          },
           "name": "code"
         },
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "huffmanCode",
+            "location": {
+              "file": "./integration_tests/huffman.js",
+              "line": 88,
+              "column": 35
+            }
+          },
           "name": "huffmanCode"
         }
       ],

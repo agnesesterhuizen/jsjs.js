@@ -6,6 +6,15 @@
       "identifier": "print",
       "parameters": [
         {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "str",
+            "location": {
+              "file": "./integration_tests/gameoflife.js",
+              "line": 4,
+              "column": 16
+            }
+          },
           "name": "str"
         }
       ],
@@ -122,12 +131,39 @@
                 "type": "function",
                 "parameters": [
                   {
+                    "pattern": {
+                      "type": "pattern_identifier",
+                      "name": "turns",
+                      "location": {
+                        "file": "./integration_tests/gameoflife.js",
+                        "line": 9,
+                        "column": 25
+                      }
+                    },
                     "name": "turns"
                   },
                   {
+                    "pattern": {
+                      "type": "pattern_identifier",
+                      "name": "width",
+                      "location": {
+                        "file": "./integration_tests/gameoflife.js",
+                        "line": 9,
+                        "column": 32
+                      }
+                    },
                     "name": "width"
                   },
                   {
+                    "pattern": {
+                      "type": "pattern_identifier",
+                      "name": "height",
+                      "location": {
+                        "file": "./integration_tests/gameoflife.js",
+                        "line": 9,
+                        "column": 39
+                      }
+                    },
                     "name": "height"
                   }
                 ],
