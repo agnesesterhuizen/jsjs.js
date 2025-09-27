@@ -1,0 +1,7 @@
+for-in start
+ownA,ownB,inherited
+ownA
+ownB
+inherited
+3
+ownA!,ownB!,inherited!

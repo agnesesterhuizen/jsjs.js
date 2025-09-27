@@ -988,6 +988,100 @@ export class Interpreter {
         return this.runtime.newUndefined();
       }
 
+      case "for_in": {
+        const rightValue = this.executeExpression(statement.right);
+
+        if (rightValue.type === "undefined" || rightValue.type === "null") {
+          throw typeError(
+            `Cannot iterate over ${rightValue.type}`,
+            statement
+          );
+        }
+
+        const iterableObject = rightValue as JSObject;
+        const keys = this.runtime.enumerateObjectKeys(iterableObject);
+
+        let assign: (value: JSObject) => void;
+
+        if (statement.left.type === "variable_declaration") {
+          const declaration = statement.left;
+          const declarator = declaration.declarations[0];
+
+          this.executeStatement(declaration);
+
+          assign = (value: JSObject) => {
+            this.runtime.setVariable(declarator.identifier, value);
+          };
+        } else {
+          const targetExpression = statement.left as Expression;
+
+          assign = (value: JSObject) => {
+            if (targetExpression.type === "identifier") {
+              this.runtime.setVariable(targetExpression.value, value);
+              return;
+            }
+
+            if (targetExpression.type === "member") {
+              const object = this.executeExpression(targetExpression.object);
+
+              if (object.type === "undefined" || object.type === "null") {
+                throw typeError(
+                  `Cannot set properties of ${object.type}`,
+                  targetExpression
+                );
+              }
+
+              let propertyKey: string | JSSymbol;
+
+              if (targetExpression.computed) {
+                const propertyValue = this.executeExpression(
+                  targetExpression.property
+                );
+
+                if (propertyValue.type === "symbol") {
+                  propertyKey = propertyValue as JSSymbol;
+                } else {
+                  propertyKey = propertyValue.toString();
+                }
+              } else {
+                if (targetExpression.property.type !== "identifier") {
+                  throw referenceError(
+                    "Invalid left-hand side in assignment",
+                    targetExpression
+                  );
+                }
+
+                propertyKey = targetExpression.property.value;
+              }
+
+              this.runtime.setProperty(object, propertyKey, value);
+              return;
+            }
+
+            throw referenceError(
+              "Invalid left-hand side in for-in",
+              targetExpression
+            );
+          };
+        }
+
+        for (const key of keys) {
+          const keyValue = this.runtime.newString(key);
+          assign(keyValue);
+
+          try {
+            this.executeStatement(statement.body);
+          } catch (e) {
+            if (e.type === "__INTERNAL_BREAK__") {
+              break;
+            }
+            throw e;
+          }
+        }
+
+        return this.runtime.newUndefined();
+      }
+
       case "while": {
         let condition = this.executeExpression(statement.condition);
         while (condition.isTruthy()) {

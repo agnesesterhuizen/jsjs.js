@@ -1303,6 +1303,61 @@ export class Parser {
 
     const init = this.parseStatement();
 
+    const possibleInToken = this.peekNextToken();
+    const isForInToken =
+      possibleInToken &&
+      (possibleInToken.type === "keyword" ||
+        possibleInToken.type === "identifier") &&
+      possibleInToken.value === "in";
+
+    if (isForInToken) {
+      const inToken = this.nextToken();
+      if (inToken.value !== "in") {
+        unexpectedToken("keyword", inToken);
+      }
+
+      const right = this.parseExpression(0);
+
+      this.expect("right_paren");
+
+      const body = this.parseStatement();
+
+      let left: Statement | Expression;
+
+      if (init.type === "expression") {
+        left = init.expression;
+      } else if (init.type === "variable_declaration") {
+        if (init.declarations.length !== 1) {
+          syntaxError(
+            "for-in declarations must have exactly one binding",
+            possibleInToken
+          );
+        }
+
+        const declarator = init.declarations[0];
+        if (declarator.value !== undefined) {
+          syntaxError(
+            "for-in declarations may not include an initializer",
+            possibleInToken
+          );
+        }
+
+        left = init;
+      } else {
+        syntaxError("invalid left-hand side in for-in", possibleInToken);
+      }
+
+      return withLocation(
+        {
+          type: "for_in",
+          left,
+          right,
+          body,
+        },
+        token
+      );
+    }
+
     let test: Expression | undefined;
     if (!this.nextTokenIsType("semicolon")) {
       test = this.parseExpression(0);

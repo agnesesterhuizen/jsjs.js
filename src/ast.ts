@@ -249,6 +249,12 @@ export type Statement = WithLocation<
       body: Statement;
     }
   | {
+      type: "for_in";
+      left: Statement | Expression;
+      right: Expression;
+      body: Statement;
+    }
+  | {
       type: "switch";
       condition: Expression;
       cases: SwitchCase[];

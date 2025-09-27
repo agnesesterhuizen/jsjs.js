@@ -1023,6 +1023,74 @@ Deno.test("parser:statement", async (t) => {
     });
   });
 
+  await t.step("parses for-in with variable declaration", () => {
+    testStatement("for (var key in obj) {}", {
+      type: "for_in",
+      left: {
+        type: "variable_declaration",
+        declarationType: "var",
+        declarations: [{ identifier: "key" }],
+        varType: "var",
+      },
+      right: {
+        type: "identifier",
+        value: "obj",
+      },
+      body: {
+        type: "block",
+        body: [],
+      },
+    });
+  });
+
+  await t.step("parses for-in with identifier target", () => {
+    testStatement("for (key in obj) { result = key; }", {
+      type: "for_in",
+      left: {
+        type: "identifier",
+        value: "key",
+      },
+      right: {
+        type: "identifier",
+        value: "obj",
+      },
+      body: {
+        type: "block",
+        body: [
+          {
+            type: "expression",
+            expression: {
+              type: "assignment",
+              operator: "=",
+              left: { type: "identifier", value: "result" },
+              right: { type: "identifier", value: "key" },
+            },
+          },
+        ],
+      },
+    });
+  });
+
+  await t.step("parses for-in with member target", () => {
+    testStatement("for (box.prop in source) {}", {
+      type: "for_in",
+      left: {
+        type: "member",
+        object: { type: "identifier", value: "box" },
+        property: { type: "identifier", value: "prop" },
+        computed: false,
+      },
+      right: {
+        type: "identifier",
+        value: "source",
+      },
+      body: {
+        type: "block",
+        body: [],
+      },
+    });
+  });
+
   await t.step("switch statement", () => {
     testStatement(
       `switch(x) {

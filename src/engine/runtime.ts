@@ -166,8 +166,6 @@ export class Runtime {
     this.declareVariable("undefined", this.newUndefined());
   }
 
-  //#region type factories
-
   newUndefined(): JSUndefined {
     return new JSUndefined();
   }
@@ -297,7 +295,38 @@ export class Runtime {
     return symbol;
   }
 
-  //#endregion type factories
+  enumerateObjectKeys(object: JSObject): string[] {
+    const keys: string[] = [];
+    const seen = new Set<string>();
+
+    const pushKey = (key: string) => {
+      if (!seen.has(key)) {
+        seen.add(key);
+        keys.push(key);
+      }
+    };
+
+    let current: JSObject | null = object;
+
+    while (current) {
+      if (current.type === "array") {
+        const arr = current as unknown as JSArray;
+        for (let i = 0; i < arr.elements.length; i++) {
+          if (arr.elements[i] !== undefined) {
+            pushKey(String(i));
+          }
+        }
+      }
+
+      for (const key of Object.keys(current.properties)) {
+        pushKey(key);
+      }
+
+      current = current.prototype;
+    }
+
+    return keys;
+  }
 
   pushScope() {
     this.scopes.push({});
@@ -438,7 +467,9 @@ export class Runtime {
 
     while (current) {
       if (typeof property === "string") {
-        if (Object.prototype.hasOwnProperty.call(current.properties, property)) {
+        if (
+          Object.prototype.hasOwnProperty.call(current.properties, property)
+        ) {
           return current.properties[property];
         }
       } else if (property.type === "symbol") {
