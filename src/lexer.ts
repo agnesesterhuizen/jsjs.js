@@ -76,7 +76,8 @@ const commonRules = {
   right_paren: ")",
   left_bracket: "[",
   right_bracket: "]",
-  comment: [{ match: /\/\*[\s\S]*?\*\//, lineBreaks: true }, /\/\/.*/],
+  multiline_comment_start: { match: "/*", push: "multiline_comment" },
+  comment: /\/\/.*/,
   comma: ",",
   increment: "++",
   plus_equals: "+=",
@@ -149,17 +150,24 @@ const templateExpressionNestedRules = {
   right_brace: { match: /\}/, pop: 1 },
 } as const;
 
+const multilineCommentRules = {
+  multiline_comment_end: { match: "*/", pop: 1 },
+  multiline_comment_content: { match: /[\s\S]/, lineBreaks: true },
+} as const;
+
 type MainTokenType = keyof typeof mainRules;
 type TemplateTokenType = keyof typeof templateRules;
 type TemplateExpressionTokenType = keyof typeof templateExpressionRules;
 type TemplateExpressionNestedTokenType =
   keyof typeof templateExpressionNestedRules;
+type MultilineCommentTokenType = keyof typeof multilineCommentRules;
 
 export type TokenType =
   | MainTokenType
   | TemplateTokenType
   | TemplateExpressionTokenType
   | TemplateExpressionNestedTokenType
+  | MultilineCommentTokenType
   | "keyword"
   | "regex";
 export type Token = MooToken & {
@@ -247,6 +255,7 @@ export class Lexer {
     template: templateRules,
     template_expression: templateExpressionRules,
     template_expression_nested: templateExpressionNestedRules,
+    multiline_comment: multilineCommentRules,
   } as MooStates);
 
   run(filename: string, src: string): Token[] {
@@ -254,7 +263,13 @@ export class Lexer {
     const rawTokens = Array.from(this.lexer) as MooToken[];
 
     const processed: Token[] = [];
-    const skipTypes = new Set(["ws", "comment"]);
+    const skipTypes = new Set([
+      "ws",
+      "comment",
+      "multiline_comment_start",
+      "multiline_comment_end",
+      "multiline_comment_content",
+    ]);
     let canRegex = true;
     let pendingControlParen = false;
     const parenStack: ParenContext[] = [];
