@@ -834,6 +834,12 @@ export class Parser {
             break;
           }
 
+          if (token.value === "class") {
+            this.backup();
+            left = this.parseClassExpression();
+            break;
+          }
+
           if (token.value === "new") {
             const identifier = this.expect("identifier");
 
@@ -903,9 +909,7 @@ export class Parser {
             }
           }
 
-          throw new Error(
-            "unexpected token: " + token.type + ": " + token.value
-          );
+          throw unexpectedToken("keyword", token);
         }
 
         case "left_brace": {
@@ -1087,7 +1091,10 @@ export class Parser {
         this.index = savedIndex;
 
         if (operator !== "=" && assignmentTarget.type === "pattern_object") {
-          syntaxError("Destructuring assignments must use '=' operator", assignmentToken);
+          syntaxError(
+            "Destructuring assignments must use '=' operator",
+            assignmentToken
+          );
         }
 
         this.nextToken();
@@ -1276,7 +1283,10 @@ export class Parser {
       if (this.peekNextToken()?.type === "spread") {
         const spreadToken = this.expect("spread");
         if (sawRest) {
-          syntaxError("Multiple rest properties in object pattern", spreadToken);
+          syntaxError(
+            "Multiple rest properties in object pattern",
+            spreadToken
+          );
         }
 
         const argument =
@@ -1785,26 +1795,10 @@ export class Parser {
     };
   }
 
-  parseClassDeclarationStatement(): Statement {
-    const token = this.expectWithValue("keyword", "class");
-
-    const className = this.expect("identifier");
-
-    let superClass: string | undefined;
-
-    if (this.peekNextToken().type === "keyword") {
-      const next = this.nextToken();
-      if (next.value !== "extends") {
-        unexpectedToken("left_brace", next);
-      }
-
-      const identifier = this.expect("identifier");
-
-      superClass = identifier.value;
-    }
-
-    this.expect("left_brace");
-
+  parseClassBody(): {
+    properties: ClassPropertyDeclaration[];
+    methods: ClassMethodDeclaration[];
+  } {
     const properties: ClassPropertyDeclaration[] = [];
     const methods: ClassMethodDeclaration[] = [];
 
@@ -1837,10 +1831,58 @@ export class Parser {
 
     this.expect("right_brace");
 
+    return { properties, methods };
+  }
+
+  parseClass(requireIdentifier: boolean) {
+    const token = this.expectWithValue("keyword", "class");
+
+    let identifier: string | undefined;
+    const next = this.peekNextToken();
+    if (next?.type === "identifier") {
+      identifier = this.expect("identifier").value;
+    } else if (requireIdentifier) {
+      unexpectedToken("identifier", next);
+    }
+
+    let superClass: string | undefined;
+    const maybeExtends = this.peekNextToken();
+    if (maybeExtends?.type === "keyword" && maybeExtends.value === "extends") {
+      this.expectWithValue("keyword", "extends");
+      const identifierToken = this.expect("identifier");
+      superClass = identifierToken.value;
+    }
+
+    this.expect("left_brace");
+    const { properties, methods } = this.parseClassBody();
+
+    return { token, identifier, properties, methods, superClass };
+  }
+
+  parseClassDeclarationStatement(): Statement {
+    const { token, identifier, properties, methods, superClass } =
+      this.parseClass(true);
+
     return withLocation(
       {
         type: "class_declaration",
-        identifier: className.value,
+        identifier: identifier!,
+        properties,
+        methods,
+        superClass,
+      },
+      token
+    );
+  }
+
+  parseClassExpression(): Expression {
+    const { token, identifier, properties, methods, superClass } =
+      this.parseClass(false);
+
+    return withLocation(
+      {
+        type: "class_expression",
+        identifier,
         properties,
         methods,
         superClass,

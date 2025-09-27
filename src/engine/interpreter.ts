@@ -1,5 +1,7 @@
 import {
   AssignmentOperator,
+  ClassMethodDeclaration,
+  ClassPropertyDeclaration,
   Expression,
   Operator,
   Program,
@@ -246,6 +248,77 @@ export class Interpreter {
     }
 
     return rest;
+  }
+
+  createClassConstructor(classNode: {
+    identifier?: string;
+    properties: ClassPropertyDeclaration[];
+    methods: ClassMethodDeclaration[];
+    superClass?: string;
+    location: Location;
+  }): JSFunction {
+    const constructorMethod = classNode.methods.find(
+      (m) => m.name === "constructor"
+    );
+
+    const ctor = constructorMethod
+      ? this.runtime.newFunction(
+          constructorMethod.parameters,
+          constructorMethod.body
+        )
+      : this.runtime.newFunction([], {
+          type: "empty",
+          location: classNode.location,
+        });
+
+    if (classNode.identifier) {
+      ctor.properties["name"] = this.runtime.newString(classNode.identifier);
+    }
+
+    if (classNode.superClass) {
+      const parentClass = this.runtime.lookupVariable(classNode.superClass);
+      if (parentClass.type !== "function") {
+        throw typeError(
+          `Class extends value ${classNode.superClass} is not a constructor or null`,
+          classNode
+        );
+      }
+
+      const parentPrototype = parentClass.properties["prototype"] as JSObject;
+
+      const childPrototype = this.runtime.newObject();
+      childPrototype.prototype = parentPrototype;
+      childPrototype.properties["constructor"] = ctor;
+      ctor.properties["prototype"] = childPrototype;
+    }
+
+    for (const prop of classNode.properties) {
+      const value = prop.value
+        ? this.executeExpression(prop.value)
+        : this.runtime.newUndefined();
+
+      if (prop.static) {
+        ctor.properties[prop.name] = value;
+      } else {
+        const prototypeObj = ctor.properties["prototype"] as JSObject;
+        prototypeObj.properties[prop.name] = value;
+      }
+    }
+
+    for (const meth of classNode.methods) {
+      if (meth.name === "constructor") continue;
+
+      const func = this.runtime.newFunction(meth.parameters, meth.body);
+
+      if (meth.static) {
+        ctor.properties[meth.name] = func;
+      } else {
+        const prototypeObj = ctor.properties["prototype"] as JSObject;
+        prototypeObj.properties[meth.name] = func;
+      }
+    }
+
+    return ctor;
   }
 
   collectPatternIdentifiers(pattern: Pattern, result: Set<string>) {
@@ -892,6 +965,10 @@ export class Interpreter {
         return this.runtime.newArray(elements);
       }
 
+      case "class_expression": {
+        return this.createClassConstructor(expression);
+      }
+
       case "assignment": {
         return this.executeAssignmentExpression(expression);
       }
@@ -1462,66 +1539,7 @@ export class Interpreter {
       }
 
       case "class_declaration": {
-        const constructorMethod = statement.methods.find(
-          (m) => m.name === "constructor"
-        );
-
-        const ctor = constructorMethod
-          ? this.runtime.newFunction(
-              constructorMethod.parameters,
-              constructorMethod.body
-            )
-          : this.runtime.newFunction([], {
-              type: "empty",
-              location: statement.location,
-            });
-
-        // extends
-        if (statement.superClass) {
-          const parentClass = this.runtime.lookupVariable(statement.superClass);
-          if (parentClass.type !== "function") {
-            throw typeError(
-              `Class extends value ${statement.superClass} is not a constructor or null`,
-              statement
-            );
-          }
-
-          const parentPrototype = parentClass.properties[
-            "prototype"
-          ] as JSObject;
-
-          const childPrototype = this.runtime.newObject();
-          childPrototype.prototype = parentPrototype;
-          childPrototype.properties["constructor"] = ctor;
-          ctor.properties["prototype"] = childPrototype;
-        }
-
-        for (const prop of statement.properties) {
-          const value = prop.value
-            ? this.executeExpression(prop.value)
-            : this.runtime.newUndefined();
-
-          if (prop.static) {
-            ctor.properties[prop.name] = value;
-          } else {
-            const prototypeObj = ctor.properties["prototype"] as JSObject;
-            prototypeObj.properties[prop.name] = value;
-          }
-        }
-
-        for (const meth of statement.methods) {
-          if (meth.name === "constructor") continue;
-
-          const func = this.runtime.newFunction(meth.parameters, meth.body);
-
-          if (meth.static) {
-            ctor.properties[meth.name] = func;
-          } else {
-            const prototypeObj = ctor.properties["prototype"] as JSObject;
-            prototypeObj.properties[meth.name] = func;
-          }
-        }
-
+        const ctor = this.createClassConstructor(statement);
         this.runtime.declareVariable(statement.identifier, ctor);
 
         break;

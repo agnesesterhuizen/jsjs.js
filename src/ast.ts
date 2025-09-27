@@ -223,6 +223,13 @@ export type Expression = WithLocation<
       type: "super_member";
       property: string;
     }
+  | {
+      type: "class_expression";
+      identifier?: string;
+      properties: ClassPropertyDeclaration[];
+      methods: ClassMethodDeclaration[];
+      superClass?: string;
+    }
 >;
 
 export type Statement = WithLocation<

@@ -711,6 +711,14 @@ Deno.test("parser: expressions", async (t) => {
           },
         })
     );
+    await t.step("parses class expression", () =>
+      textExpression("(class A {});", {
+        type: "class_expression",
+        identifier: "A",
+        properties: [],
+        methods: [],
+      })
+    );
     await t.step("parses function expression with single parameter", () =>
       textExpression("((a) => {});", {
         type: "function",
@@ -875,6 +883,23 @@ Deno.test("parser:statement", async (t) => {
         {
           id: { type: "pattern_identifier", name: "x" },
           value: { type: "number", value: 1 },
+        },
+      ],
+      varType: "var",
+    });
+  });
+  await t.step("parses variable declaration with class expression", () => {
+    testStatement("var X = class {};", {
+      type: "variable_declaration",
+      declarationType: "var",
+      declarations: [
+        {
+          id: { type: "pattern_identifier", name: "X" },
+          value: {
+            type: "class_expression",
+            properties: [],
+            methods: [],
+          },
         },
       ],
       varType: "var",
