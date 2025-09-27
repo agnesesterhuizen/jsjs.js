@@ -45,6 +45,59 @@ const syntaxError = (message: string, token: Token) => {
   throw new Error(JSON.stringify(err));
 };
 
+const decodeTemplateChunk = (raw: string): string => {
+  let result = "";
+
+  for (let i = 0; i < raw.length; i++) {
+    const char = raw[i];
+
+    if (char === "\\") {
+      const next = raw[i + 1];
+
+      switch (next) {
+        case "`":
+          result += "`";
+          i++;
+          continue;
+        case "$":
+          result += "$";
+          i++;
+          continue;
+        case "\\":
+          result += "\\";
+          i++;
+          continue;
+        case "n":
+          result += "\n";
+          i++;
+          continue;
+        case "r":
+          result += "\r";
+          i++;
+          continue;
+        case "t":
+          result += "\t";
+          i++;
+          continue;
+        case "0":
+          result += "\0";
+          i++;
+          continue;
+        default:
+          if (next !== undefined) {
+            result += next;
+            i++;
+            continue;
+          }
+      }
+    }
+
+    result += char;
+  }
+
+  return result;
+};
+
 function withLocation<T extends { type: string }>(
   node: T,
   token: Token
@@ -279,6 +332,38 @@ export class Parser {
     );
   }
 
+  parseTemplateLiteral(startToken: Token): Expression {
+    const quasis: string[] = [];
+    const expressions: Expression[] = [];
+
+    while (true) {
+      let chunk = "";
+      if (this.nextTokenIsType("template_chunk")) {
+        const chunkToken = this.expect("template_chunk");
+        chunk = decodeTemplateChunk(chunkToken.value);
+      }
+      quasis.push(chunk);
+
+      if (this.nextTokenIsType("template_end")) {
+        this.expect("template_end");
+        break;
+      }
+
+      this.expect("template_expr_start");
+      expressions.push(this.parseExpression(0));
+      this.expect("template_expr_end");
+    }
+
+    return withLocation(
+      {
+        type: "template_literal",
+        quasis,
+        expressions,
+      },
+      startToken
+    );
+  }
+
   isArrowFunctionExpression() {
     const next0 = this.peekNextToken()?.type;
     const next1 = this.peekNextToken(1)?.type;
@@ -359,6 +444,11 @@ export class Parser {
 
       case "string": {
         left = withLocation({ type: "string", value: token.value }, token);
+        break;
+      }
+
+      case "template_start": {
+        left = this.parseTemplateLiteral(token);
         break;
       }
 
@@ -1187,6 +1277,7 @@ export class Parser {
       case "identifier":
       case "left_paren":
       case "left_bracket":
+      case "template_start":
       case "not":
       case "decrement":
       case "increment":

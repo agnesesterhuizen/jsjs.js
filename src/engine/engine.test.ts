@@ -48,3 +48,29 @@ Deno.test("interpreter: array.length", () => {
   assertEquals(logs.length, 1);
   assertEquals(logs[0][0], "5");
 });
+
+Deno.test("interpreter: template literals", () => {
+  const src = `
+    const name = "world";
+    const a = 2;
+    const b = 3;
+    const multiLine = \`first line
+second line\`;
+    const nested = \`outer \${\`inner \${a + b}\`}\`;
+    const escaped = \`backtick: \\\`\`;
+    console.log(\`hello \${name}!\`);
+    console.log(\`\${a} + \${b} = \${a + b}\`);
+    console.log(multiLine);
+    console.log(nested);
+    console.log(escaped);
+  `;
+
+  const { logs } = run(src);
+
+  assertEquals(logs.length, 5);
+  assertEquals(logs[0], ["hello world!"]);
+  assertEquals(logs[1], ["2 + 3 = 5"]);
+  assertEquals(logs[2], ["first line\nsecond line"]);
+  assertEquals(logs[3], ["outer inner 5"]);
+  assertEquals(logs[4], ["backtick: `"]);
+});

@@ -551,6 +551,21 @@ export class Interpreter {
         return this.runtime.newNumber(expression.value);
       case "string":
         return this.runtime.newString(expression.value);
+      case "template_literal": {
+        const pieces: string[] = [];
+        const { quasis, expressions } = expression;
+
+        for (let i = 0; i < quasis.length; i++) {
+          pieces.push(quasis[i]);
+
+          if (i < expressions.length) {
+            const value = this.executeExpression(expressions[i]);
+            pieces.push(value.toString());
+          }
+        }
+
+        return this.runtime.newString(pieces.join(""));
+      }
       case "boolean":
         return this.runtime.newBoolean(expression.value);
       case "null":

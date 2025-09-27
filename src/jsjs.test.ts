@@ -42,8 +42,43 @@ Deno.test("parser: expressions", async (t) => {
   await t.step("parses string literal, single quotes", () =>
     textExpression("'hello';", { type: "string", value: "hello" })
   );
-  await t.step("parses string literal, backticks", () =>
-    textExpression("`hello`;", { type: "string", value: "hello" })
+  await t.step("parses template literal without expressions", () =>
+    textExpression("`hello`;", {
+      type: "template_literal",
+      quasis: ["hello"],
+      expressions: [],
+    })
+  );
+  await t.step("parses template literal with expression", () =>
+    textExpression("`hello ${name}`;", {
+      type: "template_literal",
+      quasis: ["hello ", ""],
+      expressions: [{ type: "identifier", value: "name" }],
+    })
+  );
+  await t.step("parses template literal with multiple expressions", () =>
+    textExpression("`${a} + ${b}`;", {
+      type: "template_literal",
+      quasis: ["", " + ", ""],
+      expressions: [
+        { type: "identifier", value: "a" },
+        { type: "identifier", value: "b" },
+      ],
+    })
+  );
+  await t.step("parses template literal with object literal expression", () =>
+    textExpression("`${{ a: 1 }}`;", {
+      type: "template_literal",
+      quasis: ["", ""],
+      expressions: [
+        {
+          type: "object",
+          properties: {
+            a: { type: "number", value: 1 },
+          },
+        },
+      ],
+    })
   );
   await t.step("parses boolean literal: true", () =>
     textExpression("true;", { type: "boolean", value: true })

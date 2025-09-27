@@ -12,7 +12,7 @@
             "value": 1,
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 3,
+              "line": 1,
               "column": 17
             }
           }
@@ -21,7 +21,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 3,
+        "line": 1,
         "column": 1
       }
     },
@@ -32,13 +32,13 @@
         "value": "e",
         "location": {
           "file": "./integration_tests/gaussianelimination.js",
-          "line": 3,
+          "line": 1,
           "column": 18
         }
       },
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 3,
+        "line": 1,
         "column": 18
       }
     },
@@ -49,13 +49,13 @@
         "value": -20,
         "location": {
           "file": "./integration_tests/gaussianelimination.js",
-          "line": 3,
+          "line": 1,
           "column": 19
         }
       },
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 3,
+        "line": 1,
         "column": 19
       }
     },
@@ -76,7 +76,7 @@
             "value": false,
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 5,
+              "line": 3,
               "column": 57
             }
           }
@@ -98,7 +98,7 @@
                     "value": "luDecompose",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 6,
+                      "line": 4,
                       "column": 25
                     }
                   },
@@ -108,7 +108,7 @@
                       "value": "coefficientMatrix",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 6,
+                        "line": 4,
                         "column": 37
                       }
                     },
@@ -117,14 +117,14 @@
                       "value": "mutate",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 6,
+                        "line": 4,
                         "column": 56
                       }
                     }
                   ],
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 6,
+                    "line": 4,
                     "column": 36
                   }
                 }
@@ -133,7 +133,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 6,
+              "line": 4,
               "column": 3
             }
           },
@@ -147,13 +147,13 @@
                 "value": "decomposition",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 7,
+                  "line": 5,
                   "column": 8
                 }
               },
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 7,
+                "line": 5,
                 "column": 7
               }
             },
@@ -164,19 +164,19 @@
                 "value": "undefined",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 7,
+                  "line": 5,
                   "column": 30
                 }
               },
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 7,
+                "line": 5,
                 "column": 23
               }
             },
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 7,
+              "line": 5,
               "column": 3
             }
           },
@@ -189,7 +189,7 @@
                 "value": "luBackSubstitute",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 8,
+                  "line": 6,
                   "column": 10
                 }
               },
@@ -199,7 +199,7 @@
                   "value": "decomposition",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 8,
+                    "line": 6,
                     "column": 27
                   }
                 },
@@ -208,7 +208,7 @@
                   "value": "constants",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 8,
+                    "line": 6,
                     "column": 42
                   }
                 },
@@ -217,33 +217,33 @@
                   "value": "mutate",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 8,
+                    "line": 6,
                     "column": 53
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 8,
+                "line": 6,
                 "column": 26
               }
             },
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 8,
+              "line": 6,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/gaussianelimination.js",
-          "line": 5,
+          "line": 3,
           "column": 64
         }
       },
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 5,
+        "line": 3,
         "column": 1
       }
     },
@@ -261,7 +261,7 @@
             "value": false,
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 11,
+              "line": 9,
               "column": 39
             }
           }
@@ -283,7 +283,7 @@
                     "value": "matrix",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 12,
+                      "line": 10,
                       "column": 16
                     }
                   },
@@ -292,14 +292,14 @@
                     "value": "length",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 12,
+                      "line": 10,
                       "column": 23
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 12,
+                    "line": 10,
                     "column": 16
                   }
                 }
@@ -308,7 +308,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 12,
+              "line": 10,
               "column": 3
             }
           },
@@ -327,14 +327,14 @@
                       "value": "size",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 13,
+                        "line": 11,
                         "column": 33
                       }
                     }
                   ],
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 13,
+                    "line": 11,
                     "column": 23
                   }
                 }
@@ -343,7 +343,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 13,
+              "line": 11,
               "column": 3
             }
           },
@@ -362,14 +362,14 @@
                       "value": "size",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 14,
+                        "line": 12,
                         "column": 31
                       }
                     }
                   ],
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 14,
+                    "line": 12,
                     "column": 21
                   }
                 }
@@ -378,7 +378,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 14,
+              "line": 12,
               "column": 3
             }
           },
@@ -395,7 +395,7 @@
                     "value": "mutate",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 16,
+                      "line": 14,
                       "column": 25
                     }
                   },
@@ -404,7 +404,7 @@
                     "value": "matrix",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 17,
+                      "line": 15,
                       "column": 7
                     }
                   },
@@ -417,7 +417,7 @@
                         "value": "Array",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 18,
+                          "line": 16,
                           "column": 7
                         }
                       },
@@ -426,14 +426,14 @@
                         "value": "from",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 18,
+                          "line": 16,
                           "column": 13
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 18,
+                        "line": 16,
                         "column": 7
                       }
                     },
@@ -443,7 +443,7 @@
                         "value": "matrix",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 18,
+                          "line": 16,
                           "column": 18
                         }
                       },
@@ -465,7 +465,7 @@
                                 "value": "Array",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 18,
+                                  "line": 16,
                                   "column": 35
                                 }
                               },
@@ -474,14 +474,14 @@
                                 "value": "from",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 18,
+                                  "line": 16,
                                   "column": 41
                                 }
                               },
                               "computed": false,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 18,
+                                "line": 16,
                                 "column": 35
                               }
                             },
@@ -491,39 +491,39 @@
                                 "value": "row",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 18,
+                                  "line": 16,
                                   "column": 46
                                 }
                               }
                             ],
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 18,
+                              "line": 16,
                               "column": 45
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 18,
+                            "line": 16,
                             "column": 35
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 18,
+                          "line": 16,
                           "column": 26
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 18,
+                      "line": 16,
                       "column": 17
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 16,
+                    "line": 14,
                     "column": 25
                   }
                 }
@@ -532,7 +532,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 16,
+              "line": 14,
               "column": 3
             }
           },
@@ -549,7 +549,7 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 21,
+                      "line": 18,
                       "column": 28
                     }
                   }
@@ -558,7 +558,7 @@
               "varType": "let",
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 21,
+                "line": 18,
                 "column": 8
               }
             },
@@ -570,7 +570,7 @@
                 "value": "scaleRowIndex",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 21,
+                  "line": 18,
                   "column": 31
                 }
               },
@@ -579,13 +579,13 @@
                 "value": "size",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 21,
+                  "line": 18,
                   "column": 47
                 }
               },
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 21,
+                "line": 18,
                 "column": 45
               }
             },
@@ -596,14 +596,14 @@
                 "value": "scaleRowIndex",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 21,
+                  "line": 18,
                   "column": 53
                 }
               },
               "postfix": true,
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 21,
+                "line": 18,
                 "column": 53
               }
             },
@@ -621,7 +621,7 @@
                         "value": 0,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 22,
+                          "line": 19,
                           "column": 24
                         }
                       }
@@ -630,7 +630,7 @@
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 22,
+                    "line": 19,
                     "column": 5
                   }
                 },
@@ -647,8 +647,8 @@
                           "value": 0,
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 23,
-                            "column": 33
+                            "line": 21,
+                            "column": 30
                           }
                         }
                       }
@@ -656,8 +656,8 @@
                     "varType": "let",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 23,
-                      "column": 10
+                      "line": 21,
+                      "column": 7
                     }
                   },
                   "test": {
@@ -668,8 +668,8 @@
                       "value": "scaleColumnIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 23,
-                        "column": 36
+                        "line": 22,
+                        "column": 7
                       }
                     },
                     "right": {
@@ -677,14 +677,14 @@
                       "value": "size",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 23,
-                        "column": 55
+                        "line": 22,
+                        "column": 26
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 23,
-                      "column": 53
+                      "line": 22,
+                      "column": 24
                     }
                   },
                   "update": {
@@ -695,14 +695,14 @@
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
                         "line": 23,
-                        "column": 61
+                        "column": 7
                       }
                     },
                     "postfix": true,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
                       "line": 23,
-                      "column": 61
+                      "column": 7
                     }
                   },
                   "body": {
@@ -723,7 +723,7 @@
                                   "value": "Math",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 24,
+                                    "line": 25,
                                     "column": 25
                                   }
                                 },
@@ -732,14 +732,14 @@
                                   "value": "abs",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 24,
+                                    "line": 25,
                                     "column": 30
                                   }
                                 },
                                 "computed": false,
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 24,
+                                  "line": 25,
                                   "column": 25
                                 }
                               },
@@ -753,7 +753,7 @@
                                       "value": "workingMatrix",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 25,
+                                        "line": 26,
                                         "column": 9
                                       }
                                     },
@@ -762,14 +762,14 @@
                                       "value": "scaleRowIndex",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 25,
+                                        "line": 26,
                                         "column": 23
                                       }
                                     },
                                     "computed": true,
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 25,
+                                      "line": 26,
                                       "column": 9
                                     }
                                   },
@@ -778,21 +778,21 @@
                                     "value": "scaleColumnIndex",
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 25,
+                                      "line": 26,
                                       "column": 38
                                     }
                                   },
                                   "computed": true,
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 25,
+                                    "line": 26,
                                     "column": 9
                                   }
                                 }
                               ],
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 24,
+                                "line": 25,
                                 "column": 33
                               }
                             }
@@ -801,7 +801,7 @@
                         "varType": "const",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 24,
+                          "line": 25,
                           "column": 7
                         }
                       },
@@ -815,7 +815,7 @@
                             "value": "magnitude",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 27,
+                              "line": 28,
                               "column": 11
                             }
                           },
@@ -824,13 +824,13 @@
                             "value": "maxMagnitude",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 27,
+                              "line": 28,
                               "column": 23
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 27,
+                            "line": 28,
                             "column": 21
                           }
                         },
@@ -844,7 +844,7 @@
                               "value": "maxMagnitude",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 27,
+                                "line": 28,
                                 "column": 37
                               }
                             },
@@ -853,38 +853,38 @@
                               "value": "magnitude",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 27,
+                                "line": 28,
                                 "column": 52
                               }
                             },
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 27,
+                              "line": 28,
                               "column": 37
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 27,
+                            "line": 28,
                             "column": 37
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 27,
+                          "line": 28,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 23,
-                      "column": 81
+                      "line": 24,
+                      "column": 7
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 23,
+                    "line": 20,
                     "column": 5
                   }
                 },
@@ -898,7 +898,7 @@
                       "value": "maxMagnitude",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 29,
+                        "line": 30,
                         "column": 9
                       }
                     },
@@ -907,13 +907,13 @@
                       "value": 0,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 29,
+                        "line": 30,
                         "column": 26
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 29,
+                      "line": 30,
                       "column": 22
                     }
                   },
@@ -924,19 +924,19 @@
                       "value": "undefined",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 29,
+                        "line": 30,
                         "column": 36
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 29,
+                      "line": 30,
                       "column": 29
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 29,
+                    "line": 30,
                     "column": 5
                   }
                 },
@@ -952,7 +952,7 @@
                         "value": "rowScales",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 30,
+                          "line": 31,
                           "column": 5
                         }
                       },
@@ -961,14 +961,14 @@
                         "value": "scaleRowIndex",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 30,
+                          "line": 31,
                           "column": 15
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 30,
+                        "line": 31,
                         "column": 5
                       }
                     },
@@ -980,7 +980,7 @@
                         "value": 1,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 30,
+                          "line": 31,
                           "column": 32
                         }
                       },
@@ -989,38 +989,38 @@
                         "value": "maxMagnitude",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 30,
+                          "line": 31,
                           "column": 36
                         }
                       },
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 30,
+                        "line": 31,
                         "column": 34
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 30,
+                      "line": 31,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 30,
+                    "line": 31,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 21,
+                "line": 18,
                 "column": 70
               }
             },
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 21,
+              "line": 18,
               "column": 3
             }
           },
@@ -1037,7 +1037,7 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 33,
+                      "line": 34,
                       "column": 25
                     }
                   }
@@ -1046,7 +1046,7 @@
               "varType": "let",
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 33,
+                "line": 34,
                 "column": 8
               }
             },
@@ -1058,7 +1058,7 @@
                 "value": "pivotIndex",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 33,
+                  "line": 34,
                   "column": 28
                 }
               },
@@ -1067,13 +1067,13 @@
                 "value": "size",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 33,
+                  "line": 34,
                   "column": 41
                 }
               },
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 33,
+                "line": 34,
                 "column": 39
               }
             },
@@ -1084,14 +1084,14 @@
                 "value": "pivotIndex",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 33,
+                  "line": 34,
                   "column": 47
                 }
               },
               "postfix": true,
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 33,
+                "line": 34,
                 "column": 47
               }
             },
@@ -1111,8 +1111,8 @@
                           "value": 0,
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 34,
-                            "column": 31
+                            "line": 36,
+                            "column": 28
                           }
                         }
                       }
@@ -1120,8 +1120,8 @@
                     "varType": "let",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 34,
-                      "column": 10
+                      "line": 36,
+                      "column": 7
                     }
                   },
                   "test": {
@@ -1132,8 +1132,8 @@
                       "value": "rowBeforePivot",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 34,
-                        "column": 34
+                        "line": 37,
+                        "column": 7
                       }
                     },
                     "right": {
@@ -1141,14 +1141,14 @@
                       "value": "pivotIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 34,
-                        "column": 51
+                        "line": 37,
+                        "column": 24
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 34,
-                      "column": 49
+                      "line": 37,
+                      "column": 22
                     }
                   },
                   "update": {
@@ -1158,15 +1158,15 @@
                       "value": "rowBeforePivot",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 34,
-                        "column": 63
+                        "line": 38,
+                        "column": 7
                       }
                     },
                     "postfix": true,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 34,
-                      "column": 63
+                      "line": 38,
+                      "column": 7
                     }
                   },
                   "body": {
@@ -1187,7 +1187,7 @@
                                   "value": "workingMatrix",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 35,
+                                    "line": 40,
                                     "column": 17
                                   }
                                 },
@@ -1196,14 +1196,14 @@
                                   "value": "rowBeforePivot",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 35,
+                                    "line": 40,
                                     "column": 31
                                   }
                                 },
                                 "computed": true,
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 35,
+                                  "line": 40,
                                   "column": 17
                                 }
                               },
@@ -1212,14 +1212,14 @@
                                 "value": "pivotIndex",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 35,
+                                  "line": 40,
                                   "column": 47
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 35,
+                                "line": 40,
                                 "column": 17
                               }
                             }
@@ -1228,7 +1228,7 @@
                         "varType": "let",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 35,
+                          "line": 40,
                           "column": 7
                         }
                       },
@@ -1245,7 +1245,7 @@
                                 "value": 0,
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 37,
+                                  "line": 42,
                                   "column": 31
                                 }
                               }
@@ -1254,7 +1254,7 @@
                           "varType": "let",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 37,
+                            "line": 42,
                             "column": 9
                           }
                         },
@@ -1266,7 +1266,7 @@
                             "value": "columnBeforeRow",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 38,
+                              "line": 43,
                               "column": 9
                             }
                           },
@@ -1275,13 +1275,13 @@
                             "value": "rowBeforePivot",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 38,
+                              "line": 43,
                               "column": 27
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 38,
+                            "line": 43,
                             "column": 25
                           }
                         },
@@ -1292,14 +1292,14 @@
                             "value": "columnBeforeRow",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 39,
+                              "line": 44,
                               "column": 9
                             }
                           },
                           "postfix": true,
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 39,
+                            "line": 44,
                             "column": 9
                           }
                         },
@@ -1316,7 +1316,7 @@
                                   "value": "sum",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 41,
+                                    "line": 46,
                                     "column": 9
                                   }
                                 },
@@ -1332,7 +1332,7 @@
                                         "value": "workingMatrix",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 42,
+                                          "line": 47,
                                           "column": 11
                                         }
                                       },
@@ -1341,14 +1341,14 @@
                                         "value": "rowBeforePivot",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 42,
+                                          "line": 47,
                                           "column": 25
                                         }
                                       },
                                       "computed": true,
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 42,
+                                        "line": 47,
                                         "column": 11
                                       }
                                     },
@@ -1357,14 +1357,14 @@
                                       "value": "columnBeforeRow",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 42,
+                                        "line": 47,
                                         "column": 41
                                       }
                                     },
                                     "computed": true,
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 42,
+                                      "line": 47,
                                       "column": 11
                                     }
                                   },
@@ -1377,7 +1377,7 @@
                                         "value": "workingMatrix",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 43,
+                                          "line": 48,
                                           "column": 11
                                         }
                                       },
@@ -1386,14 +1386,14 @@
                                         "value": "columnBeforeRow",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 43,
+                                          "line": 48,
                                           "column": 25
                                         }
                                       },
                                       "computed": true,
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 43,
+                                        "line": 48,
                                         "column": 11
                                       }
                                     },
@@ -1402,45 +1402,45 @@
                                       "value": "pivotIndex",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 43,
+                                        "line": 48,
                                         "column": 42
                                       }
                                     },
                                     "computed": true,
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 43,
+                                      "line": 48,
                                       "column": 11
                                     }
                                   },
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 42,
+                                    "line": 47,
                                     "column": 58
                                   }
                                 },
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 41,
+                                  "line": 46,
                                   "column": 9
                                 }
                               },
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 41,
+                                "line": 46,
                                 "column": 9
                               }
                             }
                           ],
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 40,
+                            "line": 45,
                             "column": 9
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 36,
+                          "line": 41,
                           "column": 7
                         }
                       },
@@ -1458,7 +1458,7 @@
                                 "value": "workingMatrix",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 45,
+                                  "line": 50,
                                   "column": 7
                                 }
                               },
@@ -1467,14 +1467,14 @@
                                 "value": "rowBeforePivot",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 45,
+                                  "line": 50,
                                   "column": 21
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 45,
+                                "line": 50,
                                 "column": 7
                               }
                             },
@@ -1483,14 +1483,14 @@
                               "value": "pivotIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 45,
+                                "line": 50,
                                 "column": 37
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 45,
+                              "line": 50,
                               "column": 7
                             }
                           },
@@ -1499,32 +1499,32 @@
                             "value": "sum",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 45,
+                              "line": 50,
                               "column": 51
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 45,
+                            "line": 50,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 45,
+                          "line": 50,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 34,
-                      "column": 81
+                      "line": 39,
+                      "column": 7
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 34,
+                    "line": 35,
                     "column": 5
                   }
                 },
@@ -1539,7 +1539,7 @@
                         "value": 0,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 48,
+                          "line": 53,
                           "column": 30
                         }
                       }
@@ -1548,7 +1548,7 @@
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 48,
+                    "line": 53,
                     "column": 5
                   }
                 },
@@ -1563,7 +1563,7 @@
                         "value": "pivotIndex",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 49,
+                          "line": 54,
                           "column": 27
                         }
                       }
@@ -1572,7 +1572,7 @@
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 49,
+                    "line": 54,
                     "column": 5
                   }
                 },
@@ -1589,7 +1589,7 @@
                           "value": "pivotIndex",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 52,
+                            "line": 57,
                             "column": 31
                           }
                         }
@@ -1598,7 +1598,7 @@
                     "varType": "let",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 52,
+                      "line": 57,
                       "column": 7
                     }
                   },
@@ -1610,7 +1610,7 @@
                       "value": "candidateRowIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 53,
+                        "line": 58,
                         "column": 7
                       }
                     },
@@ -1619,13 +1619,13 @@
                       "value": "size",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 53,
+                        "line": 58,
                         "column": 27
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 53,
+                      "line": 58,
                       "column": 25
                     }
                   },
@@ -1636,14 +1636,14 @@
                       "value": "candidateRowIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 54,
+                        "line": 59,
                         "column": 7
                       }
                     },
                     "postfix": true,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 54,
+                      "line": 59,
                       "column": 7
                     }
                   },
@@ -1665,7 +1665,7 @@
                                   "value": "workingMatrix",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 56,
+                                    "line": 61,
                                     "column": 17
                                   }
                                 },
@@ -1674,14 +1674,14 @@
                                   "value": "candidateRowIndex",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 56,
+                                    "line": 61,
                                     "column": 31
                                   }
                                 },
                                 "computed": true,
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 56,
+                                  "line": 61,
                                   "column": 17
                                 }
                               },
@@ -1690,14 +1690,14 @@
                                 "value": "pivotIndex",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 56,
+                                  "line": 61,
                                   "column": 50
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 56,
+                                "line": 61,
                                 "column": 17
                               }
                             }
@@ -1706,7 +1706,7 @@
                         "varType": "let",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 56,
+                          "line": 61,
                           "column": 7
                         }
                       },
@@ -1723,7 +1723,7 @@
                                 "value": 0,
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 58,
+                                  "line": 63,
                                   "column": 33
                                 }
                               }
@@ -1732,7 +1732,7 @@
                           "varType": "let",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 58,
+                            "line": 63,
                             "column": 9
                           }
                         },
@@ -1744,7 +1744,7 @@
                             "value": "columnBeforePivot",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 59,
+                              "line": 64,
                               "column": 9
                             }
                           },
@@ -1753,13 +1753,13 @@
                             "value": "pivotIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 59,
+                              "line": 64,
                               "column": 29
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 59,
+                            "line": 64,
                             "column": 27
                           }
                         },
@@ -1770,14 +1770,14 @@
                             "value": "columnBeforePivot",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 60,
+                              "line": 65,
                               "column": 9
                             }
                           },
                           "postfix": true,
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 60,
+                            "line": 65,
                             "column": 9
                           }
                         },
@@ -1794,7 +1794,7 @@
                                   "value": "sum",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 62,
+                                    "line": 67,
                                     "column": 9
                                   }
                                 },
@@ -1810,7 +1810,7 @@
                                         "value": "workingMatrix",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 63,
+                                          "line": 68,
                                           "column": 11
                                         }
                                       },
@@ -1819,14 +1819,14 @@
                                         "value": "candidateRowIndex",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 63,
+                                          "line": 68,
                                           "column": 25
                                         }
                                       },
                                       "computed": true,
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 63,
+                                        "line": 68,
                                         "column": 11
                                       }
                                     },
@@ -1835,14 +1835,14 @@
                                       "value": "columnBeforePivot",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 63,
+                                        "line": 68,
                                         "column": 44
                                       }
                                     },
                                     "computed": true,
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 63,
+                                      "line": 68,
                                       "column": 11
                                     }
                                   },
@@ -1855,7 +1855,7 @@
                                         "value": "workingMatrix",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 64,
+                                          "line": 69,
                                           "column": 11
                                         }
                                       },
@@ -1864,14 +1864,14 @@
                                         "value": "columnBeforePivot",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 64,
+                                          "line": 69,
                                           "column": 25
                                         }
                                       },
                                       "computed": true,
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 64,
+                                        "line": 69,
                                         "column": 11
                                       }
                                     },
@@ -1880,45 +1880,45 @@
                                       "value": "pivotIndex",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 64,
+                                        "line": 69,
                                         "column": 44
                                       }
                                     },
                                     "computed": true,
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 64,
+                                      "line": 69,
                                       "column": 11
                                     }
                                   },
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 63,
+                                    "line": 68,
                                     "column": 63
                                   }
                                 },
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 62,
+                                  "line": 67,
                                   "column": 9
                                 }
                               },
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 62,
+                                "line": 67,
                                 "column": 9
                               }
                             }
                           ],
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 61,
+                            "line": 66,
                             "column": 9
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 57,
+                          "line": 62,
                           "column": 7
                         }
                       },
@@ -1936,7 +1936,7 @@
                                 "value": "workingMatrix",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 66,
+                                  "line": 71,
                                   "column": 7
                                 }
                               },
@@ -1945,14 +1945,14 @@
                                 "value": "candidateRowIndex",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 66,
+                                  "line": 71,
                                   "column": 21
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 66,
+                                "line": 71,
                                 "column": 7
                               }
                             },
@@ -1961,14 +1961,14 @@
                               "value": "pivotIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 66,
+                                "line": 71,
                                 "column": 40
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 66,
+                              "line": 71,
                               "column": 7
                             }
                           },
@@ -1977,19 +1977,19 @@
                             "value": "sum",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 66,
+                              "line": 71,
                               "column": 54
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 66,
+                            "line": 71,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 66,
+                          "line": 71,
                           "column": 7
                         }
                       },
@@ -2009,7 +2009,7 @@
                                   "value": "rowScales",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 68,
+                                    "line": 73,
                                     "column": 27
                                   }
                                 },
@@ -2018,14 +2018,14 @@
                                   "value": "candidateRowIndex",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 68,
+                                    "line": 73,
                                     "column": 37
                                   }
                                 },
                                 "computed": true,
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 68,
+                                  "line": 73,
                                   "column": 27
                                 }
                               },
@@ -2038,7 +2038,7 @@
                                     "value": "Math",
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 68,
+                                      "line": 73,
                                       "column": 58
                                     }
                                   },
@@ -2047,14 +2047,14 @@
                                     "value": "abs",
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 68,
+                                      "line": 73,
                                       "column": 63
                                     }
                                   },
                                   "computed": false,
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 68,
+                                    "line": 73,
                                     "column": 58
                                   }
                                 },
@@ -2064,20 +2064,20 @@
                                     "value": "sum",
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 68,
+                                      "line": 73,
                                       "column": 67
                                     }
                                   }
                                 ],
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 68,
+                                  "line": 73,
                                   "column": 66
                                 }
                               },
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 68,
+                                "line": 73,
                                 "column": 56
                               }
                             }
@@ -2086,7 +2086,7 @@
                         "varType": "const",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 68,
+                          "line": 73,
                           "column": 7
                         }
                       },
@@ -2100,7 +2100,7 @@
                             "value": "largestRowIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 69,
+                              "line": 74,
                               "column": 7
                             }
                           },
@@ -2114,7 +2114,7 @@
                                 "value": "scaledValue",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 70,
+                                  "line": 75,
                                   "column": 9
                                 }
                               },
@@ -2123,13 +2123,13 @@
                                 "value": "largestScaledValue",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 70,
+                                  "line": 75,
                                   "column": 24
                                 }
                               },
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 70,
+                                "line": 75,
                                 "column": 21
                               }
                             },
@@ -2138,7 +2138,7 @@
                               "value": "candidateRowIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 70,
+                                "line": 75,
                                 "column": 45
                               }
                             },
@@ -2147,25 +2147,25 @@
                               "value": "largestRowIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 70,
+                                "line": 75,
                                 "column": 65
                               }
                             },
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 70,
+                              "line": 75,
                               "column": 21
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 69,
+                            "line": 74,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 69,
+                          "line": 74,
                           "column": 7
                         }
                       },
@@ -2179,7 +2179,7 @@
                             "value": "largestScaledValue",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 71,
+                              "line": 76,
                               "column": 7
                             }
                           },
@@ -2193,7 +2193,7 @@
                                 "value": "scaledValue",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 72,
+                                  "line": 77,
                                   "column": 9
                                 }
                               },
@@ -2202,13 +2202,13 @@
                                 "value": "largestScaledValue",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 72,
+                                  "line": 77,
                                   "column": 24
                                 }
                               },
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 72,
+                                "line": 77,
                                 "column": 21
                               }
                             },
@@ -2217,7 +2217,7 @@
                               "value": "scaledValue",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 72,
+                                "line": 77,
                                 "column": 45
                               }
                             },
@@ -2226,38 +2226,38 @@
                               "value": "largestScaledValue",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 72,
+                                "line": 77,
                                 "column": 59
                               }
                             },
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 72,
+                              "line": 77,
                               "column": 21
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 71,
+                            "line": 76,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 71,
+                          "line": 76,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 55,
+                      "line": 60,
                       "column": 7
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 51,
+                    "line": 56,
                     "column": 5
                   }
                 },
@@ -2271,7 +2271,7 @@
                       "value": "pivotIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 75,
+                        "line": 80,
                         "column": 9
                       }
                     },
@@ -2280,13 +2280,13 @@
                       "value": "largestRowIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 75,
+                        "line": 80,
                         "column": 24
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 75,
+                      "line": 80,
                       "column": 20
                     }
                   },
@@ -2306,7 +2306,7 @@
                                 "value": "workingMatrix",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 76,
+                                  "line": 81,
                                   "column": 23
                                 }
                               },
@@ -2315,14 +2315,14 @@
                                 "value": "pivotIndex",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 76,
+                                  "line": 81,
                                   "column": 37
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 76,
+                                "line": 81,
                                 "column": 23
                               }
                             }
@@ -2331,7 +2331,7 @@
                         "varType": "const",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 76,
+                          "line": 81,
                           "column": 7
                         }
                       },
@@ -2347,7 +2347,7 @@
                               "value": "workingMatrix",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 77,
+                                "line": 82,
                                 "column": 7
                               }
                             },
@@ -2356,14 +2356,14 @@
                               "value": "pivotIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 77,
+                                "line": 82,
                                 "column": 21
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 77,
+                              "line": 82,
                               "column": 7
                             }
                           },
@@ -2374,7 +2374,7 @@
                               "value": "workingMatrix",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 77,
+                                "line": 82,
                                 "column": 35
                               }
                             },
@@ -2383,26 +2383,26 @@
                               "value": "largestRowIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 77,
+                                "line": 82,
                                 "column": 49
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 77,
+                              "line": 82,
                               "column": 35
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 77,
+                            "line": 82,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 77,
+                          "line": 82,
                           "column": 7
                         }
                       },
@@ -2418,7 +2418,7 @@
                               "value": "workingMatrix",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 78,
+                                "line": 83,
                                 "column": 7
                               }
                             },
@@ -2427,14 +2427,14 @@
                               "value": "largestRowIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 78,
+                                "line": 83,
                                 "column": 21
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 78,
+                              "line": 83,
                               "column": 7
                             }
                           },
@@ -2443,19 +2443,19 @@
                             "value": "tempRow",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 78,
+                              "line": 83,
                               "column": 40
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 78,
+                            "line": 83,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 78,
+                          "line": 83,
                           "column": 7
                         }
                       },
@@ -2471,7 +2471,7 @@
                               "value": "rowScales",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 79,
+                                "line": 84,
                                 "column": 7
                               }
                             },
@@ -2480,14 +2480,14 @@
                               "value": "largestRowIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 79,
+                                "line": 84,
                                 "column": 17
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 79,
+                              "line": 84,
                               "column": 7
                             }
                           },
@@ -2498,7 +2498,7 @@
                               "value": "rowScales",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 79,
+                                "line": 84,
                                 "column": 36
                               }
                             },
@@ -2507,39 +2507,39 @@
                               "value": "pivotIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 79,
+                                "line": 84,
                                 "column": 46
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 79,
+                              "line": 84,
                               "column": 36
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 79,
+                            "line": 84,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 79,
+                          "line": 84,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 75,
+                      "line": 80,
                       "column": 41
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 75,
+                    "line": 80,
                     "column": 5
                   }
                 },
@@ -2555,7 +2555,7 @@
                         "value": "permutation",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 82,
+                          "line": 87,
                           "column": 5
                         }
                       },
@@ -2564,14 +2564,14 @@
                         "value": "pivotIndex",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 82,
+                          "line": 87,
                           "column": 17
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 82,
+                        "line": 87,
                         "column": 5
                       }
                     },
@@ -2580,19 +2580,19 @@
                       "value": "largestRowIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 82,
+                        "line": 87,
                         "column": 31
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 82,
+                      "line": 87,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 82,
+                    "line": 87,
                     "column": 5
                   }
                 },
@@ -2606,7 +2606,7 @@
                       "value": "pivotIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 84,
+                        "line": 89,
                         "column": 9
                       }
                     },
@@ -2618,7 +2618,7 @@
                         "value": "size",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 84,
+                          "line": 89,
                           "column": 24
                         }
                       },
@@ -2627,19 +2627,19 @@
                         "value": 1,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 84,
+                          "line": 89,
                           "column": 31
                         }
                       },
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 84,
+                        "line": 89,
                         "column": 29
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 84,
+                      "line": 89,
                       "column": 20
                     }
                   },
@@ -2647,13 +2647,13 @@
                     "type": "break",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 84,
+                      "line": 89,
                       "column": 34
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 84,
+                    "line": 89,
                     "column": 5
                   }
                 },
@@ -2671,7 +2671,7 @@
                           "value": "workingMatrix",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 86,
+                            "line": 91,
                             "column": 9
                           }
                         },
@@ -2680,14 +2680,14 @@
                           "value": "pivotIndex",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 86,
+                            "line": 91,
                             "column": 23
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 86,
+                          "line": 91,
                           "column": 9
                         }
                       },
@@ -2696,14 +2696,14 @@
                         "value": "pivotIndex",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 86,
+                          "line": 91,
                           "column": 35
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 86,
+                        "line": 91,
                         "column": 9
                       }
                     },
@@ -2712,13 +2712,13 @@
                       "value": 0,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 86,
+                        "line": 91,
                         "column": 51
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 86,
+                      "line": 91,
                       "column": 47
                     }
                   },
@@ -2739,7 +2739,7 @@
                                 "value": "workingMatrix",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 87,
+                                  "line": 92,
                                   "column": 7
                                 }
                               },
@@ -2748,14 +2748,14 @@
                                 "value": "pivotIndex",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 87,
+                                  "line": 92,
                                   "column": 21
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 87,
+                                "line": 92,
                                 "column": 7
                               }
                             },
@@ -2764,14 +2764,14 @@
                               "value": "pivotIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 87,
+                                "line": 92,
                                 "column": 33
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 87,
+                              "line": 92,
                               "column": 7
                             }
                           },
@@ -2780,32 +2780,32 @@
                             "value": "EPSILON",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 87,
+                              "line": 92,
                               "column": 47
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 87,
+                            "line": 92,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 87,
+                          "line": 92,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 86,
+                      "line": 91,
                       "column": 54
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 86,
+                    "line": 91,
                     "column": 5
                   }
                 },
@@ -2823,7 +2823,7 @@
                           "value": 1,
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 90,
+                            "line": 95,
                             "column": 29
                           }
                         },
@@ -2836,7 +2836,7 @@
                               "value": "workingMatrix",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 90,
+                                "line": 95,
                                 "column": 33
                               }
                             },
@@ -2845,14 +2845,14 @@
                               "value": "pivotIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 90,
+                                "line": 95,
                                 "column": 47
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 90,
+                              "line": 95,
                               "column": 33
                             }
                           },
@@ -2861,20 +2861,20 @@
                             "value": "pivotIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 90,
+                              "line": 95,
                               "column": 59
                             }
                           },
                           "computed": true,
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 90,
+                            "line": 95,
                             "column": 33
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 90,
+                          "line": 95,
                           "column": 31
                         }
                       }
@@ -2883,7 +2883,7 @@
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 90,
+                    "line": 95,
                     "column": 5
                   }
                 },
@@ -2903,7 +2903,7 @@
                             "value": "pivotIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 92,
+                              "line": 97,
                               "column": 28
                             }
                           },
@@ -2912,13 +2912,13 @@
                             "value": 1,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 92,
+                              "line": 97,
                               "column": 41
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 92,
+                            "line": 97,
                             "column": 39
                           }
                         }
@@ -2927,7 +2927,7 @@
                     "varType": "let",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 92,
+                      "line": 97,
                       "column": 7
                     }
                   },
@@ -2939,7 +2939,7 @@
                       "value": "targetRowIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 93,
+                        "line": 98,
                         "column": 7
                       }
                     },
@@ -2948,13 +2948,13 @@
                       "value": "size",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 93,
+                        "line": 98,
                         "column": 24
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 93,
+                      "line": 98,
                       "column": 22
                     }
                   },
@@ -2965,14 +2965,14 @@
                       "value": "targetRowIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 94,
+                        "line": 99,
                         "column": 7
                       }
                     },
                     "postfix": true,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 94,
+                      "line": 99,
                       "column": 7
                     }
                   },
@@ -2993,7 +2993,7 @@
                                 "value": "workingMatrix",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 96,
+                                  "line": 101,
                                   "column": 7
                                 }
                               },
@@ -3002,14 +3002,14 @@
                                 "value": "targetRowIndex",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 96,
+                                  "line": 101,
                                   "column": 21
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 96,
+                                "line": 101,
                                 "column": 7
                               }
                             },
@@ -3018,14 +3018,14 @@
                               "value": "pivotIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 96,
+                                "line": 101,
                                 "column": 37
                               }
                             },
                             "computed": true,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 96,
+                              "line": 101,
                               "column": 7
                             }
                           },
@@ -3034,45 +3034,45 @@
                             "value": "pivotReciprocal",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 96,
+                              "line": 101,
                               "column": 52
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 96,
+                            "line": 101,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 96,
+                          "line": 101,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 95,
+                      "line": 100,
                       "column": 7
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 91,
+                    "line": 96,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 33,
+                "line": 34,
                 "column": 61
               }
             },
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 33,
+              "line": 34,
               "column": 3
             }
           },
@@ -3086,7 +3086,7 @@
                   "value": "workingMatrix",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 100,
+                    "line": 105,
                     "column": 20
                   }
                 },
@@ -3095,33 +3095,33 @@
                   "value": "permutation",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 100,
+                    "line": 105,
                     "column": 35
                   }
                 }
               },
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 100,
+                "line": 105,
                 "column": 10
               }
             },
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 100,
+              "line": 105,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/gaussianelimination.js",
-          "line": 11,
+          "line": 9,
           "column": 46
         }
       },
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 11,
+        "line": 9,
         "column": 1
       }
     },
@@ -3142,7 +3142,7 @@
             "value": false,
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 103,
+              "line": 108,
               "column": 62
             }
           }
@@ -3164,7 +3164,7 @@
                     "value": "decomposition",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 104,
+                      "line": 109,
                       "column": 18
                     }
                   },
@@ -3173,14 +3173,14 @@
                     "value": "matrix",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 104,
+                      "line": 109,
                       "column": 32
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 104,
+                    "line": 109,
                     "column": 18
                   }
                 }
@@ -3189,7 +3189,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 104,
+              "line": 109,
               "column": 3
             }
           },
@@ -3206,7 +3206,7 @@
                     "value": "decomposition",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 105,
+                      "line": 110,
                       "column": 23
                     }
                   },
@@ -3215,14 +3215,14 @@
                     "value": "permutation",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 105,
+                      "line": 110,
                       "column": 37
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 105,
+                    "line": 110,
                     "column": 23
                   }
                 }
@@ -3231,7 +3231,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 105,
+              "line": 110,
               "column": 3
             }
           },
@@ -3248,7 +3248,7 @@
                     "value": "permutation",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 106,
+                      "line": 111,
                       "column": 16
                     }
                   },
@@ -3257,14 +3257,14 @@
                     "value": "length",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 106,
+                      "line": 111,
                       "column": 28
                     }
                   },
                   "computed": false,
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 106,
+                    "line": 111,
                     "column": 16
                   }
                 }
@@ -3273,7 +3273,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 106,
+              "line": 111,
               "column": 3
             }
           },
@@ -3290,7 +3290,7 @@
                     "value": "mutate",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 108,
+                      "line": 113,
                       "column": 25
                     }
                   },
@@ -3299,7 +3299,7 @@
                     "value": "constants",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 108,
+                      "line": 113,
                       "column": 34
                     }
                   },
@@ -3312,7 +3312,7 @@
                         "value": "Array",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 108,
+                          "line": 113,
                           "column": 46
                         }
                       },
@@ -3321,14 +3321,14 @@
                         "value": "from",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 108,
+                          "line": 113,
                           "column": 52
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 108,
+                        "line": 113,
                         "column": 46
                       }
                     },
@@ -3338,20 +3338,20 @@
                         "value": "constants",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 108,
+                          "line": 113,
                           "column": 57
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 108,
+                      "line": 113,
                       "column": 56
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 108,
+                    "line": 113,
                     "column": 25
                   }
                 }
@@ -3360,7 +3360,7 @@
             "varType": "const",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 108,
+              "line": 113,
               "column": 3
             }
           },
@@ -3375,7 +3375,7 @@
                   "value": -1,
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 110,
+                    "line": 115,
                     "column": 25
                   }
                 }
@@ -3384,7 +3384,7 @@
             "varType": "let",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 110,
+              "line": 115,
               "column": 3
             }
           },
@@ -3401,8 +3401,8 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 112,
-                      "column": 27
+                      "line": 116,
+                      "column": 30
                     }
                   }
                 }
@@ -3410,8 +3410,8 @@
               "varType": "let",
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 112,
-                "column": 5
+                "line": 116,
+                "column": 8
               }
             },
             "test": {
@@ -3422,8 +3422,8 @@
                 "value": "forwardRowIndex",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 113,
-                  "column": 5
+                  "line": 116,
+                  "column": 33
                 }
               },
               "right": {
@@ -3431,14 +3431,14 @@
                 "value": "size",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 113,
-                  "column": 23
+                  "line": 116,
+                  "column": 51
                 }
               },
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 113,
-                "column": 21
+                "line": 116,
+                "column": 49
               }
             },
             "update": {
@@ -3448,15 +3448,15 @@
                 "value": "forwardRowIndex",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 114,
-                  "column": 5
+                  "line": 116,
+                  "column": 57
                 }
               },
               "postfix": true,
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 114,
-                "column": 5
+                "line": 116,
+                "column": 57
               }
             },
             "body": {
@@ -3475,7 +3475,7 @@
                           "value": "permutation",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 116,
+                            "line": 117,
                             "column": 28
                           }
                         },
@@ -3484,14 +3484,14 @@
                           "value": "forwardRowIndex",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 116,
+                            "line": 117,
                             "column": 40
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 116,
+                          "line": 117,
                           "column": 28
                         }
                       }
@@ -3500,7 +3500,7 @@
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 116,
+                    "line": 117,
                     "column": 5
                   }
                 },
@@ -3517,7 +3517,7 @@
                           "value": "workingVector",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 117,
+                            "line": 118,
                             "column": 15
                           }
                         },
@@ -3526,14 +3526,14 @@
                           "value": "permutationRow",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 117,
+                            "line": 118,
                             "column": 29
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 117,
+                          "line": 118,
                           "column": 15
                         }
                       }
@@ -3542,7 +3542,7 @@
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 117,
+                    "line": 118,
                     "column": 5
                   }
                 },
@@ -3558,7 +3558,7 @@
                         "value": "workingVector",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 118,
+                          "line": 119,
                           "column": 5
                         }
                       },
@@ -3567,14 +3567,14 @@
                         "value": "permutationRow",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 118,
+                          "line": 119,
                           "column": 19
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 118,
+                        "line": 119,
                         "column": 5
                       }
                     },
@@ -3585,7 +3585,7 @@
                         "value": "workingVector",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 118,
+                          "line": 119,
                           "column": 37
                         }
                       },
@@ -3594,26 +3594,26 @@
                         "value": "forwardRowIndex",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 118,
+                          "line": 119,
                           "column": 51
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 118,
+                        "line": 119,
                         "column": 37
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 118,
+                      "line": 119,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 118,
+                    "line": 119,
                     "column": 5
                   }
                 },
@@ -3627,7 +3627,7 @@
                       "value": "firstNonZeroRow",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 120,
+                        "line": 121,
                         "column": 9
                       }
                     },
@@ -3636,13 +3636,13 @@
                       "value": -1,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 120,
+                        "line": 121,
                         "column": 29
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 120,
+                      "line": 121,
                       "column": 25
                     }
                   },
@@ -3662,7 +3662,7 @@
                                 "value": "firstNonZeroRow",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 122,
+                                  "line": 123,
                                   "column": 34
                                 }
                               }
@@ -3671,7 +3671,7 @@
                           "varType": "let",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 122,
+                            "line": 123,
                             "column": 9
                           }
                         },
@@ -3683,7 +3683,7 @@
                             "value": "forwardColumnIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 123,
+                              "line": 124,
                               "column": 9
                             }
                           },
@@ -3692,13 +3692,13 @@
                             "value": "forwardRowIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 123,
+                              "line": 124,
                               "column": 30
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 123,
+                            "line": 124,
                             "column": 28
                           }
                         },
@@ -3709,14 +3709,14 @@
                             "value": "forwardColumnIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 124,
+                              "line": 125,
                               "column": 9
                             }
                           },
                           "postfix": true,
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 124,
+                            "line": 125,
                             "column": 9
                           }
                         },
@@ -3733,7 +3733,7 @@
                                   "value": "sum",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 126,
+                                    "line": 127,
                                     "column": 9
                                   }
                                 },
@@ -3749,7 +3749,7 @@
                                         "value": "matrix",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 127,
+                                          "line": 128,
                                           "column": 11
                                         }
                                       },
@@ -3758,14 +3758,14 @@
                                         "value": "forwardRowIndex",
                                         "location": {
                                           "file": "./integration_tests/gaussianelimination.js",
-                                          "line": 127,
+                                          "line": 128,
                                           "column": 18
                                         }
                                       },
                                       "computed": true,
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 127,
+                                        "line": 128,
                                         "column": 11
                                       }
                                     },
@@ -3774,14 +3774,14 @@
                                       "value": "forwardColumnIndex",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 127,
+                                        "line": 128,
                                         "column": 35
                                       }
                                     },
                                     "computed": true,
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 127,
+                                      "line": 128,
                                       "column": 11
                                     }
                                   },
@@ -3792,7 +3792,7 @@
                                       "value": "workingVector",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 128,
+                                        "line": 129,
                                         "column": 11
                                       }
                                     },
@@ -3801,52 +3801,52 @@
                                       "value": "forwardColumnIndex",
                                       "location": {
                                         "file": "./integration_tests/gaussianelimination.js",
-                                        "line": 128,
+                                        "line": 129,
                                         "column": 25
                                       }
                                     },
                                     "computed": true,
                                     "location": {
                                       "file": "./integration_tests/gaussianelimination.js",
-                                      "line": 128,
+                                      "line": 129,
                                       "column": 11
                                     }
                                   },
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 127,
+                                    "line": 128,
                                     "column": 55
                                   }
                                 },
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 126,
+                                  "line": 127,
                                   "column": 9
                                 }
                               },
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 126,
+                                "line": 127,
                                 "column": 9
                               }
                             }
                           ],
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 125,
+                            "line": 126,
                             "column": 9
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 121,
+                          "line": 122,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 120,
+                      "line": 121,
                       "column": 33
                     }
                   },
@@ -3860,7 +3860,7 @@
                         "value": "sum",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 130,
+                          "line": 131,
                           "column": 16
                         }
                       },
@@ -3869,13 +3869,13 @@
                         "value": 0,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 130,
+                          "line": 131,
                           "column": 24
                         }
                       },
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 130,
+                        "line": 131,
                         "column": 20
                       }
                     },
@@ -3892,7 +3892,7 @@
                               "value": "firstNonZeroRow",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 131,
+                                "line": 132,
                                 "column": 7
                               }
                             },
@@ -3901,38 +3901,38 @@
                               "value": "forwardRowIndex",
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 131,
+                                "line": 132,
                                 "column": 25
                               }
                             },
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 131,
+                              "line": 132,
                               "column": 7
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 131,
+                            "line": 132,
                             "column": 7
                           }
                         }
                       ],
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 130,
+                        "line": 131,
                         "column": 27
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 130,
+                      "line": 131,
                       "column": 12
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 120,
+                    "line": 121,
                     "column": 5
                   }
                 },
@@ -3948,7 +3948,7 @@
                         "value": "workingVector",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 134,
+                          "line": 135,
                           "column": 5
                         }
                       },
@@ -3957,14 +3957,14 @@
                         "value": "forwardRowIndex",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 134,
+                          "line": 135,
                           "column": 19
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 134,
+                        "line": 135,
                         "column": 5
                       }
                     },
@@ -3973,32 +3973,32 @@
                       "value": "sum",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 134,
+                        "line": 135,
                         "column": 38
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 134,
+                      "line": 135,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 134,
+                    "line": 135,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 115,
-                "column": 5
+                "line": 116,
+                "column": 76
               }
             },
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 111,
+              "line": 116,
               "column": 3
             }
           },
@@ -4018,8 +4018,8 @@
                       "value": "size",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 137,
-                        "column": 31
+                        "line": 139,
+                        "column": 28
                       }
                     },
                     "right": {
@@ -4027,14 +4027,14 @@
                       "value": 1,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 137,
-                        "column": 38
+                        "line": 139,
+                        "column": 35
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 137,
-                      "column": 36
+                      "line": 139,
+                      "column": 33
                     }
                   }
                 }
@@ -4042,8 +4042,8 @@
               "varType": "let",
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 137,
-                "column": 8
+                "line": 139,
+                "column": 5
               }
             },
             "test": {
@@ -4054,8 +4054,8 @@
                 "value": "backwardRowIndex",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 137,
-                  "column": 41
+                  "line": 140,
+                  "column": 5
                 }
               },
               "right": {
@@ -4063,14 +4063,14 @@
                 "value": 0,
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 137,
-                  "column": 61
+                  "line": 140,
+                  "column": 25
                 }
               },
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 137,
-                "column": 58
+                "line": 140,
+                "column": 22
               }
             },
             "update": {
@@ -4080,15 +4080,15 @@
                 "value": "backwardRowIndex",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 137,
-                  "column": 64
+                  "line": 141,
+                  "column": 5
                 }
               },
               "postfix": true,
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 137,
-                "column": 64
+                "line": 141,
+                "column": 5
               }
             },
             "body": {
@@ -4107,7 +4107,7 @@
                           "value": "workingVector",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 138,
+                            "line": 143,
                             "column": 15
                           }
                         },
@@ -4116,14 +4116,14 @@
                           "value": "backwardRowIndex",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 138,
+                            "line": 143,
                             "column": 29
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 138,
+                          "line": 143,
                           "column": 15
                         }
                       }
@@ -4132,7 +4132,7 @@
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 138,
+                    "line": 143,
                     "column": 5
                   }
                 },
@@ -4152,7 +4152,7 @@
                             "value": "backwardRowIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 140,
+                              "line": 145,
                               "column": 33
                             }
                           },
@@ -4161,13 +4161,13 @@
                             "value": 1,
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 140,
+                              "line": 145,
                               "column": 52
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 140,
+                            "line": 145,
                             "column": 50
                           }
                         }
@@ -4176,7 +4176,7 @@
                     "varType": "let",
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 140,
+                      "line": 145,
                       "column": 7
                     }
                   },
@@ -4188,7 +4188,7 @@
                       "value": "backwardColumnIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 141,
+                        "line": 146,
                         "column": 7
                       }
                     },
@@ -4197,13 +4197,13 @@
                       "value": "size",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 141,
+                        "line": 146,
                         "column": 29
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 141,
+                      "line": 146,
                       "column": 27
                     }
                   },
@@ -4214,14 +4214,14 @@
                       "value": "backwardColumnIndex",
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 142,
+                        "line": 147,
                         "column": 7
                       }
                     },
                     "postfix": true,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 142,
+                      "line": 147,
                       "column": 7
                     }
                   },
@@ -4238,7 +4238,7 @@
                             "value": "sum",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 144,
+                              "line": 149,
                               "column": 7
                             }
                           },
@@ -4254,7 +4254,7 @@
                                   "value": "matrix",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 145,
+                                    "line": 150,
                                     "column": 9
                                   }
                                 },
@@ -4263,14 +4263,14 @@
                                   "value": "backwardRowIndex",
                                   "location": {
                                     "file": "./integration_tests/gaussianelimination.js",
-                                    "line": 145,
+                                    "line": 150,
                                     "column": 16
                                   }
                                 },
                                 "computed": true,
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 145,
+                                  "line": 150,
                                   "column": 9
                                 }
                               },
@@ -4279,14 +4279,14 @@
                                 "value": "backwardColumnIndex",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 145,
+                                  "line": 150,
                                   "column": 34
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 145,
+                                "line": 150,
                                 "column": 9
                               }
                             },
@@ -4297,7 +4297,7 @@
                                 "value": "workingVector",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 146,
+                                  "line": 151,
                                   "column": 9
                                 }
                               },
@@ -4306,45 +4306,45 @@
                                 "value": "backwardColumnIndex",
                                 "location": {
                                   "file": "./integration_tests/gaussianelimination.js",
-                                  "line": 146,
+                                  "line": 151,
                                   "column": 23
                                 }
                               },
                               "computed": true,
                               "location": {
                                 "file": "./integration_tests/gaussianelimination.js",
-                                "line": 146,
+                                "line": 151,
                                 "column": 9
                               }
                             },
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 145,
+                              "line": 150,
                               "column": 55
                             }
                           },
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 144,
+                            "line": 149,
                             "column": 7
                           }
                         },
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 144,
+                          "line": 149,
                           "column": 7
                         }
                       }
                     ],
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 143,
+                      "line": 148,
                       "column": 7
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 139,
+                    "line": 144,
                     "column": 5
                   }
                 },
@@ -4360,7 +4360,7 @@
                         "value": "workingVector",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 148,
+                          "line": 153,
                           "column": 5
                         }
                       },
@@ -4369,14 +4369,14 @@
                         "value": "backwardRowIndex",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 148,
+                          "line": 153,
                           "column": 19
                         }
                       },
                       "computed": true,
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 148,
+                        "line": 153,
                         "column": 5
                       }
                     },
@@ -4388,7 +4388,7 @@
                         "value": "sum",
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 149,
+                          "line": 154,
                           "column": 7
                         }
                       },
@@ -4401,7 +4401,7 @@
                             "value": "matrix",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 149,
+                              "line": 154,
                               "column": 13
                             }
                           },
@@ -4410,14 +4410,14 @@
                             "value": "backwardRowIndex",
                             "location": {
                               "file": "./integration_tests/gaussianelimination.js",
-                              "line": 149,
+                              "line": 154,
                               "column": 20
                             }
                           },
                           "computed": true,
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 149,
+                            "line": 154,
                             "column": 13
                           }
                         },
@@ -4426,45 +4426,45 @@
                           "value": "backwardRowIndex",
                           "location": {
                             "file": "./integration_tests/gaussianelimination.js",
-                            "line": 149,
+                            "line": 154,
                             "column": 38
                           }
                         },
                         "computed": true,
                         "location": {
                           "file": "./integration_tests/gaussianelimination.js",
-                          "line": 149,
+                          "line": 154,
                           "column": 13
                         }
                       },
                       "location": {
                         "file": "./integration_tests/gaussianelimination.js",
-                        "line": 149,
+                        "line": 154,
                         "column": 11
                       }
                     },
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 148,
+                      "line": 153,
                       "column": 5
                     }
                   },
                   "location": {
                     "file": "./integration_tests/gaussianelimination.js",
-                    "line": 148,
+                    "line": 153,
                     "column": 5
                   }
                 }
               ],
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 137,
-                "column": 84
+                "line": 142,
+                "column": 5
               }
             },
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 137,
+              "line": 138,
               "column": 3
             }
           },
@@ -4475,26 +4475,26 @@
               "value": "workingVector",
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 152,
+                "line": 157,
                 "column": 10
               }
             },
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 152,
+              "line": 157,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "./integration_tests/gaussianelimination.js",
-          "line": 103,
+          "line": 108,
           "column": 69
         }
       },
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 103,
+        "line": 108,
         "column": 1
       }
     },
@@ -4515,7 +4515,7 @@
                     "value": 1,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 156,
+                      "line": 161,
                       "column": 4
                     }
                   },
@@ -4524,7 +4524,7 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 156,
+                      "line": 161,
                       "column": 9
                     }
                   },
@@ -4533,7 +4533,7 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 156,
+                      "line": 161,
                       "column": 14
                     }
                   },
@@ -4542,7 +4542,7 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 156,
+                      "line": 161,
                       "column": 19
                     }
                   },
@@ -4551,7 +4551,7 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 156,
+                      "line": 161,
                       "column": 24
                     }
                   },
@@ -4560,328 +4560,8 @@
                     "value": 0,
                     "location": {
                       "file": "./integration_tests/gaussianelimination.js",
-                      "line": 156,
+                      "line": 161,
                       "column": 29
-                    }
-                  }
-                ],
-                "location": {
-                  "file": "./integration_tests/gaussianelimination.js",
-                  "line": 156,
-                  "column": 3
-                }
-              },
-              {
-                "type": "array",
-                "elements": [
-                  {
-                    "type": "number",
-                    "value": 1,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 157,
-                      "column": 4
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 0.63,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 157,
-                      "column": 9
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 0.39,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 157,
-                      "column": 15
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 0.25,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 157,
-                      "column": 21
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 0.16,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 157,
-                      "column": 27
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 0.1,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 157,
-                      "column": 33
-                    }
-                  }
-                ],
-                "location": {
-                  "file": "./integration_tests/gaussianelimination.js",
-                  "line": 157,
-                  "column": 3
-                }
-              },
-              {
-                "type": "array",
-                "elements": [
-                  {
-                    "type": "number",
-                    "value": 1,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 158,
-                      "column": 4
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 1.26,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 158,
-                      "column": 9
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 1.58,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 158,
-                      "column": 15
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 1.98,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 158,
-                      "column": 21
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 2.49,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 158,
-                      "column": 27
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 3.13,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 158,
-                      "column": 33
-                    }
-                  }
-                ],
-                "location": {
-                  "file": "./integration_tests/gaussianelimination.js",
-                  "line": 158,
-                  "column": 3
-                }
-              },
-              {
-                "type": "array",
-                "elements": [
-                  {
-                    "type": "number",
-                    "value": 1,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 159,
-                      "column": 4
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 1.88,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 159,
-                      "column": 9
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 3.55,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 159,
-                      "column": 15
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 6.7,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 159,
-                      "column": 21
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 12.62,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 159,
-                      "column": 26
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 23.8,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 159,
-                      "column": 33
-                    }
-                  }
-                ],
-                "location": {
-                  "file": "./integration_tests/gaussianelimination.js",
-                  "line": 159,
-                  "column": 3
-                }
-              },
-              {
-                "type": "array",
-                "elements": [
-                  {
-                    "type": "number",
-                    "value": 1,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 160,
-                      "column": 4
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 2.51,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 160,
-                      "column": 9
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 6.32,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 160,
-                      "column": 15
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 15.88,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 160,
-                      "column": 21
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 39.9,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 160,
-                      "column": 28
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 100.28,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 160,
-                      "column": 34
-                    }
-                  }
-                ],
-                "location": {
-                  "file": "./integration_tests/gaussianelimination.js",
-                  "line": 160,
-                  "column": 3
-                }
-              },
-              {
-                "type": "array",
-                "elements": [
-                  {
-                    "type": "number",
-                    "value": 1,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 161,
-                      "column": 4
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 3.14,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 161,
-                      "column": 9
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 9.87,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 161,
-                      "column": 15
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 31.01,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 161,
-                      "column": 21
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 97.41,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 161,
-                      "column": 28
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "value": 306.02,
-                    "location": {
-                      "file": "./integration_tests/gaussianelimination.js",
-                      "line": 161,
-                      "column": 35
                     }
                   }
                 ],
@@ -4890,11 +4570,331 @@
                   "line": 161,
                   "column": 3
                 }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 1,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 162,
+                      "column": 4
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 0.63,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 162,
+                      "column": 9
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 0.39,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 162,
+                      "column": 15
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 0.25,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 162,
+                      "column": 21
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 0.16,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 162,
+                      "column": 27
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 0.1,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 162,
+                      "column": 33
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/gaussianelimination.js",
+                  "line": 162,
+                  "column": 3
+                }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 1,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 163,
+                      "column": 4
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 1.26,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 163,
+                      "column": 9
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 1.58,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 163,
+                      "column": 15
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 1.98,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 163,
+                      "column": 21
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 2.49,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 163,
+                      "column": 27
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 3.13,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 163,
+                      "column": 33
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/gaussianelimination.js",
+                  "line": 163,
+                  "column": 3
+                }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 1,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 164,
+                      "column": 4
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 1.88,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 164,
+                      "column": 9
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 3.55,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 164,
+                      "column": 15
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 6.7,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 164,
+                      "column": 21
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 12.62,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 164,
+                      "column": 26
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 23.8,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 164,
+                      "column": 33
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/gaussianelimination.js",
+                  "line": 164,
+                  "column": 3
+                }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 1,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 165,
+                      "column": 4
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 2.51,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 165,
+                      "column": 9
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 6.32,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 165,
+                      "column": 15
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 15.88,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 165,
+                      "column": 21
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 39.9,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 165,
+                      "column": 28
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 100.28,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 165,
+                      "column": 34
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/gaussianelimination.js",
+                  "line": 165,
+                  "column": 3
+                }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 1,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 166,
+                      "column": 4
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 3.14,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 166,
+                      "column": 9
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 9.87,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 166,
+                      "column": 15
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 31.01,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 166,
+                      "column": 21
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 97.41,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 166,
+                      "column": 28
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 306.02,
+                    "location": {
+                      "file": "./integration_tests/gaussianelimination.js",
+                      "line": 166,
+                      "column": 35
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/gaussianelimination.js",
+                  "line": 166,
+                  "column": 3
+                }
               }
             ],
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 155,
+              "line": 160,
               "column": 27
             }
           }
@@ -4903,7 +4903,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 155,
+        "line": 160,
         "column": 1
       }
     },
@@ -4921,7 +4921,7 @@
                 "value": -0.01,
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 164,
+                  "line": 169,
                   "column": 20
                 }
               },
@@ -4930,7 +4930,7 @@
                 "value": 0.61,
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 164,
+                  "line": 169,
                   "column": 27
                 }
               },
@@ -4939,7 +4939,7 @@
                 "value": 0.91,
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 164,
+                  "line": 169,
                   "column": 33
                 }
               },
@@ -4948,7 +4948,7 @@
                 "value": 0.99,
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 164,
+                  "line": 169,
                   "column": 39
                 }
               },
@@ -4957,7 +4957,7 @@
                 "value": 0.6,
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 164,
+                  "line": 169,
                   "column": 45
                 }
               },
@@ -4966,14 +4966,14 @@
                 "value": 0.02,
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 164,
+                  "line": 169,
                   "column": 50
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 164,
+              "line": 169,
               "column": 19
             }
           }
@@ -4982,7 +4982,7 @@
       "varType": "const",
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 164,
+        "line": 169,
         "column": 1
       }
     },
@@ -4997,7 +4997,7 @@
             "value": "console",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 166,
+              "line": 171,
               "column": 1
             }
           },
@@ -5006,14 +5006,14 @@
             "value": "log",
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 166,
+              "line": 171,
               "column": 9
             }
           },
           "computed": false,
           "location": {
             "file": "./integration_tests/gaussianelimination.js",
-            "line": 166,
+            "line": 171,
             "column": 1
           }
         },
@@ -5025,7 +5025,7 @@
               "value": "luSolve",
               "location": {
                 "file": "./integration_tests/gaussianelimination.js",
-                "line": 166,
+                "line": 171,
                 "column": 13
               }
             },
@@ -5035,7 +5035,7 @@
                 "value": "coefficientMatrix",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 166,
+                  "line": 171,
                   "column": 21
                 }
               },
@@ -5044,27 +5044,27 @@
                 "value": "constants",
                 "location": {
                   "file": "./integration_tests/gaussianelimination.js",
-                  "line": 166,
+                  "line": 171,
                   "column": 40
                 }
               }
             ],
             "location": {
               "file": "./integration_tests/gaussianelimination.js",
-              "line": 166,
+              "line": 171,
               "column": 20
             }
           }
         ],
         "location": {
           "file": "./integration_tests/gaussianelimination.js",
-          "line": 166,
+          "line": 171,
           "column": 12
         }
       },
       "location": {
         "file": "./integration_tests/gaussianelimination.js",
-        "line": 166,
+        "line": 171,
         "column": 1
       }
     }

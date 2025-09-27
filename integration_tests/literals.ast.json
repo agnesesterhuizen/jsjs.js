@@ -250,8 +250,11 @@
         },
         "arguments": [
           {
-            "type": "string",
-            "value": "str",
+            "type": "template_literal",
+            "quasis": [
+              "str"
+            ],
+            "expressions": [],
             "location": {
               "file": "./integration_tests/literals.js",
               "line": 5,

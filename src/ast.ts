@@ -107,6 +107,11 @@ export type WithLocation<T> = T & { location: Location };
 export type Expression = WithLocation<
   | { type: "number"; value: number }
   | { type: "string"; value: string }
+  | {
+      type: "template_literal";
+      quasis: string[];
+      expressions: Expression[];
+    }
   | { type: "boolean"; value: boolean }
   | { type: "identifier"; value: string }
   | { type: "null" }
