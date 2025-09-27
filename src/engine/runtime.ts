@@ -14,6 +14,7 @@ import { createFunctionPrototype } from "./intrinsics/prototype/Function.ts";
 import { createObjectPrototype } from "./intrinsics/prototype/Object.ts";
 import { createStringPrototype } from "./intrinsics/prototype/String.ts";
 import { createRegExpPrototype } from "./intrinsics/prototype/RegExp.ts";
+import { createMapPrototype } from "./intrinsics/prototype/Map.ts";
 import { createSymbolPrototype } from "./intrinsics/prototype/Symbol.ts";
 import {
   JSObject,
@@ -27,7 +28,9 @@ import {
   JSNull,
   JSRegExp,
   JSSymbol,
+  JSMap,
 } from "./objects.ts";
+import { createMapConstructor } from "./intrinsics/constructor/Map.ts";
 
 type Binding = {
   initialized: boolean;
@@ -150,6 +153,15 @@ export class Runtime {
     const regExpPrototype = createRegExpPrototype(this);
     this.intrinsics["RegExpPrototype"] = regExpPrototype;
 
+    // map
+    const mapPrototype = createMapPrototype(this);
+    this.intrinsics["MapPrototype"] = mapPrototype;
+
+    const mapConstructor = createMapConstructor(this);
+    mapConstructor.properties["prototype"] = mapPrototype;
+
+    this.intrinsics["Map"] = mapConstructor;
+
     // other
     const mathConstructor = createMathConstructor(this);
 
@@ -159,6 +171,7 @@ export class Runtime {
       Function: { initialized: true, value: functionConstructor },
       Math: { initialized: true, value: mathConstructor },
       Symbol: { initialized: true, value: symbolFunction },
+      Map: { initialized: true, value: mapConstructor },
       console: {
         initialized: true,
         value: this.newObject({
@@ -255,6 +268,12 @@ export class Runtime {
     array.elements = elements;
     array.prototype = this.intrinsics["ArrayPrototype"] as JSObject;
     return array;
+  }
+
+  newMap(): JSMap {
+    const map = new JSMap();
+    map.prototype = this.intrinsics["MapPrototype"] as JSObject;
+    return map;
   }
 
   newRegExp(pattern: string, flags: string): JSRegExp {
@@ -513,6 +532,16 @@ export class Runtime {
       }
     }
 
+    if (object.type === "map") {
+      if (typeof property === "string") {
+        const map = object as unknown as JSMap;
+
+        if (property === "size") {
+          return this.newNumber(map.entries.size);
+        }
+      }
+    }
+
     let current: JSObject | null = object as JSObject;
 
     while (current) {
@@ -581,7 +610,8 @@ export class Runtime {
       result &&
       (result.type === "object" ||
         result.type === "function" ||
-        result.type === "array")
+        result.type === "array" ||
+        result.type === "map")
     ) {
       return result as JSObject;
     }

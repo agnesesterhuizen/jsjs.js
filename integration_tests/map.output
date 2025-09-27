@@ -1,0 +1,17 @@
+get a 1 undefined
+has a 1 false
+get b 1 123
+has b 1 true
+get b 2 456
+get b 3 undefined
+has b 3 false
+get c 1 789
+has c 1 true
+get c 2 undefined
+has c 2 false
+size 1 0
+size 2 1
+size 3 2
+size 4 1
+size 5 0
+size 6 3

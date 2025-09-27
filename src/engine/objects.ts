@@ -10,6 +10,7 @@ type ObjectType =
   | "regex"
   | "string"
   | "symbol"
+  | "map"
   | "undefined";
 
 export class JSObject {
@@ -39,7 +40,7 @@ export class JSObject {
     return true;
   }
 
-  typeof() {
+  typeOf() {
     return "object";
   }
 }
@@ -55,7 +56,7 @@ export class JSUndefined extends JSObject {
     return false;
   }
 
-  typeof() {
+  typeOf() {
     return "undefined";
   }
 }
@@ -84,7 +85,7 @@ export class JSNumber extends JSObject {
     return this.value !== 0 && !Number.isNaN(this.value);
   }
 
-  typeof() {
+  typeOf() {
     return "number";
   }
 }
@@ -106,7 +107,7 @@ export class JSString extends JSObject {
     return this.value !== "";
   }
 
-  typeof() {
+  typeOf() {
     return "string";
   }
 }
@@ -123,7 +124,7 @@ export class JSBoolean extends JSObject {
     return this.value;
   }
 
-  typeof() {
+  typeOf() {
     return "boolean";
   }
 }
@@ -157,7 +158,7 @@ export class JSFunction extends JSObject {
     return "TODO: function string";
   }
 
-  typeof() {
+  typeOf() {
     return "function";
   }
 }
@@ -180,7 +181,7 @@ export class JSRegExp extends JSObject {
     return `/${this.pattern}/${this.flags}`;
   }
 
-  typeof() {
+  typeOf() {
     return "object";
   }
 }
@@ -201,7 +202,25 @@ export class JSSymbol extends JSObject {
     return `Symbol(${this.description ? this.description : ""})`;
   }
 
-  typeof() {
+  typeOf() {
     return "symbol";
+  }
+}
+
+export class JSMap extends JSObject {
+  type: ObjectType = "map";
+
+  entries: Map<JSObject, JSObject> = new Map();
+
+  constructor() {
+    super();
+  }
+
+  toString() {
+    return `Map(${this.entries.size} entries)`;
+  }
+
+  typeOf() {
+    return "map";
   }
 }

@@ -317,6 +317,10 @@ export class Parser {
       let propertyName: string;
       const propertyToken = this.peekNextToken();
 
+      if (!propertyToken) {
+        unexpectedToken("eof", token);
+      }
+
       if (propertyToken.type === "identifier") {
         const identifier = this.expect("identifier");
         propertyName = identifier.value;

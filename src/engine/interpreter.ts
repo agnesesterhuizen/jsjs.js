@@ -201,10 +201,7 @@ export class Interpreter {
     }
   ): JSObject {
     if (value.type === "undefined" || value.type === "null") {
-      throw typeError(
-        `Cannot destructure ${value.type} value`,
-        pattern
-      );
+      throw typeError(`Cannot destructure ${value.type} value`, pattern);
     }
 
     const source = value as JSObject;
@@ -729,7 +726,9 @@ export class Interpreter {
       let propertyKey: string | JSSymbol;
 
       if (expression.left.computed) {
-        const computedProperty = this.executeExpression(expression.left.property);
+        const computedProperty = this.executeExpression(
+          expression.left.property
+        );
         if (computedProperty.type === "symbol") {
           propertyKey = computedProperty as JSSymbol;
         } else {
@@ -1043,7 +1042,7 @@ export class Interpreter {
 
             if (binding) {
               if (binding.initialized) {
-                return this.runtime.newString(binding.value.typeof());
+                return this.runtime.newString(binding.value.typeOf());
               } else {
                 return this.runtime.newString("undefined");
               }
@@ -1052,7 +1051,7 @@ export class Interpreter {
 
           const operand = this.executeExpression(expression.expression);
 
-          return this.runtime.newString(operand.typeof());
+          return this.runtime.newString(operand.typeOf());
         }
 
         if (expression.operator === "void") {
