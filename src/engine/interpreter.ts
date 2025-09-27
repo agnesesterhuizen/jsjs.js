@@ -529,7 +529,7 @@ export class Interpreter {
     } catch (errorOrReturnValue) {
       // rethrow if not a return value so we don't mask any actual errors
 
-      if (errorOrReturnValue.type !== "__RETURN_VALUE__") {
+      if (errorOrReturnValue.type !== "__INTERNAL_RETURN_VALUE__") {
         throw errorOrReturnValue;
       }
 
@@ -872,7 +872,7 @@ export class Interpreter {
           value = this.executeExpression(statement.expression);
         }
 
-        throw { type: "__RETURN_VALUE__", value };
+        throw { type: "__INTERNAL_RETURN_VALUE__", value };
       }
       case "variable_declaration": {
         const kind = statement.varType;
@@ -952,7 +952,7 @@ export class Interpreter {
           try {
             this.executeStatement(statement.body);
           } catch (e) {
-            if (e.type === "__BREAK__") {
+            if (e.type === "__INTERNAL_BREAK__") {
               break;
             }
             throw e;
@@ -976,7 +976,7 @@ export class Interpreter {
           try {
             this.executeStatement(statement.body);
           } catch (e) {
-            if (e.type === "__BREAK__") {
+            if (e.type === "__INTERNAL_BREAK__") {
               break;
             }
             throw e;
@@ -1010,7 +1010,7 @@ export class Interpreter {
             }
           }
         } catch (e) {
-          if (e.type === "__BREAK__") {
+          if (e.type === "__INTERNAL_BREAK__") {
             return this.runtime.newUndefined();
           }
           throw e;
@@ -1024,7 +1024,7 @@ export class Interpreter {
       }
 
       case "break": {
-        throw { type: "__BREAK__" };
+        throw { type: "__INTERNAL_BREAK__" };
       }
 
       case "class_declaration": {
