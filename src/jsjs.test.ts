@@ -1396,6 +1396,155 @@ Deno.test("parser:statement", async (t) => {
     );
   });
 
+  // method shorthand tests:
+  await t.step("parses object with string property method shorthand", () =>
+    textExpression('({ "1_"() { return 42; } });', {
+      type: "object",
+      properties: {
+        "1_": {
+          type: "function",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [
+              {
+                type: "return",
+                expression: { type: "number", value: 42 },
+              },
+            ],
+          },
+        },
+      },
+    })
+  );
+
+  await t.step("parses object with numeric property method shorthand", () =>
+    textExpression('({ 123() { return "hello"; } });', {
+      type: "object",
+      properties: {
+        "123": {
+          type: "function",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [
+              {
+                type: "return",
+                expression: { type: "string", value: "hello" },
+              },
+            ],
+          },
+        },
+      },
+    })
+  );
+
+  await t.step("parses object with identifier method shorthand", () =>
+    textExpression("({ normalMethod() { return true; } });", {
+      type: "object",
+      properties: {
+        normalMethod: {
+          type: "function",
+          parameters: [],
+          body: {
+            type: "block",
+            body: [
+              {
+                type: "return",
+                expression: { type: "boolean", value: true },
+              },
+            ],
+          },
+        },
+      },
+    })
+  );
+
+  await t.step("parses object with method shorthand with parameters", () =>
+    textExpression('({ "test"(a, b) { return a + b; } });', {
+      type: "object",
+      properties: {
+        test: {
+          type: "function",
+          parameters: [{ name: "a" }, { name: "b" }],
+          body: {
+            type: "block",
+            body: [
+              {
+                type: "return",
+                expression: {
+                  type: "binary",
+                  operator: "+",
+                  left: { type: "identifier", value: "a" },
+                  right: { type: "identifier", value: "b" },
+                },
+              },
+            ],
+          },
+        },
+      },
+    })
+  );
+
+  await t.step("parses object with mixed property types and methods", () =>
+    textExpression(
+      '({ "1_"() {}, normalMethod() {}, 456() {}, regularProp: 42 });',
+      {
+        type: "object",
+        properties: {
+          "1_": {
+            type: "function",
+            parameters: [],
+            body: {
+              type: "block",
+              body: [],
+            },
+          },
+          normalMethod: {
+            type: "function",
+            parameters: [],
+            body: {
+              type: "block",
+              body: [],
+            },
+          },
+          "456": {
+            type: "function",
+            parameters: [],
+            body: {
+              type: "block",
+              body: [],
+            },
+          },
+          regularProp: {
+            type: "number",
+            value: 42,
+          },
+        },
+      }
+    )
+  );
+
+  await t.step("parses object with string property names", () =>
+    textExpression('({ "string prop": "value", "123abc": true });', {
+      type: "object",
+      properties: {
+        "string prop": { type: "string", value: "value" },
+        "123abc": { type: "boolean", value: true },
+      },
+    })
+  );
+
+  await t.step("parses object with numeric property names", () =>
+    textExpression('({ 123: "numeric", 0.5: "decimal" });', {
+      type: "object",
+      properties: {
+        "123": { type: "string", value: "numeric" },
+        "0.5": { type: "string", value: "decimal" },
+      },
+    })
+  );
+
   await t.step("parses basic class declaration", () => {
     testStatement("class X {}", {
       type: "class_declaration",

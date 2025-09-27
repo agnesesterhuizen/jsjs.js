@@ -1,6 +1,11 @@
 import { Parameter, Program, Statement } from "../ast.ts";
 import { Logger } from "./engine.ts";
-import { Interpreter, typeError } from "./interpreter.ts";
+import {
+  Interpreter,
+  NodeWithLocation,
+  todo,
+  typeError,
+} from "./interpreter.ts";
 import { createArrayConstructor } from "./intrinsics/constructor/Array.ts";
 import { createMathConstructor } from "./intrinsics/constructor/Math.ts";
 import { createObjectConstructor } from "./intrinsics/constructor/Object.ts";
@@ -307,6 +312,37 @@ export class Runtime {
       throw new ReferenceError(`Unknown well-known symbol '${name}'`);
     }
     return symbol;
+  }
+
+  toNumber(val: JSObject, node: NodeWithLocation): JSNumber {
+    switch (val.type) {
+      case "number":
+        return val as JSNumber;
+
+      case "boolean":
+        return this.newNumber((val as JSBoolean).value ? 1 : 0);
+
+      case "null":
+        return this.newNumber(0);
+
+      case "undefined":
+        return this.newNumber(NaN);
+
+      case "string": {
+        const n = Number((val as JSString).value);
+        return this.newNumber(n);
+      }
+
+      // cursed stuff, come back later
+      case "array":
+      case "object":
+      case "function": {
+        throw todo("object => number coercion", node);
+      }
+
+      default:
+        throw todo(`toNumber for type ${val.type}`, node);
+    }
   }
 
   enumerateObjectKeys(object: JSObject): string[] {

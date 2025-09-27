@@ -1,6 +1,6 @@
 import { Token, TokenType } from "./lexer.ts";
 
-export type UnaryOperator = "!" | "typeof";
+export type UnaryOperator = "!" | "typeof" | "+" | "-";
 
 export type Operator =
   | "+"

@@ -256,7 +256,7 @@ export class Parser {
     );
   }
 
-  parseArrowFunctionExpression(): Expression {
+  parseArrowFunctionExpression(allowComma = true): Expression {
     const token = this.expect("left_paren");
 
     const parameters = this.parseParams(true);
@@ -265,7 +265,7 @@ export class Parser {
 
     this.expect("arrow");
 
-    const body = this.parseStatement();
+    const body = this.parseStatement(allowComma);
 
     return withLocation(
       {
@@ -312,18 +312,47 @@ export class Parser {
     const properties: Record<string, Expression> = {};
 
     while (!this.nextTokenIsType("right_brace")) {
-      const identifier = this.expect("identifier");
+      let propertyName: string;
+      const propertyToken = this.peekNextToken();
+
+      if (propertyToken.type === "identifier") {
+        const identifier = this.expect("identifier");
+        propertyName = identifier.value;
+      } else if (propertyToken.type === "string") {
+        const stringToken = this.expect("string");
+        propertyName = stringToken.value;
+      } else if (propertyToken.type === "number") {
+        const numberToken = this.expect("number");
+        propertyName = numberToken.value;
+      } else {
+        const identifier = this.expect("identifier");
+        propertyName = identifier.value;
+      }
 
       if (this.peekNextToken().type === "colon") {
         this.expect("colon");
-        properties[identifier.value] = this.parseExpression(0, false);
+        properties[propertyName] = this.parseExpression(0, false);
+      } else if (this.peekNextToken().type === "left_paren") {
+        // method shorthand syntax: propertyName() { ... }
+        this.expect("left_paren");
+        const parameters = this.parseParams(true);
+        const body = this.parseStatement(false);
+
+        properties[propertyName] = withLocation(
+          {
+            type: "function",
+            parameters,
+            body,
+          },
+          propertyToken
+        );
       } else {
-        properties[identifier.value] = withLocation(
+        properties[propertyName] = withLocation(
           {
             type: "identifier",
-            value: identifier.value,
+            value: propertyName,
           },
-          identifier
+          propertyToken
         );
       }
 
@@ -402,7 +431,10 @@ export class Parser {
       this.expect("multiply");
       this.expectContextualKeyword("as");
       const namespaceToken = this.expectIdentifierName();
-      specifiers.push({ type: "import_namespace", local: namespaceToken.value });
+      specifiers.push({
+        type: "import_namespace",
+        local: namespaceToken.value,
+      });
     } else if (this.nextTokenIsType("left_brace")) {
       this.expect("left_brace");
 
@@ -412,7 +444,11 @@ export class Parser {
         let localName = importedName;
 
         const next = this.peekNextToken();
-        if (next && (next.type === "identifier" || next.type === "keyword") && next.value === "as") {
+        if (
+          next &&
+          (next.type === "identifier" || next.type === "keyword") &&
+          next.value === "as"
+        ) {
           this.expectIdentifierName();
           const localToken = this.expectIdentifierName();
           localName = localToken.value;
@@ -522,7 +558,11 @@ export class Parser {
         let exportedName = localName;
 
         const next = this.peekNextToken();
-        if (next && (next.type === "identifier" || next.type === "keyword") && next.value === "as") {
+        if (
+          next &&
+          (next.type === "identifier" || next.type === "keyword") &&
+          next.value === "as"
+        ) {
           this.expectIdentifierName();
           const exportedToken = this.expectIdentifierName();
           exportedName = exportedToken.value;
@@ -545,7 +585,11 @@ export class Parser {
 
       let source: string | undefined;
       const next = this.peekNextToken();
-      if (next && (next.type === "identifier" || next.type === "keyword") && next.value === "from") {
+      if (
+        next &&
+        (next.type === "identifier" || next.type === "keyword") &&
+        next.value === "from"
+      ) {
         this.expectContextualKeyword("from");
         source = this.expect("string").value;
       }
@@ -570,7 +614,11 @@ export class Parser {
 
       let exportedName: string | undefined;
       const next = this.peekNextToken();
-      if (next && (next.type === "identifier" || next.type === "keyword") && next.value === "as") {
+      if (
+        next &&
+        (next.type === "identifier" || next.type === "keyword") &&
+        next.value === "as"
+      ) {
         this.expectContextualKeyword("as");
         exportedName = this.expectIdentifierName().value;
       }
@@ -680,6 +728,10 @@ export class Parser {
       operator = "typeof";
     } else if (token.type === "not") {
       operator = "!";
+    } else if (token.type === "plus") {
+      operator = "+";
+    } else if (token.type === "minus") {
+      operator = "-";
     } else {
       throw syntaxError(`${token.value} is not an operator`, token);
     }
@@ -698,9 +750,9 @@ export class Parser {
     );
   }
 
-  parsePrimary(): Expression {
+  parsePrimary(allowComma = true): Expression {
     if (this.isArrowFunctionExpression()) {
-      return this.parseArrowFunctionExpression();
+      return this.parseArrowFunctionExpression(allowComma);
     }
 
     let left: Expression;
@@ -715,132 +767,107 @@ export class Parser {
       const token = this.nextToken();
 
       switch (token.type) {
-      case "identifier": {
-        left = withLocation({ type: "identifier", value: token.value }, token);
-        break;
-      }
-
-      case "number": {
-        left = withLocation(
-          { type: "number", value: parseFloat(token.value) },
-          token
-        );
-        break;
-      }
-
-      case "string": {
-        left = withLocation({ type: "string", value: token.value }, token);
-        break;
-      }
-
-      case "regex": {
-        const pattern = token.value;
-        const flags = (token as Token & { regexFlags?: string }).regexFlags ?? "";
-        left = withLocation(
-          { type: "regex", pattern, flags },
-          token
-        );
-        break;
-      }
-
-      case "template_start": {
-        left = this.parseTemplateLiteral(token);
-        break;
-      }
-
-      case "keyword": {
-        if (token.value === "true" || token.value === "false") {
+        case "identifier": {
           left = withLocation(
-            { type: "boolean", value: token.value === "true" },
+            { type: "identifier", value: token.value },
             token
           );
           break;
         }
 
-        if (token.value === "null") {
-          left = withLocation({ type: "null" }, token);
+        case "number": {
+          left = withLocation(
+            { type: "number", value: parseFloat(token.value) },
+            token
+          );
           break;
         }
 
-        if (token.value === "typeof") {
-          this.backup();
-          left = this.parseUnaryExpression();
+        case "string": {
+          left = withLocation({ type: "string", value: token.value }, token);
           break;
         }
 
-        if (token.value === "function") {
-          let identifier: string;
+        case "regex": {
+          const pattern = token.value;
+          const flags =
+            (token as Token & { regexFlags?: string }).regexFlags ?? "";
+          left = withLocation({ type: "regex", pattern, flags }, token);
+          break;
+        }
 
-          if (this.peekNextToken()?.type === "identifier") {
-            identifier = this.expect("identifier").value;
+        case "template_start": {
+          left = this.parseTemplateLiteral(token);
+          break;
+        }
+
+        case "keyword": {
+          if (token.value === "true" || token.value === "false") {
+            left = withLocation(
+              { type: "boolean", value: token.value === "true" },
+              token
+            );
+            break;
           }
 
-          const parameters: Parameter[] = [];
+          if (token.value === "null") {
+            left = withLocation({ type: "null" }, token);
+            break;
+          }
 
-          this.expect("left_paren");
+          if (token.value === "typeof") {
+            this.backup();
+            left = this.parseUnaryExpression();
+            break;
+          }
 
-          while (this.peekNextToken()?.type !== "right_paren") {
-            const param = this.expect("identifier");
-            parameters.push({ name: param.value });
+          if (token.value === "function") {
+            let identifier: string;
 
-            if (this.peekNextToken()?.type !== "right_paren") {
-              this.expect("comma");
+            if (this.peekNextToken()?.type === "identifier") {
+              identifier = this.expect("identifier").value;
             }
-          }
 
-          this.expect("right_paren");
+            const parameters: Parameter[] = [];
 
-          const body = this.parseBlockStatement();
-
-          left = withLocation(
-            {
-              type: "function",
-              identifier: identifier,
-              parameters,
-              body,
-            },
-            token
-          );
-          break;
-        }
-
-        if (token.value === "new") {
-          const identifier = this.expect("identifier");
-
-          const args: Expression[] = [];
-
-          this.expect("left_paren");
-
-          while (this.peekNextToken().type !== "right_paren") {
-            args.push(this.parseExpression(0, false));
-
-            if (this.peekNextToken().type !== "right_paren") {
-              this.expect("comma");
-            }
-          }
-
-          this.expect("right_paren");
-
-          left = withLocation(
-            {
-              type: "new",
-              identifier: identifier.value,
-              arguments: args,
-            },
-            token
-          );
-          break;
-        }
-
-        if (token.value === "super") {
-          if (this.peekNextToken()?.type === "left_paren") {
-            // super() call
             this.expect("left_paren");
 
-            const args: Expression[] = [];
             while (this.peekNextToken()?.type !== "right_paren") {
-              args.push(this.parseExpression(0, false));
+              const param = this.expect("identifier");
+              parameters.push({ name: param.value });
+
               if (this.peekNextToken()?.type !== "right_paren") {
+                this.expect("comma");
+              }
+            }
+
+            this.expect("right_paren");
+
+            const body = this.parseBlockStatement();
+
+            left = withLocation(
+              {
+                type: "function",
+                identifier: identifier,
+                parameters,
+                body,
+              },
+              token
+            );
+            break;
+          }
+
+          if (token.value === "new") {
+            const identifier = this.expect("identifier");
+
+            const args: Expression[] = [];
+
+            this.expect("left_paren");
+
+            while (this.peekNextToken().type !== "right_paren") {
+              args.push(this.parseExpression(0, false));
+
+              if (this.peekNextToken().type !== "right_paren") {
                 this.expect("comma");
               }
             }
@@ -849,95 +876,125 @@ export class Parser {
 
             left = withLocation(
               {
-                type: "super_call",
+                type: "new",
+                identifier: identifier.value,
                 arguments: args,
               },
               token
             );
             break;
-          } else if (this.peekNextToken()?.type === "dot") {
-            // super.method
-            this.expect("dot");
-            const property = this.expect("identifier");
-
-            left = withLocation(
-              {
-                type: "super_member",
-                property: property.value,
-              },
-              token
-            );
-            break;
-          } else {
-            throw syntaxError(`invalid use of super`, token);
           }
+
+          if (token.value === "super") {
+            if (this.peekNextToken()?.type === "left_paren") {
+              // super() call
+              this.expect("left_paren");
+
+              const args: Expression[] = [];
+              while (this.peekNextToken()?.type !== "right_paren") {
+                args.push(this.parseExpression(0, false));
+                if (this.peekNextToken()?.type !== "right_paren") {
+                  this.expect("comma");
+                }
+              }
+
+              this.expect("right_paren");
+
+              left = withLocation(
+                {
+                  type: "super_call",
+                  arguments: args,
+                },
+                token
+              );
+              break;
+            } else if (this.peekNextToken()?.type === "dot") {
+              // super.method
+              this.expect("dot");
+              const property = this.expect("identifier");
+
+              left = withLocation(
+                {
+                  type: "super_member",
+                  property: property.value,
+                },
+                token
+              );
+              break;
+            } else {
+              throw syntaxError(`invalid use of super`, token);
+            }
+          }
+
+          throw new Error(
+            "unexpected token: " + token.type + ": " + token.value
+          );
         }
 
-        throw new Error("unexpected token: " + token.type + ": " + token.value);
-      }
+        case "left_brace": {
+          this.index--;
+          left = this.parseObjectExpression();
+          break;
+        }
 
-      case "left_brace": {
-        this.index--;
-        left = this.parseObjectExpression();
-        break;
-      }
+        case "left_bracket": {
+          this.index--;
+          left = this.parseArrayExpression();
+          break;
+        }
 
-      case "left_bracket": {
-        this.index--;
-        left = this.parseArrayExpression();
-        break;
-      }
+        case "right_paren": {
+          this.index--;
+          this.index--;
+          left = this.parseArrowFunctionExpression(allowComma);
+          break;
+        }
 
-      case "right_paren": {
-        this.index--;
-        this.index--;
-        left = this.parseArrowFunctionExpression();
-        break;
-      }
+        case "not":
+        case "plus":
+        case "minus": {
+          this.index--;
+          left = this.parseUnaryExpression();
+          break;
+        }
 
-      case "not": {
-        this.index--;
-        left = this.parseUnaryExpression();
-        break;
-      }
+        case "spread": {
+          left = withLocation(
+            {
+              type: "spread",
+              expression: this.parseExpression(),
+            },
+            token
+          );
+          break;
+        }
 
-      case "spread": {
-        left = withLocation(
-          {
-            type: "spread",
-            expression: this.parseExpression(),
-          },
-          token
-        );
-        break;
-      }
+        case "decrement": {
+          left = withLocation(
+            {
+              type: "decrement",
+              expression: this.parseExpression(),
+              postfix: false,
+            },
+            token
+          );
+          break;
+        }
 
-      case "decrement": {
-        left = withLocation(
-          {
-            type: "decrement",
-            expression: this.parseExpression(),
-            postfix: false,
-          },
-          token
-        );
-        break;
-      }
+        case "increment": {
+          left = withLocation(
+            {
+              type: "increment",
+              expression: this.parseExpression(),
+              postfix: false,
+            },
+            token
+          );
+          break;
+        }
 
-      case "increment": {
-        left = withLocation(
-          {
-            type: "increment",
-            expression: this.parseExpression(),
-            postfix: false,
-          },
-          token
-        );
-        break;
-      }
-
-      default:
-        unexpectedToken("eof", token);
+        default:
+          unexpectedToken("eof", token);
       }
 
       locationSource = token;
@@ -1069,7 +1126,7 @@ export class Parser {
   }
 
   parseExpression(precedence = 0, allowComma = true): Expression {
-    let left = this.parsePrimary();
+    let left = this.parsePrimary(allowComma);
 
     while (this.isOperatorTokenType(this.peekNextToken())) {
       const operatorToken = this.peekNextToken()!;
@@ -1201,10 +1258,10 @@ export class Parser {
     );
   }
 
-  parseExpressionStatement(): Statement {
+  parseExpressionStatement(allowComma = true): Statement {
     const token = this.tokens[this.index];
 
-    const expression = this.parseExpression(0);
+    const expression = this.parseExpression(0, allowComma);
 
     if (this.nextTokenIsType("semicolon")) {
       this.expect("semicolon");
@@ -1737,7 +1794,7 @@ export class Parser {
     );
   }
 
-  parseStatement(): Statement {
+  parseStatement(allowComma = true): Statement {
     const token = this.tokens[this.index];
 
     switch (token.type) {
@@ -1755,7 +1812,7 @@ export class Parser {
       case "decrement":
       case "increment":
       case "spread":
-        return this.parseExpressionStatement();
+        return this.parseExpressionStatement(allowComma);
       case "keyword":
         if (token.value === "import") {
           return this.parseImportDeclaration();
@@ -1773,7 +1830,7 @@ export class Parser {
           token.value === "super" ||
           token.value === "typeof"
         ) {
-          return this.parseExpressionStatement();
+          return this.parseExpressionStatement(allowComma);
         }
 
         if (

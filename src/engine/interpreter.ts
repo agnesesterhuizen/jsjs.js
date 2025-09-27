@@ -35,9 +35,11 @@ export type InterpreterError =
       location?: string;
     };
 
+export type NodeWithLocation = { location: Location };
+
 export const todo = (
   feature: string,
-  { location }: { location: Location }
+  { location }: NodeWithLocation
 ): InterpreterError => ({
   type: "not_yet_implemented",
   message: feature,
@@ -45,7 +47,7 @@ export const todo = (
 });
 export const referenceError = (
   message: string,
-  { location }: { location: Location }
+  { location }: NodeWithLocation
 ): InterpreterError => ({
   type: "reference_error",
   message,
@@ -53,7 +55,7 @@ export const referenceError = (
 });
 export const typeError = (
   message: string,
-  { location }: { location: Location }
+  { location }: NodeWithLocation
 ): InterpreterError => ({
   type: "type_error",
   message,
@@ -777,7 +779,22 @@ export class Interpreter {
           return this.runtime.newString(operand.typeof());
         }
 
-        break;
+        if (expression.operator === "+") {
+          const operand = this.executeExpression(expression.expression);
+          const numberVal = this.runtime.toNumber(operand, expression);
+          return this.runtime.newNumber(+numberVal.value);
+        }
+
+        if (expression.operator === "-") {
+          const operand = this.executeExpression(expression.expression);
+          const numberVal = this.runtime.toNumber(operand, expression);
+          return this.runtime.newNumber(-numberVal.value);
+        }
+
+        throw todo(
+          `unary expression for operator ${expression.operator}`,
+          expression
+        );
       }
 
       case "super_call": {
@@ -992,10 +1009,7 @@ export class Interpreter {
         const rightValue = this.executeExpression(statement.right);
 
         if (rightValue.type === "undefined" || rightValue.type === "null") {
-          throw typeError(
-            `Cannot iterate over ${rightValue.type}`,
-            statement
-          );
+          throw typeError(`Cannot iterate over ${rightValue.type}`, statement);
         }
 
         const iterableObject = rightValue as JSObject;
@@ -1086,10 +1100,7 @@ export class Interpreter {
         const iterable = this.executeExpression(statement.right);
 
         if (iterable.type === "undefined" || iterable.type === "null") {
-          throw typeError(
-            `Cannot iterate over ${iterable.type}`,
-            statement
-          );
+          throw typeError(`Cannot iterate over ${iterable.type}`, statement);
         }
 
         const iteratorSymbol = this.runtime.getWellKnownSymbol("iterator");
@@ -1102,11 +1113,7 @@ export class Interpreter {
           throw typeError("Object is not iterable", statement);
         }
 
-        const iterator = this.call(
-          iterable,
-          iteratorMethod as JSFunction,
-          []
-        );
+        const iterator = this.call(iterable, iteratorMethod as JSFunction, []);
 
         const nextMethod = this.runtime.getProperty(iterator, "next");
         if (nextMethod.type !== "function") {
@@ -1178,11 +1185,7 @@ export class Interpreter {
         }
 
         while (true) {
-          const result = this.call(
-            iterator,
-            nextMethod as JSFunction,
-            []
-          );
+          const result = this.call(iterator, nextMethod as JSFunction, []);
 
           const doneValue = this.runtime.getProperty(result, "done");
           if (doneValue.isTruthy()) {
