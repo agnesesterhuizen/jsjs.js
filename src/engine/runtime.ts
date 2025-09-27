@@ -39,6 +39,7 @@ export class Runtime {
   logger: Logger = console.log;
 
   symbolRegistry = new Map<string, JSSymbol>();
+  private symbolCounter = 0;
 
   constructor(logger: Logger = console.log) {
     this.logger = logger;
@@ -281,8 +282,14 @@ export class Runtime {
     return regexp;
   }
 
+  private getNextSymbolId(): string {
+    this.symbolCounter += 1;
+    return `symbol:${this.symbolCounter}`;
+  }
+
   newSymbol(description?: string) {
-    const symbol = new JSSymbol(description);
+    const id = this.getNextSymbolId();
+    const symbol = new JSSymbol(id, description);
     const proto = this.intrinsics["SymbolPrototype"];
     if (proto && proto.type === "object") {
       symbol.prototype = proto as JSObject;
@@ -394,40 +401,52 @@ export class Runtime {
     this.interpreter.run(program);
   }
 
-  getProperty(object: JSObject, property: string): JSObject {
+  getProperty(object: JSObject, property: string | JSSymbol): JSObject {
     if (object.type === "array") {
-      const arr = object as unknown as JSArray;
+      if (typeof property === "string") {
+        const arr = object as unknown as JSArray;
 
-      if (property === "length") {
-        return this.newNumber(arr.elements.length);
-      }
+        if (property === "length") {
+          return this.newNumber(arr.elements.length);
+        }
 
-      // check if array index
-      const n = parseInt(property, 10);
-      if (!isNaN(n)) {
-        return arr.elements[n] || this.newUndefined();
+        // check if array index
+        const n = parseInt(property, 10);
+        if (!isNaN(n)) {
+          return arr.elements[n] || this.newUndefined();
+        }
       }
     }
 
     if (object.type === "string") {
-      const str = object as unknown as JSString;
+      if (typeof property === "string") {
+        const str = object as unknown as JSString;
 
-      if (property === "length") {
-        return this.newNumber(str.value.length);
-      }
+        if (property === "length") {
+          return this.newNumber(str.value.length);
+        }
 
-      // check if string index
-      const n = parseInt(property, 10);
-      if (!isNaN(n)) {
-        return this.newString(str.value[n]);
+        // check if string index
+        const n = parseInt(property, 10);
+        if (!isNaN(n)) {
+          return this.newString(str.value[n]);
+        }
       }
     }
 
     let current: JSObject | null = object as JSObject;
 
     while (current) {
-      if (Object.prototype.hasOwnProperty.call(current.properties, property)) {
-        return current.properties[property];
+      if (typeof property === "string") {
+        if (Object.prototype.hasOwnProperty.call(current.properties, property)) {
+          return current.properties[property];
+        }
+      } else if (property.type === "symbol") {
+        const sym = property as JSSymbol;
+        const entry = current.symbolProperties.get(sym.id);
+        if (entry) {
+          return entry.value;
+        }
       }
       current = current.prototype;
     }
@@ -435,28 +454,39 @@ export class Runtime {
     return this.newUndefined();
   }
 
-  setProperty(object: JSObject, property: string, value: JSObject) {
-    if (object.type === "array") {
-      const arr = object as unknown as JSArray;
+  setProperty(object: JSObject, property: string | JSSymbol, value: JSObject) {
+    if (typeof property === "string") {
+      if (object.type === "array") {
+        const arr = object as unknown as JSArray;
 
-      // check if array index
-      const n = parseInt(property, 10);
-      if (!isNaN(n)) {
-        arr.elements[n] = value;
-        return value;
+        // check if array index
+        const n = parseInt(property, 10);
+        if (!isNaN(n)) {
+          arr.elements[n] = value;
+          return value;
+        }
       }
+
+      if (object.type === "regex" && property === "lastIndex") {
+        const regex = object as JSRegExp;
+        if (value.type === "number") {
+          const num = value as JSNumber;
+          regex.lastIndex = num.value;
+          regex.value.lastIndex = num.value;
+        }
+      }
+
+      object.properties[property] = value;
+      return value;
     }
 
-    if (object.type === "regex" && property === "lastIndex") {
-      const regex = object as JSRegExp;
-      if (value.type === "number") {
-        const num = value as JSNumber;
-        regex.lastIndex = num.value;
-        regex.value.lastIndex = num.value;
-      }
+    if (property.type === "symbol") {
+      const sym = property as JSSymbol;
+      object.symbolProperties.set(sym.id, { key: sym, value });
+      return value;
     }
 
-    object.properties[property] = value;
+    return value;
   }
 
   construct(constructor: JSFunction, args: JSObject[]): JSObject {

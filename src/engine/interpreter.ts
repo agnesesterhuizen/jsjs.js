@@ -451,13 +451,17 @@ export class Interpreter {
         throw typeError("Cannot set properties of " + object.type, expression);
       }
 
-      let propertyName: string;
+      let propertyKey: string | JSSymbol;
 
       if (memberExpression.computed) {
         const computedProperty = this.executeExpression(
           memberExpression.property
         );
-        propertyName = computedProperty.toString();
+        if (computedProperty.type === "symbol") {
+          propertyKey = computedProperty as JSSymbol;
+        } else {
+          propertyKey = computedProperty.toString();
+        }
       } else {
         if (memberExpression.property.type !== "identifier") {
           throw referenceError(
@@ -466,15 +470,15 @@ export class Interpreter {
           );
         }
 
-        propertyName = memberExpression.property.value;
+        propertyKey = memberExpression.property.value;
       }
 
       if (expression.operator === "=") {
-        this.runtime.setProperty(object, propertyName, rightValue);
+        this.runtime.setProperty(object, propertyKey, rightValue);
         return rightValue;
       }
 
-      const currentValue = this.runtime.getProperty(object, propertyName);
+      const currentValue = this.runtime.getProperty(object, propertyKey);
       const newValue = this.applyAssignmentOperator(
         expression.operator,
         currentValue,
@@ -482,7 +486,7 @@ export class Interpreter {
         expression
       );
 
-      this.runtime.setProperty(object, propertyName, newValue);
+      this.runtime.setProperty(object, propertyKey, newValue);
       return newValue;
     }
 
@@ -643,23 +647,22 @@ export class Interpreter {
         const object = this.executeExpression(expression.object);
 
         if (expression.computed) {
-          return this.runtime.getProperty(
-            object,
-            this.executeExpression(expression.property).toString()
-          );
-        } else {
-          if (expression.property.type !== "identifier") {
-            throw todo(
-              "executeExpression: member expression with computed properties",
-              expression
-            );
+          const propertyValue = this.executeExpression(expression.property);
+          if (propertyValue.type === "symbol") {
+            return this.runtime.getProperty(object, propertyValue as JSSymbol);
           }
 
-          return this.runtime.getProperty(
-            object,
-            this.runtime.newString(expression.property.value).toString()
+          return this.runtime.getProperty(object, propertyValue.toString());
+        }
+
+        if (expression.property.type !== "identifier") {
+          throw todo(
+            "executeExpression: member expression with computed properties",
+            expression
           );
         }
+
+        return this.runtime.getProperty(object, expression.property.value);
       }
 
       case "function": {

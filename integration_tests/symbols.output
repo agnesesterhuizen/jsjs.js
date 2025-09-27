@@ -4,3 +4,7 @@ false
 true
 shared
 undefined
+localValue
+localValueB
+globalValue
+0

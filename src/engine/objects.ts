@@ -15,6 +15,7 @@ type ObjectType =
 export class JSObject {
   type: ObjectType = "object";
   properties: Record<string, JSObject> = {};
+  symbolProperties: Map<string, { key: JSSymbol; value: JSObject }> = new Map();
 
   prototype: JSObject | null = null;
 
@@ -23,6 +24,12 @@ export class JSObject {
 
     for (const [key, value] of Object.entries(this.properties)) {
       out[key] = value.toString();
+    }
+
+    if (this.symbolProperties.size > 0) {
+      for (const { key, value } of this.symbolProperties.values()) {
+        out[`[${key.toString()}]`] = value.toString();
+      }
     }
 
     return JSON.stringify(out, null, 2);
@@ -180,11 +187,13 @@ export class JSRegExp extends JSObject {
 
 export class JSSymbol extends JSObject {
   type: ObjectType = "symbol";
+  id: string;
   description?: string;
   registryKey?: string;
 
-  constructor(description?: string) {
+  constructor(id: string, description?: string) {
     super();
+    this.id = id;
     this.description = description;
   }
 
