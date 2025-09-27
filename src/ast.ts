@@ -96,6 +96,15 @@ export type VariableDeclarator = {
   value?: Expression;
 };
 
+export type ImportSpecifier =
+  | { type: "import_default"; local: string }
+  | { type: "import_named"; imported: string; local: string }
+  | { type: "import_namespace"; local: string };
+
+export type ExportSpecifier =
+  | { type: "export_named"; local: string; exported: string }
+  | { type: "export_namespace"; exported: string };
+
 export type Location = {
   file: string;
   line: number;
@@ -220,6 +229,18 @@ export type Statement = WithLocation<
       condition: Expression;
       cases: SwitchCase[];
       default?: Statement;
+    }
+  | {
+      type: "import_declaration";
+      specifiers: ImportSpecifier[];
+      source: string;
+    }
+  | {
+      type: "export_declaration";
+      exportKind: "named" | "default" | "all";
+      specifiers?: ExportSpecifier[];
+      declaration?: Statement | Expression;
+      source?: string;
     }
 >;
 

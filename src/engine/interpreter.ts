@@ -1085,6 +1085,11 @@ export class Interpreter {
         break;
       }
 
+      case "import_declaration":
+      case "export_declaration": {
+        throw todo("ES module support not implemented", statement);
+      }
+
       default:
         assertNotReached(statement);
     }

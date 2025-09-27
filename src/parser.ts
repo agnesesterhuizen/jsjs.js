@@ -13,6 +13,8 @@ import {
   VariableDeclarator,
   WithLocation,
   UnaryOperator,
+  ImportSpecifier,
+  ExportSpecifier,
 } from "./ast.ts";
 import { Token, TokenType } from "./lexer.ts";
 
@@ -167,6 +169,29 @@ export class Parser {
     const nextToken = this.tokens[this.index];
     if (!nextToken) return false;
     return nextToken.type === type;
+  }
+
+  expectIdentifierName(): Token {
+    const token = this.nextToken();
+
+    if (token.type !== "identifier" && token.type !== "keyword") {
+      unexpectedToken("identifier", token);
+    }
+
+    return token;
+  }
+
+  expectContextualKeyword(value: string): Token {
+    const token = this.nextToken();
+
+    if (
+      (token.type !== "identifier" && token.type !== "keyword") ||
+      token.value !== value
+    ) {
+      unexpectedToken("identifier", token);
+    }
+
+    return token;
   }
 
   parseNumber(): Expression {
@@ -329,6 +354,248 @@ export class Parser {
         elements,
       },
       token
+    );
+  }
+
+  parseImportDeclaration(): Statement {
+    const importToken = this.expectWithValue("keyword", "import");
+
+    const specifiers: ImportSpecifier[] = [];
+
+    if (this.nextTokenIsType("string")) {
+      const sourceToken = this.expect("string");
+
+      if (this.nextTokenIsType("semicolon")) {
+        this.expect("semicolon");
+      }
+
+      return withLocation(
+        {
+          type: "import_declaration",
+          source: sourceToken.value,
+          specifiers,
+        },
+        importToken
+      );
+    }
+
+    if (this.nextTokenIsType("identifier")) {
+      const defaultToken = this.expect("identifier");
+      specifiers.push({ type: "import_default", local: defaultToken.value });
+
+      if (this.nextTokenIsType("comma")) {
+        this.expect("comma");
+      }
+    }
+
+    if (this.nextTokenIsType("multiply")) {
+      this.expect("multiply");
+      this.expectContextualKeyword("as");
+      const namespaceToken = this.expectIdentifierName();
+      specifiers.push({ type: "import_namespace", local: namespaceToken.value });
+    } else if (this.nextTokenIsType("left_brace")) {
+      this.expect("left_brace");
+
+      while (!this.nextTokenIsType("right_brace")) {
+        const importedToken = this.expectIdentifierName();
+        const importedName = importedToken.value;
+        let localName = importedName;
+
+        const next = this.peekNextToken();
+        if (next && (next.type === "identifier" || next.type === "keyword") && next.value === "as") {
+          this.expectIdentifierName();
+          const localToken = this.expectIdentifierName();
+          localName = localToken.value;
+        }
+
+        specifiers.push({
+          type: "import_named",
+          imported: importedName,
+          local: localName,
+        });
+
+        if (this.nextTokenIsType("comma")) {
+          this.expect("comma");
+        } else {
+          break;
+        }
+      }
+
+      this.expect("right_brace");
+    }
+
+    this.expectContextualKeyword("from");
+    const sourceToken = this.expect("string");
+
+    if (this.nextTokenIsType("semicolon")) {
+      this.expect("semicolon");
+    }
+
+    return withLocation(
+      {
+        type: "import_declaration",
+        source: sourceToken.value,
+        specifiers,
+      },
+      importToken
+    );
+  }
+
+  parseExportDeclaration(): Statement {
+    const exportToken = this.expectWithValue("keyword", "export");
+
+    if (
+      this.peekNextToken()?.type === "keyword" &&
+      this.peekNextToken()?.value === "default"
+    ) {
+      this.expectWithValue("keyword", "default");
+
+      const next = this.peekNextToken();
+
+      if (next?.type === "keyword" && next.value === "function") {
+        const declaration = this.parseFunctionDeclarationStatement();
+
+        if (this.nextTokenIsType("semicolon")) {
+          this.expect("semicolon");
+        }
+
+        return withLocation(
+          {
+            type: "export_declaration",
+            exportKind: "default",
+            declaration,
+          },
+          exportToken
+        );
+      }
+
+      if (next?.type === "keyword" && next.value === "class") {
+        const declaration = this.parseClassDeclarationStatement();
+
+        if (this.nextTokenIsType("semicolon")) {
+          this.expect("semicolon");
+        }
+
+        return withLocation(
+          {
+            type: "export_declaration",
+            exportKind: "default",
+            declaration,
+          },
+          exportToken
+        );
+      }
+
+      const declaration = this.parseExpression(0);
+
+      if (this.nextTokenIsType("semicolon")) {
+        this.expect("semicolon");
+      }
+
+      return withLocation(
+        {
+          type: "export_declaration",
+          exportKind: "default",
+          declaration,
+        },
+        exportToken
+      );
+    }
+
+    if (this.nextTokenIsType("left_brace")) {
+      this.expect("left_brace");
+      const specifiers: ExportSpecifier[] = [];
+
+      while (!this.nextTokenIsType("right_brace")) {
+        const localToken = this.expectIdentifierName();
+        const localName = localToken.value;
+        let exportedName = localName;
+
+        const next = this.peekNextToken();
+        if (next && (next.type === "identifier" || next.type === "keyword") && next.value === "as") {
+          this.expectIdentifierName();
+          const exportedToken = this.expectIdentifierName();
+          exportedName = exportedToken.value;
+        }
+
+        specifiers.push({
+          type: "export_named",
+          local: localName,
+          exported: exportedName,
+        });
+
+        if (this.nextTokenIsType("comma")) {
+          this.expect("comma");
+        } else {
+          break;
+        }
+      }
+
+      this.expect("right_brace");
+
+      let source: string | undefined;
+      const next = this.peekNextToken();
+      if (next && (next.type === "identifier" || next.type === "keyword") && next.value === "from") {
+        this.expectContextualKeyword("from");
+        source = this.expect("string").value;
+      }
+
+      if (this.nextTokenIsType("semicolon")) {
+        this.expect("semicolon");
+      }
+
+      return withLocation(
+        {
+          type: "export_declaration",
+          exportKind: "named",
+          specifiers,
+          source,
+        },
+        exportToken
+      );
+    }
+
+    if (this.nextTokenIsType("multiply")) {
+      this.expect("multiply");
+
+      let exportedName: string | undefined;
+      const next = this.peekNextToken();
+      if (next && (next.type === "identifier" || next.type === "keyword") && next.value === "as") {
+        this.expectContextualKeyword("as");
+        exportedName = this.expectIdentifierName().value;
+      }
+
+      this.expectContextualKeyword("from");
+      const sourceToken = this.expect("string");
+
+      if (this.nextTokenIsType("semicolon")) {
+        this.expect("semicolon");
+      }
+
+      const specifiers: ExportSpecifier[] = exportedName
+        ? [{ type: "export_namespace", exported: exportedName }]
+        : [];
+
+      return withLocation(
+        {
+          type: "export_declaration",
+          exportKind: "all",
+          source: sourceToken.value,
+          specifiers,
+        },
+        exportToken
+      );
+    }
+
+    const declaration = this.parseStatement();
+
+    return withLocation(
+      {
+        type: "export_declaration",
+        exportKind: "named",
+        declaration,
+      },
+      exportToken
     );
   }
 
@@ -1284,6 +1551,14 @@ export class Parser {
       case "spread":
         return this.parseExpressionStatement();
       case "keyword":
+        if (token.value === "import") {
+          return this.parseImportDeclaration();
+        }
+
+        if (token.value === "export") {
+          return this.parseExportDeclaration();
+        }
+
         if (
           token.value === "true" ||
           token.value === "false" ||

@@ -1516,4 +1516,99 @@ Deno.test("parser:statement", async (t) => {
       ],
     });
   });
+  await t.step("parses import declaration - default", () => {
+    testStatement('import foo from "./mod.js";', {
+      type: "import_declaration",
+      source: "./mod.js",
+      specifiers: [{ type: "import_default", local: "foo" }],
+    });
+  });
+  await t.step("parses import declaration - named", () => {
+    testStatement('import { foo, bar as baz } from "./mod.js";', {
+      type: "import_declaration",
+      source: "./mod.js",
+      specifiers: [
+        { type: "import_named", imported: "foo", local: "foo" },
+        { type: "import_named", imported: "bar", local: "baz" },
+      ],
+    });
+  });
+  await t.step("parses import declaration - namespace", () => {
+    testStatement('import * as ns from "./mod.js";', {
+      type: "import_declaration",
+      source: "./mod.js",
+      specifiers: [{ type: "import_namespace", local: "ns" }],
+    });
+  });
+  await t.step("parses import declaration - side effect", () => {
+    testStatement('import "./setup.js";', {
+      type: "import_declaration",
+      source: "./setup.js",
+      specifiers: [],
+    });
+  });
+  await t.step("parses export declaration - variable", () => {
+    testStatement("export const foo = 1;", {
+      type: "export_declaration",
+      exportKind: "named",
+      declaration: {
+        type: "variable_declaration",
+        varType: "const",
+      },
+    });
+  });
+  await t.step("parses export declaration - named specifiers", () => {
+    testStatement('export { foo, bar as baz } from "./mod.js";', {
+      type: "export_declaration",
+      exportKind: "named",
+      source: "./mod.js",
+      specifiers: [
+        { type: "export_named", local: "foo", exported: "foo" },
+        { type: "export_named", local: "bar", exported: "baz" },
+      ],
+    });
+  });
+  await t.step("parses export declaration - export all", () => {
+    testStatement('export * from "./mod.js";', {
+      type: "export_declaration",
+      exportKind: "all",
+      source: "./mod.js",
+      specifiers: [],
+    });
+  });
+  await t.step("parses export declaration - namespace", () => {
+    testStatement('export * as ns from "./mod.js";', {
+      type: "export_declaration",
+      exportKind: "all",
+      source: "./mod.js",
+      specifiers: [{ type: "export_namespace", exported: "ns" }],
+    });
+  });
+  await t.step("parses export default expression", () => {
+    testStatement("export default 42;", {
+      type: "export_declaration",
+      exportKind: "default",
+      declaration: { type: "number", value: 42 },
+    });
+  });
+  await t.step("parses export default function", () => {
+    testStatement("export default function foo() {}", {
+      type: "export_declaration",
+      exportKind: "default",
+      declaration: {
+        type: "function_declaration",
+        identifier: "foo",
+      },
+    });
+  });
+  await t.step("parses export default class", () => {
+    testStatement("export default class Foo {}", {
+      type: "export_declaration",
+      exportKind: "default",
+      declaration: {
+        type: "class_declaration",
+        identifier: "Foo",
+      },
+    });
+  });
 });
