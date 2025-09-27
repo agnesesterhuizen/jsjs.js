@@ -96,6 +96,11 @@ export type VariableDeclarator = {
   value?: Expression;
 };
 
+export type CatchClause = {
+  param?: string;
+  body: Statement;
+};
+
 export type ImportSpecifier =
   | { type: "import_default"; local: string }
   | { type: "import_named"; imported: string; local: string }
@@ -216,6 +221,16 @@ export type Statement = WithLocation<
   | {
       type: "block";
       body: Statement[];
+    }
+  | {
+      type: "try";
+      block: Statement;
+      handler?: CatchClause;
+      finalizer?: Statement;
+    }
+  | {
+      type: "throw";
+      expression: Expression;
     }
   | { type: "return"; expression?: Expression }
   | { type: "break"; expression?: Expression }

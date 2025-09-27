@@ -1,0 +1,16 @@
+start
+inside try 1
+caught 1: oops
+finally 1
+try return
+finally after return
+returned: return value
+nested try
+nested finally
+outer catch: inner error
+before rethrow
+caught before rethrow: rethrow
+outer after rethrow: rethrown
+try before return 2
+finally return override
+finally override result: finally

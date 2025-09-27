@@ -16,6 +16,7 @@ import {
   ImportSpecifier,
   ExportSpecifier,
   Location,
+  CatchClause,
 } from "./ast.ts";
 import { Token, TokenType } from "./lexer.ts";
 
@@ -1583,6 +1584,77 @@ export class Parser {
     return withLocation({ type: "break" }, token);
   }
 
+  parseThrowStatement(): Statement {
+    const token = this.expectWithValue("keyword", "throw");
+
+    const expression = this.parseExpression(0);
+
+    if (this.peekNextToken()?.type === "semicolon") {
+      this.expect("semicolon");
+    }
+
+    return withLocation(
+      {
+        type: "throw",
+        expression,
+      },
+      token
+    );
+  }
+
+  parseTryStatement(): Statement {
+    const token = this.expectWithValue("keyword", "try");
+
+    const block = this.parseBlockStatement();
+
+    let handler: CatchClause | undefined;
+    let finalizer: Statement | undefined;
+
+    if (
+      this.peekNextToken()?.type === "keyword" &&
+      this.peekNextToken()?.value === "catch"
+    ) {
+      this.expectWithValue("keyword", "catch");
+
+      this.expect("left_paren");
+      let param: string | undefined;
+      if (!this.nextTokenIsType("right_paren")) {
+        const identifier = this.expect("identifier");
+        param = identifier.value;
+      }
+      this.expect("right_paren");
+
+      const body = this.parseBlockStatement();
+
+      handler = {
+        param,
+        body,
+      };
+    }
+
+    if (
+      this.peekNextToken()?.type === "keyword" &&
+      this.peekNextToken()?.value === "finally"
+    ) {
+      this.expectWithValue("keyword", "finally");
+      finalizer = this.parseBlockStatement();
+    }
+
+    if (!handler && !finalizer) {
+      syntaxError("try statement must have catch or finally clause", token);
+    }
+
+    return withLocation(
+      {
+        type: "try",
+        block,
+        handler,
+        finalizer,
+      },
+      token
+    );
+  }
+
   parseStatement(): Statement {
     const token = this.tokens[this.index];
 
@@ -1648,6 +1720,10 @@ export class Parser {
           return this.parseForStatement();
         }
 
+        if (token.value === "try") {
+          return this.parseTryStatement();
+        }
+
         if (token.value === "function") {
           return this.parseFunctionDeclarationStatement();
         }
@@ -1666,6 +1742,10 @@ export class Parser {
 
         if (token.value === "break") {
           return this.parseBreakStatement();
+        }
+
+        if (token.value === "throw") {
+          return this.parseThrowStatement();
         }
 
         unexpectedToken("eof", token);

@@ -509,10 +509,7 @@ export class Interpreter {
         value = this.runtime.newUndefined();
       }
 
-      if (
-        parameter.defaultValue !== undefined &&
-        value.type === "undefined"
-      ) {
+      if (parameter.defaultValue !== undefined && value.type === "undefined") {
         value = this.executeExpression(parameter.defaultValue);
       }
 
@@ -1101,6 +1098,45 @@ export class Interpreter {
         throw todo("ES module support not implemented", statement);
       }
 
+      case "try": {
+        try {
+          this.executeStatement(statement.block);
+        } catch (e) {
+          if (e.type !== "__INTERNAL_THROW__") {
+            throw e;
+          }
+
+          if (!statement.handler) {
+            throw e;
+          }
+
+          this.runtime.pushScope();
+
+          if (statement.handler.param) {
+            const value = e["__INTERNAL_THROW_VALUE__"] as JSObject;
+            this.runtime.declareVariable(statement.handler.param, value);
+          }
+
+          this.executeStatement(statement.handler.body);
+
+          this.runtime.popScope();
+        } finally {
+          if (statement.finalizer) {
+            this.executeStatement(statement.finalizer);
+          }
+        }
+
+        break;
+      }
+
+      case "throw": {
+        const value = this.executeExpression(statement.expression);
+
+        throw {
+          type: "__INTERNAL_THROW__",
+          __INTERNAL_THROW_VALUE__: value,
+        };
+      }
       default:
         assertNotReached(statement);
     }
