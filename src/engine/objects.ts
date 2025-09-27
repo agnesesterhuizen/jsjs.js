@@ -9,6 +9,7 @@ type ObjectType =
   | "object"
   | "regex"
   | "string"
+  | "symbol"
   | "undefined";
 
 export class JSObject {
@@ -174,5 +175,24 @@ export class JSRegExp extends JSObject {
 
   typeof() {
     return "object";
+  }
+}
+
+export class JSSymbol extends JSObject {
+  type: ObjectType = "symbol";
+  description?: string;
+  registryKey?: string;
+
+  constructor(description?: string) {
+    super();
+    this.description = description;
+  }
+
+  toString() {
+    return `Symbol(${this.description ? this.description : ""})`;
+  }
+
+  typeof() {
+    return "symbol";
   }
 }

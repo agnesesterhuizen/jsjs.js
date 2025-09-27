@@ -947,20 +947,39 @@ export class Parser {
       const next = this.peekNextToken();
       if (next?.type === "dot") {
         this.nextToken();
-        const right = this.expect("identifier");
+        if (this.peekNextToken()?.type === "identifier") {
+          const right = this.expect("identifier");
 
-        left = withLocation(
-          {
-            type: "member",
-            object: left,
-            property: withLocation(
-              { type: "identifier", value: right.value },
-              right
-            ),
-            computed: false,
-          },
-          locationSource
-        );
+          left = withLocation(
+            {
+              type: "member",
+              object: left,
+              property: withLocation(
+                { type: "identifier", value: right.value },
+                right
+              ),
+              computed: false,
+            },
+            locationSource
+          );
+        } else if (this.peekNextToken()?.type === "keyword") {
+          const keywordToken = this.expect("keyword");
+
+          left = withLocation(
+            {
+              type: "member",
+              object: left,
+              property: withLocation(
+                { type: "identifier", value: keywordToken.value },
+                keywordToken
+              ),
+              computed: false,
+            },
+            locationSource
+          );
+        } else {
+          unexpectedToken("identifier", this.peekNextToken());
+        }
       } else if (next?.type === "left_bracket") {
         this.nextToken();
 

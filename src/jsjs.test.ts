@@ -786,6 +786,28 @@ Deno.test("parser: expressions", async (t) => {
       ],
     })
   );
+  await t.step("parses symbol expression", () =>
+    textExpression('Symbol("foo");', {
+      type: "call",
+      func: { type: "identifier", value: "Symbol" },
+      arguments: [{ type: "string", value: "foo" }],
+    })
+  );
+  await t.step("parses symbol.for expression", () =>
+    textExpression('Symbol.for("bar");', {
+      type: "call",
+      func: {
+        type: "member",
+        object: { type: "identifier", value: "Symbol" },
+        property: {
+          type: "identifier",
+          value: "for",
+        },
+        computed: false,
+      },
+      arguments: [{ type: "string", value: "bar" }],
+    })
+  );
 });
 
 Deno.test("parser:statement", async (t) => {

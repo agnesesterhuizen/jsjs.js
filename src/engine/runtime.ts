@@ -1,6 +1,6 @@
 import { Parameter, Program, Statement } from "../ast.ts";
 import { Logger } from "./engine.ts";
-import { Interpreter } from "./interpreter.ts";
+import { Interpreter, typeError } from "./interpreter.ts";
 import { createArrayConstructor } from "./intrinsics/constructor/Array.ts";
 import { createMathConstructor } from "./intrinsics/constructor/Math.ts";
 import { createObjectConstructor } from "./intrinsics/constructor/Object.ts";
@@ -9,6 +9,7 @@ import { createFunctionPrototype } from "./intrinsics/prototype/Function.ts";
 import { createObjectPrototype } from "./intrinsics/prototype/Object.ts";
 import { createStringPrototype } from "./intrinsics/prototype/String.ts";
 import { createRegExpPrototype } from "./intrinsics/prototype/RegExp.ts";
+import { createSymbolPrototype } from "./intrinsics/prototype/Symbol.ts";
 import {
   JSObject,
   JSUndefined,
@@ -20,6 +21,7 @@ import {
   JSArray,
   JSNull,
   JSRegExp,
+  JSSymbol,
 } from "./objects.ts";
 
 type Binding = {
@@ -35,6 +37,8 @@ export class Runtime {
   scopes: Record<string, Binding>[] = [];
 
   logger: Logger = console.log;
+
+  symbolRegistry = new Map<string, JSSymbol>();
 
   constructor(logger: Logger = console.log) {
     this.logger = logger;
@@ -75,6 +79,65 @@ export class Runtime {
     const regExpPrototype = createRegExpPrototype(this);
     this.intrinsics["RegExpPrototype"] = regExpPrototype;
 
+    // symbol
+    const symbolPrototype = createSymbolPrototype(this);
+    this.intrinsics["SymbolPrototype"] = symbolPrototype;
+
+    const symbolFunction = this.newBuiltinFunction(
+      (thisArg: JSObject, ...args: JSObject[]) => {
+        if (thisArg.type !== "undefined") {
+          throw typeError("Symbol is not a constructor", null);
+        }
+
+        const descriptionArg = args[0];
+        let description: string | undefined;
+        if (descriptionArg && descriptionArg.type !== "undefined") {
+          description = descriptionArg.toString();
+        }
+
+        return this.newSymbol(description);
+      }
+    );
+
+    symbolFunction.properties["prototype"] = symbolPrototype;
+    symbolPrototype.properties["constructor"] = symbolFunction;
+
+    symbolFunction.properties["for"] = this.newBuiltinFunction(
+      (_thisArg: JSObject, keyArg?: JSObject) => {
+        const key =
+          keyArg && keyArg.type !== "undefined"
+            ? keyArg.toString()
+            : "undefined";
+
+        const existing = this.symbolRegistry.get(key);
+        if (existing) {
+          return existing;
+        }
+
+        const globalSymbol = this.newSymbol(key);
+        globalSymbol.registryKey = key;
+        this.symbolRegistry.set(key, globalSymbol);
+        return globalSymbol;
+      }
+    );
+
+    symbolFunction.properties["keyFor"] = this.newBuiltinFunction(
+      (_thisArg: JSObject, symbolArg?: JSObject) => {
+        if (!symbolArg || symbolArg.type !== "symbol") {
+          throw typeError("Symbol.keyFor expected a symbol", null);
+        }
+
+        const symbol = symbolArg as JSSymbol;
+        if (symbol.registryKey !== undefined) {
+          return this.newString(symbol.registryKey);
+        }
+
+        return this.newUndefined();
+      }
+    );
+
+    this.intrinsics["Symbol"] = symbolFunction;
+
     // other
     const mathConstructor = createMathConstructor(this);
 
@@ -83,6 +146,7 @@ export class Runtime {
       Array: { initialized: true, value: arrayConstructor },
       Function: { initialized: true, value: functionConstructor },
       Math: { initialized: true, value: mathConstructor },
+      Symbol: { initialized: true, value: symbolFunction },
       console: {
         initialized: true,
         value: this.newObject({
@@ -215,6 +279,15 @@ export class Runtime {
     setBooleanProperty("sticky", regexp.value.sticky);
 
     return regexp;
+  }
+
+  newSymbol(description?: string) {
+    const symbol = new JSSymbol(description);
+    const proto = this.intrinsics["SymbolPrototype"];
+    if (proto && proto.type === "object") {
+      symbol.prototype = proto as JSObject;
+    }
+    return symbol;
   }
 
   //#endregion type factories

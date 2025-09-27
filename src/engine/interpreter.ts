@@ -12,6 +12,7 @@ import {
   JSNumber,
   JSString,
   JSObject,
+  JSSymbol,
 } from "./objects.ts";
 import { Runtime } from "./runtime.ts";
 
@@ -258,6 +259,20 @@ export class Interpreter {
         case "!==":
         case "!=":
           return this.runtime.newBoolean(ls.value !== rs.value);
+      }
+    }
+
+    if (left.type === "symbol" && right.type === "symbol") {
+      const ls = left as JSSymbol;
+      const rs = right as JSSymbol;
+
+      switch (expression.operator) {
+        case "===":
+        case "==":
+          return this.runtime.newBoolean(ls === rs);
+        case "!==":
+        case "!=":
+          return this.runtime.newBoolean(ls !== rs);
       }
     }
 
