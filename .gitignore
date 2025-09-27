@@ -1,3 +1,4 @@
 dist
-.vscode
 todo
+.vscode
+.DS_Store
