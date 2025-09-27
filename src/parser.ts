@@ -15,6 +15,7 @@ import {
   UnaryOperator,
   ImportSpecifier,
   ExportSpecifier,
+  Location,
 } from "./ast.ts";
 import { Token, TokenType } from "./lexer.ts";
 
@@ -102,15 +103,23 @@ const decodeTemplateChunk = (raw: string): string => {
 
 function withLocation<T extends { type: string }>(
   node: T,
-  token: Token
+  source: Token | Location
 ): WithLocation<T> {
+  if ("filename" in source) {
+    const token = source;
+    return {
+      ...node,
+      location: {
+        file: token.filename,
+        line: token.line,
+        column: token.col,
+      },
+    };
+  }
+
   return {
     ...node,
-    location: {
-      file: token.filename,
-      line: token.line,
-      column: token.col,
-    },
+    location: source,
   };
 }
 
@@ -632,22 +641,31 @@ export class Parser {
   }
 
   isArrowFunctionExpression() {
-    const next0 = this.peekNextToken()?.type;
-    const next1 = this.peekNextToken(1)?.type;
-    const next2 = this.peekNextToken(2)?.type;
+    const start = this.peekNextToken();
+    if (!start || start.type !== "left_paren") {
+      return false;
+    }
 
-    if (next0 !== "left_paren") return false;
+    let depth = 0;
+    for (let cursor = this.index; cursor < this.tokens.length; cursor++) {
+      const token = this.tokens[cursor];
 
-    // () => {}
-    if (next1 === "right_paren") return true;
-    // (a) => {}
-    if (next1 === "identifier" && next2 === "right_paren") return true;
-    // (a=b) => {}
-    if (next1 === "identifier" && next2 === "equals") return true;
-    // (a,b) => {}
-    if (next1 === "identifier" && next2 === "comma") return true;
-    // (...a) => {}
-    if (next1 === "spread" && next2 === "identifier") return true;
+      if (token.type === "left_paren") {
+        depth++;
+        continue;
+      }
+
+      if (token.type === "right_paren") {
+        depth--;
+
+        if (depth === 0) {
+          const after = this.tokens[cursor + 1];
+          return after?.type === "arrow";
+        }
+
+        continue;
+      }
+    }
 
     return false;
   }
@@ -684,18 +702,18 @@ export class Parser {
       return this.parseArrowFunctionExpression();
     }
 
+    let left: Expression;
+    let locationSource: Token | Location;
+
     if (this.peekNextToken()?.type === "left_paren") {
       this.expect("left_paren");
-      const expression = this.parseExpression();
+      left = this.parseExpression();
       this.expect("right_paren");
-      return expression;
-    }
+      locationSource = left.location;
+    } else {
+      const token = this.nextToken();
 
-    const token = this.nextToken();
-
-    let left: Expression;
-
-    switch (token.type) {
+      switch (token.type) {
       case "identifier": {
         left = withLocation({ type: "identifier", value: token.value }, token);
         break;
@@ -919,6 +937,9 @@ export class Parser {
 
       default:
         unexpectedToken("eof", token);
+      }
+
+      locationSource = token;
     }
 
     while (true) {
@@ -937,7 +958,7 @@ export class Parser {
             ),
             computed: false,
           },
-          token
+          locationSource
         );
       } else if (next?.type === "left_bracket") {
         this.nextToken();
@@ -953,7 +974,7 @@ export class Parser {
             property: property,
             computed: true,
           },
-          token
+          locationSource
         );
       } else if (next?.type === "left_paren") {
         this.nextToken();
@@ -979,7 +1000,7 @@ export class Parser {
             expression: left,
             postfix: true,
           },
-          token
+          locationSource
         );
       } else if (next?.type === "decrement") {
         this.expect("decrement");
@@ -990,7 +1011,7 @@ export class Parser {
             expression: left,
             postfix: true,
           },
-          token
+          locationSource
         );
       } else {
         break;
@@ -1013,7 +1034,7 @@ export class Parser {
             left,
             right: value,
           },
-          token
+          locationSource
         );
       }
     }

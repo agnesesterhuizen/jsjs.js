@@ -762,6 +762,30 @@ Deno.test("parser: expressions", async (t) => {
       ],
     })
   );
+  await t.step("parses grouped comma with member expression", () =>
+    textExpression("((mod = { exports: {} }).exports, mod);", {
+      type: "comma",
+      expressions: [
+        {
+          type: "member",
+          object: {
+            type: "assignment",
+            operator: "=",
+            left: { type: "identifier", value: "mod" },
+            right: {
+              type: "object",
+              properties: {
+                exports: { type: "object" },
+              },
+            },
+          },
+          property: { type: "identifier", value: "exports" },
+          computed: false,
+        },
+        { type: "identifier", value: "mod" },
+      ],
+    })
+  );
 });
 
 Deno.test("parser:statement", async (t) => {
