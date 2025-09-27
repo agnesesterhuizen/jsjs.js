@@ -4,16 +4,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "str",
-      "value": {
-        "type": "string",
-        "value": "abcd",
-        "location": {
-          "file": "./integration_tests/strings.js",
-          "line": 1,
-          "column": 13
+      "declarations": [
+        {
+          "identifier": "str",
+          "value": {
+            "type": "string",
+            "value": "abcd",
+            "location": {
+              "file": "./integration_tests/strings.js",
+              "line": 1,
+              "column": 13
+            }
+          }
         }
-      },
+      ],
       "varType": "const",
       "location": {
         "file": "./integration_tests/strings.js",

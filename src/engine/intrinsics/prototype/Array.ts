@@ -47,6 +47,26 @@ export const createArrayPrototype = (runtime: Runtime): JSObject => {
     }
   );
 
+  arrayProto.properties["map"] = runtime.newBuiltinFunction(
+    (thisArg: JSArray, callback: JSFunction, thisArgOverride?: JSObject) => {
+      if (callback.type !== "function") {
+        throw typeError("Array.prototype.map expects a function", null);
+      }
+
+      const resultElements: JSObject[] = [];
+      const callbackThis = thisArgOverride ?? thisArg;
+
+      for (let i = 0; i < thisArg.elements.length; i++) {
+        const element = thisArg.elements[i] ?? runtime.newUndefined();
+        const args = [element, runtime.newNumber(i), thisArg];
+        const mapped = runtime.interpreter.call(callbackThis, callback, args);
+        resultElements.push(mapped);
+      }
+
+      return runtime.newArray(resultElements);
+    }
+  );
+
   arrayProto.properties["push"] = runtime.newBuiltinFunction(
     (thisArg: JSArray, ...args: JSObject[]) => {
       thisArg.elements.push(...args);
@@ -96,15 +116,14 @@ export const createArrayPrototype = (runtime: Runtime): JSObject => {
   );
 
   arrayProto.properties["slice"] = runtime.newBuiltinFunction(
-    (thisArg: JSArray, begin: JSNumber, end?: JSNumber) => {
-      if (begin.type !== "number" || (end && end.type !== "number")) {
-        throw typeError("Array.prototype.slice expects numbers", null);
-      }
+    (thisArg: JSArray, begin?: JSObject, end?: JSObject) => {
+      const startIndex =
+        begin && begin.type === "number" ? (begin as JSNumber).value : 0;
 
-      const sliced = thisArg.elements.slice(
-        begin.value,
-        end ? end.value : undefined
-      );
+      const endIndex =
+        end && end.type === "number" ? (end as JSNumber).value : undefined;
+
+      const sliced = thisArg.elements.slice(startIndex, endIndex);
       return runtime.newArray(sliced);
     }
   );

@@ -71,7 +71,6 @@ const rules = {
   left_bracket: "[",
   right_bracket: "]",
   comment: /\/\/.*/,
-  regex_literal: /\/.*\//,
   comma: ",",
   increment: "++",
   plus_equals: "+=",

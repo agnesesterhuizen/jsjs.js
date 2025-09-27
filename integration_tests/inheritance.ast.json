@@ -965,36 +965,40 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "rover",
-      "value": {
-        "type": "new",
-        "identifier": "Dog",
-        "arguments": [
-          {
-            "type": "string",
-            "value": "Rover",
+      "declarations": [
+        {
+          "identifier": "rover",
+          "value": {
+            "type": "new",
+            "identifier": "Dog",
+            "arguments": [
+              {
+                "type": "string",
+                "value": "Rover",
+                "location": {
+                  "file": "./integration_tests/inheritance.js",
+                  "line": 27,
+                  "column": 23
+                }
+              },
+              {
+                "type": "string",
+                "value": "Collie",
+                "location": {
+                  "file": "./integration_tests/inheritance.js",
+                  "line": 27,
+                  "column": 32
+                }
+              }
+            ],
             "location": {
               "file": "./integration_tests/inheritance.js",
               "line": 27,
-              "column": 23
-            }
-          },
-          {
-            "type": "string",
-            "value": "Collie",
-            "location": {
-              "file": "./integration_tests/inheritance.js",
-              "line": 27,
-              "column": 32
+              "column": 15
             }
           }
-        ],
-        "location": {
-          "file": "./integration_tests/inheritance.js",
-          "line": 27,
-          "column": 15
         }
-      },
+      ],
       "varType": "const",
       "location": {
         "file": "./integration_tests/inheritance.js",

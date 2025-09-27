@@ -4,16 +4,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "x",
-      "value": {
-        "type": "boolean",
-        "value": true,
-        "location": {
-          "file": "./integration_tests/if.js",
-          "line": 1,
-          "column": 9
+      "declarations": [
+        {
+          "identifier": "x",
+          "value": {
+            "type": "boolean",
+            "value": true,
+            "location": {
+              "file": "./integration_tests/if.js",
+              "line": 1,
+              "column": 9
+            }
+          }
         }
-      },
+      ],
       "varType": "let",
       "location": {
         "file": "./integration_tests/if.js",

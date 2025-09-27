@@ -271,35 +271,39 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "res",
-      "value": {
-        "type": "call",
-        "func": {
-          "type": "identifier",
-          "value": "fibonacci",
-          "location": {
-            "file": "./integration_tests/fibbonaci.js",
-            "line": 11,
-            "column": 13
-          }
-        },
-        "arguments": [
-          {
-            "type": "number",
-            "value": 10,
+      "declarations": [
+        {
+          "identifier": "res",
+          "value": {
+            "type": "call",
+            "func": {
+              "type": "identifier",
+              "value": "fibonacci",
+              "location": {
+                "file": "./integration_tests/fibbonaci.js",
+                "line": 11,
+                "column": 13
+              }
+            },
+            "arguments": [
+              {
+                "type": "number",
+                "value": 10,
+                "location": {
+                  "file": "./integration_tests/fibbonaci.js",
+                  "line": 11,
+                  "column": 23
+                }
+              }
+            ],
             "location": {
               "file": "./integration_tests/fibbonaci.js",
               "line": 11,
-              "column": 23
+              "column": 22
             }
           }
-        ],
-        "location": {
-          "file": "./integration_tests/fibbonaci.js",
-          "line": 11,
-          "column": 22
         }
-      },
+      ],
       "varType": "const",
       "location": {
         "file": "./integration_tests/fibbonaci.js",

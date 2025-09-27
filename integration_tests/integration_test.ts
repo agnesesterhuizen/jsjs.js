@@ -2,7 +2,9 @@ import { assertEquals } from "jsr:@std/assert/equals";
 import { Lexer } from "../src/lexer.ts";
 import { Parser } from "../src/parser.ts";
 
-const OVERWRITE_SNAPSHOTS = Deno.env.get("OVERWRITE_SNAPSHOTS");
+type OverwriteOption = "snapshots" | "ast" | "all";
+const OVERWRITE = Deno.env.get("OVERWRITE") as OverwriteOption | undefined;
+
 const TEST_DIR = "./integration_tests";
 
 const getTests = () => {
@@ -37,7 +39,7 @@ Deno.test(`integration:`, async (t) => {
       const src = Deno.readTextFileSync(filename);
       const ast = getAst(filename, src);
 
-      if (OVERWRITE_SNAPSHOTS) {
+      if (OVERWRITE === "all" || OVERWRITE === "ast") {
         Deno.writeTextFileSync(astFileName, JSON.stringify(ast, null, 2));
       }
 
@@ -58,7 +60,7 @@ Deno.test(`integration:`, async (t) => {
 
       const out = new TextDecoder().decode(stdout);
 
-      if (OVERWRITE_SNAPSHOTS) {
+      if (OVERWRITE === "all" || OVERWRITE === "snapshots") {
         Deno.writeTextFileSync(outputFileName, out);
       }
 

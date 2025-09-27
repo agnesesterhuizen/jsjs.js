@@ -18,16 +18,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "visited",
-            "value": {
-              "type": "object",
-              "properties": {},
-              "location": {
-                "file": "./integration_tests/graph.js",
-                "line": 2,
-                "column": 19
+            "declarations": [
+              {
+                "identifier": "visited",
+                "value": {
+                  "type": "object",
+                  "properties": {},
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 2,
+                    "column": 19
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/graph.js",
@@ -38,16 +42,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "distances",
-            "value": {
-              "type": "object",
-              "properties": {},
-              "location": {
-                "file": "./integration_tests/graph.js",
-                "line": 3,
-                "column": 21
+            "declarations": [
+              {
+                "identifier": "distances",
+                "value": {
+                  "type": "object",
+                  "properties": {},
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 3,
+                    "column": 21
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/graph.js",
@@ -58,16 +66,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "prev",
-            "value": {
-              "type": "object",
-              "properties": {},
-              "location": {
-                "file": "./integration_tests/graph.js",
-                "line": 4,
-                "column": 16
+            "declarations": [
+              {
+                "identifier": "prev",
+                "value": {
+                  "type": "object",
+                  "properties": {},
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 4,
+                    "column": 16
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/graph.js",
@@ -78,16 +90,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "nodes",
-            "value": {
-              "type": "array",
-              "elements": [],
-              "location": {
-                "file": "./integration_tests/graph.js",
-                "line": 5,
-                "column": 17
+            "declarations": [
+              {
+                "identifier": "nodes",
+                "value": {
+                  "type": "array",
+                  "elements": [],
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 5,
+                    "column": 17
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/graph.js",
@@ -98,16 +114,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "nodeCount",
-            "value": {
-              "type": "number",
-              "value": 0,
-              "location": {
-                "file": "./integration_tests/graph.js",
-                "line": 8,
-                "column": 19
+            "declarations": [
+              {
+                "identifier": "nodeCount",
+                "value": {
+                  "type": "number",
+                  "value": 0,
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 8,
+                    "column": 19
+                  }
+                }
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/graph.js",
@@ -118,53 +138,57 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "graphKeys",
-            "value": {
-              "type": "call",
-              "func": {
-                "type": "member",
-                "object": {
-                  "type": "identifier",
-                  "value": "Object",
+            "declarations": [
+              {
+                "identifier": "graphKeys",
+                "value": {
+                  "type": "call",
+                  "func": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "Object",
+                      "location": {
+                        "file": "./integration_tests/graph.js",
+                        "line": 9,
+                        "column": 21
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "keys",
+                      "location": {
+                        "file": "./integration_tests/graph.js",
+                        "line": 9,
+                        "column": 28
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 9,
+                      "column": 21
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "identifier",
+                      "value": "graph",
+                      "location": {
+                        "file": "./integration_tests/graph.js",
+                        "line": 9,
+                        "column": 33
+                      }
+                    }
+                  ],
                   "location": {
                     "file": "./integration_tests/graph.js",
                     "line": 9,
-                    "column": 21
+                    "column": 32
                   }
-                },
-                "property": {
-                  "type": "identifier",
-                  "value": "keys",
-                  "location": {
-                    "file": "./integration_tests/graph.js",
-                    "line": 9,
-                    "column": 28
-                  }
-                },
-                "computed": false,
-                "location": {
-                  "file": "./integration_tests/graph.js",
-                  "line": 9,
-                  "column": 21
                 }
-              },
-              "arguments": [
-                {
-                  "type": "identifier",
-                  "value": "graph",
-                  "location": {
-                    "file": "./integration_tests/graph.js",
-                    "line": 9,
-                    "column": 33
-                  }
-                }
-              ],
-              "location": {
-                "file": "./integration_tests/graph.js",
-                "line": 9,
-                "column": 32
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/graph.js",
@@ -175,16 +199,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "keyIndex",
-            "value": {
-              "type": "number",
-              "value": 0,
-              "location": {
-                "file": "./integration_tests/graph.js",
-                "line": 10,
-                "column": 18
+            "declarations": [
+              {
+                "identifier": "keyIndex",
+                "value": {
+                  "type": "number",
+                  "value": 0,
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 10,
+                    "column": 18
+                  }
+                }
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/graph.js",
@@ -245,34 +273,38 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "node",
-                  "value": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "graphKeys",
-                      "location": {
-                        "file": "./integration_tests/graph.js",
-                        "line": 12,
-                        "column": 18
+                  "declarations": [
+                    {
+                      "identifier": "node",
+                      "value": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "graphKeys",
+                          "location": {
+                            "file": "./integration_tests/graph.js",
+                            "line": 12,
+                            "column": 18
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "keyIndex",
+                          "location": {
+                            "file": "./integration_tests/graph.js",
+                            "line": 12,
+                            "column": 28
+                          }
+                        },
+                        "computed": true,
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 12,
+                          "column": 18
+                        }
                       }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "keyIndex",
-                      "location": {
-                        "file": "./integration_tests/graph.js",
-                        "line": 12,
-                        "column": 28
-                      }
-                    },
-                    "computed": true,
-                    "location": {
-                      "file": "./integration_tests/graph.js",
-                      "line": 12,
-                      "column": 18
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/graph.js",
@@ -666,16 +698,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "visitedCount",
-            "value": {
-              "type": "number",
-              "value": 0,
-              "location": {
-                "file": "./integration_tests/graph.js",
-                "line": 22,
-                "column": 22
+            "declarations": [
+              {
+                "identifier": "visitedCount",
+                "value": {
+                  "type": "number",
+                  "value": 0,
+                  "location": {
+                    "file": "./integration_tests/graph.js",
+                    "line": 22,
+                    "column": 22
+                  }
+                }
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/graph.js",
@@ -718,15 +754,19 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "currNode",
-                  "value": {
-                    "type": "null",
-                    "location": {
-                      "file": "./integration_tests/graph.js",
-                      "line": 25,
-                      "column": 20
+                  "declarations": [
+                    {
+                      "identifier": "currNode",
+                      "value": {
+                        "type": "null",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 25,
+                          "column": 20
+                        }
+                      }
                     }
-                  },
+                  ],
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/graph.js",
@@ -737,16 +777,20 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "currDist",
-                  "value": {
-                    "type": "identifier",
-                    "value": "Infinity",
-                    "location": {
-                      "file": "./integration_tests/graph.js",
-                      "line": 26,
-                      "column": 20
+                  "declarations": [
+                    {
+                      "identifier": "currDist",
+                      "value": {
+                        "type": "identifier",
+                        "value": "Infinity",
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 26,
+                          "column": 20
+                        }
+                      }
                     }
-                  },
+                  ],
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/graph.js",
@@ -757,16 +801,20 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "i",
-                  "value": {
-                    "type": "number",
-                    "value": 0,
-                    "location": {
-                      "file": "./integration_tests/graph.js",
-                      "line": 29,
-                      "column": 13
+                  "declarations": [
+                    {
+                      "identifier": "i",
+                      "value": {
+                        "type": "number",
+                        "value": 0,
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 29,
+                          "column": 13
+                        }
+                      }
                     }
-                  },
+                  ],
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/graph.js",
@@ -809,34 +857,38 @@
                       {
                         "type": "variable_declaration",
                         "declarationType": "var",
-                        "identifier": "node",
-                        "value": {
-                          "type": "member",
-                          "object": {
-                            "type": "identifier",
-                            "value": "nodes",
-                            "location": {
-                              "file": "./integration_tests/graph.js",
-                              "line": 31,
-                              "column": 20
+                        "declarations": [
+                          {
+                            "identifier": "node",
+                            "value": {
+                              "type": "member",
+                              "object": {
+                                "type": "identifier",
+                                "value": "nodes",
+                                "location": {
+                                  "file": "./integration_tests/graph.js",
+                                  "line": 31,
+                                  "column": 20
+                                }
+                              },
+                              "property": {
+                                "type": "identifier",
+                                "value": "i",
+                                "location": {
+                                  "file": "./integration_tests/graph.js",
+                                  "line": 31,
+                                  "column": 26
+                                }
+                              },
+                              "computed": true,
+                              "location": {
+                                "file": "./integration_tests/graph.js",
+                                "line": 31,
+                                "column": 20
+                              }
                             }
-                          },
-                          "property": {
-                            "type": "identifier",
-                            "value": "i",
-                            "location": {
-                              "file": "./integration_tests/graph.js",
-                              "line": 31,
-                              "column": 26
-                            }
-                          },
-                          "computed": true,
-                          "location": {
-                            "file": "./integration_tests/graph.js",
-                            "line": 31,
-                            "column": 20
                           }
-                        },
+                        ],
                         "varType": "const",
                         "location": {
                           "file": "./integration_tests/graph.js",
@@ -1109,34 +1161,38 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "neighbors",
-                  "value": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "graph",
-                      "location": {
-                        "file": "./integration_tests/graph.js",
-                        "line": 40,
-                        "column": 23
+                  "declarations": [
+                    {
+                      "identifier": "neighbors",
+                      "value": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "graph",
+                          "location": {
+                            "file": "./integration_tests/graph.js",
+                            "line": 40,
+                            "column": 23
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "currNode",
+                          "location": {
+                            "file": "./integration_tests/graph.js",
+                            "line": 40,
+                            "column": 29
+                          }
+                        },
+                        "computed": true,
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 40,
+                          "column": 23
+                        }
                       }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "currNode",
-                      "location": {
-                        "file": "./integration_tests/graph.js",
-                        "line": 40,
-                        "column": 29
-                      }
-                    },
-                    "computed": true,
-                    "location": {
-                      "file": "./integration_tests/graph.js",
-                      "line": 40,
-                      "column": 23
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/graph.js",
@@ -1147,53 +1203,57 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "neighborKeys",
-                  "value": {
-                    "type": "call",
-                    "func": {
-                      "type": "member",
-                      "object": {
-                        "type": "identifier",
-                        "value": "Object",
+                  "declarations": [
+                    {
+                      "identifier": "neighborKeys",
+                      "value": {
+                        "type": "call",
+                        "func": {
+                          "type": "member",
+                          "object": {
+                            "type": "identifier",
+                            "value": "Object",
+                            "location": {
+                              "file": "./integration_tests/graph.js",
+                              "line": 41,
+                              "column": 26
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "keys",
+                            "location": {
+                              "file": "./integration_tests/graph.js",
+                              "line": 41,
+                              "column": 33
+                            }
+                          },
+                          "computed": false,
+                          "location": {
+                            "file": "./integration_tests/graph.js",
+                            "line": 41,
+                            "column": 26
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "identifier",
+                            "value": "neighbors",
+                            "location": {
+                              "file": "./integration_tests/graph.js",
+                              "line": 41,
+                              "column": 38
+                            }
+                          }
+                        ],
                         "location": {
                           "file": "./integration_tests/graph.js",
                           "line": 41,
-                          "column": 26
+                          "column": 37
                         }
-                      },
-                      "property": {
-                        "type": "identifier",
-                        "value": "keys",
-                        "location": {
-                          "file": "./integration_tests/graph.js",
-                          "line": 41,
-                          "column": 33
-                        }
-                      },
-                      "computed": false,
-                      "location": {
-                        "file": "./integration_tests/graph.js",
-                        "line": 41,
-                        "column": 26
                       }
-                    },
-                    "arguments": [
-                      {
-                        "type": "identifier",
-                        "value": "neighbors",
-                        "location": {
-                          "file": "./integration_tests/graph.js",
-                          "line": 41,
-                          "column": 38
-                        }
-                      }
-                    ],
-                    "location": {
-                      "file": "./integration_tests/graph.js",
-                      "line": 41,
-                      "column": 37
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/graph.js",
@@ -1204,16 +1264,20 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "neighborIndex",
-                  "value": {
-                    "type": "number",
-                    "value": 0,
-                    "location": {
-                      "file": "./integration_tests/graph.js",
-                      "line": 42,
-                      "column": 25
+                  "declarations": [
+                    {
+                      "identifier": "neighborIndex",
+                      "value": {
+                        "type": "number",
+                        "value": 0,
+                        "location": {
+                          "file": "./integration_tests/graph.js",
+                          "line": 42,
+                          "column": 25
+                        }
+                      }
                     }
-                  },
+                  ],
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/graph.js",
@@ -1274,34 +1338,38 @@
                       {
                         "type": "variable_declaration",
                         "declarationType": "var",
-                        "identifier": "neighbor",
-                        "value": {
-                          "type": "member",
-                          "object": {
-                            "type": "identifier",
-                            "value": "neighborKeys",
-                            "location": {
-                              "file": "./integration_tests/graph.js",
-                              "line": 44,
-                              "column": 24
+                        "declarations": [
+                          {
+                            "identifier": "neighbor",
+                            "value": {
+                              "type": "member",
+                              "object": {
+                                "type": "identifier",
+                                "value": "neighborKeys",
+                                "location": {
+                                  "file": "./integration_tests/graph.js",
+                                  "line": 44,
+                                  "column": 24
+                                }
+                              },
+                              "property": {
+                                "type": "identifier",
+                                "value": "neighborIndex",
+                                "location": {
+                                  "file": "./integration_tests/graph.js",
+                                  "line": 44,
+                                  "column": 37
+                                }
+                              },
+                              "computed": true,
+                              "location": {
+                                "file": "./integration_tests/graph.js",
+                                "line": 44,
+                                "column": 24
+                              }
                             }
-                          },
-                          "property": {
-                            "type": "identifier",
-                            "value": "neighborIndex",
-                            "location": {
-                              "file": "./integration_tests/graph.js",
-                              "line": 44,
-                              "column": 37
-                            }
-                          },
-                          "computed": true,
-                          "location": {
-                            "file": "./integration_tests/graph.js",
-                            "line": 44,
-                            "column": 24
                           }
-                        },
+                        ],
                         "varType": "const",
                         "location": {
                           "file": "./integration_tests/graph.js",
@@ -1312,34 +1380,38 @@
                       {
                         "type": "variable_declaration",
                         "declarationType": "var",
-                        "identifier": "weight",
-                        "value": {
-                          "type": "member",
-                          "object": {
-                            "type": "identifier",
-                            "value": "neighbors",
-                            "location": {
-                              "file": "./integration_tests/graph.js",
-                              "line": 45,
-                              "column": 22
+                        "declarations": [
+                          {
+                            "identifier": "weight",
+                            "value": {
+                              "type": "member",
+                              "object": {
+                                "type": "identifier",
+                                "value": "neighbors",
+                                "location": {
+                                  "file": "./integration_tests/graph.js",
+                                  "line": 45,
+                                  "column": 22
+                                }
+                              },
+                              "property": {
+                                "type": "identifier",
+                                "value": "neighbor",
+                                "location": {
+                                  "file": "./integration_tests/graph.js",
+                                  "line": 45,
+                                  "column": 32
+                                }
+                              },
+                              "computed": true,
+                              "location": {
+                                "file": "./integration_tests/graph.js",
+                                "line": 45,
+                                "column": 22
+                              }
                             }
-                          },
-                          "property": {
-                            "type": "identifier",
-                            "value": "neighbor",
-                            "location": {
-                              "file": "./integration_tests/graph.js",
-                              "line": 45,
-                              "column": 32
-                            }
-                          },
-                          "computed": true,
-                          "location": {
-                            "file": "./integration_tests/graph.js",
-                            "line": 45,
-                            "column": 22
                           }
-                        },
+                        ],
                         "varType": "const",
                         "location": {
                           "file": "./integration_tests/graph.js",
@@ -1350,34 +1422,38 @@
                       {
                         "type": "variable_declaration",
                         "declarationType": "var",
-                        "identifier": "dist",
-                        "value": {
-                          "type": "binary",
-                          "operator": "+",
-                          "left": {
-                            "type": "identifier",
-                            "value": "currDist",
-                            "location": {
-                              "file": "./integration_tests/graph.js",
-                              "line": 46,
-                              "column": 20
+                        "declarations": [
+                          {
+                            "identifier": "dist",
+                            "value": {
+                              "type": "binary",
+                              "operator": "+",
+                              "left": {
+                                "type": "identifier",
+                                "value": "currDist",
+                                "location": {
+                                  "file": "./integration_tests/graph.js",
+                                  "line": 46,
+                                  "column": 20
+                                }
+                              },
+                              "right": {
+                                "type": "identifier",
+                                "value": "weight",
+                                "location": {
+                                  "file": "./integration_tests/graph.js",
+                                  "line": 46,
+                                  "column": 31
+                                }
+                              },
+                              "location": {
+                                "file": "./integration_tests/graph.js",
+                                "line": 46,
+                                "column": 29
+                              }
                             }
-                          },
-                          "right": {
-                            "type": "identifier",
-                            "value": "weight",
-                            "location": {
-                              "file": "./integration_tests/graph.js",
-                              "line": 46,
-                              "column": 31
-                            }
-                          },
-                          "location": {
-                            "file": "./integration_tests/graph.js",
-                            "line": 46,
-                            "column": 29
                           }
-                        },
+                        ],
                         "varType": "const",
                         "location": {
                           "file": "./integration_tests/graph.js",
@@ -1791,176 +1867,180 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "graph",
-      "value": {
-        "type": "object",
-        "properties": {
-          "A": {
+      "declarations": [
+        {
+          "identifier": "graph",
+          "value": {
             "type": "object",
             "properties": {
-              "B": {
-                "type": "number",
-                "value": 2,
+              "A": {
+                "type": "object",
+                "properties": {
+                  "B": {
+                    "type": "number",
+                    "value": 2,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 62,
+                      "column": 11
+                    }
+                  },
+                  "C": {
+                    "type": "number",
+                    "value": 3,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 62,
+                      "column": 17
+                    }
+                  }
+                },
                 "location": {
                   "file": "./integration_tests/graph.js",
                   "line": 62,
-                  "column": 11
+                  "column": 6
+                }
+              },
+              "B": {
+                "type": "object",
+                "properties": {
+                  "D": {
+                    "type": "number",
+                    "value": 4,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 63,
+                      "column": 11
+                    }
+                  },
+                  "E": {
+                    "type": "number",
+                    "value": 5,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 63,
+                      "column": 17
+                    }
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/graph.js",
+                  "line": 63,
+                  "column": 6
                 }
               },
               "C": {
-                "type": "number",
-                "value": 3,
-                "location": {
-                  "file": "./integration_tests/graph.js",
-                  "line": 62,
-                  "column": 17
-                }
-              }
-            },
-            "location": {
-              "file": "./integration_tests/graph.js",
-              "line": 62,
-              "column": 6
-            }
-          },
-          "B": {
-            "type": "object",
-            "properties": {
-              "D": {
-                "type": "number",
-                "value": 4,
-                "location": {
-                  "file": "./integration_tests/graph.js",
-                  "line": 63,
-                  "column": 11
-                }
-              },
-              "E": {
-                "type": "number",
-                "value": 5,
-                "location": {
-                  "file": "./integration_tests/graph.js",
-                  "line": 63,
-                  "column": 17
-                }
-              }
-            },
-            "location": {
-              "file": "./integration_tests/graph.js",
-              "line": 63,
-              "column": 6
-            }
-          },
-          "C": {
-            "type": "object",
-            "properties": {
-              "F": {
-                "type": "number",
-                "value": 6,
+                "type": "object",
+                "properties": {
+                  "F": {
+                    "type": "number",
+                    "value": 6,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 64,
+                      "column": 11
+                    }
+                  }
+                },
                 "location": {
                   "file": "./integration_tests/graph.js",
                   "line": 64,
-                  "column": 11
+                  "column": 6
                 }
-              }
-            },
-            "location": {
-              "file": "./integration_tests/graph.js",
-              "line": 64,
-              "column": 6
-            }
-          },
-          "D": {
-            "type": "object",
-            "properties": {
-              "G": {
-                "type": "number",
-                "value": 7,
+              },
+              "D": {
+                "type": "object",
+                "properties": {
+                  "G": {
+                    "type": "number",
+                    "value": 7,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 65,
+                      "column": 11
+                    }
+                  }
+                },
                 "location": {
                   "file": "./integration_tests/graph.js",
                   "line": 65,
-                  "column": 11
-                }
-              }
-            },
-            "location": {
-              "file": "./integration_tests/graph.js",
-              "line": 65,
-              "column": 6
-            }
-          },
-          "E": {
-            "type": "object",
-            "properties": {
-              "G": {
-                "type": "number",
-                "value": 8,
-                "location": {
-                  "file": "./integration_tests/graph.js",
-                  "line": 66,
-                  "column": 11
+                  "column": 6
                 }
               },
-              "H": {
-                "type": "number",
-                "value": 9,
+              "E": {
+                "type": "object",
+                "properties": {
+                  "G": {
+                    "type": "number",
+                    "value": 8,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 66,
+                      "column": 11
+                    }
+                  },
+                  "H": {
+                    "type": "number",
+                    "value": 9,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 66,
+                      "column": 17
+                    }
+                  }
+                },
                 "location": {
                   "file": "./integration_tests/graph.js",
                   "line": 66,
-                  "column": 17
+                  "column": 6
                 }
-              }
-            },
-            "location": {
-              "file": "./integration_tests/graph.js",
-              "line": 66,
-              "column": 6
-            }
-          },
-          "F": {
-            "type": "object",
-            "properties": {
-              "H": {
-                "type": "number",
-                "value": 10,
+              },
+              "F": {
+                "type": "object",
+                "properties": {
+                  "H": {
+                    "type": "number",
+                    "value": 10,
+                    "location": {
+                      "file": "./integration_tests/graph.js",
+                      "line": 67,
+                      "column": 11
+                    }
+                  }
+                },
                 "location": {
                   "file": "./integration_tests/graph.js",
                   "line": 67,
-                  "column": 11
+                  "column": 6
+                }
+              },
+              "G": {
+                "type": "object",
+                "properties": {},
+                "location": {
+                  "file": "./integration_tests/graph.js",
+                  "line": 68,
+                  "column": 6
+                }
+              },
+              "H": {
+                "type": "object",
+                "properties": {},
+                "location": {
+                  "file": "./integration_tests/graph.js",
+                  "line": 69,
+                  "column": 6
                 }
               }
             },
             "location": {
               "file": "./integration_tests/graph.js",
-              "line": 67,
-              "column": 6
-            }
-          },
-          "G": {
-            "type": "object",
-            "properties": {},
-            "location": {
-              "file": "./integration_tests/graph.js",
-              "line": 68,
-              "column": 6
-            }
-          },
-          "H": {
-            "type": "object",
-            "properties": {},
-            "location": {
-              "file": "./integration_tests/graph.js",
-              "line": 69,
-              "column": 6
+              "line": 61,
+              "column": 15
             }
           }
-        },
-        "location": {
-          "file": "./integration_tests/graph.js",
-          "line": 61,
-          "column": 15
         }
-      },
+      ],
       "varType": "const",
       "location": {
         "file": "./integration_tests/graph.js",

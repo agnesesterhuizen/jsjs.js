@@ -254,53 +254,57 @@
               {
                 "type": "variable_declaration",
                 "declarationType": "var",
-                "identifier": "index",
-                "value": {
-                  "type": "call",
-                  "func": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "this",
+                "declarations": [
+                  {
+                    "identifier": "index",
+                    "value": {
+                      "type": "call",
+                      "func": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "this",
+                          "location": {
+                            "file": "./integration_tests/hashtable.js",
+                            "line": 9,
+                            "column": 17
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "hashFunction",
+                          "location": {
+                            "file": "./integration_tests/hashtable.js",
+                            "line": 9,
+                            "column": 22
+                          }
+                        },
+                        "computed": false,
+                        "location": {
+                          "file": "./integration_tests/hashtable.js",
+                          "line": 9,
+                          "column": 17
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "identifier",
+                          "value": "key",
+                          "location": {
+                            "file": "./integration_tests/hashtable.js",
+                            "line": 9,
+                            "column": 35
+                          }
+                        }
+                      ],
                       "location": {
                         "file": "./integration_tests/hashtable.js",
                         "line": 9,
-                        "column": 17
+                        "column": 34
                       }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "hashFunction",
-                      "location": {
-                        "file": "./integration_tests/hashtable.js",
-                        "line": 9,
-                        "column": 22
-                      }
-                    },
-                    "computed": false,
-                    "location": {
-                      "file": "./integration_tests/hashtable.js",
-                      "line": 9,
-                      "column": 17
                     }
-                  },
-                  "arguments": [
-                    {
-                      "type": "identifier",
-                      "value": "key",
-                      "location": {
-                        "file": "./integration_tests/hashtable.js",
-                        "line": 9,
-                        "column": 35
-                      }
-                    }
-                  ],
-                  "location": {
-                    "file": "./integration_tests/hashtable.js",
-                    "line": 9,
-                    "column": 34
                   }
-                },
+                ],
                 "varType": "let",
                 "location": {
                   "file": "./integration_tests/hashtable.js",
@@ -810,53 +814,57 @@
               {
                 "type": "variable_declaration",
                 "declarationType": "var",
-                "identifier": "index",
-                "value": {
-                  "type": "call",
-                  "func": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "this",
+                "declarations": [
+                  {
+                    "identifier": "index",
+                    "value": {
+                      "type": "call",
+                      "func": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "this",
+                          "location": {
+                            "file": "./integration_tests/hashtable.js",
+                            "line": 23,
+                            "column": 17
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "hashFunction",
+                          "location": {
+                            "file": "./integration_tests/hashtable.js",
+                            "line": 23,
+                            "column": 22
+                          }
+                        },
+                        "computed": false,
+                        "location": {
+                          "file": "./integration_tests/hashtable.js",
+                          "line": 23,
+                          "column": 17
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "identifier",
+                          "value": "key",
+                          "location": {
+                            "file": "./integration_tests/hashtable.js",
+                            "line": 23,
+                            "column": 35
+                          }
+                        }
+                      ],
                       "location": {
                         "file": "./integration_tests/hashtable.js",
                         "line": 23,
-                        "column": 17
+                        "column": 34
                       }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "hashFunction",
-                      "location": {
-                        "file": "./integration_tests/hashtable.js",
-                        "line": 23,
-                        "column": 22
-                      }
-                    },
-                    "computed": false,
-                    "location": {
-                      "file": "./integration_tests/hashtable.js",
-                      "line": 23,
-                      "column": 17
                     }
-                  },
-                  "arguments": [
-                    {
-                      "type": "identifier",
-                      "value": "key",
-                      "location": {
-                        "file": "./integration_tests/hashtable.js",
-                        "line": 23,
-                        "column": 35
-                      }
-                    }
-                  ],
-                  "location": {
-                    "file": "./integration_tests/hashtable.js",
-                    "line": 23,
-                    "column": 34
                   }
-                },
+                ],
                 "varType": "let",
                 "location": {
                   "file": "./integration_tests/hashtable.js",
@@ -1215,16 +1223,20 @@
               {
                 "type": "variable_declaration",
                 "declarationType": "var",
-                "identifier": "sum",
-                "value": {
-                  "type": "number",
-                  "value": 0,
-                  "location": {
-                    "file": "./integration_tests/hashtable.js",
-                    "line": 35,
-                    "column": 15
+                "declarations": [
+                  {
+                    "identifier": "sum",
+                    "value": {
+                      "type": "number",
+                      "value": 0,
+                      "location": {
+                        "file": "./integration_tests/hashtable.js",
+                        "line": 35,
+                        "column": 15
+                      }
+                    }
                   }
-                },
+                ],
                 "varType": "let",
                 "location": {
                   "file": "./integration_tests/hashtable.js",
@@ -1237,16 +1249,20 @@
                 "init": {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "i",
-                  "value": {
-                    "type": "number",
-                    "value": 0,
-                    "location": {
-                      "file": "./integration_tests/hashtable.js",
-                      "line": 36,
-                      "column": 18
+                  "declarations": [
+                    {
+                      "identifier": "i",
+                      "value": {
+                        "type": "number",
+                        "value": 0,
+                        "location": {
+                          "file": "./integration_tests/hashtable.js",
+                          "line": 36,
+                          "column": 18
+                        }
+                      }
                     }
-                  },
+                  ],
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/hashtable.js",
@@ -1495,17 +1511,21 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "t",
-      "value": {
-        "type": "new",
-        "identifier": "HashTable",
-        "arguments": [],
-        "location": {
-          "file": "./integration_tests/hashtable.js",
-          "line": 43,
-          "column": 11
+      "declarations": [
+        {
+          "identifier": "t",
+          "value": {
+            "type": "new",
+            "identifier": "HashTable",
+            "arguments": [],
+            "location": {
+              "file": "./integration_tests/hashtable.js",
+              "line": 43,
+              "column": 11
+            }
+          }
         }
-      },
+      ],
       "varType": "const",
       "location": {
         "file": "./integration_tests/hashtable.js",

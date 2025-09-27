@@ -6,16 +6,20 @@
       "init": {
         "type": "variable_declaration",
         "declarationType": "var",
-        "identifier": "i",
-        "value": {
-          "type": "number",
-          "value": 0,
-          "location": {
-            "file": "./integration_tests/forloop.js",
-            "line": 1,
-            "column": 14
+        "declarations": [
+          {
+            "identifier": "i",
+            "value": {
+              "type": "number",
+              "value": 0,
+              "location": {
+                "file": "./integration_tests/forloop.js",
+                "line": 1,
+                "column": 14
+              }
+            }
           }
-        },
+        ],
         "varType": "var",
         "location": {
           "file": "./integration_tests/forloop.js",

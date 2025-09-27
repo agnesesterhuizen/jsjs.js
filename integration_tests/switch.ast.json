@@ -4,16 +4,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "x",
-      "value": {
-        "type": "string",
-        "value": "test",
-        "location": {
-          "file": "./integration_tests/switch.js",
-          "line": 1,
-          "column": 11
+      "declarations": [
+        {
+          "identifier": "x",
+          "value": {
+            "type": "string",
+            "value": "test",
+            "location": {
+              "file": "./integration_tests/switch.js",
+              "line": 1,
+              "column": 11
+            }
+          }
         }
-      },
+      ],
       "varType": "const",
       "location": {
         "file": "./integration_tests/switch.js",

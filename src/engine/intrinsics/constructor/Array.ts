@@ -1,6 +1,6 @@
 import { typeError } from "../../interpreter.ts";
 import { Runtime } from "../../runtime.ts";
-import { JSFunction, JSNumber, JSObject } from "../../objects.ts";
+import { JSArray, JSFunction, JSNumber, JSObject } from "../../objects.ts";
 
 export const createArrayConstructor = (runtime: Runtime): JSFunction => {
   const arrayConstructor = runtime.newBuiltinFunction(
@@ -29,6 +29,40 @@ export const createArrayConstructor = (runtime: Runtime): JSFunction => {
 
       array.elements = args;
       return array;
+    }
+  );
+
+  arrayConstructor.properties["from"] = runtime.newBuiltinFunction(
+    (
+      _thisArg: JSObject,
+      arrayLike: JSObject,
+      mapFn?: JSFunction,
+      thisArg?: JSObject
+    ) => {
+      if (arrayLike.type !== "array") {
+        throw new TypeError("Array.from expects an array");
+      }
+
+      const sourceArray = arrayLike as JSArray;
+      const resultElements: JSObject[] = [];
+
+      const hasMapFn = mapFn && mapFn.type === "function";
+
+      for (let index = 0; index < sourceArray.elements.length; index++) {
+        let value = sourceArray.elements[index] ?? runtime.newUndefined();
+
+        if (hasMapFn) {
+          value = runtime.interpreter.call(
+            thisArg ?? runtime.newUndefined(),
+            mapFn as JSFunction,
+            [value, runtime.newNumber(index)]
+          );
+        }
+
+        resultElements.push(value);
+      }
+
+      return runtime.newArray(resultElements);
     }
   );
 

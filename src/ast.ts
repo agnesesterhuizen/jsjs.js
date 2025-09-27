@@ -75,6 +75,7 @@ export const OPERATOR_PRECEDENCE: Record<Operator, number> = {
 export type Parameter = {
   name: string;
   spread?: boolean;
+  defaultValue?: Expression;
 };
 
 export type ClassPropertyDeclaration = {
@@ -88,6 +89,11 @@ export type ClassMethodDeclaration = {
   parameters: Parameter[];
   body: Statement;
   static: boolean;
+};
+
+export type VariableDeclarator = {
+  identifier: string;
+  value?: Expression;
 };
 
 export type Location = {
@@ -133,6 +139,12 @@ export type Expression = WithLocation<
       arguments: Expression[];
     }
   | {
+      type: "conditional";
+      test: Expression;
+      consequent: Expression;
+      alternate: Expression;
+    }
+  | {
       type: "spread";
       expression: Expression;
     }
@@ -162,8 +174,7 @@ export type Statement = WithLocation<
   | {
       type: "variable_declaration";
       declarationType: "var";
-      identifier: string;
-      value?: Expression;
+      declarations: VariableDeclarator[];
       varType: "var" | "let" | "const";
     }
   | {
@@ -195,8 +206,8 @@ export type Statement = WithLocation<
   | {
       type: "for";
       init: Statement;
-      test: Expression;
-      update: Expression;
+      test?: Expression;
+      update?: Expression;
       body: Statement;
     }
   | {

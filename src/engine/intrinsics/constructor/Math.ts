@@ -17,5 +17,23 @@ export const createMathConstructor = (runtime: Runtime) => {
     }
   );
 
+  mathConstructor.properties["abs"] = runtime.newBuiltinFunction(
+    (_: JSObject, x: JSNumber) => {
+      if (x.type !== "number") {
+        throw "Math.abs expects a number";
+      }
+      return runtime.newNumber(Math.abs(x.value));
+    }
+  );
+
+  mathConstructor.properties["round"] = runtime.newBuiltinFunction(
+    (_: JSObject, x: JSNumber) => {
+      if (x.type !== "number") {
+        throw "Math.round expects a number";
+      }
+      return runtime.newNumber(Math.round(x.value));
+    }
+  );
+
   return mathConstructor;
 };

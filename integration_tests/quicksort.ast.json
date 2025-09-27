@@ -95,107 +95,111 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "pivot",
-            "value": {
-              "type": "member",
-              "object": {
-                "type": "identifier",
-                "value": "arr",
-                "location": {
-                  "file": "./integration_tests/quicksort.js",
-                  "line": 6,
-                  "column": 17
-                }
-              },
-              "property": {
-                "type": "call",
-                "func": {
+            "declarations": [
+              {
+                "identifier": "pivot",
+                "value": {
                   "type": "member",
                   "object": {
                     "type": "identifier",
-                    "value": "Math",
+                    "value": "arr",
                     "location": {
                       "file": "./integration_tests/quicksort.js",
                       "line": 6,
-                      "column": 21
+                      "column": 17
                     }
                   },
                   "property": {
-                    "type": "identifier",
-                    "value": "floor",
-                    "location": {
-                      "file": "./integration_tests/quicksort.js",
-                      "line": 6,
-                      "column": 26
-                    }
-                  },
-                  "computed": false,
-                  "location": {
-                    "file": "./integration_tests/quicksort.js",
-                    "line": 6,
-                    "column": 21
-                  }
-                },
-                "arguments": [
-                  {
-                    "type": "binary",
-                    "operator": "/",
-                    "left": {
+                    "type": "call",
+                    "func": {
                       "type": "member",
                       "object": {
                         "type": "identifier",
-                        "value": "arr",
+                        "value": "Math",
                         "location": {
                           "file": "./integration_tests/quicksort.js",
                           "line": 6,
-                          "column": 32
+                          "column": 21
                         }
                       },
                       "property": {
                         "type": "identifier",
-                        "value": "length",
+                        "value": "floor",
                         "location": {
                           "file": "./integration_tests/quicksort.js",
                           "line": 6,
-                          "column": 36
+                          "column": 26
                         }
                       },
                       "computed": false,
                       "location": {
                         "file": "./integration_tests/quicksort.js",
                         "line": 6,
-                        "column": 32
+                        "column": 21
                       }
                     },
-                    "right": {
-                      "type": "number",
-                      "value": 2,
-                      "location": {
-                        "file": "./integration_tests/quicksort.js",
-                        "line": 6,
-                        "column": 45
+                    "arguments": [
+                      {
+                        "type": "binary",
+                        "operator": "/",
+                        "left": {
+                          "type": "member",
+                          "object": {
+                            "type": "identifier",
+                            "value": "arr",
+                            "location": {
+                              "file": "./integration_tests/quicksort.js",
+                              "line": 6,
+                              "column": 32
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "length",
+                            "location": {
+                              "file": "./integration_tests/quicksort.js",
+                              "line": 6,
+                              "column": 36
+                            }
+                          },
+                          "computed": false,
+                          "location": {
+                            "file": "./integration_tests/quicksort.js",
+                            "line": 6,
+                            "column": 32
+                          }
+                        },
+                        "right": {
+                          "type": "number",
+                          "value": 2,
+                          "location": {
+                            "file": "./integration_tests/quicksort.js",
+                            "line": 6,
+                            "column": 45
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/quicksort.js",
+                          "line": 6,
+                          "column": 43
+                        }
                       }
-                    },
+                    ],
                     "location": {
                       "file": "./integration_tests/quicksort.js",
                       "line": 6,
-                      "column": 43
+                      "column": 31
                     }
+                  },
+                  "computed": true,
+                  "location": {
+                    "file": "./integration_tests/quicksort.js",
+                    "line": 6,
+                    "column": 17
                   }
-                ],
-                "location": {
-                  "file": "./integration_tests/quicksort.js",
-                  "line": 6,
-                  "column": 31
                 }
-              },
-              "computed": true,
-              "location": {
-                "file": "./integration_tests/quicksort.js",
-                "line": 6,
-                "column": 17
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/quicksort.js",
@@ -206,16 +210,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "left",
-            "value": {
-              "type": "array",
-              "elements": [],
-              "location": {
-                "file": "./integration_tests/quicksort.js",
-                "line": 7,
-                "column": 16
+            "declarations": [
+              {
+                "identifier": "left",
+                "value": {
+                  "type": "array",
+                  "elements": [],
+                  "location": {
+                    "file": "./integration_tests/quicksort.js",
+                    "line": 7,
+                    "column": 16
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/quicksort.js",
@@ -226,16 +234,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "right",
-            "value": {
-              "type": "array",
-              "elements": [],
-              "location": {
-                "file": "./integration_tests/quicksort.js",
-                "line": 8,
-                "column": 17
+            "declarations": [
+              {
+                "identifier": "right",
+                "value": {
+                  "type": "array",
+                  "elements": [],
+                  "location": {
+                    "file": "./integration_tests/quicksort.js",
+                    "line": 8,
+                    "column": 17
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/quicksort.js",
@@ -246,16 +258,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "equal",
-            "value": {
-              "type": "array",
-              "elements": [],
-              "location": {
-                "file": "./integration_tests/quicksort.js",
-                "line": 9,
-                "column": 17
+            "declarations": [
+              {
+                "identifier": "equal",
+                "value": {
+                  "type": "array",
+                  "elements": [],
+                  "location": {
+                    "file": "./integration_tests/quicksort.js",
+                    "line": 9,
+                    "column": 17
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/quicksort.js",
@@ -268,16 +284,20 @@
             "init": {
               "type": "variable_declaration",
               "declarationType": "var",
-              "identifier": "i",
-              "value": {
-                "type": "number",
-                "value": 0,
-                "location": {
-                  "file": "./integration_tests/quicksort.js",
-                  "line": 11,
-                  "column": 16
+              "declarations": [
+                {
+                  "identifier": "i",
+                  "value": {
+                    "type": "number",
+                    "value": 0,
+                    "location": {
+                      "file": "./integration_tests/quicksort.js",
+                      "line": 11,
+                      "column": 16
+                    }
+                  }
                 }
-              },
+              ],
               "varType": "let",
               "location": {
                 "file": "./integration_tests/quicksort.js",
@@ -354,34 +374,38 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "el",
-                  "value": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "arr",
-                      "location": {
-                        "file": "./integration_tests/quicksort.js",
-                        "line": 12,
-                        "column": 16
+                  "declarations": [
+                    {
+                      "identifier": "el",
+                      "value": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "arr",
+                          "location": {
+                            "file": "./integration_tests/quicksort.js",
+                            "line": 12,
+                            "column": 16
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "i",
+                          "location": {
+                            "file": "./integration_tests/quicksort.js",
+                            "line": 12,
+                            "column": 20
+                          }
+                        },
+                        "computed": true,
+                        "location": {
+                          "file": "./integration_tests/quicksort.js",
+                          "line": 12,
+                          "column": 16
+                        }
                       }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "i",
-                      "location": {
-                        "file": "./integration_tests/quicksort.js",
-                        "line": 12,
-                        "column": 20
-                      }
-                    },
-                    "computed": true,
-                    "location": {
-                      "file": "./integration_tests/quicksort.js",
-                      "line": 12,
-                      "column": 16
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/quicksort.js",

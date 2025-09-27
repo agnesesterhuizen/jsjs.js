@@ -486,14 +486,48 @@ export class Interpreter {
     this.runtime.declareVariable("this", thisArg);
 
     // bind parameters
+    let argIndex = 0;
     for (let i = 0; i < fn.parameters.length; i++) {
       const parameter = fn.parameters[i];
-      this.runtime.declareVariable(parameter.name, args[i]);
+
+      if (parameter.spread) {
+        const restArgs: JSObject[] = [];
+        while (argIndex < args.length) {
+          restArgs.push(args[argIndex]);
+          argIndex++;
+        }
+
+        const restArray = this.runtime.newArray(restArgs);
+        this.runtime.declareVariable(parameter.name, restArray);
+        continue;
+      }
+
+      let value: JSObject;
+      if (argIndex < args.length) {
+        value = args[argIndex];
+      } else {
+        value = this.runtime.newUndefined();
+      }
+
+      if (
+        parameter.defaultValue !== undefined &&
+        value.type === "undefined"
+      ) {
+        value = this.executeExpression(parameter.defaultValue);
+      }
+
+      this.runtime.declareVariable(parameter.name, value);
+      argIndex++;
     }
 
     try {
-      this.executeStatement(fn.body);
+      const result = this.executeStatement(fn.body);
       this.runtime.popScope();
+
+      if (fn.body.type === "expression") {
+        return result;
+      }
+
       return this.runtime.newUndefined();
     } catch (errorOrReturnValue) {
       // rethrow if not a return value so we don't mask any actual errors
@@ -542,6 +576,14 @@ export class Interpreter {
         }
 
         return this.call(thisVal, fnVal as JSFunction, args);
+      }
+
+      case "conditional": {
+        const condition = this.executeExpression(expression.test);
+        if (condition.isTruthy()) {
+          return this.executeExpression(expression.consequent);
+        }
+        return this.executeExpression(expression.alternate);
       }
 
       case "new": {
@@ -810,32 +852,47 @@ export class Interpreter {
         throw { type: "__RETURN_VALUE__", value };
       }
       case "variable_declaration": {
-        if (statement.declarationType === "var") {
-          if (statement.value !== undefined) {
-            const value = this.executeExpression(statement.value);
-            this.runtime.declareVariable(statement.identifier, value, "var");
-            return value;
+        const kind = statement.varType;
+        let lastValue: JSObject = this.runtime.newUndefined();
+
+        if (kind === "var") {
+          for (const decl of statement.declarations) {
+            let value = this.runtime.newUndefined();
+            if (decl.value !== undefined) {
+              value = this.executeExpression(decl.value);
+            }
+            this.runtime.declareVariable(decl.identifier, value, "var");
+            lastValue = value;
           }
-          return this.runtime.newUndefined();
-        } else if (
-          statement.declarationType === "let" ||
-          statement.declarationType === "const"
-        ) {
-          const scope = this.runtime.scopes[this.runtime.scope];
-          const binding = scope[statement.identifier];
-          if (!binding) {
-            throw referenceError(
-              `binding for '${statement.identifier}' not found in current scope`,
-              statement
+          return lastValue;
+        }
+
+        if (kind === "let" || kind === "const") {
+          for (const decl of statement.declarations) {
+            this.runtime.declareVariable(
+              decl.identifier,
+              this.runtime.newUndefined(),
+              kind
             );
+
+            const scope = this.runtime.scopes[this.runtime.scope];
+            const binding = scope[decl.identifier];
+            if (!binding) {
+              throw referenceError(
+                `binding for '${decl.identifier}' not found in current scope`,
+                statement
+              );
+            }
+
+            if (decl.value !== undefined) {
+              binding.value = this.executeExpression(decl.value);
+            }
+
+            binding.initialized = true;
+            lastValue = binding.value;
           }
-          let value = this.runtime.newUndefined();
-          if (statement.value !== undefined) {
-            value = this.executeExpression(statement.value);
-          }
-          binding.value = value;
-          binding.initialized = true;
-          return value;
+
+          return lastValue;
         }
 
         return this.runtime.newUndefined();
@@ -864,7 +921,9 @@ export class Interpreter {
       case "for": {
         this.executeStatement(statement.init);
 
-        let test = this.executeExpression(statement.test);
+        let test = statement.test
+          ? this.executeExpression(statement.test)
+          : this.runtime.newBoolean(true);
 
         while (test && test.isTruthy()) {
           try {
@@ -876,8 +935,13 @@ export class Interpreter {
             throw e;
           }
 
-          this.executeExpression(statement.update);
-          test = this.executeExpression(statement.test);
+          if (statement.update) {
+            this.executeExpression(statement.update);
+          }
+
+          test = statement.test
+            ? this.executeExpression(statement.test)
+            : this.runtime.newBoolean(true);
         }
 
         return this.runtime.newUndefined();
@@ -1027,14 +1091,16 @@ export class Interpreter {
     const currentScope = this.runtime.scopes[this.runtime.scope];
     for (const statement of statements) {
       if (statement.type !== "variable_declaration") continue;
-      if (statement.declarationType !== "var") continue;
+      if (statement.varType !== "var") continue;
 
-      if (statement.identifier in currentScope) continue;
-      this.runtime.declareVariable(
-        statement.identifier,
-        this.runtime.newUndefined(),
-        "var"
-      );
+      for (const decl of statement.declarations) {
+        if (decl.identifier in currentScope) continue;
+        this.runtime.declareVariable(
+          decl.identifier,
+          this.runtime.newUndefined(),
+          "var"
+        );
+      }
     }
 
     let lastValue = this.runtime.newUndefined();

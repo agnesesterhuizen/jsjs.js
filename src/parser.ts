@@ -10,6 +10,7 @@ import {
   Parameter,
   TOKEN_TO_OPERATOR,
   SwitchCase,
+  VariableDeclarator,
   WithLocation,
   UnaryOperator,
 } from "./ast.ts";
@@ -170,7 +171,7 @@ export class Parser {
   parseArrowFunctionExpression(): Expression {
     const token = this.expect("left_paren");
 
-    const parameters = this.parseParams();
+    const parameters = this.parseParams(true);
 
     // right paren?
 
@@ -200,7 +201,7 @@ export class Parser {
 
     this.expect("left_paren");
 
-    const parameters = this.parseParams();
+    const parameters = this.parseParams(true);
 
     // right paren?
 
@@ -289,6 +290,8 @@ export class Parser {
     if (next1 === "right_paren") return true;
     // (a) => {}
     if (next1 === "identifier" && next2 === "right_paren") return true;
+    // (a=b) => {}
+    if (next1 === "identifier" && next2 === "equals") return true;
     // (a,b) => {}
     if (next1 === "identifier" && next2 === "comma") return true;
     // (...a) => {}
@@ -685,6 +688,27 @@ export class Parser {
       }
     }
 
+    const conditionalPrecedence = OPERATOR_PRECEDENCE["||"] - 1;
+
+    while (
+      this.peekNextToken()?.type === "question_mark" &&
+      precedence <= conditionalPrecedence
+    ) {
+      const testExpression = left;
+      this.expect("question_mark");
+      const consequent = this.parseExpression(0);
+      this.expect("colon");
+      const alternate = this.parseExpression(precedence);
+
+      left = {
+        type: "conditional",
+        test: testExpression,
+        consequent,
+        alternate,
+        location: testExpression.location,
+      };
+    }
+
     return left;
   }
 
@@ -695,33 +719,34 @@ export class Parser {
       unexpectedToken("eof", keywordToken);
     }
 
-    const identifierToken = this.expect("identifier");
+    const declarations: VariableDeclarator[] = [];
 
-    if (!this.nextTokenIsType("equals")) {
-      if (keywordToken.value === "const")
+    while (true) {
+      const identifierToken = this.expect("identifier");
+
+      let value: Expression | undefined;
+
+      if (this.nextTokenIsType("equals")) {
+        this.expect("equals");
+        value = this.parseExpression(0);
+      } else if (keywordToken.value === "const") {
         syntaxError("const declaration must have initial value", keywordToken);
+      }
 
-      return withLocation(
-        {
-          type: "variable_declaration",
-          declarationType: "var",
-          identifier: identifierToken.value,
-          varType: keywordToken.value as "var" | "let",
-        },
-        keywordToken
-      );
+      declarations.push({ identifier: identifierToken.value, value });
+
+      if (!this.nextTokenIsType("comma")) {
+        break;
+      }
+
+      this.expect("comma");
     }
-
-    this.expect("equals");
-
-    const value = this.parseExpression(0);
 
     return withLocation(
       {
         type: "variable_declaration",
         declarationType: "var",
-        identifier: identifierToken.value,
-        value,
+        declarations,
         varType: keywordToken.value as "var" | "const" | "let",
       },
       keywordToken
@@ -773,17 +798,7 @@ export class Parser {
 
     this.expect("left_paren");
 
-    const parameters: Parameter[] = [];
-
-    while (!this.nextTokenIsType("right_paren")) {
-      const param = this.expect("identifier");
-
-      parameters.push({ name: param.value });
-
-      if (this.nextTokenIsType("comma")) this.index++;
-    }
-
-    this.index++;
+    const parameters = this.parseParams(true);
 
     const body = this.parseStatement();
 
@@ -859,12 +874,18 @@ export class Parser {
     this.expect("left_paren");
 
     const init = this.parseStatement();
-    // this.expect("semicolon");
 
-    const test = this.parseExpression(0);
+    let test: Expression | undefined;
+    if (!this.nextTokenIsType("semicolon")) {
+      test = this.parseExpression(0);
+    }
+
     this.expect("semicolon");
 
-    const update = this.parseExpression(0);
+    let update: Expression | undefined;
+    if (!this.nextTokenIsType("right_paren")) {
+      update = this.parseExpression(0);
+    }
 
     this.expect("right_paren");
 
@@ -882,23 +903,29 @@ export class Parser {
     );
   }
 
-  parseParams(): Parameter[] {
+  parseParams(allowDefaults = false): Parameter[] {
     const params: Parameter[] = [];
+    let consumedSpread = false;
 
     while (this.peekNextToken()?.type !== "right_paren") {
       if (this.peekNextToken()?.type === "spread") {
         this.expect("spread");
 
         const identifier = this.expect("identifier");
-
         params.push({ name: identifier.value, spread: true });
-
+        consumedSpread = true;
         break;
       }
 
-      const param = this.expect("identifier");
+      const identifierToken = this.expect("identifier");
+      let defaultValue: Expression | undefined;
 
-      params.push({ name: param.value });
+      if (allowDefaults && this.peekNextToken()?.type === "equals") {
+        this.expect("equals");
+        defaultValue = this.parseExpression(0);
+      }
+
+      params.push({ name: identifierToken.value, defaultValue });
 
       if (this.peekNextToken()?.type !== "right_paren") {
         this.expect("comma");
@@ -906,6 +933,10 @@ export class Parser {
     }
 
     this.expect("right_paren");
+
+    if (consumedSpread && this.peekNextToken()?.type === "comma") {
+      unexpectedToken("right_paren", this.peekNextToken());
+    }
 
     return params;
   }
@@ -915,7 +946,7 @@ export class Parser {
 
     this.expect("left_paren");
 
-    const params = this.parseParams();
+    const params = this.parseParams(true);
 
     const body = this.parseBlockStatement();
 

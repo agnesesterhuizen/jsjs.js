@@ -4,16 +4,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "total",
-      "value": {
-        "type": "number",
-        "value": 5,
-        "location": {
-          "file": "./integration_tests/assignment.js",
-          "line": 1,
-          "column": 13
+      "declarations": [
+        {
+          "identifier": "total",
+          "value": {
+            "type": "number",
+            "value": 5,
+            "location": {
+              "file": "./integration_tests/assignment.js",
+              "line": 1,
+              "column": 13
+            }
+          }
         }
-      },
+      ],
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
@@ -122,16 +126,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "difference",
-      "value": {
-        "type": "number",
-        "value": 10,
-        "location": {
-          "file": "./integration_tests/assignment.js",
-          "line": 5,
-          "column": 18
+      "declarations": [
+        {
+          "identifier": "difference",
+          "value": {
+            "type": "number",
+            "value": 10,
+            "location": {
+              "file": "./integration_tests/assignment.js",
+              "line": 5,
+              "column": 18
+            }
+          }
         }
-      },
+      ],
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
@@ -240,16 +248,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "product",
-      "value": {
-        "type": "number",
-        "value": 2,
-        "location": {
-          "file": "./integration_tests/assignment.js",
-          "line": 9,
-          "column": 15
+      "declarations": [
+        {
+          "identifier": "product",
+          "value": {
+            "type": "number",
+            "value": 2,
+            "location": {
+              "file": "./integration_tests/assignment.js",
+              "line": 9,
+              "column": 15
+            }
+          }
         }
-      },
+      ],
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
@@ -358,16 +370,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "quotient",
-      "value": {
-        "type": "number",
-        "value": 24,
-        "location": {
-          "file": "./integration_tests/assignment.js",
-          "line": 13,
-          "column": 16
+      "declarations": [
+        {
+          "identifier": "quotient",
+          "value": {
+            "type": "number",
+            "value": 24,
+            "location": {
+              "file": "./integration_tests/assignment.js",
+              "line": 13,
+              "column": 16
+            }
+          }
         }
-      },
+      ],
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",
@@ -476,16 +492,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "chain",
-      "value": {
-        "type": "number",
-        "value": 1,
-        "location": {
-          "file": "./integration_tests/assignment.js",
-          "line": 17,
-          "column": 13
+      "declarations": [
+        {
+          "identifier": "chain",
+          "value": {
+            "type": "number",
+            "value": 1,
+            "location": {
+              "file": "./integration_tests/assignment.js",
+              "line": 17,
+              "column": 13
+            }
+          }
         }
-      },
+      ],
       "varType": "let",
       "location": {
         "file": "./integration_tests/assignment.js",

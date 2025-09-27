@@ -18,16 +18,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "low",
-            "value": {
-              "type": "number",
-              "value": 0,
-              "location": {
-                "file": "./integration_tests/binarysearch.js",
-                "line": 2,
-                "column": 13
+            "declarations": [
+              {
+                "identifier": "low",
+                "value": {
+                  "type": "number",
+                  "value": 0,
+                  "location": {
+                    "file": "./integration_tests/binarysearch.js",
+                    "line": 2,
+                    "column": 13
+                  }
+                }
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/binarysearch.js",
@@ -38,52 +42,56 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "high",
-            "value": {
-              "type": "binary",
-              "operator": "-",
-              "left": {
-                "type": "member",
-                "object": {
-                  "type": "identifier",
-                  "value": "arr",
+            "declarations": [
+              {
+                "identifier": "high",
+                "value": {
+                  "type": "binary",
+                  "operator": "-",
+                  "left": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "arr",
+                      "location": {
+                        "file": "./integration_tests/binarysearch.js",
+                        "line": 3,
+                        "column": 14
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "length",
+                      "location": {
+                        "file": "./integration_tests/binarysearch.js",
+                        "line": 3,
+                        "column": 18
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/binarysearch.js",
+                      "line": 3,
+                      "column": 14
+                    }
+                  },
+                  "right": {
+                    "type": "number",
+                    "value": 1,
+                    "location": {
+                      "file": "./integration_tests/binarysearch.js",
+                      "line": 3,
+                      "column": 27
+                    }
+                  },
                   "location": {
                     "file": "./integration_tests/binarysearch.js",
                     "line": 3,
-                    "column": 14
+                    "column": 25
                   }
-                },
-                "property": {
-                  "type": "identifier",
-                  "value": "length",
-                  "location": {
-                    "file": "./integration_tests/binarysearch.js",
-                    "line": 3,
-                    "column": 18
-                  }
-                },
-                "computed": false,
-                "location": {
-                  "file": "./integration_tests/binarysearch.js",
-                  "line": 3,
-                  "column": 14
                 }
-              },
-              "right": {
-                "type": "number",
-                "value": 1,
-                "location": {
-                  "file": "./integration_tests/binarysearch.js",
-                  "line": 3,
-                  "column": 27
-                }
-              },
-              "location": {
-                "file": "./integration_tests/binarysearch.js",
-                "line": 3,
-                "column": 25
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/binarysearch.js",
@@ -126,89 +134,93 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "mid",
-                  "value": {
-                    "type": "call",
-                    "func": {
-                      "type": "member",
-                      "object": {
-                        "type": "identifier",
-                        "value": "Math",
-                        "location": {
-                          "file": "./integration_tests/binarysearch.js",
-                          "line": 6,
-                          "column": 15
-                        }
-                      },
-                      "property": {
-                        "type": "identifier",
-                        "value": "floor",
-                        "location": {
-                          "file": "./integration_tests/binarysearch.js",
-                          "line": 6,
-                          "column": 20
-                        }
-                      },
-                      "computed": false,
-                      "location": {
-                        "file": "./integration_tests/binarysearch.js",
-                        "line": 6,
-                        "column": 15
-                      }
-                    },
-                    "arguments": [
-                      {
-                        "type": "binary",
-                        "operator": "/",
-                        "left": {
-                          "type": "binary",
-                          "operator": "+",
-                          "left": {
+                  "declarations": [
+                    {
+                      "identifier": "mid",
+                      "value": {
+                        "type": "call",
+                        "func": {
+                          "type": "member",
+                          "object": {
                             "type": "identifier",
-                            "value": "high",
+                            "value": "Math",
                             "location": {
                               "file": "./integration_tests/binarysearch.js",
                               "line": 6,
-                              "column": 27
+                              "column": 15
                             }
                           },
-                          "right": {
+                          "property": {
                             "type": "identifier",
-                            "value": "low",
+                            "value": "floor",
                             "location": {
                               "file": "./integration_tests/binarysearch.js",
                               "line": 6,
-                              "column": 34
+                              "column": 20
                             }
                           },
+                          "computed": false,
                           "location": {
                             "file": "./integration_tests/binarysearch.js",
                             "line": 6,
-                            "column": 32
+                            "column": 15
                           }
                         },
-                        "right": {
-                          "type": "number",
-                          "value": 2,
-                          "location": {
-                            "file": "./integration_tests/binarysearch.js",
-                            "line": 6,
-                            "column": 41
+                        "arguments": [
+                          {
+                            "type": "binary",
+                            "operator": "/",
+                            "left": {
+                              "type": "binary",
+                              "operator": "+",
+                              "left": {
+                                "type": "identifier",
+                                "value": "high",
+                                "location": {
+                                  "file": "./integration_tests/binarysearch.js",
+                                  "line": 6,
+                                  "column": 27
+                                }
+                              },
+                              "right": {
+                                "type": "identifier",
+                                "value": "low",
+                                "location": {
+                                  "file": "./integration_tests/binarysearch.js",
+                                  "line": 6,
+                                  "column": 34
+                                }
+                              },
+                              "location": {
+                                "file": "./integration_tests/binarysearch.js",
+                                "line": 6,
+                                "column": 32
+                              }
+                            },
+                            "right": {
+                              "type": "number",
+                              "value": 2,
+                              "location": {
+                                "file": "./integration_tests/binarysearch.js",
+                                "line": 6,
+                                "column": 41
+                              }
+                            },
+                            "location": {
+                              "file": "./integration_tests/binarysearch.js",
+                              "line": 6,
+                              "column": 39
+                            }
                           }
-                        },
+                        ],
                         "location": {
                           "file": "./integration_tests/binarysearch.js",
                           "line": 6,
-                          "column": 39
+                          "column": 25
                         }
                       }
-                    ],
-                    "location": {
-                      "file": "./integration_tests/binarysearch.js",
-                      "line": 6,
-                      "column": 25
                     }
-                  },
+                  ],
                   "varType": "let",
                   "location": {
                     "file": "./integration_tests/binarysearch.js",

@@ -1,0 +1,105 @@
+---\n3x3 Blinker over three turns.
+---\nTurn 1
+   
+XXX
+   
+---\nTurn 2
+ X 
+ X 
+ X 
+---\nTurn 3
+   
+XXX
+   
+---\n10x6 Glider over five turns.
+---\nTurn 1
+          
+  X       
+   X      
+ XXX      
+          
+          
+---\nTurn 2
+          
+          
+ X X      
+  XX      
+  X       
+          
+---\nTurn 3
+          
+          
+   X      
+ X X      
+  XX      
+          
+---\nTurn 4
+          
+          
+  X       
+   XX     
+  XX      
+          
+---\nTurn 5
+          
+          
+   X      
+    X     
+  XXX     
+          
+---\nRandom 5x10
+---\nTurn 1
+ X  X
+  X  
+X  X 
+ X  X
+  X  
+X  X 
+ X  X
+  X  
+X  X 
+ X  X
+---\nTurn 2
+     
+ XXX 
+ XXX 
+ XXX 
+ XXX 
+ XXX 
+ XXX 
+ XXX 
+ XXX 
+     
+---\nTurn 3
+  X  
+ X X 
+X   X
+X   X
+X   X
+X   X
+X   X
+X   X
+ X X 
+  X  
+---\nTurn 4
+  X  
+ XXX 
+XX XX
+XX XX
+XX XX
+XX XX
+XX XX
+XX XX
+ XXX 
+  X  
+---\nTurn 5
+ XXX 
+X   X
+     
+     
+     
+     
+     
+     
+X   X
+ XXX 

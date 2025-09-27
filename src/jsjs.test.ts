@@ -710,7 +710,11 @@ Deno.test("parser:statement", async (t) => {
     testStatement("var x;", {
       type: "variable_declaration",
       declarationType: "var",
-      identifier: "x",
+      declarations: [
+        {
+          identifier: "x",
+        },
+      ],
       varType: "var",
     });
   });
@@ -719,8 +723,12 @@ Deno.test("parser:statement", async (t) => {
     testStatement("var x = 1;", {
       type: "variable_declaration",
       declarationType: "var",
-      identifier: "x",
-      value: { type: "number", value: 1 },
+      declarations: [
+        {
+          identifier: "x",
+          value: { type: "number", value: 1 },
+        },
+      ],
       varType: "var",
     });
   });
@@ -728,8 +736,12 @@ Deno.test("parser:statement", async (t) => {
     testStatement("const x = 1;", {
       type: "variable_declaration",
       declarationType: "var",
-      identifier: "x",
-      value: { type: "number", value: 1 },
+      declarations: [
+        {
+          identifier: "x",
+          value: { type: "number", value: 1 },
+        },
+      ],
       varType: "const",
     });
   });

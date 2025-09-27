@@ -15,16 +15,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "freqCounter",
-            "value": {
-              "type": "object",
-              "properties": {},
-              "location": {
-                "file": "./integration_tests/huffman.js",
-                "line": 2,
-                "column": 23
+            "declarations": [
+              {
+                "identifier": "freqCounter",
+                "value": {
+                  "type": "object",
+                  "properties": {},
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 2,
+                    "column": 23
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/huffman.js",
@@ -35,16 +39,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "i",
-            "value": {
-              "type": "number",
-              "value": 0,
-              "location": {
-                "file": "./integration_tests/huffman.js",
-                "line": 4,
-                "column": 11
+            "declarations": [
+              {
+                "identifier": "i",
+                "value": {
+                  "type": "number",
+                  "value": 0,
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 4,
+                    "column": 11
+                  }
+                }
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/huffman.js",
@@ -105,34 +113,38 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "char",
-                  "value": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "data",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 6,
-                        "column": 18
+                  "declarations": [
+                    {
+                      "identifier": "char",
+                      "value": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "data",
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 6,
+                            "column": 18
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "i",
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 6,
+                            "column": 23
+                          }
+                        },
+                        "computed": true,
+                        "location": {
+                          "file": "./integration_tests/huffman.js",
+                          "line": 6,
+                          "column": 18
+                        }
                       }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "i",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 6,
-                        "column": 23
-                      }
-                    },
-                    "computed": true,
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 6,
-                      "column": 18
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
@@ -316,17 +328,21 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "priorityQueue",
-            "value": {
-              "type": "new",
-              "identifier": "PriorityQueue",
-              "arguments": [],
-              "location": {
-                "file": "./integration_tests/huffman.js",
-                "line": 11,
-                "column": 25
+            "declarations": [
+              {
+                "identifier": "priorityQueue",
+                "value": {
+                  "type": "new",
+                  "identifier": "PriorityQueue",
+                  "arguments": [],
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 11,
+                    "column": 25
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/huffman.js",
@@ -337,53 +353,57 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "chars",
-            "value": {
-              "type": "call",
-              "func": {
-                "type": "member",
-                "object": {
-                  "type": "identifier",
-                  "value": "Object",
+            "declarations": [
+              {
+                "identifier": "chars",
+                "value": {
+                  "type": "call",
+                  "func": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "Object",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 13,
+                        "column": 17
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "keys",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 13,
+                        "column": 24
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/huffman.js",
+                      "line": 13,
+                      "column": 17
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "identifier",
+                      "value": "freqCounter",
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 13,
+                        "column": 29
+                      }
+                    }
+                  ],
                   "location": {
                     "file": "./integration_tests/huffman.js",
                     "line": 13,
-                    "column": 17
+                    "column": 28
                   }
-                },
-                "property": {
-                  "type": "identifier",
-                  "value": "keys",
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 13,
-                    "column": 24
-                  }
-                },
-                "computed": false,
-                "location": {
-                  "file": "./integration_tests/huffman.js",
-                  "line": 13,
-                  "column": 17
                 }
-              },
-              "arguments": [
-                {
-                  "type": "identifier",
-                  "value": "freqCounter",
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 13,
-                    "column": 29
-                  }
-                }
-              ],
-              "location": {
-                "file": "./integration_tests/huffman.js",
-                "line": 13,
-                "column": 28
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/huffman.js",
@@ -394,16 +414,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "j",
-            "value": {
-              "type": "number",
-              "value": 0,
-              "location": {
-                "file": "./integration_tests/huffman.js",
-                "line": 14,
-                "column": 11
+            "declarations": [
+              {
+                "identifier": "j",
+                "value": {
+                  "type": "number",
+                  "value": 0,
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 14,
+                    "column": 11
+                  }
+                }
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/huffman.js",
@@ -464,34 +488,38 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "char",
-                  "value": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "chars",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 16,
-                        "column": 18
+                  "declarations": [
+                    {
+                      "identifier": "char",
+                      "value": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "chars",
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 16,
+                            "column": 18
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "j",
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 16,
+                            "column": 24
+                          }
+                        },
+                        "computed": true,
+                        "location": {
+                          "file": "./integration_tests/huffman.js",
+                          "line": 16,
+                          "column": 18
+                        }
                       }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "j",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 16,
-                        "column": 24
-                      }
-                    },
-                    "computed": true,
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 16,
-                      "column": 18
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
@@ -719,43 +747,47 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "leftNode",
-                  "value": {
-                    "type": "call",
-                    "func": {
-                      "type": "member",
-                      "object": {
-                        "type": "identifier",
-                        "value": "priorityQueue",
+                  "declarations": [
+                    {
+                      "identifier": "leftNode",
+                      "value": {
+                        "type": "call",
+                        "func": {
+                          "type": "member",
+                          "object": {
+                            "type": "identifier",
+                            "value": "priorityQueue",
+                            "location": {
+                              "file": "./integration_tests/huffman.js",
+                              "line": 22,
+                              "column": 22
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "dequeue",
+                            "location": {
+                              "file": "./integration_tests/huffman.js",
+                              "line": 22,
+                              "column": 36
+                            }
+                          },
+                          "computed": false,
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 22,
+                            "column": 22
+                          }
+                        },
+                        "arguments": [],
                         "location": {
                           "file": "./integration_tests/huffman.js",
                           "line": 22,
-                          "column": 22
+                          "column": 43
                         }
-                      },
-                      "property": {
-                        "type": "identifier",
-                        "value": "dequeue",
-                        "location": {
-                          "file": "./integration_tests/huffman.js",
-                          "line": 22,
-                          "column": 36
-                        }
-                      },
-                      "computed": false,
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 22,
-                        "column": 22
                       }
-                    },
-                    "arguments": [],
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 22,
-                      "column": 43
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
@@ -766,43 +798,47 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "rightNode",
-                  "value": {
-                    "type": "call",
-                    "func": {
-                      "type": "member",
-                      "object": {
-                        "type": "identifier",
-                        "value": "priorityQueue",
+                  "declarations": [
+                    {
+                      "identifier": "rightNode",
+                      "value": {
+                        "type": "call",
+                        "func": {
+                          "type": "member",
+                          "object": {
+                            "type": "identifier",
+                            "value": "priorityQueue",
+                            "location": {
+                              "file": "./integration_tests/huffman.js",
+                              "line": 23,
+                              "column": 23
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "dequeue",
+                            "location": {
+                              "file": "./integration_tests/huffman.js",
+                              "line": 23,
+                              "column": 37
+                            }
+                          },
+                          "computed": false,
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 23,
+                            "column": 23
+                          }
+                        },
+                        "arguments": [],
                         "location": {
                           "file": "./integration_tests/huffman.js",
                           "line": 23,
-                          "column": 23
+                          "column": 44
                         }
-                      },
-                      "property": {
-                        "type": "identifier",
-                        "value": "dequeue",
-                        "location": {
-                          "file": "./integration_tests/huffman.js",
-                          "line": 23,
-                          "column": 37
-                        }
-                      },
-                      "computed": false,
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 23,
-                        "column": 23
                       }
-                    },
-                    "arguments": [],
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 23,
-                      "column": 44
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
@@ -813,70 +849,74 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "combinedFreq",
-                  "value": {
-                    "type": "binary",
-                    "operator": "+",
-                    "left": {
-                      "type": "member",
-                      "object": {
-                        "type": "identifier",
-                        "value": "leftNode",
+                  "declarations": [
+                    {
+                      "identifier": "combinedFreq",
+                      "value": {
+                        "type": "binary",
+                        "operator": "+",
+                        "left": {
+                          "type": "member",
+                          "object": {
+                            "type": "identifier",
+                            "value": "leftNode",
+                            "location": {
+                              "file": "./integration_tests/huffman.js",
+                              "line": 24,
+                              "column": 26
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "freq",
+                            "location": {
+                              "file": "./integration_tests/huffman.js",
+                              "line": 24,
+                              "column": 35
+                            }
+                          },
+                          "computed": false,
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 24,
+                            "column": 26
+                          }
+                        },
+                        "right": {
+                          "type": "member",
+                          "object": {
+                            "type": "identifier",
+                            "value": "rightNode",
+                            "location": {
+                              "file": "./integration_tests/huffman.js",
+                              "line": 24,
+                              "column": 42
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "freq",
+                            "location": {
+                              "file": "./integration_tests/huffman.js",
+                              "line": 24,
+                              "column": 52
+                            }
+                          },
+                          "computed": false,
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 24,
+                            "column": 42
+                          }
+                        },
                         "location": {
                           "file": "./integration_tests/huffman.js",
                           "line": 24,
-                          "column": 26
+                          "column": 40
                         }
-                      },
-                      "property": {
-                        "type": "identifier",
-                        "value": "freq",
-                        "location": {
-                          "file": "./integration_tests/huffman.js",
-                          "line": 24,
-                          "column": 35
-                        }
-                      },
-                      "computed": false,
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 24,
-                        "column": 26
                       }
-                    },
-                    "right": {
-                      "type": "member",
-                      "object": {
-                        "type": "identifier",
-                        "value": "rightNode",
-                        "location": {
-                          "file": "./integration_tests/huffman.js",
-                          "line": 24,
-                          "column": 42
-                        }
-                      },
-                      "property": {
-                        "type": "identifier",
-                        "value": "freq",
-                        "location": {
-                          "file": "./integration_tests/huffman.js",
-                          "line": 24,
-                          "column": 52
-                        }
-                      },
-                      "computed": false,
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 24,
-                        "column": 42
-                      }
-                    },
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 24,
-                      "column": 40
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
@@ -991,16 +1031,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "huffmanCode",
-            "value": {
-              "type": "object",
-              "properties": {},
-              "location": {
-                "file": "./integration_tests/huffman.js",
-                "line": 30,
-                "column": 23
+            "declarations": [
+              {
+                "identifier": "huffmanCode",
+                "value": {
+                  "type": "object",
+                  "properties": {},
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 30,
+                    "column": 23
+                  }
+                }
               }
-            },
+            ],
             "varType": "const",
             "location": {
               "file": "./integration_tests/huffman.js",
@@ -1092,16 +1136,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "encodedData",
-            "value": {
-              "type": "string",
-              "value": "",
-              "location": {
-                "file": "./integration_tests/huffman.js",
-                "line": 33,
-                "column": 21
+            "declarations": [
+              {
+                "identifier": "encodedData",
+                "value": {
+                  "type": "string",
+                  "value": "",
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 33,
+                    "column": 21
+                  }
+                }
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/huffman.js",
@@ -1112,16 +1160,20 @@
           {
             "type": "variable_declaration",
             "declarationType": "var",
-            "identifier": "k",
-            "value": {
-              "type": "number",
-              "value": 0,
-              "location": {
-                "file": "./integration_tests/huffman.js",
-                "line": 35,
-                "column": 11
+            "declarations": [
+              {
+                "identifier": "k",
+                "value": {
+                  "type": "number",
+                  "value": 0,
+                  "location": {
+                    "file": "./integration_tests/huffman.js",
+                    "line": 35,
+                    "column": 11
+                  }
+                }
               }
-            },
+            ],
             "varType": "let",
             "location": {
               "file": "./integration_tests/huffman.js",
@@ -1182,34 +1234,38 @@
                 {
                   "type": "variable_declaration",
                   "declarationType": "var",
-                  "identifier": "char",
-                  "value": {
-                    "type": "member",
-                    "object": {
-                      "type": "identifier",
-                      "value": "data",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 37,
-                        "column": 18
+                  "declarations": [
+                    {
+                      "identifier": "char",
+                      "value": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "data",
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 37,
+                            "column": 18
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "k",
+                          "location": {
+                            "file": "./integration_tests/huffman.js",
+                            "line": 37,
+                            "column": 23
+                          }
+                        },
+                        "computed": true,
+                        "location": {
+                          "file": "./integration_tests/huffman.js",
+                          "line": 37,
+                          "column": 18
+                        }
                       }
-                    },
-                    "property": {
-                      "type": "identifier",
-                      "value": "k",
-                      "location": {
-                        "file": "./integration_tests/huffman.js",
-                        "line": 37,
-                        "column": 23
-                      }
-                    },
-                    "computed": true,
-                    "location": {
-                      "file": "./integration_tests/huffman.js",
-                      "line": 37,
-                      "column": 18
                     }
-                  },
+                  ],
                   "varType": "const",
                   "location": {
                     "file": "./integration_tests/huffman.js",
@@ -1470,16 +1526,20 @@
               {
                 "type": "variable_declaration",
                 "declarationType": "var",
-                "identifier": "added",
-                "value": {
-                  "type": "boolean",
-                  "value": false,
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 51,
-                    "column": 17
+                "declarations": [
+                  {
+                    "identifier": "added",
+                    "value": {
+                      "type": "boolean",
+                      "value": false,
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 51,
+                        "column": 17
+                      }
+                    }
                   }
-                },
+                ],
                 "varType": "let",
                 "location": {
                   "file": "./integration_tests/huffman.js",
@@ -1490,16 +1550,20 @@
               {
                 "type": "variable_declaration",
                 "declarationType": "var",
-                "identifier": "i",
-                "value": {
-                  "type": "number",
-                  "value": 0,
-                  "location": {
-                    "file": "./integration_tests/huffman.js",
-                    "line": 52,
-                    "column": 13
+                "declarations": [
+                  {
+                    "identifier": "i",
+                    "value": {
+                      "type": "number",
+                      "value": 0,
+                      "location": {
+                        "file": "./integration_tests/huffman.js",
+                        "line": 52,
+                        "column": 13
+                      }
+                    }
                   }
-                },
+                ],
                 "varType": "let",
                 "location": {
                   "file": "./integration_tests/huffman.js",

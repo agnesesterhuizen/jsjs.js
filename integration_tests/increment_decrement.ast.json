@@ -4,16 +4,20 @@
     {
       "type": "variable_declaration",
       "declarationType": "var",
-      "identifier": "i",
-      "value": {
-        "type": "number",
-        "value": 0,
-        "location": {
-          "file": "./integration_tests/increment_decrement.js",
-          "line": 1,
-          "column": 9
+      "declarations": [
+        {
+          "identifier": "i",
+          "value": {
+            "type": "number",
+            "value": 0,
+            "location": {
+              "file": "./integration_tests/increment_decrement.js",
+              "line": 1,
+              "column": 9
+            }
+          }
         }
-      },
+      ],
       "varType": "let",
       "location": {
         "file": "./integration_tests/increment_decrement.js",
