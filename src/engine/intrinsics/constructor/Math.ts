@@ -35,5 +35,21 @@ export const createMathConstructor = (runtime: Runtime) => {
     }
   );
 
+  mathConstructor.properties["max"] = runtime.newBuiltinFunction(
+    (_: JSObject, ...args: JSObject[]) => {
+      if (args.length === 0) return runtime.newNumber(-Infinity);
+      let max = -Infinity;
+      for (const arg of args) {
+        if (arg.type !== "number") {
+          throw "Math.max expects only numbers";
+        }
+        if ((arg as JSNumber).value > max) {
+          max = (arg as JSNumber).value;
+        }
+      }
+      return runtime.newNumber(max);
+    }
+  );
+
   return mathConstructor;
 };

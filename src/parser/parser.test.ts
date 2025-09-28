@@ -192,6 +192,53 @@ Deno.test("parser: expressions", async (t) => {
         ],
       })
     );
+
+    await t.step("parses array literal with spread", () =>
+      textExpression("([...arr]);", {
+        type: "array",
+        elements: [
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "arr" },
+          },
+        ],
+      })
+    );
+
+    await t.step("parses array literal with multiple spreads", () =>
+      textExpression("([...arr1, ...arr2]);", {
+        type: "array",
+        elements: [
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "arr1" },
+          },
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "arr2" },
+          },
+        ],
+      })
+    );
+
+    await t.step("parses array literal with mixed elements and spreads", () =>
+      textExpression("([1, ...arr, 2, ...other]);", {
+        type: "array",
+        elements: [
+          { type: "number", value: 1 },
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "arr" },
+          },
+          { type: "number", value: 2 },
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "other" },
+          },
+        ],
+      })
+    );
+
     await t.step("parses object literal", () =>
       textExpression("({});", {
         type: "object",
@@ -437,6 +484,56 @@ Deno.test("parser: expressions", async (t) => {
             type: "function",
             parameters: [],
             body: { type: "block", body: [] },
+          },
+        ],
+      })
+    );
+
+    await t.step("parses call expression with spread arguments", () =>
+      textExpression("a(...arr);", {
+        type: "call",
+        func: { type: "identifier", value: "a" },
+        arguments: [
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "arr" },
+          },
+        ],
+      })
+    );
+
+    await t.step("parses call expression with mixed arguments and spread", () =>
+      textExpression("func(1, ...args, 2);", {
+        type: "call",
+        func: { type: "identifier", value: "func" },
+        arguments: [
+          { type: "number", value: 1 },
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "args" },
+          },
+          { type: "number", value: 2 },
+        ],
+      })
+    );
+
+    await t.step("parses call expression with multiple spreads", () =>
+      textExpression("Math.max(...arr1, ...arr2);", {
+        type: "call",
+        func: {
+          type: "member",
+          object: { type: "identifier", value: "Math" },
+          property: { type: "identifier", value: "max" },
+          computed: false,
+        },
+        arguments: [
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "arr1" },
+          },
+          {
+            type: "spread",
+            expression: { type: "identifier", value: "arr2" },
           },
         ],
       })

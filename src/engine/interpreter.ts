@@ -1025,7 +1025,20 @@ export class Interpreter {
 
         const args: JSObject[] = [];
         for (const a of expression.arguments) {
-          args.push(this.executeExpression(a));
+          if (a.type === "spread") {
+            const spreadVal = this.executeExpression(a.expression);
+            if (spreadVal.type === "array") {
+              args.push(...(spreadVal as JSArray).elements);
+            } else if (spreadVal.type === "string") {
+              for (const ch of (spreadVal as JSString).value) {
+                args.push(this.runtime.newString(ch));
+              }
+            } else {
+              throw typeError("Cannot spread non-iterable in function call", a);
+            }
+          } else {
+            args.push(this.executeExpression(a));
+          }
         }
 
         let thisVal: JSObject = this.runtime.newUndefined();
@@ -1113,13 +1126,26 @@ export class Interpreter {
       }
 
       case "array": {
-        const elements = [];
-
+        const elements: JSObject[] = [];
         for (const element of expression.elements) {
-          const value = this.executeExpression(element);
-          elements.push(value);
+          if (element.type === "spread") {
+            const spreadVal = this.executeExpression(element.expression);
+            if (spreadVal.type === "array") {
+              elements.push(...(spreadVal as JSArray).elements);
+            } else if (spreadVal.type === "string") {
+              for (const ch of (spreadVal as JSString).value) {
+                elements.push(this.runtime.newString(ch));
+              }
+            } else {
+              throw typeError(
+                "Cannot spread non-iterable in array literal",
+                element
+              );
+            }
+          } else {
+            elements.push(this.executeExpression(element));
+          }
         }
-
         return this.runtime.newArray(elements);
       }
 

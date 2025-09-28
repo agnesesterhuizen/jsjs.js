@@ -1,0 +1,11 @@
+Combined arrays: [ 1, 2, 3, 4, 5, 6 ]
+Mixed with literals: [ 0, 1, 2, 3, 3.5, 4, 5, 6, 7 ]
+With empty array: [ 1, 2, 3 ]
+String spread: [ h, e, l, l, o ]
+Nested spread: [ [ 1, 2 ], [ 3, 4 ] ]
+Function call spread: 100
+Math.max with spread: 10
+Multiple spreads in call: 10
+Hello world from spread syntax
+Assignment spread: [ 1, 2, 3 ]
+Complex nested: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]

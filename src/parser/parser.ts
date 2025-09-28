@@ -951,7 +951,7 @@ export class Parser {
           left = withLocation(
             {
               type: "spread",
-              expression: this.parseExpression(),
+              expression: this.parseExpression(0, false),
             },
             token
           );

@@ -1,0 +1,2571 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "arr1",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 4,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 4,
+                  "column": 15
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 4,
+                  "column": 18
+                }
+              },
+              {
+                "type": "number",
+                "value": 3,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 4,
+                  "column": 21
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 4,
+              "column": 14
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "arr2",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 5,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 4,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 5,
+                  "column": 15
+                }
+              },
+              {
+                "type": "number",
+                "value": 5,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 5,
+                  "column": 18
+                }
+              },
+              {
+                "type": "number",
+                "value": 6,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 5,
+                  "column": 21
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 5,
+              "column": 14
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "combined",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 6,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "arr1",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 6,
+                    "column": 22
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 6,
+                  "column": 19
+                }
+              },
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "arr2",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 6,
+                    "column": 31
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 6,
+                  "column": 28
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 6,
+              "column": 18
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 7,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 7,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 7,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Combined arrays:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 7,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "combined",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 7,
+              "column": 33
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 7,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "mixedArray",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 10,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 0,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 10,
+                  "column": 21
+                }
+              },
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "arr1",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 10,
+                    "column": 27
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 10,
+                  "column": 24
+                }
+              },
+              {
+                "type": "number",
+                "value": 3.5,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 10,
+                  "column": 33
+                }
+              },
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "arr2",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 10,
+                    "column": 41
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 10,
+                  "column": 38
+                }
+              },
+              {
+                "type": "number",
+                "value": 7,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 10,
+                  "column": 47
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 10,
+              "column": 20
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 11,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 11,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 11,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Mixed with literals:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 11,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "mixedArray",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 11,
+              "column": 37
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 11,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "empty",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 14,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 14,
+              "column": 15
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "withEmpty",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 15,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "empty",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 15,
+                    "column": 23
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 15,
+                  "column": 20
+                }
+              },
+              {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 15,
+                  "column": 30
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 15,
+                  "column": 33
+                }
+              },
+              {
+                "type": "number",
+                "value": 3,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 15,
+                  "column": 36
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 15,
+              "column": 19
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 16,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 16,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 16,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "With empty array:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 16,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "withEmpty",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 16,
+              "column": 34
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 16,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "str",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 19,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "string",
+            "value": "hello",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 19,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "charArray",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 20,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "str",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 20,
+                    "column": 23
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 20,
+                  "column": 20
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 20,
+              "column": 19
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 21,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 21,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 21,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "String spread:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 21,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "charArray",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 21,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 21,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "nested1",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 24,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 24,
+                  "column": 18
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 24,
+                  "column": 21
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 24,
+              "column": 17
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 24,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "nested2",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 25,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 3,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 25,
+                  "column": 18
+                }
+              },
+              {
+                "type": "number",
+                "value": 4,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 25,
+                  "column": 21
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 25,
+              "column": 17
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "doublyNested",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 26,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "spread",
+                    "expression": {
+                      "type": "identifier",
+                      "value": "nested1",
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 26,
+                        "column": 27
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/tests/array_spread.js",
+                      "line": 26,
+                      "column": 24
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 26,
+                  "column": 23
+                }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "spread",
+                    "expression": {
+                      "type": "identifier",
+                      "value": "nested2",
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 26,
+                        "column": 41
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/tests/array_spread.js",
+                      "line": 26,
+                      "column": 38
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 26,
+                  "column": 37
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 26,
+              "column": 22
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 27,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 27,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 27,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Nested spread:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 27,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "doublyNested",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 27,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 27,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
+      "type": "function_declaration",
+      "identifier": "sum",
+      "parameters": [
+        {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "a",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 30,
+              "column": 14
+            }
+          },
+          "name": "a"
+        },
+        {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "b",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 30,
+              "column": 17
+            }
+          },
+          "name": "b"
+        },
+        {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "c",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 30,
+              "column": 20
+            }
+          },
+          "name": "c"
+        },
+        {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "d",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 30,
+              "column": 23
+            }
+          },
+          "name": "d"
+        }
+      ],
+      "body": {
+        "type": "block",
+        "body": [
+          {
+            "type": "return",
+            "expression": {
+              "type": "binary",
+              "operator": "+",
+              "left": {
+                "type": "binary",
+                "operator": "+",
+                "left": {
+                  "type": "binary",
+                  "operator": "+",
+                  "left": {
+                    "type": "identifier",
+                    "value": "a",
+                    "location": {
+                      "file": "./integration_tests/tests/array_spread.js",
+                      "line": 31,
+                      "column": 10
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "b",
+                    "location": {
+                      "file": "./integration_tests/tests/array_spread.js",
+                      "line": 31,
+                      "column": 14
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 31,
+                    "column": 12
+                  }
+                },
+                "right": {
+                  "type": "identifier",
+                  "value": "c",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 31,
+                    "column": 18
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 31,
+                  "column": 16
+                }
+              },
+              "right": {
+                "type": "identifier",
+                "value": "d",
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 31,
+                  "column": 22
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/array_spread.js",
+                "line": 31,
+                "column": 20
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 31,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 30,
+          "column": 26
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "numbers",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 34,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 10,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 34,
+                  "column": 18
+                }
+              },
+              {
+                "type": "number",
+                "value": 20,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 34,
+                  "column": 22
+                }
+              },
+              {
+                "type": "number",
+                "value": 30,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 34,
+                  "column": 26
+                }
+              },
+              {
+                "type": "number",
+                "value": 40,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 34,
+                  "column": 30
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 34,
+              "column": 17
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "result",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 35,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "call",
+            "func": {
+              "type": "identifier",
+              "value": "sum",
+              "location": {
+                "file": "./integration_tests/tests/array_spread.js",
+                "line": 35,
+                "column": 16
+              }
+            },
+            "arguments": [
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "numbers",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 35,
+                    "column": 23
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 35,
+                  "column": 20
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 35,
+              "column": 19
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 35,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 36,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 36,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 36,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Function call spread:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 36,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "result",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 36,
+              "column": 38
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 36,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 36,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "values",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 39,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 5,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 39,
+                  "column": 17
+                }
+              },
+              {
+                "type": "number",
+                "value": 10,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 39,
+                  "column": 20
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 39,
+                  "column": 24
+                }
+              },
+              {
+                "type": "number",
+                "value": 8,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 39,
+                  "column": 27
+                }
+              },
+              {
+                "type": "number",
+                "value": 3,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 39,
+                  "column": 30
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 39,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "maximum",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 40,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "Math",
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 40,
+                  "column": 17
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "max",
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 40,
+                  "column": 22
+                }
+              },
+              "computed": false,
+              "optional": false,
+              "location": {
+                "file": "./integration_tests/tests/array_spread.js",
+                "line": 40,
+                "column": 17
+              }
+            },
+            "arguments": [
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "values",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 40,
+                    "column": 29
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 40,
+                  "column": 26
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 40,
+              "column": 25
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 40,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 41,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 41,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 41,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Math.max with spread:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 41,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "maximum",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 41,
+              "column": 38
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 41,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 41,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "first",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 44,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 44,
+                  "column": 16
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 44,
+                  "column": 19
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 44,
+              "column": 15
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 44,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "second",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 45,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 3,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 45,
+                  "column": 17
+                }
+              },
+              {
+                "type": "number",
+                "value": 4,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 45,
+                  "column": 20
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 45,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 45,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "addAll",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 46,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "function",
+            "parameters": [
+              {
+                "pattern": {
+                  "type": "pattern_identifier",
+                  "name": "a",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 46,
+                    "column": 17
+                  }
+                },
+                "name": "a"
+              },
+              {
+                "pattern": {
+                  "type": "pattern_identifier",
+                  "name": "b",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 46,
+                    "column": 20
+                  }
+                },
+                "name": "b"
+              },
+              {
+                "pattern": {
+                  "type": "pattern_identifier",
+                  "name": "c",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 46,
+                    "column": 23
+                  }
+                },
+                "name": "c"
+              },
+              {
+                "pattern": {
+                  "type": "pattern_identifier",
+                  "name": "d",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 46,
+                    "column": 26
+                  }
+                },
+                "name": "d"
+              }
+            ],
+            "body": {
+              "type": "expression",
+              "expression": {
+                "type": "binary",
+                "operator": "+",
+                "left": {
+                  "type": "binary",
+                  "operator": "+",
+                  "left": {
+                    "type": "binary",
+                    "operator": "+",
+                    "left": {
+                      "type": "identifier",
+                      "value": "a",
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 46,
+                        "column": 32
+                      }
+                    },
+                    "right": {
+                      "type": "identifier",
+                      "value": "b",
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 46,
+                        "column": 36
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/tests/array_spread.js",
+                      "line": 46,
+                      "column": 34
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "c",
+                    "location": {
+                      "file": "./integration_tests/tests/array_spread.js",
+                      "line": 46,
+                      "column": 40
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 46,
+                    "column": 38
+                  }
+                },
+                "right": {
+                  "type": "identifier",
+                  "value": "d",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 46,
+                    "column": 44
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 46,
+                  "column": 42
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/array_spread.js",
+                "line": 46,
+                "column": 32
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 46,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 46,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "total",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 47,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "call",
+            "func": {
+              "type": "identifier",
+              "value": "addAll",
+              "location": {
+                "file": "./integration_tests/tests/array_spread.js",
+                "line": 47,
+                "column": 15
+              }
+            },
+            "arguments": [
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "first",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 47,
+                    "column": 25
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 47,
+                  "column": 22
+                }
+              },
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "identifier",
+                  "value": "second",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 47,
+                    "column": 35
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 47,
+                  "column": 32
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 47,
+              "column": 21
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 47,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 48,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 48,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 48,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Multiple spreads in call:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 48,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "total",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 48,
+              "column": 42
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 48,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 48,
+        "column": 1
+      }
+    },
+    {
+      "type": "function_declaration",
+      "identifier": "logMessage",
+      "parameters": [
+        {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "prefix",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 51,
+              "column": 21
+            }
+          },
+          "name": "prefix"
+        },
+        {
+          "pattern": {
+            "type": "pattern_identifier",
+            "name": "messages",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 51,
+              "column": 32
+            }
+          },
+          "spread": true,
+          "name": "messages"
+        }
+      ],
+      "body": {
+        "type": "block",
+        "body": [
+          {
+            "type": "expression",
+            "expression": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "console",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 52,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "log",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 52,
+                    "column": 11
+                  }
+                },
+                "computed": false,
+                "optional": false,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 52,
+                  "column": 3
+                }
+              },
+              "arguments": [
+                {
+                  "type": "identifier",
+                  "value": "prefix",
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 52,
+                    "column": 15
+                  }
+                },
+                {
+                  "type": "spread",
+                  "expression": {
+                    "type": "identifier",
+                    "value": "messages",
+                    "location": {
+                      "file": "./integration_tests/tests/array_spread.js",
+                      "line": 52,
+                      "column": 26
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 52,
+                    "column": 23
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/tests/array_spread.js",
+                "line": 52,
+                "column": 14
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 52,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 51,
+          "column": 42
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 51,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "words",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 55,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "string",
+                "value": "world",
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 55,
+                  "column": 16
+                }
+              },
+              {
+                "type": "string",
+                "value": "from",
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 55,
+                  "column": 25
+                }
+              },
+              {
+                "type": "string",
+                "value": "spread",
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 55,
+                  "column": 33
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 55,
+              "column": 15
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 55,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "identifier",
+          "value": "logMessage",
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 56,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Hello",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 56,
+              "column": 12
+            }
+          },
+          {
+            "type": "spread",
+            "expression": {
+              "type": "identifier",
+              "value": "words",
+              "location": {
+                "file": "./integration_tests/tests/array_spread.js",
+                "line": 56,
+                "column": 24
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 56,
+              "column": 21
+            }
+          },
+          {
+            "type": "string",
+            "value": "syntax",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 56,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 56,
+          "column": 11
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 56,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "destination",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 59,
+              "column": 5
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 59,
+              "column": 19
+            }
+          }
+        }
+      ],
+      "varType": "let",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 59,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_identifier",
+          "name": "destination",
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 60,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "array",
+          "elements": [
+            {
+              "type": "spread",
+              "expression": {
+                "type": "identifier",
+                "value": "arr1",
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 60,
+                  "column": 19
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/array_spread.js",
+                "line": 60,
+                "column": 16
+              }
+            }
+          ],
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 60,
+            "column": 15
+          }
+        },
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 60,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 60,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 61,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 61,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 61,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Assignment spread:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 61,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "destination",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 61,
+              "column": 35
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 61,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "complex",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 64,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "array",
+                  "elements": [
+                    {
+                      "type": "number",
+                      "value": 1,
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 64,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "number",
+                      "value": 2,
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 64,
+                        "column": 25
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 64,
+                    "column": 21
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 64,
+                  "column": 18
+                }
+              },
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "array",
+                  "elements": [
+                    {
+                      "type": "spread",
+                      "expression": {
+                        "type": "array",
+                        "elements": [
+                          {
+                            "type": "number",
+                            "value": 3,
+                            "location": {
+                              "file": "./integration_tests/tests/array_spread.js",
+                              "line": 64,
+                              "column": 37
+                            }
+                          },
+                          {
+                            "type": "number",
+                            "value": 4,
+                            "location": {
+                              "file": "./integration_tests/tests/array_spread.js",
+                              "line": 64,
+                              "column": 40
+                            }
+                          }
+                        ],
+                        "location": {
+                          "file": "./integration_tests/tests/array_spread.js",
+                          "line": 64,
+                          "column": 36
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 64,
+                        "column": 33
+                      }
+                    },
+                    {
+                      "type": "number",
+                      "value": 5,
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 64,
+                        "column": 44
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 64,
+                    "column": 32
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 64,
+                  "column": 29
+                }
+              },
+              {
+                "type": "number",
+                "value": 6,
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 64,
+                  "column": 48
+                }
+              },
+              {
+                "type": "spread",
+                "expression": {
+                  "type": "array",
+                  "elements": [
+                    {
+                      "type": "number",
+                      "value": 7,
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 64,
+                        "column": 55
+                      }
+                    },
+                    {
+                      "type": "number",
+                      "value": 8,
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 64,
+                        "column": 58
+                      }
+                    },
+                    {
+                      "type": "number",
+                      "value": 9,
+                      "location": {
+                        "file": "./integration_tests/tests/array_spread.js",
+                        "line": 64,
+                        "column": 61
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/array_spread.js",
+                    "line": 64,
+                    "column": 54
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_spread.js",
+                  "line": 64,
+                  "column": 51
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 64,
+              "column": 17
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 64,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 65,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 65,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_spread.js",
+            "line": 65,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Complex nested:",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 65,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "complex",
+            "location": {
+              "file": "./integration_tests/tests/array_spread.js",
+              "line": 65,
+              "column": 32
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_spread.js",
+          "line": 65,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_spread.js",
+        "line": 65,
+        "column": 1
+      }
+    }
+  ]
+}
