@@ -66,8 +66,8 @@ const keywordTypes = keywords({
 });
 
 const stringRules: MooRule[] = [
-  { match: /"[^"]*"/, value: (x: string) => x.slice(1, -1) },
-  { match: /'[^']*'/, value: (x: string) => x.slice(1, -1) },
+  { match: /"(?:[^"\\]|\\.)*"/, value: (x: string) => x.slice(1, -1) },
+  { match: /'(?:[^'\\]|\\.)*'/, value: (x: string) => x.slice(1, -1) },
 ];
 
 const commonRules = {
@@ -78,6 +78,7 @@ const commonRules = {
   },
   number: /[-]?(?:[0-9]*[.])?[0-9]+/,
   string: stringRules,
+  quote: '"',
   left_paren: "(",
   right_paren: ")",
   left_bracket: "[",

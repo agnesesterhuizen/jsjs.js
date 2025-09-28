@@ -189,16 +189,16 @@ const regexTests = [
     src: `/"[^"]*"/`,
     expected: {
       type: "regex",
-      value: "[a-z\\/]+",
-      regexFlags: "gi",
+      value: '"[^"]*"',
+      regexFlags: "",
     },
   },
   {
     src: `({ x: /\`/ })`,
     expected: {
       type: "regex",
-      value: "[a-z\\/]+",
-      regexFlags: "gi",
+      value: "`",
+      regexFlags: "",
     },
   },
   {
