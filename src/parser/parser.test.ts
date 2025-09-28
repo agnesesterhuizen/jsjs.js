@@ -59,6 +59,20 @@ const objectPattern = (properties: Record<string, unknown>[]) => ({
   properties,
 });
 
+const arrayPattern = (elements: Record<string, unknown>[]) => ({
+  type: "pattern_array",
+  elements,
+});
+
+const patternElement = (
+  name: string,
+  overrides: Record<string, unknown> = {}
+) => ({
+  type: "pattern_element",
+  value: identifierPattern(name),
+  ...overrides,
+});
+
 Deno.test("parser: expressions", async (t) => {
   await t.step("hello world", () =>
     textExpression('console.log("hello world")', {
@@ -1097,16 +1111,6 @@ Deno.test("parser: expressions", async (t) => {
   });
 
   await t.step("ternary", async (t) => {
-    /*
-  | {
-      type: "conditional";
-      test: Expression;
-      consequent: Expression;
-      alternate: Expression;
-    }
-      
-    */
-
     await t.step("parses basic ternary expression", () =>
       textExpression("true ? 1 : 2;", {
         type: "conditional",
@@ -1175,6 +1179,107 @@ Deno.test("parser: statement", async (t) => {
         varType: "const",
       });
     });
+
+    await t.step("parses object destructuring pattern", () =>
+      testStatement("let { x, y } = point;", {
+        type: "variable_declaration",
+        declarationType: "var",
+        declarations: [
+          {
+            id: {
+              type: "pattern_object",
+              properties: [
+                {
+                  type: "pattern_property",
+                  key: "x",
+                  value: {
+                    type: "pattern_identifier",
+                    name: "x",
+                  },
+                },
+                {
+                  type: "pattern_property",
+                  key: "y",
+                  value: {
+                    type: "pattern_identifier",
+                    name: "y",
+                  },
+                },
+              ],
+            },
+            value: {
+              type: "identifier",
+              value: "point",
+            },
+          },
+        ],
+        varType: "let",
+      })
+    );
+
+    await t.step("parses array destructuring pattern", () =>
+      testStatement("let [x,y] = point;", {
+        type: "variable_declaration",
+        declarationType: "var",
+        declarations: [
+          {
+            id: arrayPattern([patternElement("x"), patternElement("y")]),
+            value: {
+              type: "identifier",
+              value: "point",
+            },
+          },
+        ],
+        varType: "let",
+      })
+    );
+
+    await t.step("parses array destructuring with rest", () =>
+      testStatement("const [first, ...rest] = arr;", {
+        type: "variable_declaration",
+        declarationType: "var",
+        declarations: [
+          {
+            id: arrayPattern([
+              patternElement("first"),
+              {
+                type: "pattern_rest",
+                argument: identifierPattern("rest"),
+              },
+            ]),
+            value: {
+              type: "identifier",
+              value: "arr",
+            },
+          },
+        ],
+        varType: "const",
+      })
+    );
+
+    await t.step("parses array destructuring with defaults", () =>
+      testStatement("let [a = 1, b = 2] = values;", {
+        type: "variable_declaration",
+        declarationType: "var",
+        declarations: [
+          {
+            id: arrayPattern([
+              patternElement("a", {
+                defaultValue: { type: "number", value: 1 },
+              }),
+              patternElement("b", {
+                defaultValue: { type: "number", value: 2 },
+              }),
+            ]),
+            value: {
+              type: "identifier",
+              value: "values",
+            },
+          },
+        ],
+        varType: "let",
+      })
+    );
   });
 
   await t.step("return", async (t) => {

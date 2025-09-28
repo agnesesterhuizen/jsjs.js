@@ -1,0 +1,1961 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "arr",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 4,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 4,
+                  "column": 14
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 4,
+                  "column": 17
+                }
+              },
+              {
+                "type": "number",
+                "value": 3,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 4,
+                  "column": 20
+                }
+              },
+              {
+                "type": "number",
+                "value": 4,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 4,
+                  "column": 23
+                }
+              },
+              {
+                "type": "number",
+                "value": 5,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 4,
+                  "column": 26
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 4,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_array",
+            "elements": [
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "a",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 5,
+                    "column": 8
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 5,
+                  "column": 8
+                }
+              },
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "b",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 5,
+                    "column": 11
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 5,
+                  "column": 11
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 5,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "identifier",
+            "value": "arr",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 5,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 6,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 6,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 6,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Basic:",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 6,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "a",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 6,
+              "column": 23
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "b",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 6,
+              "column": 26
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 6,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_array",
+            "elements": [
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "first",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 9,
+                    "column": 8
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 9,
+                  "column": 8
+                }
+              },
+              {
+                "type": "pattern_rest",
+                "argument": {
+                  "type": "pattern_identifier",
+                  "name": "rest",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 9,
+                    "column": 18
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 9,
+                  "column": 15
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 9,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "identifier",
+            "value": "arr",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 9,
+              "column": 26
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 10,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 10,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 10,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "With rest:",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 10,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "first",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 10,
+              "column": 27
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "rest",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 10,
+              "column": 34
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 10,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_array",
+            "elements": [
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "x",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 13,
+                    "column": 8
+                  }
+                },
+                "defaultValue": {
+                  "type": "number",
+                  "value": 10,
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 13,
+                    "column": 12
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 13,
+                  "column": 8
+                }
+              },
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "y",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 13,
+                    "column": 16
+                  }
+                },
+                "defaultValue": {
+                  "type": "number",
+                  "value": 20,
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 13,
+                    "column": 20
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 13,
+                  "column": 16
+                }
+              },
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "z",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 13,
+                    "column": 24
+                  }
+                },
+                "defaultValue": {
+                  "type": "number",
+                  "value": 30,
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 13,
+                    "column": 28
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 13,
+                  "column": 24
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 13,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 13,
+                  "column": 35
+                }
+              },
+              {
+                "type": "number",
+                "value": 2,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 13,
+                  "column": 38
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 13,
+              "column": 34
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 14,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 14,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 14,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "With defaults:",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 14,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "x",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 14,
+              "column": 31
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "y",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 14,
+              "column": 34
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "z",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 14,
+              "column": 37
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 14,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_array",
+            "elements": [
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "p",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 17,
+                    "column": 8
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 17,
+                  "column": 8
+                }
+              },
+              {
+                "type": "pattern_hole",
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 17,
+                  "column": 11
+                }
+              },
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "q",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 17,
+                    "column": 13
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 17,
+                  "column": 13
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 17,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "identifier",
+            "value": "arr",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 17,
+              "column": 18
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 18,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 18,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 18,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "With holes:",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 18,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "p",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 18,
+              "column": 28
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "q",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 18,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 18,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "nested",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 21,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 1,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 21,
+                      "column": 18
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 2,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 21,
+                      "column": 21
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 21,
+                  "column": 17
+                }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 3,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 21,
+                      "column": 26
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 4,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 21,
+                      "column": 29
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 21,
+                  "column": 25
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 21,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_array",
+            "elements": [
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_array",
+                  "elements": [
+                    {
+                      "type": "pattern_element",
+                      "value": {
+                        "type": "pattern_identifier",
+                        "name": "na",
+                        "location": {
+                          "file": "./integration_tests/tests/array_destructuring.js",
+                          "line": 22,
+                          "column": 9
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/array_destructuring.js",
+                        "line": 22,
+                        "column": 9
+                      }
+                    },
+                    {
+                      "type": "pattern_element",
+                      "value": {
+                        "type": "pattern_identifier",
+                        "name": "nb",
+                        "location": {
+                          "file": "./integration_tests/tests/array_destructuring.js",
+                          "line": 22,
+                          "column": 13
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/array_destructuring.js",
+                        "line": 22,
+                        "column": 13
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 22,
+                    "column": 8
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 22,
+                  "column": 8
+                }
+              },
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_array",
+                  "elements": [
+                    {
+                      "type": "pattern_element",
+                      "value": {
+                        "type": "pattern_identifier",
+                        "name": "nc",
+                        "location": {
+                          "file": "./integration_tests/tests/array_destructuring.js",
+                          "line": 22,
+                          "column": 19
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/array_destructuring.js",
+                        "line": 22,
+                        "column": 19
+                      }
+                    },
+                    {
+                      "type": "pattern_element",
+                      "value": {
+                        "type": "pattern_identifier",
+                        "name": "nd",
+                        "location": {
+                          "file": "./integration_tests/tests/array_destructuring.js",
+                          "line": 22,
+                          "column": 23
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/array_destructuring.js",
+                        "line": 22,
+                        "column": 23
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 22,
+                    "column": 18
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 22,
+                  "column": 18
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 22,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "identifier",
+            "value": "nested",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 22,
+              "column": 30
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 23,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 23,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 23,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Nested:",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 23,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "na",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 23,
+              "column": 24
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "nb",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 23,
+              "column": 28
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "nc",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 23,
+              "column": 32
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "nd",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 23,
+              "column": 36
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 23,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "assignA",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 26,
+              "column": 5
+            }
+          }
+        },
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "assignB",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 26,
+              "column": 14
+            }
+          }
+        },
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "assignRest",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 26,
+              "column": 23
+            }
+          }
+        }
+      ],
+      "varType": "let",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_array",
+          "elements": [
+            {
+              "type": "pattern_element",
+              "value": {
+                "type": "pattern_identifier",
+                "name": "assignA",
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 27,
+                  "column": 2
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 27,
+                "column": 2
+              }
+            },
+            {
+              "type": "pattern_element",
+              "value": {
+                "type": "pattern_identifier",
+                "name": "assignB",
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 27,
+                  "column": 11
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 27,
+                "column": 11
+              }
+            }
+          ],
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 27,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "array",
+          "elements": [
+            {
+              "type": "number",
+              "value": 100,
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 27,
+                "column": 23
+              }
+            },
+            {
+              "type": "number",
+              "value": 200,
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 27,
+                "column": 28
+              }
+            }
+          ],
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 27,
+            "column": 22
+          }
+        },
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 27,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 28,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 28,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 28,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Assignment:",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 28,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "assignA",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 28,
+              "column": 28
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "assignB",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 28,
+              "column": 37
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 28,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_array",
+          "elements": [
+            {
+              "type": "pattern_element",
+              "value": {
+                "type": "pattern_identifier",
+                "name": "assignA",
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 30,
+                  "column": 2
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 30,
+                "column": 2
+              }
+            },
+            {
+              "type": "pattern_rest",
+              "argument": {
+                "type": "pattern_identifier",
+                "name": "assignRest",
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 30,
+                  "column": 14
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 30,
+                "column": 11
+              }
+            }
+          ],
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 30,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "array",
+          "elements": [
+            {
+              "type": "number",
+              "value": 300,
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 30,
+                "column": 29
+              }
+            },
+            {
+              "type": "number",
+              "value": 400,
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 30,
+                "column": 34
+              }
+            },
+            {
+              "type": "number",
+              "value": 500,
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 30,
+                "column": 39
+              }
+            }
+          ],
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 30,
+            "column": 28
+          }
+        },
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 30,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 31,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 31,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 31,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Assignment with rest:",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 31,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "assignA",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 31,
+              "column": 38
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "assignRest",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 31,
+              "column": 47
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 31,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "type": "function_declaration",
+      "identifier": "processPoint",
+      "parameters": [
+        {
+          "pattern": {
+            "type": "pattern_array",
+            "elements": [
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "px",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 34,
+                    "column": 24
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 34,
+                  "column": 24
+                }
+              },
+              {
+                "type": "pattern_element",
+                "value": {
+                  "type": "pattern_identifier",
+                  "name": "py",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 34,
+                    "column": 28
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 34,
+                  "column": 28
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 34,
+              "column": 23
+            }
+          }
+        }
+      ],
+      "body": {
+        "type": "block",
+        "body": [
+          {
+            "type": "return",
+            "expression": {
+              "type": "binary",
+              "operator": "+",
+              "left": {
+                "type": "identifier",
+                "value": "px",
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 35,
+                  "column": 10
+                }
+              },
+              "right": {
+                "type": "identifier",
+                "value": "py",
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 35,
+                  "column": 15
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 35,
+                "column": 13
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 35,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 34,
+          "column": 33
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "point",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 38,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 5,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 38,
+                  "column": 16
+                }
+              },
+              {
+                "type": "number",
+                "value": 10,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 38,
+                  "column": 19
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 38,
+              "column": 15
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "sum",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 39,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "call",
+            "func": {
+              "type": "identifier",
+              "value": "processPoint",
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 39,
+                "column": 13
+              }
+            },
+            "arguments": [
+              {
+                "type": "identifier",
+                "value": "point",
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 39,
+                  "column": 26
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 39,
+              "column": 25
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 40,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 40,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/array_destructuring.js",
+            "line": 40,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "Function param:",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 40,
+              "column": 13
+            }
+          },
+          {
+            "type": "identifier",
+            "value": "sum",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 40,
+              "column": 32
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 40,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 40,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "points",
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 43,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 1,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 43,
+                      "column": 18
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 2,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 43,
+                      "column": 21
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 43,
+                  "column": 17
+                }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 3,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 43,
+                      "column": 26
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 4,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 43,
+                      "column": 29
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 43,
+                  "column": 25
+                }
+              },
+              {
+                "type": "array",
+                "elements": [
+                  {
+                    "type": "number",
+                    "value": 5,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 43,
+                      "column": 34
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "value": 6,
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 43,
+                      "column": 37
+                    }
+                  }
+                ],
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 43,
+                  "column": 33
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 43,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 43,
+        "column": 1
+      }
+    },
+    {
+      "type": "for_of",
+      "left": {
+        "type": "variable_declaration",
+        "declarationType": "var",
+        "declarations": [
+          {
+            "id": {
+              "type": "pattern_array",
+              "elements": [
+                {
+                  "type": "pattern_element",
+                  "value": {
+                    "type": "pattern_identifier",
+                    "name": "fx",
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 44,
+                      "column": 13
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 44,
+                    "column": 13
+                  }
+                },
+                {
+                  "type": "pattern_element",
+                  "value": {
+                    "type": "pattern_identifier",
+                    "name": "fy",
+                    "location": {
+                      "file": "./integration_tests/tests/array_destructuring.js",
+                      "line": 44,
+                      "column": 17
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 44,
+                    "column": 17
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 44,
+                "column": 12
+              }
+            }
+          }
+        ],
+        "varType": "const",
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 44,
+          "column": 6
+        }
+      },
+      "right": {
+        "type": "identifier",
+        "value": "points",
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 44,
+          "column": 24
+        }
+      },
+      "body": {
+        "type": "block",
+        "body": [
+          {
+            "type": "expression",
+            "expression": {
+              "type": "call",
+              "func": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "console",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 45,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "log",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 45,
+                    "column": 11
+                  }
+                },
+                "computed": false,
+                "optional": false,
+                "location": {
+                  "file": "./integration_tests/tests/array_destructuring.js",
+                  "line": 45,
+                  "column": 3
+                }
+              },
+              "arguments": [
+                {
+                  "type": "string",
+                  "value": "For-of:",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 45,
+                    "column": 15
+                  }
+                },
+                {
+                  "type": "identifier",
+                  "value": "fx",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 45,
+                    "column": 26
+                  }
+                },
+                {
+                  "type": "identifier",
+                  "value": "fy",
+                  "location": {
+                    "file": "./integration_tests/tests/array_destructuring.js",
+                    "line": 45,
+                    "column": 30
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/tests/array_destructuring.js",
+                "line": 45,
+                "column": 14
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/array_destructuring.js",
+              "line": 45,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/array_destructuring.js",
+          "line": 44,
+          "column": 32
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/array_destructuring.js",
+        "line": 44,
+        "column": 1
+      }
+    }
+  ]
+}

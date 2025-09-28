@@ -95,6 +95,17 @@ export class Interpreter {
         }
         return;
       }
+      case "pattern_array": {
+        for (const element of pattern.elements) {
+          if (element.type === "pattern_element") {
+            this.declarePatternBindings(element.value, kind);
+          } else if (element.type === "pattern_rest") {
+            this.declarePatternBindings(element.argument, kind);
+          }
+          // pattern_hole doesn't declare any bindings
+        }
+        return;
+      }
       case "pattern_member":
         throw referenceError(
           "Invalid destructuring target in declaration",
@@ -126,6 +137,8 @@ export class Interpreter {
         return this.assignPatternMember(pattern, value);
       case "pattern_object":
         return this.assignObjectPattern(pattern, value, options);
+      case "pattern_array":
+        return this.assignArrayPattern(pattern, value, options);
       default:
         return value;
     }
@@ -219,6 +232,98 @@ export class Interpreter {
       } else if (property.type === "pattern_rest") {
         const restValue = this.createObjectRest(source, excludedKeys);
         lastValue = this.assignPattern(property.argument, restValue, options);
+      }
+    }
+
+    return lastValue;
+  }
+
+  assignArrayPattern(
+    pattern: Extract<Pattern, { type: "pattern_array" }>,
+    value: JSObject,
+    options: {
+      kind: "var" | "let" | "const" | "assignment";
+      declaration: boolean;
+    }
+  ): JSObject {
+    if (value.type === "undefined" || value.type === "null") {
+      throw typeError(`Cannot destructure ${value.type} value`, pattern);
+    }
+
+    // Convert the value to an iterable (array-like) structure
+    let arrayValue: JSObject;
+    if (value.type === "array") {
+      arrayValue = value;
+    } else {
+      // Try to get the array from the object (could be array-like)
+      const lengthProp = this.runtime.getProperty(value, "length");
+      if (lengthProp.type === "number") {
+        arrayValue = value;
+      } else {
+        throw typeError("Cannot destructure non-iterable value", pattern);
+      }
+    }
+
+    let lastValue: JSObject = this.runtime.newUndefined();
+    let elementIndex = 0;
+
+    for (let i = 0; i < pattern.elements.length; i++) {
+      const element = pattern.elements[i];
+
+      if (element.type === "pattern_hole") {
+        // Skip holes like in [a, , c]
+        elementIndex++;
+        continue;
+      }
+
+      if (element.type === "pattern_element") {
+        let elementValue: JSObject;
+
+        if (arrayValue.type === "array") {
+          const jsArray = arrayValue as JSArray;
+          if (elementIndex < jsArray.elements.length) {
+            elementValue = jsArray.elements[elementIndex];
+          } else {
+            elementValue = this.runtime.newUndefined();
+          }
+        } else {
+          // Try to get property by index from object
+          elementValue = this.runtime.getProperty(
+            arrayValue,
+            elementIndex.toString()
+          );
+        }
+
+        if (elementValue.type === "undefined" && element.defaultValue) {
+          elementValue = this.executeExpression(element.defaultValue);
+        }
+
+        lastValue = this.assignPattern(element.value, elementValue, options);
+        elementIndex++;
+      } else if (element.type === "pattern_rest") {
+        // Create rest array with remaining elements
+        const restElements: JSObject[] = [];
+
+        if (arrayValue.type === "array") {
+          const jsArray = arrayValue as JSArray;
+          for (let j = elementIndex; j < jsArray.elements.length; j++) {
+            restElements.push(jsArray.elements[j]);
+          }
+        } else {
+          // Handle array-like objects
+          const lengthProp = this.runtime.getProperty(arrayValue, "length");
+          if (lengthProp.type === "number") {
+            const jsNumber = lengthProp as JSNumber;
+            for (let j = elementIndex; j < jsNumber.value; j++) {
+              const prop = this.runtime.getProperty(arrayValue, j.toString());
+              restElements.push(prop);
+            }
+          }
+        }
+
+        const restArray = this.runtime.newArray(restElements);
+        lastValue = this.assignPattern(element.argument, restArray, options);
+        break; // Rest element must be last
       }
     }
 
@@ -330,6 +435,16 @@ export class Interpreter {
           } else if (property.type === "pattern_rest") {
             this.collectPatternIdentifiers(property.argument, result);
           }
+        }
+        return;
+      case "pattern_array":
+        for (const element of pattern.elements) {
+          if (element.type === "pattern_element") {
+            this.collectPatternIdentifiers(element.value, result);
+          } else if (element.type === "pattern_rest") {
+            this.collectPatternIdentifiers(element.argument, result);
+          }
+          // pattern_hole doesn't add any identifiers
         }
         return;
       case "pattern_member":

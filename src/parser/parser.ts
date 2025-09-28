@@ -18,6 +18,7 @@ import {
   CatchClause,
   Pattern,
   ObjectPatternProperty,
+  ArrayPatternElement,
   isOperatorToken,
 } from "./ast.ts";
 import { Token, TokenType } from "../parser/lexer.ts";
@@ -1298,6 +1299,10 @@ export class Parser {
       return this.parseObjectPattern("binding");
     }
 
+    if (next.type === "left_bracket") {
+      return this.parseArrayPattern("binding");
+    }
+
     if (next.type === "identifier") {
       const token = this.expect("identifier");
       return withLocation(
@@ -1426,6 +1431,109 @@ export class Parser {
     );
   }
 
+  parseArrayPattern(kind: "binding" | "assignment"): Pattern {
+    const startToken = this.expect("left_bracket");
+
+    const elements: ArrayPatternElement[] = [];
+    let sawRest = false;
+
+    while (!this.nextTokenIsType("right_bracket")) {
+      if (this.peekNextToken()?.type === "comma") {
+        // Handle holes in array destructuring like [a, , c]
+        this.expect("comma");
+        elements.push(
+          withLocation(
+            {
+              type: "pattern_hole",
+            },
+            this.tokens[this.index - 1]
+          )
+        );
+        continue;
+      }
+
+      if (this.peekNextToken()?.type === "spread") {
+        const spreadToken = this.expect("spread");
+        if (sawRest) {
+          throw syntaxError(
+            "Multiple rest elements in array pattern",
+            spreadToken
+          );
+        }
+
+        const argument =
+          kind === "binding"
+            ? this.parseBindingPattern()
+            : this.parseAssignmentPattern();
+
+        if (argument.type !== "pattern_identifier") {
+          throw syntaxError("Rest element must be an identifier", spreadToken);
+        }
+
+        elements.push(
+          withLocation(
+            {
+              type: "pattern_rest",
+              argument,
+            },
+            spreadToken
+          )
+        );
+        sawRest = true;
+
+        if (!this.nextTokenIsType("right_bracket")) {
+          throw syntaxError(
+            "Rest element must be the last element",
+            spreadToken
+          );
+        }
+        break;
+      }
+
+      const valuePattern: Pattern =
+        kind === "binding"
+          ? this.parseBindingPattern()
+          : this.parseAssignmentPattern();
+
+      let defaultValue: Expression | undefined;
+
+      if (this.peekNextToken()?.type === "equals") {
+        this.expect("equals");
+        defaultValue = this.parseExpression(0, false);
+      }
+
+      elements.push(
+        withLocation(
+          {
+            type: "pattern_element",
+            value: valuePattern,
+            defaultValue,
+          },
+          valuePattern.location
+        )
+      );
+
+      if (this.nextTokenIsType("comma")) {
+        this.expect("comma");
+        if (this.nextTokenIsType("right_bracket")) {
+          break;
+        }
+      } else {
+        break;
+      }
+    }
+
+    this.expect("right_bracket");
+
+    return withLocation(
+      {
+        type: "pattern_array",
+        elements,
+      },
+      startToken
+    );
+  }
+
   parseAssignmentTarget(): Pattern {
     const next = this.peekNextToken();
 
@@ -1442,6 +1550,10 @@ export class Parser {
 
     if (next.type === "left_brace") {
       return this.parseObjectPattern("assignment");
+    }
+
+    if (next.type === "left_bracket") {
+      return this.parseArrayPattern("assignment");
     }
 
     if (next.type === "identifier") {

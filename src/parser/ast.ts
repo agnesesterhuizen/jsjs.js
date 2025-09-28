@@ -129,6 +129,20 @@ export type ObjectPatternProperty =
       argument: Pattern;
     }>;
 
+export type ArrayPatternElement =
+  | WithLocation<{
+      type: "pattern_element";
+      value: Pattern;
+      defaultValue?: Expression;
+    }>
+  | WithLocation<{
+      type: "pattern_rest";
+      argument: Pattern;
+    }>
+  | WithLocation<{
+      type: "pattern_hole";
+    }>;
+
 export type Pattern =
   | WithLocation<{
       type: "pattern_identifier";
@@ -143,6 +157,10 @@ export type Pattern =
   | WithLocation<{
       type: "pattern_object";
       properties: ObjectPatternProperty[];
+    }>
+  | WithLocation<{
+      type: "pattern_array";
+      elements: ArrayPatternElement[];
     }>;
 
 export type VariableDeclarator = {

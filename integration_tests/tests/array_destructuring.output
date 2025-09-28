@@ -1,0 +1,11 @@
+Basic: 1 2
+With rest: 1 [ 2, 3, 4, 5 ]
+With defaults: 1 2 30
+With holes: 1 3
+Nested: 1 2 3 4
+Assignment: 100 200
+Assignment with rest: 300 [ 400, 500 ]
+Function param: 15
+For-of: 1 2
+For-of: 3 4
+For-of: 5 6
