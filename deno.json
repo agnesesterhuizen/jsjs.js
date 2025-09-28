@@ -1,6 +1,10 @@
 {
   "tasks": {
-    "bundle": "deno bundle ./src/jsjs.ts -o dist/jsjs.js"
+    "bundle": "deno bundle ./src/jsjs.ts -o dist/jsjs.js",
+    "run": "deno run -A ./src/cli.ts",
+    "build": "deno compile -A --output dist/jsjs ./src/cli.ts",
+    "test": "deno test -A",
+    "overwrite-snapshots": "OVERWRITE=all deno test -A"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@^1.0.14",

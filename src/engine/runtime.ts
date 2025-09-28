@@ -1,4 +1,4 @@
-import { Parameter, Program, Statement } from "../ast.ts";
+import { Parameter, Program, Statement } from "../parser/ast.ts";
 import { Logger } from "./engine.ts";
 import {
   Interpreter,

@@ -1,7 +1,17 @@
 import { assertEquals } from "@std/assert/equals";
-import { Lexer } from "../lexer.ts";
-import { Parser } from "../parser.ts";
+import { Lexer } from "../parser/lexer.ts";
+import { Parser } from "../parser/parser.ts";
 import { Engine } from "./engine.ts";
+
+const parse = (source: string) => {
+  const l = new Lexer();
+  const p = new Parser();
+
+  const tokens = l.run("TEST", source);
+  const ast = p.parse(tokens);
+
+  return ast;
+};
 
 const setupLogger = () => {
   // deno-lint-ignore no-explicit-any
@@ -15,15 +25,10 @@ const setupLogger = () => {
   return { logs, logger };
 };
 
-const run = (src: string) => {
+const run = (source: string) => {
   const { logs, logger } = setupLogger();
-
   const engine = new Engine(logger);
-  const parser = new Parser();
-
-  const lexer = new Lexer();
-  const tokens = lexer.run("TEST", src);
-  const program = parser.parse(tokens);
+  const program = parse(source);
 
   engine.run(program);
 

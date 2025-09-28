@@ -1,4 +1,4 @@
-import { Program } from "../ast.ts";
+import { Program } from "../parser/ast.ts";
 import { Runtime } from "./runtime.ts";
 
 // deno-lint-ignore no-explicit-any

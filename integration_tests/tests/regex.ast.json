@@ -1,0 +1,1417 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "re",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 3,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "regex",
+            "pattern": "hello (\\w+)",
+            "flags": "g",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 3,
+              "column": 12
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "inputs",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 4,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "string",
+                "value": "hello world",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 5,
+                  "column": 3
+                }
+              },
+              {
+                "type": "string",
+                "value": "hello there",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 6,
+                  "column": 3
+                }
+              },
+              {
+                "type": "string",
+                "value": "no match",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 7,
+                  "column": 3
+                }
+              },
+              {
+                "type": "string",
+                "value": "hello regex hello runtime",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 8,
+                  "column": 3
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 4,
+              "column": 16
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "type": "for",
+      "init": {
+        "type": "variable_declaration",
+        "declarationType": "var",
+        "declarations": [
+          {
+            "id": {
+              "type": "pattern_identifier",
+              "name": "i",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 11,
+                "column": 10
+              }
+            },
+            "value": {
+              "type": "number",
+              "value": 0,
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 11,
+                "column": 14
+              }
+            }
+          }
+        ],
+        "varType": "let",
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 11,
+          "column": 6
+        }
+      },
+      "test": {
+        "type": "binary",
+        "operator": "<",
+        "left": {
+          "type": "identifier",
+          "value": "i",
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 11,
+            "column": 17
+          }
+        },
+        "right": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "inputs",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 11,
+              "column": 21
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "length",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 11,
+              "column": 28
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 11,
+            "column": 21
+          }
+        },
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 11,
+          "column": 19
+        }
+      },
+      "update": {
+        "type": "increment",
+        "expression": {
+          "type": "identifier",
+          "value": "i",
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 11,
+            "column": 36
+          }
+        },
+        "postfix": true,
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 11,
+          "column": 36
+        }
+      },
+      "body": {
+        "type": "block",
+        "body": [
+          {
+            "type": "variable_declaration",
+            "declarationType": "var",
+            "declarations": [
+              {
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "input",
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 12,
+                    "column": 9
+                  }
+                },
+                "value": {
+                  "type": "member",
+                  "object": {
+                    "type": "identifier",
+                    "value": "inputs",
+                    "location": {
+                      "file": "./integration_tests/tests/regex.js",
+                      "line": 12,
+                      "column": 17
+                    }
+                  },
+                  "property": {
+                    "type": "identifier",
+                    "value": "i",
+                    "location": {
+                      "file": "./integration_tests/tests/regex.js",
+                      "line": 12,
+                      "column": 24
+                    }
+                  },
+                  "computed": true,
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 12,
+                    "column": 17
+                  }
+                }
+              }
+            ],
+            "varType": "const",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 12,
+              "column": 3
+            }
+          },
+          {
+            "type": "expression",
+            "expression": {
+              "type": "assignment",
+              "operator": "=",
+              "left": {
+                "type": "pattern_member",
+                "object": {
+                  "type": "identifier",
+                  "value": "re",
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 13,
+                    "column": 3
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "lastIndex",
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 13,
+                    "column": 6
+                  }
+                },
+                "computed": false,
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 13,
+                  "column": 3
+                }
+              },
+              "right": {
+                "type": "number",
+                "value": 0,
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 13,
+                  "column": 18
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 13,
+                "column": 3
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 13,
+              "column": 3
+            }
+          },
+          {
+            "type": "variable_declaration",
+            "declarationType": "var",
+            "declarations": [
+              {
+                "id": {
+                  "type": "pattern_identifier",
+                  "name": "result",
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 14,
+                    "column": 9
+                  }
+                },
+                "value": {
+                  "type": "call",
+                  "func": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "re",
+                      "location": {
+                        "file": "./integration_tests/tests/regex.js",
+                        "line": 14,
+                        "column": 18
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "exec",
+                      "location": {
+                        "file": "./integration_tests/tests/regex.js",
+                        "line": 14,
+                        "column": 21
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/tests/regex.js",
+                      "line": 14,
+                      "column": 18
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "identifier",
+                      "value": "input",
+                      "location": {
+                        "file": "./integration_tests/tests/regex.js",
+                        "line": 14,
+                        "column": 26
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 14,
+                    "column": 25
+                  }
+                }
+              }
+            ],
+            "varType": "const",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 14,
+              "column": 3
+            }
+          },
+          {
+            "type": "if",
+            "condition": {
+              "type": "identifier",
+              "value": "result",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 15,
+                "column": 7
+              }
+            },
+            "ifBody": {
+              "type": "block",
+              "body": [
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 16,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 16,
+                          "column": 13
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/tests/regex.js",
+                        "line": 16,
+                        "column": 5
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "result",
+                          "location": {
+                            "file": "./integration_tests/tests/regex.js",
+                            "line": 16,
+                            "column": 17
+                          }
+                        },
+                        "property": {
+                          "type": "number",
+                          "value": 0,
+                          "location": {
+                            "file": "./integration_tests/tests/regex.js",
+                            "line": 16,
+                            "column": 24
+                          }
+                        },
+                        "computed": true,
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 16,
+                          "column": 17
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/tests/regex.js",
+                      "line": 16,
+                      "column": 16
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 16,
+                    "column": 5
+                  }
+                },
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 17,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 17,
+                          "column": 13
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/tests/regex.js",
+                        "line": 17,
+                        "column": 5
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "result",
+                          "location": {
+                            "file": "./integration_tests/tests/regex.js",
+                            "line": 17,
+                            "column": 17
+                          }
+                        },
+                        "property": {
+                          "type": "number",
+                          "value": 1,
+                          "location": {
+                            "file": "./integration_tests/tests/regex.js",
+                            "line": 17,
+                            "column": 24
+                          }
+                        },
+                        "computed": true,
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 17,
+                          "column": 17
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/tests/regex.js",
+                      "line": 17,
+                      "column": 16
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 17,
+                    "column": 5
+                  }
+                },
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 18,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 18,
+                          "column": 13
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/tests/regex.js",
+                        "line": 18,
+                        "column": 5
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "re",
+                          "location": {
+                            "file": "./integration_tests/tests/regex.js",
+                            "line": 18,
+                            "column": 17
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "lastIndex",
+                          "location": {
+                            "file": "./integration_tests/tests/regex.js",
+                            "line": 18,
+                            "column": 20
+                          }
+                        },
+                        "computed": false,
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 18,
+                          "column": 17
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/tests/regex.js",
+                      "line": 18,
+                      "column": 16
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 18,
+                    "column": 5
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 15,
+                "column": 15
+              }
+            },
+            "elseBody": {
+              "type": "block",
+              "body": [
+                {
+                  "type": "expression",
+                  "expression": {
+                    "type": "call",
+                    "func": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "console",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 20,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "log",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 20,
+                          "column": 13
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/tests/regex.js",
+                        "line": 20,
+                        "column": 5
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "string",
+                        "value": "no-match",
+                        "location": {
+                          "file": "./integration_tests/tests/regex.js",
+                          "line": 20,
+                          "column": 17
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/tests/regex.js",
+                      "line": 20,
+                      "column": 16
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/regex.js",
+                    "line": 20,
+                    "column": 5
+                  }
+                }
+              ],
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 19,
+                "column": 10
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 15,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 11,
+          "column": 41
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 24,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 24,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 24,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "re",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 24,
+                "column": 13
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "source",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 24,
+                "column": 16
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 24,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 24,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 24,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 25,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 25,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 25,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "re",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 25,
+                "column": 13
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "flags",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 25,
+                "column": 16
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 25,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 25,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 26,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 26,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 26,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "re",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 26,
+                  "column": 13
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "toString",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 26,
+                  "column": 16
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 26,
+                "column": 13
+              }
+            },
+            "arguments": [],
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 26,
+              "column": 24
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 26,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "escapeRe",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 28,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "regex",
+            "pattern": "[-\\/\\\\^$*+?.()|[\\]{}]",
+            "flags": "g",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 28,
+              "column": 18
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 29,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 29,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 29,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "escapeRe",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 29,
+                  "column": 13
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "test",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 29,
+                  "column": 22
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 29,
+                "column": 13
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "slash/",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 29,
+                  "column": 27
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 29,
+              "column": 26
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 29,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 29,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 30,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 30,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 30,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "escapeRe",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 30,
+                  "column": 13
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "test",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 30,
+                  "column": 22
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 30,
+                "column": 13
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "noclass",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 30,
+                  "column": 27
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 30,
+              "column": 26
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 30,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "assignment",
+        "operator": "=",
+        "left": {
+          "type": "pattern_member",
+          "object": {
+            "type": "identifier",
+            "value": "escapeRe",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 31,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "lastIndex",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 31,
+              "column": 10
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 31,
+            "column": 1
+          }
+        },
+        "right": {
+          "type": "number",
+          "value": 0,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 31,
+            "column": 22
+          }
+        },
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 31,
+          "column": 1
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 32,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 32,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 32,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "escapeRe",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 32,
+                  "column": 13
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "toString",
+                "location": {
+                  "file": "./integration_tests/tests/regex.js",
+                  "line": 32,
+                  "column": 22
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 32,
+                "column": 13
+              }
+            },
+            "arguments": [],
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 32,
+              "column": 30
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 32,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 33,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 33,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 33,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "escapeRe",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 33,
+                "column": 13
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "source",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 33,
+                "column": 22
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 33,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 33,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 33,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 34,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 34,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/regex.js",
+            "line": 34,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "escapeRe",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 34,
+                "column": 13
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "flags",
+              "location": {
+                "file": "./integration_tests/tests/regex.js",
+                "line": 34,
+                "column": 22
+              }
+            },
+            "computed": false,
+            "location": {
+              "file": "./integration_tests/tests/regex.js",
+              "line": 34,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/regex.js",
+          "line": 34,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/regex.js",
+        "line": 34,
+        "column": 1
+      }
+    }
+  ]
+}

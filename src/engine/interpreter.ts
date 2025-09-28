@@ -8,7 +8,7 @@ import {
   Statement,
   Location,
   Pattern,
-} from "../ast.ts";
+} from "../parser/ast.ts";
 import {
   JSBoolean,
   JSFunction,

@@ -1,4 +1,4 @@
-import { Statement, Parameter } from "../ast.ts";
+import { Statement, Parameter } from "../parser/ast.ts";
 
 type ObjectType =
   | "array"

@@ -1,0 +1,1893 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "class_declaration",
+      "identifier": "HashTable",
+      "properties": [],
+      "methods": [
+        {
+          "name": "constructor",
+          "parameters": [],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "pattern_member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 5,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "size",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 5,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 5,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "number",
+                    "value": 10,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 5,
+                      "column": 17
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 5,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 5,
+                  "column": 5
+                }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "pattern_member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 6,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "keys",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 6,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 6,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "new",
+                    "identifier": "Array",
+                    "arguments": [
+                      {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "this",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 6,
+                            "column": 27
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "size",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 6,
+                            "column": 32
+                          }
+                        },
+                        "computed": false,
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 6,
+                          "column": 27
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 6,
+                      "column": 17
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 6,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 6,
+                  "column": 5
+                }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "pattern_member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 7,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "values",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 7,
+                        "column": 10
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 7,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "new",
+                    "identifier": "Array",
+                    "arguments": [
+                      {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "this",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 7,
+                            "column": 29
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "size",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 7,
+                            "column": 34
+                          }
+                        },
+                        "computed": false,
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 7,
+                          "column": 29
+                        }
+                      }
+                    ],
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 7,
+                      "column": 19
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 7,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 7,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 4,
+              "column": 17
+            }
+          },
+          "static": false
+        },
+        {
+          "name": "put",
+          "parameters": [
+            {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "key",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 10,
+                  "column": 7
+                }
+              },
+              "name": "key"
+            },
+            {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "data",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 10,
+                  "column": 12
+                }
+              },
+              "name": "data"
+            }
+          ],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "variable_declaration",
+                "declarationType": "var",
+                "declarations": [
+                  {
+                    "id": {
+                      "type": "pattern_identifier",
+                      "name": "index",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 11,
+                        "column": 9
+                      }
+                    },
+                    "value": {
+                      "type": "call",
+                      "func": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "this",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 11,
+                            "column": 17
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "hashFunction",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 11,
+                            "column": 22
+                          }
+                        },
+                        "computed": false,
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 11,
+                          "column": 17
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "identifier",
+                          "value": "key",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 11,
+                            "column": 35
+                          }
+                        }
+                      ],
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 11,
+                        "column": 34
+                      }
+                    }
+                  }
+                ],
+                "varType": "let",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 11,
+                  "column": 5
+                }
+              },
+              {
+                "type": "while",
+                "condition": {
+                  "type": "binary",
+                  "operator": "!==",
+                  "left": {
+                    "type": "member",
+                    "object": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "this",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 12,
+                          "column": 12
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "keys",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 12,
+                          "column": 17
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 12,
+                        "column": 12
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "index",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 12,
+                        "column": 22
+                      }
+                    },
+                    "computed": true,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 12,
+                      "column": 12
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "undefined",
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 12,
+                      "column": 33
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 12,
+                    "column": 29
+                  }
+                },
+                "body": {
+                  "type": "block",
+                  "body": [
+                    {
+                      "type": "if",
+                      "condition": {
+                        "type": "binary",
+                        "operator": "===",
+                        "left": {
+                          "type": "member",
+                          "object": {
+                            "type": "member",
+                            "object": {
+                              "type": "identifier",
+                              "value": "this",
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 13,
+                                "column": 11
+                              }
+                            },
+                            "property": {
+                              "type": "identifier",
+                              "value": "keys",
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 13,
+                                "column": 16
+                              }
+                            },
+                            "computed": false,
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 13,
+                              "column": 11
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "index",
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 13,
+                              "column": 21
+                            }
+                          },
+                          "computed": true,
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 13,
+                            "column": 11
+                          }
+                        },
+                        "right": {
+                          "type": "identifier",
+                          "value": "key",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 13,
+                            "column": 32
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 13,
+                          "column": 28
+                        }
+                      },
+                      "ifBody": {
+                        "type": "block",
+                        "body": [
+                          {
+                            "type": "expression",
+                            "expression": {
+                              "type": "assignment",
+                              "operator": "=",
+                              "left": {
+                                "type": "pattern_member",
+                                "object": {
+                                  "type": "member",
+                                  "object": {
+                                    "type": "identifier",
+                                    "value": "this",
+                                    "location": {
+                                      "file": "./integration_tests/tests/hashtable.js",
+                                      "line": 14,
+                                      "column": 9
+                                    }
+                                  },
+                                  "property": {
+                                    "type": "identifier",
+                                    "value": "values",
+                                    "location": {
+                                      "file": "./integration_tests/tests/hashtable.js",
+                                      "line": 14,
+                                      "column": 14
+                                    }
+                                  },
+                                  "computed": false,
+                                  "location": {
+                                    "file": "./integration_tests/tests/hashtable.js",
+                                    "line": 14,
+                                    "column": 9
+                                  }
+                                },
+                                "property": {
+                                  "type": "identifier",
+                                  "value": "index",
+                                  "location": {
+                                    "file": "./integration_tests/tests/hashtable.js",
+                                    "line": 14,
+                                    "column": 21
+                                  }
+                                },
+                                "computed": true,
+                                "location": {
+                                  "file": "./integration_tests/tests/hashtable.js",
+                                  "line": 14,
+                                  "column": 9
+                                }
+                              },
+                              "right": {
+                                "type": "identifier",
+                                "value": "data",
+                                "location": {
+                                  "file": "./integration_tests/tests/hashtable.js",
+                                  "line": 14,
+                                  "column": 30
+                                }
+                              },
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 14,
+                                "column": 9
+                              }
+                            },
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 14,
+                              "column": 9
+                            }
+                          },
+                          {
+                            "type": "return",
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 15,
+                              "column": 9
+                            }
+                          }
+                        ],
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 13,
+                          "column": 37
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 13,
+                        "column": 7
+                      }
+                    },
+                    {
+                      "type": "expression",
+                      "expression": {
+                        "type": "increment",
+                        "expression": {
+                          "type": "identifier",
+                          "value": "index",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 17,
+                            "column": 7
+                          }
+                        },
+                        "postfix": true,
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 17,
+                          "column": 7
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 17,
+                        "column": 7
+                      }
+                    },
+                    {
+                      "type": "expression",
+                      "expression": {
+                        "type": "assignment",
+                        "operator": "=",
+                        "left": {
+                          "type": "pattern_identifier",
+                          "name": "index",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 18,
+                            "column": 7
+                          }
+                        },
+                        "right": {
+                          "type": "binary",
+                          "operator": "%",
+                          "left": {
+                            "type": "identifier",
+                            "value": "index",
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 18,
+                              "column": 15
+                            }
+                          },
+                          "right": {
+                            "type": "member",
+                            "object": {
+                              "type": "identifier",
+                              "value": "this",
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 18,
+                                "column": 23
+                              }
+                            },
+                            "property": {
+                              "type": "identifier",
+                              "value": "size",
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 18,
+                                "column": 28
+                              }
+                            },
+                            "computed": false,
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 18,
+                              "column": 23
+                            }
+                          },
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 18,
+                            "column": 21
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 18,
+                          "column": 7
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 18,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 12,
+                    "column": 44
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 12,
+                  "column": 5
+                }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "pattern_member",
+                    "object": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "this",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 20,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "keys",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 20,
+                          "column": 10
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 20,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "index",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 20,
+                        "column": 15
+                      }
+                    },
+                    "computed": true,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 20,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "key",
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 20,
+                      "column": 24
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 20,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 20,
+                  "column": 5
+                }
+              },
+              {
+                "type": "expression",
+                "expression": {
+                  "type": "assignment",
+                  "operator": "=",
+                  "left": {
+                    "type": "pattern_member",
+                    "object": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "this",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 21,
+                          "column": 5
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "values",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 21,
+                          "column": 10
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 21,
+                        "column": 5
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "index",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 21,
+                        "column": 17
+                      }
+                    },
+                    "computed": true,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 21,
+                      "column": 5
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "data",
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 21,
+                      "column": 26
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 21,
+                    "column": 5
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 21,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 10,
+              "column": 18
+            }
+          },
+          "static": false
+        },
+        {
+          "name": "get",
+          "parameters": [
+            {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "key",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 24,
+                  "column": 7
+                }
+              },
+              "name": "key"
+            }
+          ],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "variable_declaration",
+                "declarationType": "var",
+                "declarations": [
+                  {
+                    "id": {
+                      "type": "pattern_identifier",
+                      "name": "index",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 25,
+                        "column": 9
+                      }
+                    },
+                    "value": {
+                      "type": "call",
+                      "func": {
+                        "type": "member",
+                        "object": {
+                          "type": "identifier",
+                          "value": "this",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 25,
+                            "column": 17
+                          }
+                        },
+                        "property": {
+                          "type": "identifier",
+                          "value": "hashFunction",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 25,
+                            "column": 22
+                          }
+                        },
+                        "computed": false,
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 25,
+                          "column": 17
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "identifier",
+                          "value": "key",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 25,
+                            "column": 35
+                          }
+                        }
+                      ],
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 25,
+                        "column": 34
+                      }
+                    }
+                  }
+                ],
+                "varType": "let",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 25,
+                  "column": 5
+                }
+              },
+              {
+                "type": "while",
+                "condition": {
+                  "type": "binary",
+                  "operator": "!==",
+                  "left": {
+                    "type": "member",
+                    "object": {
+                      "type": "member",
+                      "object": {
+                        "type": "identifier",
+                        "value": "this",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 26,
+                          "column": 12
+                        }
+                      },
+                      "property": {
+                        "type": "identifier",
+                        "value": "keys",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 26,
+                          "column": 17
+                        }
+                      },
+                      "computed": false,
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 26,
+                        "column": 12
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "index",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 26,
+                        "column": 22
+                      }
+                    },
+                    "computed": true,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 26,
+                      "column": 12
+                    }
+                  },
+                  "right": {
+                    "type": "identifier",
+                    "value": "undefined",
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 26,
+                      "column": 33
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 26,
+                    "column": 29
+                  }
+                },
+                "body": {
+                  "type": "block",
+                  "body": [
+                    {
+                      "type": "if",
+                      "condition": {
+                        "type": "binary",
+                        "operator": "===",
+                        "left": {
+                          "type": "member",
+                          "object": {
+                            "type": "member",
+                            "object": {
+                              "type": "identifier",
+                              "value": "this",
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 27,
+                                "column": 11
+                              }
+                            },
+                            "property": {
+                              "type": "identifier",
+                              "value": "keys",
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 27,
+                                "column": 16
+                              }
+                            },
+                            "computed": false,
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 27,
+                              "column": 11
+                            }
+                          },
+                          "property": {
+                            "type": "identifier",
+                            "value": "index",
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 27,
+                              "column": 21
+                            }
+                          },
+                          "computed": true,
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 27,
+                            "column": 11
+                          }
+                        },
+                        "right": {
+                          "type": "identifier",
+                          "value": "key",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 27,
+                            "column": 32
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 27,
+                          "column": 28
+                        }
+                      },
+                      "ifBody": {
+                        "type": "block",
+                        "body": [
+                          {
+                            "type": "return",
+                            "expression": {
+                              "type": "member",
+                              "object": {
+                                "type": "member",
+                                "object": {
+                                  "type": "identifier",
+                                  "value": "this",
+                                  "location": {
+                                    "file": "./integration_tests/tests/hashtable.js",
+                                    "line": 28,
+                                    "column": 16
+                                  }
+                                },
+                                "property": {
+                                  "type": "identifier",
+                                  "value": "values",
+                                  "location": {
+                                    "file": "./integration_tests/tests/hashtable.js",
+                                    "line": 28,
+                                    "column": 21
+                                  }
+                                },
+                                "computed": false,
+                                "location": {
+                                  "file": "./integration_tests/tests/hashtable.js",
+                                  "line": 28,
+                                  "column": 16
+                                }
+                              },
+                              "property": {
+                                "type": "identifier",
+                                "value": "index",
+                                "location": {
+                                  "file": "./integration_tests/tests/hashtable.js",
+                                  "line": 28,
+                                  "column": 28
+                                }
+                              },
+                              "computed": true,
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 28,
+                                "column": 16
+                              }
+                            },
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 28,
+                              "column": 9
+                            }
+                          }
+                        ],
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 27,
+                          "column": 37
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 27,
+                        "column": 7
+                      }
+                    },
+                    {
+                      "type": "expression",
+                      "expression": {
+                        "type": "increment",
+                        "expression": {
+                          "type": "identifier",
+                          "value": "index",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 30,
+                            "column": 7
+                          }
+                        },
+                        "postfix": true,
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 30,
+                          "column": 7
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 30,
+                        "column": 7
+                      }
+                    },
+                    {
+                      "type": "expression",
+                      "expression": {
+                        "type": "assignment",
+                        "operator": "=",
+                        "left": {
+                          "type": "pattern_identifier",
+                          "name": "index",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 31,
+                            "column": 7
+                          }
+                        },
+                        "right": {
+                          "type": "binary",
+                          "operator": "%",
+                          "left": {
+                            "type": "identifier",
+                            "value": "index",
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 31,
+                              "column": 15
+                            }
+                          },
+                          "right": {
+                            "type": "member",
+                            "object": {
+                              "type": "identifier",
+                              "value": "this",
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 31,
+                                "column": 23
+                              }
+                            },
+                            "property": {
+                              "type": "identifier",
+                              "value": "size",
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 31,
+                                "column": 28
+                              }
+                            },
+                            "computed": false,
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 31,
+                              "column": 23
+                            }
+                          },
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 31,
+                            "column": 21
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 31,
+                          "column": 7
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 31,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 26,
+                    "column": 44
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 26,
+                  "column": 5
+                }
+              },
+              {
+                "type": "return",
+                "expression": {
+                  "type": "identifier",
+                  "value": "undefined",
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 33,
+                    "column": 12
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 33,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 24,
+              "column": 12
+            }
+          },
+          "static": false
+        },
+        {
+          "name": "hashFunction",
+          "parameters": [
+            {
+              "pattern": {
+                "type": "pattern_identifier",
+                "name": "key",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 36,
+                  "column": 16
+                }
+              },
+              "name": "key"
+            }
+          ],
+          "body": {
+            "type": "block",
+            "body": [
+              {
+                "type": "variable_declaration",
+                "declarationType": "var",
+                "declarations": [
+                  {
+                    "id": {
+                      "type": "pattern_identifier",
+                      "name": "sum",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 37,
+                        "column": 9
+                      }
+                    },
+                    "value": {
+                      "type": "number",
+                      "value": 0,
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 37,
+                        "column": 15
+                      }
+                    }
+                  }
+                ],
+                "varType": "let",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 37,
+                  "column": 5
+                }
+              },
+              {
+                "type": "for",
+                "init": {
+                  "type": "variable_declaration",
+                  "declarationType": "var",
+                  "declarations": [
+                    {
+                      "id": {
+                        "type": "pattern_identifier",
+                        "name": "i",
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 38,
+                          "column": 14
+                        }
+                      },
+                      "value": {
+                        "type": "number",
+                        "value": 0,
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 38,
+                          "column": 18
+                        }
+                      }
+                    }
+                  ],
+                  "varType": "let",
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 38,
+                    "column": 10
+                  }
+                },
+                "test": {
+                  "type": "binary",
+                  "operator": "<",
+                  "left": {
+                    "type": "identifier",
+                    "value": "i",
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 38,
+                      "column": 21
+                    }
+                  },
+                  "right": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "key",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 38,
+                        "column": 25
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "length",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 38,
+                        "column": 29
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 38,
+                      "column": 25
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 38,
+                    "column": 23
+                  }
+                },
+                "update": {
+                  "type": "increment",
+                  "expression": {
+                    "type": "identifier",
+                    "value": "i",
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 38,
+                      "column": 37
+                    }
+                  },
+                  "postfix": true,
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 38,
+                    "column": 37
+                  }
+                },
+                "body": {
+                  "type": "block",
+                  "body": [
+                    {
+                      "type": "expression",
+                      "expression": {
+                        "type": "assignment",
+                        "operator": "=",
+                        "left": {
+                          "type": "pattern_identifier",
+                          "name": "sum",
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 39,
+                            "column": 7
+                          }
+                        },
+                        "right": {
+                          "type": "binary",
+                          "operator": "+",
+                          "left": {
+                            "type": "identifier",
+                            "value": "sum",
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 39,
+                              "column": 13
+                            }
+                          },
+                          "right": {
+                            "type": "call",
+                            "func": {
+                              "type": "member",
+                              "object": {
+                                "type": "identifier",
+                                "value": "key",
+                                "location": {
+                                  "file": "./integration_tests/tests/hashtable.js",
+                                  "line": 39,
+                                  "column": 19
+                                }
+                              },
+                              "property": {
+                                "type": "identifier",
+                                "value": "charCodeAt",
+                                "location": {
+                                  "file": "./integration_tests/tests/hashtable.js",
+                                  "line": 39,
+                                  "column": 23
+                                }
+                              },
+                              "computed": false,
+                              "location": {
+                                "file": "./integration_tests/tests/hashtable.js",
+                                "line": 39,
+                                "column": 19
+                              }
+                            },
+                            "arguments": [
+                              {
+                                "type": "identifier",
+                                "value": "i",
+                                "location": {
+                                  "file": "./integration_tests/tests/hashtable.js",
+                                  "line": 39,
+                                  "column": 34
+                                }
+                              }
+                            ],
+                            "location": {
+                              "file": "./integration_tests/tests/hashtable.js",
+                              "line": 39,
+                              "column": 33
+                            }
+                          },
+                          "location": {
+                            "file": "./integration_tests/tests/hashtable.js",
+                            "line": 39,
+                            "column": 17
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/tests/hashtable.js",
+                          "line": 39,
+                          "column": 7
+                        }
+                      },
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 39,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 38,
+                    "column": 42
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 38,
+                  "column": 5
+                }
+              },
+              {
+                "type": "return",
+                "expression": {
+                  "type": "binary",
+                  "operator": "%",
+                  "left": {
+                    "type": "identifier",
+                    "value": "sum",
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 41,
+                      "column": 12
+                    }
+                  },
+                  "right": {
+                    "type": "member",
+                    "object": {
+                      "type": "identifier",
+                      "value": "this",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 41,
+                        "column": 18
+                      }
+                    },
+                    "property": {
+                      "type": "identifier",
+                      "value": "size",
+                      "location": {
+                        "file": "./integration_tests/tests/hashtable.js",
+                        "line": 41,
+                        "column": 23
+                      }
+                    },
+                    "computed": false,
+                    "location": {
+                      "file": "./integration_tests/tests/hashtable.js",
+                      "line": 41,
+                      "column": 18
+                    }
+                  },
+                  "location": {
+                    "file": "./integration_tests/tests/hashtable.js",
+                    "line": 41,
+                    "column": 16
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 41,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 36,
+              "column": 21
+            }
+          },
+          "static": false
+        }
+      ],
+      "location": {
+        "file": "./integration_tests/tests/hashtable.js",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "t",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 45,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "new",
+            "identifier": "HashTable",
+            "arguments": [],
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 45,
+              "column": 11
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/hashtable.js",
+        "line": 45,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "t",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 46,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "put",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 46,
+              "column": 3
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/hashtable.js",
+            "line": 46,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "apple",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 46,
+              "column": 7
+            }
+          },
+          {
+            "type": "number",
+            "value": 10,
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 46,
+              "column": 16
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/hashtable.js",
+          "line": 46,
+          "column": 6
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/hashtable.js",
+        "line": 46,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "t",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 47,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "put",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 47,
+              "column": 3
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/hashtable.js",
+            "line": 47,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "orange",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 47,
+              "column": 7
+            }
+          },
+          {
+            "type": "number",
+            "value": 20,
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 47,
+              "column": 17
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/hashtable.js",
+          "line": 47,
+          "column": 6
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/hashtable.js",
+        "line": 47,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "t",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 48,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "put",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 48,
+              "column": 3
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/hashtable.js",
+            "line": 48,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "banana",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 48,
+              "column": 7
+            }
+          },
+          {
+            "type": "number",
+            "value": 30,
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 48,
+              "column": 17
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/hashtable.js",
+          "line": 48,
+          "column": 6
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/hashtable.js",
+        "line": 48,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 49,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 49,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "location": {
+            "file": "./integration_tests/tests/hashtable.js",
+            "line": 49,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "t",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 49,
+                  "column": 13
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "get",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 49,
+                  "column": 15
+                }
+              },
+              "computed": false,
+              "location": {
+                "file": "./integration_tests/tests/hashtable.js",
+                "line": 49,
+                "column": 13
+              }
+            },
+            "arguments": [
+              {
+                "type": "string",
+                "value": "orange",
+                "location": {
+                  "file": "./integration_tests/tests/hashtable.js",
+                  "line": 49,
+                  "column": 19
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/hashtable.js",
+              "line": 49,
+              "column": 18
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/hashtable.js",
+          "line": 49,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/hashtable.js",
+        "line": 49,
+        "column": 1
+      }
+    }
+  ]
+}
