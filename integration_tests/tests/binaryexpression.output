@@ -1,0 +1,25 @@
+--- Arithmetic ---
+5 + 2: 7
+5 - 2: 3
+5 * 2: 10
+5 / 2: 2.5
+5 % 2: 1
+--- Comparison ---
+5 < 2: false
+5 <= 5: true
+5 > 2: true
+5 >= 6: false
+--- Logical ---
+true || false: true
+false && true: false
+null ?? 'x': x
+0 ?? 123: 0
+--- String Concatenation ---
+'hello' + ' world': hello world
+'num: ' + 5: num: 5
+--- `in` operator ---
+'a' in obj: true
+'missing' in obj: false
+0 in arr: true
+3 in arr: false
+'length' in arr: true

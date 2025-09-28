@@ -1,0 +1,10 @@
+null ?? 'fallback': fallback
+undefined ?? 'fallback': fallback
+0 ?? 123: 0
+'' ?? 'hi': 
+false ?? true: false
+null ?? undefined ?? 'ok': ok
+(null ?? 1) + 2: 3
+(0 ?? 1) + 2: 2
+true || (null ?? 'x'): true
+false && (null ?? 'x'): false

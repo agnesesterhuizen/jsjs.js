@@ -122,6 +122,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/comments.js",
             "line": 20,

@@ -72,6 +72,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/if.js",
                   "line": 6,
@@ -136,6 +137,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/if.js",
                   "line": 8,
@@ -252,6 +254,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/if.js",
                   "line": 14,
@@ -316,6 +319,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/if.js",
                   "line": 16,

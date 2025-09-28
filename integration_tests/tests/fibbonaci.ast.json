@@ -353,6 +353,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/fibbonaci.js",
             "line": 15,

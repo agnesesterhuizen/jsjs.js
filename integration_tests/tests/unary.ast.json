@@ -26,6 +26,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 4,
@@ -89,6 +90,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 5,
@@ -152,6 +154,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 6,
@@ -215,6 +218,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 7,
@@ -278,6 +282,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 8,
@@ -341,6 +346,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 9,
@@ -404,6 +410,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 10,
@@ -466,6 +473,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 11,
@@ -529,6 +537,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 14,
@@ -592,6 +601,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 15,
@@ -654,6 +664,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 16,
@@ -717,6 +728,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 17,
@@ -780,6 +792,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 18,
@@ -843,6 +856,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 19,
@@ -906,6 +920,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 20,
@@ -988,6 +1003,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 23,
@@ -1051,6 +1067,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 26,
@@ -1114,6 +1131,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 27,
@@ -1177,6 +1195,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 28,
@@ -1240,6 +1259,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 29,
@@ -1303,6 +1323,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 30,
@@ -1365,6 +1386,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 31,
@@ -1428,6 +1450,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 32,
@@ -1491,6 +1514,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 35,
@@ -1545,6 +1569,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 36,
@@ -1608,6 +1633,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 37,
@@ -1671,6 +1697,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 38,
@@ -1734,6 +1761,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 39,
@@ -1797,6 +1825,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 40,
@@ -1859,6 +1888,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 41,
@@ -1922,6 +1952,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 44,
@@ -1994,6 +2025,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 45,
@@ -2066,6 +2098,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 46,
@@ -2138,6 +2171,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 47,
@@ -2209,6 +2243,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 48,
@@ -2281,6 +2316,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 49,
@@ -2353,6 +2389,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 50,
@@ -2453,6 +2490,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 51,
@@ -2534,6 +2572,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 54,
@@ -2606,6 +2645,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 55,
@@ -2678,6 +2718,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 56,
@@ -2750,6 +2791,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/unary.js",
             "line": 57,

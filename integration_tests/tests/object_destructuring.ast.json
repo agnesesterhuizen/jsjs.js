@@ -183,6 +183,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/object_destructuring.js",
             "line": 11,
@@ -352,6 +353,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/object_destructuring.js",
             "line": 17,
@@ -561,6 +563,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/object_destructuring.js",
             "line": 25,
@@ -738,6 +741,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/object_destructuring.js",
             "line": 32,
@@ -793,6 +797,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/object_destructuring.js",
               "line": 36,
@@ -820,6 +825,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/object_destructuring.js",
               "line": 37,
@@ -847,6 +853,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/object_destructuring.js",
               "line": 38,
@@ -1082,6 +1089,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/object_destructuring.js",
                   "line": 54,

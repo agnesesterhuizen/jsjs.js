@@ -231,6 +231,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/inheritance.js",
                       "line": 9,
@@ -353,6 +354,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/inheritance.js",
                     "line": 13,
@@ -447,6 +449,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/inheritance.js",
                   "line": 17,
@@ -659,6 +662,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/inheritance.js",
               "line": 22,
@@ -687,6 +691,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/inheritance.js",
                 "line": 22,
@@ -883,6 +888,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/inheritance.js",
                             "line": 26,
@@ -931,6 +937,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/inheritance.js",
                         "line": 26,
@@ -1066,6 +1073,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/inheritance.js",
             "line": 31,
@@ -1103,6 +1111,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/inheritance.js",
               "line": 31,
@@ -1147,6 +1156,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/inheritance.js",
             "line": 32,
@@ -1184,6 +1194,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/inheritance.js",
               "line": 32,
@@ -1228,6 +1239,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/inheritance.js",
             "line": 33,
@@ -1267,6 +1279,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/inheritance.js",
                 "line": 33,
@@ -1318,6 +1331,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/inheritance.js",
             "line": 34,
@@ -1357,6 +1371,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/inheritance.js",
                 "line": 34,
@@ -1408,6 +1423,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/inheritance.js",
             "line": 35,
@@ -1451,6 +1467,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/inheritance.js",
                     "line": 37,
@@ -1467,6 +1484,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/inheritance.js",
                   "line": 37,
@@ -1483,6 +1501,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/inheritance.js",
                 "line": 37,
@@ -1554,6 +1573,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/inheritance.js",
             "line": 39,
@@ -1594,6 +1614,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/inheritance.js",
                 "line": 39,
@@ -1653,6 +1674,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/inheritance.js",
             "line": 40,
@@ -1695,6 +1717,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/inheritance.js",
                   "line": 42,
@@ -1739,6 +1762,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/inheritance.js",
                 "line": 42,
@@ -1789,6 +1813,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/inheritance.js",
             "line": 44,
@@ -1831,6 +1856,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/inheritance.js",
                   "line": 46,
@@ -1861,6 +1887,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/inheritance.js",
                       "line": 46,
@@ -1912,6 +1939,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/inheritance.js",
                 "line": 46,

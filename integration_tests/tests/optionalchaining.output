@@ -1,0 +1,5 @@
+obj?.x?.y?.z: 42
+obj?.missing?.z: undefined
+nil?.x: undefined
+obj?.x?.y.fn(): called!
+obj?.x?.y?.missing?.fn: undefined

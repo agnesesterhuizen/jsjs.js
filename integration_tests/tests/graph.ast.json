@@ -230,6 +230,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/graph.js",
                       "line": 11,
@@ -329,6 +330,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/graph.js",
                   "line": 13,
@@ -379,6 +381,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/graph.js",
                           "line": 14,
@@ -1003,6 +1006,7 @@
                                 }
                               },
                               "computed": true,
+                              "optional": false,
                               "location": {
                                 "file": "./integration_tests/tests/graph.js",
                                 "line": 33,
@@ -1047,6 +1051,7 @@
                                 }
                               },
                               "computed": true,
+                              "optional": false,
                               "location": {
                                 "file": "./integration_tests/tests/graph.js",
                                 "line": 34,
@@ -1083,6 +1088,7 @@
                                 }
                               },
                               "computed": true,
+                              "optional": false,
                               "location": {
                                 "file": "./integration_tests/tests/graph.js",
                                 "line": 34,
@@ -1183,6 +1189,7 @@
                                     }
                                   },
                                   "computed": true,
+                                  "optional": false,
                                   "location": {
                                     "file": "./integration_tests/tests/graph.js",
                                     "line": 36,
@@ -1315,6 +1322,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/graph.js",
                           "line": 42,
@@ -1367,6 +1375,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/graph.js",
                             "line": 43,
@@ -1466,6 +1475,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/graph.js",
                         "line": 45,
@@ -1516,6 +1526,7 @@
                                 }
                               },
                               "computed": true,
+                              "optional": false,
                               "location": {
                                 "file": "./integration_tests/tests/graph.js",
                                 "line": 46,
@@ -1566,6 +1577,7 @@
                                 }
                               },
                               "computed": true,
+                              "optional": false,
                               "location": {
                                 "file": "./integration_tests/tests/graph.js",
                                 "line": 47,
@@ -1666,6 +1678,7 @@
                               }
                             },
                             "computed": true,
+                            "optional": false,
                             "location": {
                               "file": "./integration_tests/tests/graph.js",
                               "line": 49,
@@ -2251,6 +2264,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/graph.js",
             "line": 74,

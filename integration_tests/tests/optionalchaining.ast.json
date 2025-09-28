@@ -1,0 +1,710 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "obj",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 1,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "object",
+                "properties": {
+                  "y": {
+                    "type": "object",
+                    "properties": {
+                      "z": {
+                        "type": "number",
+                        "value": 42,
+                        "location": {
+                          "file": "./integration_tests/tests/optionalchaining.js",
+                          "line": 4,
+                          "column": 10
+                        }
+                      },
+                      "fn": {
+                        "type": "function",
+                        "parameters": [],
+                        "body": {
+                          "type": "block",
+                          "body": [
+                            {
+                              "type": "return",
+                              "expression": {
+                                "type": "string",
+                                "value": "called!",
+                                "location": {
+                                  "file": "./integration_tests/tests/optionalchaining.js",
+                                  "line": 6,
+                                  "column": 16
+                                }
+                              },
+                              "location": {
+                                "file": "./integration_tests/tests/optionalchaining.js",
+                                "line": 6,
+                                "column": 9
+                              }
+                            }
+                          ],
+                          "location": {
+                            "file": "./integration_tests/tests/optionalchaining.js",
+                            "line": 5,
+                            "column": 12
+                          }
+                        },
+                        "location": {
+                          "file": "./integration_tests/tests/optionalchaining.js",
+                          "line": 5,
+                          "column": 7
+                        }
+                      }
+                    },
+                    "location": {
+                      "file": "./integration_tests/tests/optionalchaining.js",
+                      "line": 3,
+                      "column": 8
+                    }
+                  }
+                },
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 2,
+                  "column": 6
+                }
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 1,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/optionalchaining.js",
+        "line": 1,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "nil",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 12,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "null",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 12,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/optionalchaining.js",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 15,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 15,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/optionalchaining.js",
+            "line": 15,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "obj?.x?.y?.z:",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 15,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "member",
+              "object": {
+                "type": "member",
+                "object": {
+                  "type": "identifier",
+                  "value": "obj",
+                  "location": {
+                    "file": "./integration_tests/tests/optionalchaining.js",
+                    "line": 15,
+                    "column": 30
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "x",
+                  "location": {
+                    "file": "./integration_tests/tests/optionalchaining.js",
+                    "line": 15,
+                    "column": 35
+                  }
+                },
+                "computed": false,
+                "optional": true,
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 15,
+                  "column": 30
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "y",
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 15,
+                  "column": 38
+                }
+              },
+              "computed": false,
+              "optional": true,
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 15,
+                "column": 30
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "z",
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 15,
+                "column": 41
+              }
+            },
+            "computed": false,
+            "optional": true,
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 15,
+              "column": 30
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/optionalchaining.js",
+          "line": 15,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/optionalchaining.js",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 16,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 16,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/optionalchaining.js",
+            "line": 16,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "obj?.missing?.z:",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 16,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "member",
+              "object": {
+                "type": "identifier",
+                "value": "obj",
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 16,
+                  "column": 33
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "missing",
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 16,
+                  "column": 38
+                }
+              },
+              "computed": false,
+              "optional": true,
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 16,
+                "column": 33
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "z",
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 16,
+                "column": 47
+              }
+            },
+            "computed": false,
+            "optional": true,
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 16,
+              "column": 33
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/optionalchaining.js",
+          "line": 16,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/optionalchaining.js",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 17,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 17,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/optionalchaining.js",
+            "line": 17,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "nil?.x:",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 17,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "identifier",
+              "value": "nil",
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 17,
+                "column": 24
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "x",
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 17,
+                "column": 29
+              }
+            },
+            "computed": false,
+            "optional": true,
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 17,
+              "column": 24
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/optionalchaining.js",
+          "line": 17,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/optionalchaining.js",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 20,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 20,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/optionalchaining.js",
+            "line": 20,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "obj?.x?.y.fn():",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 20,
+              "column": 13
+            }
+          },
+          {
+            "type": "call",
+            "func": {
+              "type": "member",
+              "object": {
+                "type": "member",
+                "object": {
+                  "type": "member",
+                  "object": {
+                    "type": "identifier",
+                    "value": "obj",
+                    "location": {
+                      "file": "./integration_tests/tests/optionalchaining.js",
+                      "line": 20,
+                      "column": 32
+                    }
+                  },
+                  "property": {
+                    "type": "identifier",
+                    "value": "x",
+                    "location": {
+                      "file": "./integration_tests/tests/optionalchaining.js",
+                      "line": 20,
+                      "column": 37
+                    }
+                  },
+                  "computed": false,
+                  "optional": true,
+                  "location": {
+                    "file": "./integration_tests/tests/optionalchaining.js",
+                    "line": 20,
+                    "column": 32
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "y",
+                  "location": {
+                    "file": "./integration_tests/tests/optionalchaining.js",
+                    "line": 20,
+                    "column": 40
+                  }
+                },
+                "computed": false,
+                "optional": true,
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 20,
+                  "column": 32
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "fn",
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 20,
+                  "column": 42
+                }
+              },
+              "computed": false,
+              "optional": false,
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 20,
+                "column": 32
+              }
+            },
+            "arguments": [],
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 20,
+              "column": 44
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/optionalchaining.js",
+          "line": 20,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/optionalchaining.js",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 23,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 23,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/optionalchaining.js",
+            "line": 23,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "obj?.x?.y?.missing?.fn:",
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 23,
+              "column": 13
+            }
+          },
+          {
+            "type": "member",
+            "object": {
+              "type": "member",
+              "object": {
+                "type": "member",
+                "object": {
+                  "type": "member",
+                  "object": {
+                    "type": "identifier",
+                    "value": "obj",
+                    "location": {
+                      "file": "./integration_tests/tests/optionalchaining.js",
+                      "line": 23,
+                      "column": 40
+                    }
+                  },
+                  "property": {
+                    "type": "identifier",
+                    "value": "x",
+                    "location": {
+                      "file": "./integration_tests/tests/optionalchaining.js",
+                      "line": 23,
+                      "column": 45
+                    }
+                  },
+                  "computed": false,
+                  "optional": true,
+                  "location": {
+                    "file": "./integration_tests/tests/optionalchaining.js",
+                    "line": 23,
+                    "column": 40
+                  }
+                },
+                "property": {
+                  "type": "identifier",
+                  "value": "y",
+                  "location": {
+                    "file": "./integration_tests/tests/optionalchaining.js",
+                    "line": 23,
+                    "column": 48
+                  }
+                },
+                "computed": false,
+                "optional": true,
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 23,
+                  "column": 40
+                }
+              },
+              "property": {
+                "type": "identifier",
+                "value": "missing",
+                "location": {
+                  "file": "./integration_tests/tests/optionalchaining.js",
+                  "line": 23,
+                  "column": 51
+                }
+              },
+              "computed": false,
+              "optional": true,
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 23,
+                "column": 40
+              }
+            },
+            "property": {
+              "type": "identifier",
+              "value": "fn",
+              "location": {
+                "file": "./integration_tests/tests/optionalchaining.js",
+                "line": 23,
+                "column": 60
+              }
+            },
+            "computed": false,
+            "optional": true,
+            "location": {
+              "file": "./integration_tests/tests/optionalchaining.js",
+              "line": 23,
+              "column": 40
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/optionalchaining.js",
+          "line": 23,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/optionalchaining.js",
+        "line": 23,
+        "column": 1
+      }
+    }
+  ]
+}

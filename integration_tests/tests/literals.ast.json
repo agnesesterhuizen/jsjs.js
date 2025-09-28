@@ -26,6 +26,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 3,
@@ -80,6 +81,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 4,
@@ -134,6 +136,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 5,
@@ -188,6 +191,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 6,
@@ -242,6 +246,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 7,
@@ -299,6 +304,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 8,
@@ -353,6 +359,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 9,
@@ -407,6 +414,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 10,
@@ -489,6 +497,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/literals.js",
             "line": 11,

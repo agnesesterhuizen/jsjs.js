@@ -19,7 +19,9 @@ export type Operator =
   | "||"
   | "|"
   | "&&"
-  | "&";
+  | "&"
+  | "??"
+  | "in";
 
 export const TOKEN_TO_OPERATOR: Partial<Record<TokenType, Operator>> = {
   plus: "+",
@@ -42,11 +44,30 @@ export const TOKEN_TO_OPERATOR: Partial<Record<TokenType, Operator>> = {
   logical_or: "|",
   and: "&&",
   logical_and: "&",
+
+  nullish_coalescing: "??",
+};
+
+export const isOperatorToken = (token?: Token): boolean => {
+  if (!token) {
+    return false;
+  }
+  if (token.type === "keyword" && token.value === "in") {
+    return true;
+  }
+  return token.type in TOKEN_TO_OPERATOR;
 };
 
 export type AssignmentOperator = "=" | "+=" | "-=" | "*=" | "/=";
 
 export const getOperatorFromToken = (token: Token): Operator => {
+  if (token.type === "keyword") {
+    if (token.value === "in") {
+      return "in";
+    }
+    throw new Error("not an operator: " + token.value);
+  }
+
   const op = TOKEN_TO_OPERATOR[token.type];
   if (!op) {
     throw new Error("not an operator: " + token.type);
@@ -54,6 +75,7 @@ export const getOperatorFromToken = (token: Token): Operator => {
   return op;
 };
 export const OPERATOR_PRECEDENCE: Record<Operator, number> = {
+  "??": 1,
   "||": 1,
   "&&": 2,
   "|": 3,
@@ -66,11 +88,14 @@ export const OPERATOR_PRECEDENCE: Record<Operator, number> = {
   "<=": 7,
   ">": 7,
   ">=": 7,
-  "+": 8,
-  "-": 8,
-  "*": 9,
-  "/": 9,
-  "%": 9,
+
+  in: 8,
+
+  "+": 9,
+  "-": 9,
+  "*": 10,
+  "/": 10,
+  "%": 10,
 };
 export type Parameter = {
   pattern: Pattern;
@@ -170,6 +195,7 @@ export type Expression = WithLocation<
       object: Expression;
       property: Expression;
       computed: boolean;
+      optional: boolean;
     }
   | { type: "unary"; operator: UnaryOperator; expression: Expression }
   | { type: "binary"; left: Expression; right: Expression; operator: Operator }

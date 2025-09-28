@@ -1,0 +1,2021 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "obj",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 1,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/binaryexpression.js",
+                  "line": 1,
+                  "column": 18
+                }
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 1,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 1,
+        "column": 1
+      }
+    },
+    {
+      "type": "variable_declaration",
+      "declarationType": "var",
+      "declarations": [
+        {
+          "id": {
+            "type": "pattern_identifier",
+            "name": "arr",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 2,
+              "column": 7
+            }
+          },
+          "value": {
+            "type": "array",
+            "elements": [
+              {
+                "type": "number",
+                "value": 10,
+                "location": {
+                  "file": "./integration_tests/tests/binaryexpression.js",
+                  "line": 2,
+                  "column": 14
+                }
+              },
+              {
+                "type": "number",
+                "value": 20,
+                "location": {
+                  "file": "./integration_tests/tests/binaryexpression.js",
+                  "line": 2,
+                  "column": 18
+                }
+              },
+              {
+                "type": "number",
+                "value": 30,
+                "location": {
+                  "file": "./integration_tests/tests/binaryexpression.js",
+                  "line": 2,
+                  "column": 22
+                }
+              }
+            ],
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 2,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "varType": "const",
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 4,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 4,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 4,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "--- Arithmetic ---",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 4,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 4,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 5,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 5,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 5,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 + 2:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 5,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "+",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 5,
+                "column": 23
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 5,
+                "column": 27
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 5,
+              "column": 25
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 5,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 6,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 6,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 6,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 - 2:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 6,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "-",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 6,
+                "column": 23
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 6,
+                "column": 27
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 6,
+              "column": 25
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 6,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 7,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 7,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 7,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 * 2:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 7,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "*",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 7,
+                "column": 23
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 7,
+                "column": 27
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 7,
+              "column": 25
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 7,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 8,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 8,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 8,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 / 2:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 8,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "/",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 8,
+                "column": 23
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 8,
+                "column": 27
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 8,
+              "column": 25
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 8,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 9,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 9,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 9,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 % 2:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 9,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "%",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 9,
+                "column": 23
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 9,
+                "column": 27
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 9,
+              "column": 25
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 9,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 11,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 11,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 11,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "--- Comparison ---",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 11,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 11,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 12,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 12,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 12,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 < 2:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 12,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "<",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 12,
+                "column": 23
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 12,
+                "column": 27
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 12,
+              "column": 25
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 12,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 13,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 13,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 13,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 <= 5:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 13,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "<=",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 13,
+                "column": 24
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 13,
+                "column": 29
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 13,
+              "column": 26
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 13,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 14,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 14,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 14,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 > 2:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 14,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": ">",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 14,
+                "column": 23
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 14,
+                "column": 27
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 14,
+              "column": 25
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 14,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 15,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 15,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 15,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "5 >= 6:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 15,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": ">=",
+            "left": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 15,
+                "column": 24
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 6,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 15,
+                "column": 29
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 15,
+              "column": 26
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 15,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 24,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 24,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 24,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "--- Logical ---",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 24,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 24,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 24,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 25,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 25,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 25,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "true || false:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 25,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "||",
+            "left": {
+              "type": "boolean",
+              "value": true,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 25,
+                "column": 31
+              }
+            },
+            "right": {
+              "type": "boolean",
+              "value": false,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 25,
+                "column": 39
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 25,
+              "column": 36
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 25,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 26,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 26,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 26,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "false && true:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 26,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "&&",
+            "left": {
+              "type": "boolean",
+              "value": false,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 26,
+                "column": 31
+              }
+            },
+            "right": {
+              "type": "boolean",
+              "value": true,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 26,
+                "column": 40
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 26,
+              "column": 37
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 26,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 27,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 27,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 27,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "null ?? 'x':",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 27,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "??",
+            "left": {
+              "type": "null",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 27,
+                "column": 29
+              }
+            },
+            "right": {
+              "type": "string",
+              "value": "x",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 27,
+                "column": 37
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 27,
+              "column": 34
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 27,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 28,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 28,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 28,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "0 ?? 123:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 28,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "??",
+            "left": {
+              "type": "number",
+              "value": 0,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 28,
+                "column": 26
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 123,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 28,
+                "column": 31
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 28,
+              "column": 28
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 28,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 30,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 30,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 30,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "--- String Concatenation ---",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 30,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 30,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 31,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 31,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 31,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "'hello' + ' world':",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 31,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "+",
+            "left": {
+              "type": "string",
+              "value": "hello",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 31,
+                "column": 36
+              }
+            },
+            "right": {
+              "type": "string",
+              "value": " world",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 31,
+                "column": 46
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 31,
+              "column": 44
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 31,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 32,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 32,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 32,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "'num: ' + 5:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 32,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "+",
+            "left": {
+              "type": "string",
+              "value": "num: ",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 32,
+                "column": 29
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 5,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 32,
+                "column": 39
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 32,
+              "column": 37
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 32,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 34,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 34,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 34,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "--- `in` operator ---",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 34,
+              "column": 13
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 34,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 35,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 35,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 35,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "'a' in obj:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 35,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "in",
+            "left": {
+              "type": "string",
+              "value": "a",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 35,
+                "column": 28
+              }
+            },
+            "right": {
+              "type": "identifier",
+              "value": "obj",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 35,
+                "column": 35
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 35,
+              "column": 32
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 35,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 35,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 36,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 36,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 36,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "'missing' in obj:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 36,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "in",
+            "left": {
+              "type": "string",
+              "value": "missing",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 36,
+                "column": 34
+              }
+            },
+            "right": {
+              "type": "identifier",
+              "value": "obj",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 36,
+                "column": 47
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 36,
+              "column": 44
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 36,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 36,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 37,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 37,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 37,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "0 in arr:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 37,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "in",
+            "left": {
+              "type": "number",
+              "value": 0,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 37,
+                "column": 26
+              }
+            },
+            "right": {
+              "type": "identifier",
+              "value": "arr",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 37,
+                "column": 31
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 37,
+              "column": 28
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 37,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 37,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 38,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 38,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 38,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "3 in arr:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 38,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "in",
+            "left": {
+              "type": "number",
+              "value": 3,
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 38,
+                "column": 26
+              }
+            },
+            "right": {
+              "type": "identifier",
+              "value": "arr",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 38,
+                "column": 31
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 38,
+              "column": 28
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 38,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 39,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 39,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/binaryexpression.js",
+            "line": 39,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "'length' in arr:",
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 39,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "in",
+            "left": {
+              "type": "string",
+              "value": "length",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 39,
+                "column": 33
+              }
+            },
+            "right": {
+              "type": "identifier",
+              "value": "arr",
+              "location": {
+                "file": "./integration_tests/tests/binaryexpression.js",
+                "line": 39,
+                "column": 45
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/binaryexpression.js",
+              "line": 39,
+              "column": 42
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/binaryexpression.js",
+          "line": 39,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/binaryexpression.js",
+        "line": 39,
+        "column": 1
+      }
+    }
+  ]
+}

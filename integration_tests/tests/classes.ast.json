@@ -181,6 +181,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/classes.js",
                       "line": 10,
@@ -237,6 +238,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/classes.js",
                     "line": 14,
@@ -493,6 +495,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/classes.js",
                             "line": 26,
@@ -541,6 +544,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/classes.js",
                         "line": 26,
@@ -668,6 +672,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/classes.js",
             "line": 32,
@@ -705,6 +710,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/classes.js",
               "line": 32,
@@ -749,6 +755,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/classes.js",
             "line": 33,
@@ -786,6 +793,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/classes.js",
               "line": 33,
@@ -830,6 +838,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/classes.js",
             "line": 34,
@@ -869,6 +878,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/classes.js",
                 "line": 34,
@@ -920,6 +930,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/classes.js",
             "line": 35,
@@ -959,6 +970,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/classes.js",
                 "line": 35,
@@ -1010,6 +1022,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/classes.js",
             "line": 36,
@@ -1053,6 +1066,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/classes.js",
                     "line": 38,
@@ -1069,6 +1083,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/classes.js",
                   "line": 38,
@@ -1085,6 +1100,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/classes.js",
                 "line": 38,
@@ -1156,6 +1172,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/classes.js",
             "line": 40,
@@ -1196,6 +1213,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/classes.js",
                 "line": 40,
@@ -1255,6 +1273,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/classes.js",
             "line": 41,
@@ -1297,6 +1316,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/classes.js",
                   "line": 43,
@@ -1341,6 +1361,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/classes.js",
                 "line": 43,
@@ -1391,6 +1412,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/classes.js",
             "line": 45,
@@ -1433,6 +1455,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/classes.js",
                   "line": 47,
@@ -1463,6 +1486,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/classes.js",
                       "line": 47,
@@ -1514,6 +1538,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/classes.js",
                 "line": 47,

@@ -170,6 +170,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 11,
@@ -238,6 +239,7 @@
                     }
                   },
                   "computed": true,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/regex.js",
                     "line": 12,
@@ -343,6 +345,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/regex.js",
                       "line": 14,
@@ -414,6 +417,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/regex.js",
                         "line": 16,
@@ -442,6 +446,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/regex.js",
                           "line": 16,
@@ -486,6 +491,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/regex.js",
                         "line": 17,
@@ -514,6 +520,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/regex.js",
                           "line": 17,
@@ -558,6 +565,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/regex.js",
                         "line": 18,
@@ -586,6 +594,7 @@
                           }
                         },
                         "computed": false,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/regex.js",
                           "line": 18,
@@ -640,6 +649,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/regex.js",
                         "line": 20,
@@ -720,6 +730,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 24,
@@ -748,6 +759,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/regex.js",
               "line": 24,
@@ -792,6 +804,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 25,
@@ -820,6 +833,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/regex.js",
               "line": 25,
@@ -864,6 +878,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 26,
@@ -894,6 +909,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/regex.js",
                 "line": 26,
@@ -978,6 +994,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 29,
@@ -1008,6 +1025,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/regex.js",
                 "line": 29,
@@ -1069,6 +1087,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 30,
@@ -1099,6 +1118,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/regex.js",
                 "line": 30,
@@ -1213,6 +1233,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 32,
@@ -1243,6 +1264,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/regex.js",
                 "line": 32,
@@ -1294,6 +1316,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 33,
@@ -1322,6 +1345,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/regex.js",
               "line": 33,
@@ -1366,6 +1390,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/regex.js",
             "line": 34,
@@ -1394,6 +1419,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/regex.js",
               "line": 34,

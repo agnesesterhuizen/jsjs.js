@@ -279,6 +279,7 @@ Deno.test("parser: expressions", async (t) => {
         computed: false,
       })
     );
+
     await t.step("parses member expression - nested", () =>
       textExpression("a.b.c;", {
         type: "member",
@@ -300,6 +301,7 @@ Deno.test("parser: expressions", async (t) => {
         computed: true,
       })
     );
+
     await t.step(
       "parses computed member expression - object property as key",
       () =>
@@ -325,6 +327,32 @@ Deno.test("parser: expressions", async (t) => {
           },
           computed: true,
         })
+    );
+
+    await t.step("parses member expression with optional chaining", () =>
+      textExpression("a?.b;", {
+        type: "member",
+        object: { type: "identifier", value: "a" },
+        property: { type: "identifier", value: "b" },
+        computed: false,
+        optional: true,
+      })
+    );
+
+    await t.step("parses nested member expression with optional chaining", () =>
+      textExpression("a?.b?.c;", {
+        type: "member",
+        object: {
+          type: "member",
+          object: { type: "identifier", value: "a" },
+          property: { type: "identifier", value: "b" },
+          computed: false,
+          optional: true,
+        },
+        property: { type: "identifier", value: "c" },
+        computed: false,
+        optional: true,
+      })
     );
   });
 
@@ -359,6 +387,21 @@ Deno.test("parser: expressions", async (t) => {
         arguments: [],
       })
     );
+
+    await t.step("parses call member expression with optional chaining", () =>
+      textExpression("a?.b();", {
+        type: "call",
+        func: {
+          type: "member",
+          object: { type: "identifier", value: "a" },
+          property: { type: "identifier", value: "b" },
+          computed: false,
+          optional: true,
+        },
+        arguments: [],
+      })
+    );
+
     await t.step("parses call member expression on literal", () =>
       textExpression(`[10, 20, 30].forEach(() => {});`, {
         type: "call",
@@ -463,78 +506,91 @@ Deno.test("parser: expressions", async (t) => {
   });
 
   await t.step("binary", async (t) => {
-    await t.step("binary expression", async (t) => {
-      await t.step("parses binary expression", () =>
-        textExpression("1+2;", {
-          type: "binary",
-          operator: "+",
-          left: { type: "number", value: 1 },
-          right: { type: "number", value: 2 },
-        })
-      );
+    await t.step("parses binary expression", () =>
+      textExpression("1+2;", {
+        type: "binary",
+        operator: "+",
+        left: { type: "number", value: 1 },
+        right: { type: "number", value: 2 },
+      })
+    );
 
-      await t.step("parses binary expression with division", () =>
-        textExpression("1/2;", {
-          type: "binary",
-          operator: "/",
-          left: { type: "number", value: 1 },
-          right: { type: "number", value: 2 },
-        })
-      );
+    await t.step("parses binary expression with division", () =>
+      textExpression("1/2;", {
+        type: "binary",
+        operator: "/",
+        left: { type: "number", value: 1 },
+        right: { type: "number", value: 2 },
+      })
+    );
 
-      await t.step("parses binary comparison expression", () =>
-        textExpression("1 !== 2;", {
-          type: "binary",
-          operator: "!==",
-          left: { type: "number", value: 1 },
-          right: { type: "number", value: 2 },
-        })
-      );
+    await t.step("parses binary comparison expression", () =>
+      textExpression("1 !== 2;", {
+        type: "binary",
+        operator: "!==",
+        left: { type: "number", value: 1 },
+        right: { type: "number", value: 2 },
+      })
+    );
 
-      // 1+2*3 => 1+(2*3)
-      await t.step("parses binary expression with mixed precedence", () =>
-        textExpression("1+2*3;", {
+    // 1+2*3 => 1+(2*3)
+    await t.step("parses binary expression with mixed precedence", () =>
+      textExpression("1+2*3;", {
+        type: "binary",
+        operator: "+",
+        left: { type: "number", value: 1 },
+        right: {
           type: "binary",
-          operator: "+",
-          left: { type: "number", value: 1 },
-          right: {
-            type: "binary",
-            operator: "*",
-            left: { type: "number", value: 2 },
-            right: { type: "number", value: 3 },
-          },
-        })
-      );
-
-      // 1*2+3 => (1*2)+3
-      await t.step("parses binary expression with mixed precedence", () =>
-        textExpression("1*2+3;", {
-          type: "binary",
-          operator: "+",
-          left: {
-            type: "binary",
-            operator: "*",
-            left: { type: "number", value: 1 },
-            right: { type: "number", value: 2 },
-          },
+          operator: "*",
+          left: { type: "number", value: 2 },
           right: { type: "number", value: 3 },
-        })
-      );
+        },
+      })
+    );
 
-      await t.step("parses binary expression with same precedence", () =>
-        textExpression("1+2+3;", {
+    // 1*2+3 => (1*2)+3
+    await t.step("parses binary expression with mixed precedence", () =>
+      textExpression("1*2+3;", {
+        type: "binary",
+        operator: "+",
+        left: {
+          type: "binary",
+          operator: "*",
+          left: { type: "number", value: 1 },
+          right: { type: "number", value: 2 },
+        },
+        right: { type: "number", value: 3 },
+      })
+    );
+
+    await t.step("parses binary expression with same precedence", () =>
+      textExpression("1+2+3;", {
+        type: "binary",
+        operator: "+",
+        left: {
           type: "binary",
           operator: "+",
-          left: {
-            type: "binary",
-            operator: "+",
-            left: { type: "number", value: 1 },
-            right: { type: "number", value: 2 },
-          },
-          right: { type: "number", value: 3 },
-        })
-      );
-    });
+          left: { type: "number", value: 1 },
+          right: { type: "number", value: 2 },
+        },
+        right: { type: "number", value: 3 },
+      })
+    );
+
+    await t.step("with in operator", () =>
+      textExpression("x in y", {
+        type: "binary",
+        operator: "in",
+        left: {
+          type: "identifier",
+          value: "x",
+        },
+        right: {
+          type: "identifier",
+          value: "y",
+        },
+      })
+    );
   });
 
   await t.step("new", () =>
@@ -1036,6 +1092,26 @@ Deno.test("parser: expressions", async (t) => {
           "123": { type: "string", value: "numeric" },
           "0.5": { type: "string", value: "decimal" },
         },
+      })
+    );
+  });
+
+  await t.step("ternary", async (t) => {
+    /*
+  | {
+      type: "conditional";
+      test: Expression;
+      consequent: Expression;
+      alternate: Expression;
+    }
+      
+    */
+
+    await t.step("parses basic ternary expression", () =>
+      textExpression("true ? 1 : 2;", {
+        type: "conditional",
+        test: { type: "boolean", value: true },
+        consequent: { type: "number", value: 1 },
       })
     );
   });

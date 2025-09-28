@@ -26,6 +26,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/trycatch.js",
             "line": 3,
@@ -85,6 +86,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/trycatch.js",
                   "line": 6,
@@ -168,6 +170,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/trycatch.js",
                     "line": 9,
@@ -251,6 +254,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/trycatch.js",
                   "line": 11,
@@ -330,6 +334,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/trycatch.js",
                         "line": 16,
@@ -411,6 +416,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/trycatch.js",
                         "line": 19,
@@ -491,6 +497,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/trycatch.js",
             "line": 23,
@@ -582,6 +589,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/trycatch.js",
                         "line": 27,
@@ -663,6 +671,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/trycatch.js",
                         "line": 30,
@@ -742,6 +751,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/trycatch.js",
                     "line": 33,
@@ -838,6 +848,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/trycatch.js",
                         "line": 38,
@@ -921,6 +932,7 @@
                           }
                         },
                         "computed": false,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/trycatch.js",
                           "line": 41,
@@ -1036,6 +1048,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/trycatch.js",
                     "line": 45,
@@ -1134,6 +1147,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/trycatch.js",
                         "line": 50,
@@ -1215,6 +1229,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/trycatch.js",
                         "line": 53,
@@ -1312,6 +1327,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/trycatch.js",
             "line": 58,

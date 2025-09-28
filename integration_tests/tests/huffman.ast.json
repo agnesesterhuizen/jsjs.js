@@ -120,6 +120,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/huffman.js",
                   "line": 7,
@@ -170,6 +171,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/huffman.js",
                           "line": 8,
@@ -244,6 +246,7 @@
                             }
                           },
                           "computed": true,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/huffman.js",
                             "line": 9,
@@ -428,6 +431,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/huffman.js",
                       "line": 15,
@@ -527,6 +531,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/huffman.js",
                   "line": 17,
@@ -577,6 +582,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/huffman.js",
                           "line": 18,
@@ -617,6 +623,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/huffman.js",
                         "line": 19,
@@ -658,6 +665,7 @@
                               }
                             },
                             "computed": true,
+                            "optional": false,
                             "location": {
                               "file": "./integration_tests/tests/huffman.js",
                               "line": 19,
@@ -778,6 +786,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/huffman.js",
                     "line": 23,
@@ -846,6 +855,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/huffman.js",
                             "line": 24,
@@ -905,6 +915,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/huffman.js",
                             "line": 25,
@@ -965,6 +976,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/huffman.js",
                             "line": 26,
@@ -992,6 +1004,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/huffman.js",
                             "line": 26,
@@ -1038,6 +1051,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/huffman.js",
                         "line": 27,
@@ -1186,6 +1200,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/huffman.js",
                       "line": 33,
@@ -1329,6 +1344,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/huffman.js",
                   "line": 38,
@@ -1379,6 +1395,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/huffman.js",
                           "line": 39,
@@ -1441,6 +1458,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/huffman.js",
                           "line": 40,
@@ -1754,6 +1772,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/huffman.js",
                         "line": 55,
@@ -1770,6 +1789,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/huffman.js",
                       "line": 55,
@@ -1811,6 +1831,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/huffman.js",
                             "line": 56,
@@ -1842,6 +1863,7 @@
                                 }
                               },
                               "computed": false,
+                              "optional": false,
                               "location": {
                                 "file": "./integration_tests/tests/huffman.js",
                                 "line": 56,
@@ -1858,6 +1880,7 @@
                               }
                             },
                             "computed": true,
+                            "optional": false,
                             "location": {
                               "file": "./integration_tests/tests/huffman.js",
                               "line": 56,
@@ -1874,6 +1897,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/huffman.js",
                             "line": 56,
@@ -1916,6 +1940,7 @@
                                     }
                                   },
                                   "computed": false,
+                                  "optional": false,
                                   "location": {
                                     "file": "./integration_tests/tests/huffman.js",
                                     "line": 57,
@@ -1932,6 +1957,7 @@
                                   }
                                 },
                                 "computed": false,
+                                "optional": false,
                                 "location": {
                                   "file": "./integration_tests/tests/huffman.js",
                                   "line": 57,
@@ -2151,6 +2177,7 @@
                               }
                             },
                             "computed": false,
+                            "optional": false,
                             "location": {
                               "file": "./integration_tests/tests/huffman.js",
                               "line": 64,
@@ -2167,6 +2194,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/huffman.js",
                             "line": 64,
@@ -2251,6 +2279,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/huffman.js",
                         "line": 69,
@@ -2267,6 +2296,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/huffman.js",
                       "line": 69,
@@ -2326,6 +2356,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/huffman.js",
                       "line": 73,
@@ -2342,6 +2373,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/huffman.js",
                     "line": 73,
@@ -2394,6 +2426,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/huffman.js",
                       "line": 77,
@@ -2410,6 +2443,7 @@
                     }
                   },
                   "computed": true,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/huffman.js",
                     "line": 77,
@@ -2793,6 +2827,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/huffman.js",
                 "line": 91,
@@ -2839,6 +2874,7 @@
                           }
                         },
                         "computed": false,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/huffman.js",
                           "line": 92,
@@ -2929,6 +2965,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/huffman.js",
                     "line": 95,
@@ -3019,6 +3056,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/huffman.js",
                     "line": 96,
@@ -3112,6 +3150,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/huffman.js",
             "line": 99,

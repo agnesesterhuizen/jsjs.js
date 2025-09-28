@@ -8,7 +8,6 @@ import {
   Program,
   Statement,
   Parameter,
-  TOKEN_TO_OPERATOR,
   SwitchCase,
   VariableDeclarator,
   WithLocation,
@@ -19,15 +18,17 @@ import {
   CatchClause,
   Pattern,
   ObjectPatternProperty,
+  isOperatorToken,
 } from "./ast.ts";
 import { Token, TokenType } from "../parser/lexer.ts";
 
-export type ParseError = {
-  type: "syntax_error" | "unexpected_token" | "not_yet_implemented";
-  message?: string;
+const formatLocation = (t?: Token) => {
+  if (!t) return "";
+
+  return ` at ${t.filename}:${t.line}:${t.col}`;
 };
 
-const unexpectedToken = (expected: TokenType, actual: Token): ParseError => {
+const unexpectedToken = (expected: TokenType, actual: Token) => {
   const err = {
     type: "unexpected_token",
     message:
@@ -35,20 +36,19 @@ const unexpectedToken = (expected: TokenType, actual: Token): ParseError => {
       expected +
       ", got " +
       actual.value +
-      " in " +
-      `${actual.filename}:${actual.line}:${actual.col}`,
+      formatLocation(actual),
   };
 
-  throw new Error(JSON.stringify(err));
+  return new Error(JSON.stringify(err));
 };
 
 const syntaxError = (message: string, token: Token) => {
   const err = {
     type: "syntax_error",
-    message: message + " in " + `${token.filename}:${token.line}:${token.col}`,
+    message: message + formatLocation(token),
   };
 
-  throw new Error(JSON.stringify(err));
+  return new Error(JSON.stringify(err));
 };
 
 const decodeTemplateChunk = (raw: string): string => {
@@ -143,11 +143,11 @@ export class Parser {
   expect(type: TokenType): Token {
     const token = this.tokens[this.index];
     if (!token) {
-      unexpectedToken("eof", token);
+      throw unexpectedToken("eof", token);
     }
 
     if (token.type !== type) {
-      unexpectedToken(type, token);
+      throw unexpectedToken(type, token);
     }
 
     this.index++;
@@ -157,7 +157,7 @@ export class Parser {
   expectWithValue(type: TokenType, value: string): Token {
     const token = this.expect(type);
     if (token.value !== value) {
-      unexpectedToken(type, token);
+      throw unexpectedToken(type, token);
     }
 
     return token;
@@ -187,7 +187,7 @@ export class Parser {
     const token = this.nextToken();
 
     if (token.type !== "identifier" && token.type !== "keyword") {
-      unexpectedToken("identifier", token);
+      throw unexpectedToken("identifier", token);
     }
 
     return token;
@@ -200,7 +200,7 @@ export class Parser {
       (token.type !== "identifier" && token.type !== "keyword") ||
       token.value !== value
     ) {
-      unexpectedToken("identifier", token);
+      throw unexpectedToken("identifier", token);
     }
 
     return token;
@@ -246,7 +246,7 @@ export class Parser {
     const token = this.expect("keyword");
 
     if (token.value !== "true" && token.value !== "false") {
-      unexpectedToken("eof", token);
+      throw unexpectedToken("eof", token);
     }
 
     return withLocation(
@@ -318,7 +318,7 @@ export class Parser {
       const propertyToken = this.peekNextToken();
 
       if (!propertyToken) {
-        unexpectedToken("eof", token);
+        throw unexpectedToken("eof", token);
       }
 
       if (propertyToken.type === "identifier") {
@@ -330,6 +330,9 @@ export class Parser {
       } else if (propertyToken.type === "number") {
         const numberToken = this.expect("number");
         propertyName = numberToken.value;
+      } else if (propertyToken.type === "keyword") {
+        const keywordToken = this.expect("keyword");
+        propertyName = keywordToken.value;
       } else {
         const identifier = this.expect("identifier");
         propertyName = identifier.value;
@@ -979,14 +982,26 @@ export class Parser {
         }
 
         default:
-          unexpectedToken("eof", token);
+          throw unexpectedToken("eof", token);
       }
 
       locationSource = token;
     }
 
     while (true) {
-      const next = this.peekNextToken();
+      let next = this.peekNextToken();
+
+      let optional = false;
+
+      if (
+        next?.type === "question_mark" &&
+        this.peekNextToken(1)?.type === "dot"
+      ) {
+        this.expect("question_mark");
+        optional = true;
+        next = this.peekNextToken();
+      }
+
       if (next?.type === "dot") {
         this.nextToken();
         if (this.peekNextToken()?.type === "identifier") {
@@ -1001,6 +1016,7 @@ export class Parser {
                 right
               ),
               computed: false,
+              optional,
             },
             locationSource
           );
@@ -1016,11 +1032,12 @@ export class Parser {
                 keywordToken
               ),
               computed: false,
+              optional,
             },
             locationSource
           );
         } else {
-          unexpectedToken("identifier", this.peekNextToken());
+          throw unexpectedToken("identifier", this.peekNextToken());
         }
       } else if (next?.type === "left_bracket") {
         this.nextToken();
@@ -1035,6 +1052,7 @@ export class Parser {
             object: left,
             property: property,
             computed: true,
+            optional,
           },
           locationSource
         );
@@ -1090,12 +1108,15 @@ export class Parser {
         this.index = expressionStartIndex;
         const assignmentTarget = this.parseAssignmentTarget();
         if (this.index !== leftEndIndex) {
-          syntaxError("invalid left-hand side in assignment", assignmentToken);
+          throw syntaxError(
+            "invalid left-hand side in assignment",
+            assignmentToken
+          );
         }
         this.index = savedIndex;
 
         if (operator !== "=" && assignmentTarget.type === "pattern_object") {
-          syntaxError(
+          throw syntaxError(
             "Destructuring assignments must use '=' operator",
             assignmentToken
           );
@@ -1120,17 +1141,25 @@ export class Parser {
     return left;
   }
 
-  isOperatorTokenType(token: Token) {
-    if (!token) return false;
-
-    return token.type in TOKEN_TO_OPERATOR;
-  }
-
-  parseExpression(precedence = 0, allowComma = true): Expression {
+  parseExpression(
+    precedence = 0,
+    allowComma = true,
+    excludeIn = false
+  ): Expression {
     let left = this.parsePrimary(allowComma);
 
-    while (this.isOperatorTokenType(this.peekNextToken())) {
+    while (isOperatorToken(this.peekNextToken())) {
       const operatorToken = this.peekNextToken()!;
+
+      // for for-in loop
+      if (
+        excludeIn &&
+        operatorToken.type === "keyword" &&
+        operatorToken.value === "in"
+      ) {
+        break;
+      }
+
       const operator = getOperatorFromToken(operatorToken);
 
       const operatorPrecedence = OPERATOR_PRECEDENCE[operator];
@@ -1138,7 +1167,11 @@ export class Parser {
       // Only parse next operator if its precedence is higher or equal
       if (operatorPrecedence > precedence) {
         this.nextToken(); // consume the operator
-        const right = this.parseExpression(operatorPrecedence, allowComma);
+        const right = this.parseExpression(
+          operatorPrecedence,
+          allowComma,
+          excludeIn
+        );
 
         left = withLocation(
           {
@@ -1162,9 +1195,9 @@ export class Parser {
     ) {
       const testExpression = left;
       this.expect("question_mark");
-      const consequent = this.parseExpression(0, allowComma);
+      const consequent = this.parseExpression(0, allowComma, excludeIn);
       this.expect("colon");
-      const alternate = this.parseExpression(precedence, allowComma);
+      const alternate = this.parseExpression(precedence, allowComma, excludeIn);
 
       left = {
         type: "conditional",
@@ -1185,7 +1218,7 @@ export class Parser {
 
       while (this.peekNextToken()?.type === "comma") {
         this.expect("comma");
-        expressions.push(this.parseExpression(0, false));
+        expressions.push(this.parseExpression(0, false, excludeIn));
       }
 
       return {
@@ -1202,7 +1235,7 @@ export class Parser {
     const keywordToken = this.expect("keyword");
 
     if (!["var", "const", "let"].includes(keywordToken.value)) {
-      unexpectedToken("eof", keywordToken);
+      throw unexpectedToken("eof", keywordToken);
     }
 
     const declarations: VariableDeclarator[] = [];
@@ -1219,7 +1252,10 @@ export class Parser {
         keywordToken.value === "const" &&
         !this.isForInOrOfLookahead()
       ) {
-        syntaxError("const declaration must have initial value", keywordToken);
+        throw syntaxError(
+          "const declaration must have initial value",
+          keywordToken
+        );
       }
 
       declarations.push({ id: pattern, value });
@@ -1255,7 +1291,7 @@ export class Parser {
     const next = this.peekNextToken();
 
     if (!next) {
-      unexpectedToken("identifier", next);
+      throw unexpectedToken("identifier", next);
     }
 
     if (next.type === "left_brace") {
@@ -1270,7 +1306,7 @@ export class Parser {
       );
     }
 
-    unexpectedToken("identifier", next);
+    throw unexpectedToken("identifier", next);
   }
 
   parseAssignmentPattern(): Pattern {
@@ -1287,7 +1323,7 @@ export class Parser {
       if (this.peekNextToken()?.type === "spread") {
         const spreadToken = this.expect("spread");
         if (sawRest) {
-          syntaxError(
+          throw syntaxError(
             "Multiple rest properties in object pattern",
             spreadToken
           );
@@ -1299,7 +1335,7 @@ export class Parser {
             : this.parseAssignmentPattern();
 
         if (argument.type !== "pattern_identifier") {
-          syntaxError("Rest element must be an identifier", spreadToken);
+          throw syntaxError("Rest element must be an identifier", spreadToken);
         }
 
         properties.push(
@@ -1314,7 +1350,10 @@ export class Parser {
         sawRest = true;
 
         if (!this.nextTokenIsType("right_brace")) {
-          syntaxError("Rest element must be the last property", spreadToken);
+          throw syntaxError(
+            "Rest element must be the last property",
+            spreadToken
+          );
         }
         break;
       }
@@ -1327,7 +1366,7 @@ export class Parser {
       } else if (keyToken.type === "string" || keyToken.type === "number") {
         key = keyToken.value;
       } else {
-        unexpectedToken("identifier", keyToken);
+        throw unexpectedToken("identifier", keyToken);
       }
 
       let valuePattern: Pattern;
@@ -1341,7 +1380,7 @@ export class Parser {
             : this.parseAssignmentPattern();
       } else {
         if (keyToken.type !== "identifier") {
-          unexpectedToken("identifier", keyToken);
+          throw unexpectedToken("identifier", keyToken);
         }
         valuePattern = withLocation(
           { type: "pattern_identifier", name: key },
@@ -1391,7 +1430,7 @@ export class Parser {
     const next = this.peekNextToken();
 
     if (!next) {
-      unexpectedToken("identifier", next);
+      throw unexpectedToken("identifier", next);
     }
 
     if (next.type === "left_paren") {
@@ -1457,7 +1496,7 @@ export class Parser {
       return this.expressionToPattern(expression);
     }
 
-    unexpectedToken("identifier", next);
+    throw unexpectedToken("identifier", next);
   }
 
   expressionToPattern(expression: Expression): Pattern {
@@ -1484,7 +1523,10 @@ export class Parser {
     }
 
     const token = this.tokens[this.index - 1] ?? this.peekNextToken();
-    syntaxError("Invalid assignment target", token ?? this.tokens[this.index]);
+    throw syntaxError(
+      "Invalid assignment target",
+      token ?? this.tokens[this.index]
+    );
   }
 
   parseBlockStatement(): Statement {
@@ -1607,24 +1649,84 @@ export class Parser {
 
     this.expect("left_paren");
 
-    const init = this.parseStatement();
+    let isForInOrOf = false;
+    let isForIn = false;
 
-    const possibleInToken = this.peekNextToken();
-    const isForInToken =
-      possibleInToken &&
-      (possibleInToken.type === "keyword" ||
-        possibleInToken.type === "identifier") &&
-      possibleInToken.value === "in";
-    const isForOfToken =
-      possibleInToken &&
-      (possibleInToken.type === "keyword" ||
-        possibleInToken.type === "identifier") &&
-      possibleInToken.value === "of";
+    let parenDepth = 0;
+    let cursor = this.index;
 
-    if (isForInToken || isForOfToken) {
-      const inToken = this.nextToken();
-      if (inToken.value !== (isForInToken ? "in" : "of")) {
-        unexpectedToken("keyword", inToken);
+    while (cursor < this.tokens.length) {
+      const currentToken = this.tokens[cursor];
+
+      if (currentToken.type === "left_paren") {
+        parenDepth++;
+      } else if (currentToken.type === "right_paren") {
+        parenDepth--;
+        if (parenDepth < 0) break;
+      } else if (
+        parenDepth === 0 &&
+        (currentToken.type === "keyword" || currentToken.type === "identifier")
+      ) {
+        if (currentToken.value === "in") {
+          isForInOrOf = true;
+          isForIn = true;
+          break;
+        } else if (currentToken.value === "of") {
+          isForInOrOf = true;
+          isForIn = false;
+          break;
+        }
+      } else if (parenDepth === 0 && currentToken.type === "semicolon") {
+        break;
+      }
+
+      cursor++;
+    }
+
+    if (isForInOrOf) {
+      // Parse for-in/of loop
+
+      // Parse the left-hand side (could be a variable declaration or expression)
+      let left: Statement | Expression;
+
+      if (
+        this.peekNextToken()?.type === "keyword" &&
+        ["var", "let", "const"].includes(this.peekNextToken()?.value || "")
+      ) {
+        const varDecl = this.parseVariableDeclaration();
+
+        if (
+          varDecl.type === "variable_declaration" &&
+          varDecl.declarations.length !== 1
+        ) {
+          throw syntaxError(
+            `for-${
+              isForIn ? "in" : "of"
+            } declarations must have exactly one binding`,
+            this.tokens[this.index]
+          );
+        }
+
+        if (varDecl.type === "variable_declaration") {
+          const declarator = varDecl.declarations[0];
+          if (declarator.value !== undefined) {
+            throw syntaxError(
+              `for-${
+                isForIn ? "in" : "of"
+              } declarations may not include an initializer`,
+              this.tokens[this.index]
+            );
+          }
+        }
+
+        left = varDecl;
+      } else {
+        left = this.parseExpression(0, false, true);
+      }
+
+      const inOfToken = this.nextToken();
+      if (inOfToken.value !== (isForIn ? "in" : "of")) {
+        throw unexpectedToken("keyword", inOfToken);
       }
 
       const right = this.parseExpression(0);
@@ -1633,71 +1735,45 @@ export class Parser {
 
       const body = this.parseStatement();
 
-      let left: Statement | Expression;
-
-      if (init.type === "expression") {
-        left = init.expression;
-      } else if (init.type === "variable_declaration") {
-        if (init.declarations.length !== 1) {
-          syntaxError(
-            `for-${inToken.value} declarations must have exactly one binding`,
-            possibleInToken
-          );
-        }
-
-        const declarator = init.declarations[0];
-        if (declarator.value !== undefined) {
-          syntaxError(
-            `for-${inToken.value} declarations may not include an initializer`,
-            possibleInToken
-          );
-        }
-
-        left = init;
-      } else {
-        syntaxError(
-          `invalid left-hand side in for-${inToken.value}`,
-          possibleInToken
-        );
-      }
-
       return withLocation(
         {
-          type: isForInToken ? "for_in" : "for_of",
+          type: isForIn ? "for_in" : "for_of",
           left,
           right,
           body,
         },
         token
       );
+    } else {
+      const init = this.parseStatement();
+
+      let test: Expression | undefined;
+      if (!this.nextTokenIsType("semicolon")) {
+        test = this.parseExpression(0);
+      }
+
+      this.expect("semicolon");
+
+      let update: Expression | undefined;
+      if (!this.nextTokenIsType("right_paren")) {
+        update = this.parseExpression(0);
+      }
+
+      this.expect("right_paren");
+
+      const body = this.parseStatement();
+
+      return withLocation(
+        {
+          type: "for",
+          init,
+          test,
+          update,
+          body,
+        },
+        token
+      );
     }
-
-    let test: Expression | undefined;
-    if (!this.nextTokenIsType("semicolon")) {
-      test = this.parseExpression(0);
-    }
-
-    this.expect("semicolon");
-
-    let update: Expression | undefined;
-    if (!this.nextTokenIsType("right_paren")) {
-      update = this.parseExpression(0);
-    }
-
-    this.expect("right_paren");
-
-    const body = this.parseStatement();
-
-    return withLocation(
-      {
-        type: "for",
-        init,
-        test,
-        update,
-        body,
-      },
-      token
-    );
   }
 
   parseParams(allowDefaults = false): Parameter[] {
@@ -1710,7 +1786,7 @@ export class Parser {
 
         const pattern = this.parseBindingPattern();
         if (pattern.type !== "pattern_identifier") {
-          syntaxError(
+          throw syntaxError(
             "Rest parameter must be an identifier",
             this.tokens[this.index - 1]
           );
@@ -1749,7 +1825,7 @@ export class Parser {
     this.expect("right_paren");
 
     if (consumedSpread && this.peekNextToken()?.type === "comma") {
-      unexpectedToken("right_paren", this.peekNextToken());
+      throw unexpectedToken("right_paren", this.peekNextToken());
     }
 
     return params;
@@ -1829,7 +1905,7 @@ export class Parser {
         this.backup();
         properties.push(this.parseClassPropertyDeclaration(isStatic));
       } else {
-        unexpectedToken("eof", this.tokens[this.index]);
+        throw unexpectedToken("eof", this.tokens[this.index]);
       }
     }
 
@@ -1846,7 +1922,7 @@ export class Parser {
     if (next?.type === "identifier") {
       identifier = this.expect("identifier").value;
     } else if (requireIdentifier) {
-      unexpectedToken("identifier", next);
+      throw unexpectedToken("identifier", next);
     }
 
     let superClass: string | undefined;
@@ -1943,7 +2019,10 @@ export class Parser {
 
       if (next?.type === "keyword" && next.value === "default") {
         if (defaultCase) {
-          syntaxError("duplicate default clause in switch statement", next);
+          throw syntaxError(
+            "duplicate default clause in switch statement",
+            next
+          );
         }
 
         const defaultToken = this.expectWithValue("keyword", "default");
@@ -1974,9 +2053,9 @@ export class Parser {
       }
 
       if (next) {
-        syntaxError("unexpected token in switch statement", next);
+        throw syntaxError("unexpected token in switch statement", next);
       } else {
-        unexpectedToken("right_brace", this.tokens[this.index - 1]);
+        throw unexpectedToken("right_brace", this.tokens[this.index - 1]);
       }
     }
 
@@ -2078,7 +2157,10 @@ export class Parser {
     }
 
     if (!handler && !finalizer) {
-      syntaxError("try statement must have catch or finally clause", token);
+      throw syntaxError(
+        "try statement must have catch or finally clause",
+        token
+      );
     }
 
     return withLocation(
@@ -2186,15 +2268,14 @@ export class Parser {
           return this.parseThrowStatement();
         }
 
-        unexpectedToken("eof", token);
-        break;
+        throw unexpectedToken("eof", token);
 
       case "left_brace": {
         return this.parseBlockStatement();
       }
 
       default:
-        unexpectedToken("eof", token);
+        throw unexpectedToken("eof", token);
     }
   }
 

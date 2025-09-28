@@ -108,6 +108,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/forloop.js",
                   "line": 4,

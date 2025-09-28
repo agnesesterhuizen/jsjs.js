@@ -26,6 +26,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/arithmetic.js",
             "line": 2,
@@ -98,6 +99,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/arithmetic.js",
             "line": 3,
@@ -170,6 +172,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/arithmetic.js",
             "line": 4,
@@ -242,6 +245,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/arithmetic.js",
             "line": 5,
@@ -314,6 +318,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/arithmetic.js",
             "line": 6,

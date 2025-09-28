@@ -1,0 +1,910 @@
+{
+  "type": "program",
+  "body": [
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 1,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 1,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 1,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "null ?? 'fallback':",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 1,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "??",
+            "left": {
+              "type": "null",
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 1,
+                "column": 36
+              }
+            },
+            "right": {
+              "type": "string",
+              "value": "fallback",
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 1,
+                "column": 44
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 1,
+              "column": 41
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 1,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 1,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 2,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 2,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 2,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "undefined ?? 'fallback':",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 2,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "??",
+            "left": {
+              "type": "identifier",
+              "value": "undefined",
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 2,
+                "column": 41
+              }
+            },
+            "right": {
+              "type": "string",
+              "value": "fallback",
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 2,
+                "column": 54
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 2,
+              "column": 51
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 2,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 5,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 5,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 5,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "0 ?? 123:",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 5,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "??",
+            "left": {
+              "type": "number",
+              "value": 0,
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 5,
+                "column": 26
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 123,
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 5,
+                "column": 31
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 5,
+              "column": 28
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 5,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 6,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 6,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 6,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "'' ?? 'hi':",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 6,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "??",
+            "left": {
+              "type": "string",
+              "value": "",
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 6,
+                "column": 28
+              }
+            },
+            "right": {
+              "type": "string",
+              "value": "hi",
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 6,
+                "column": 34
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 6,
+              "column": 31
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 6,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 7,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 7,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 7,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "false ?? true:",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 7,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "??",
+            "left": {
+              "type": "boolean",
+              "value": false,
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 7,
+                "column": 31
+              }
+            },
+            "right": {
+              "type": "boolean",
+              "value": true,
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 7,
+                "column": 40
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 7,
+              "column": 37
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 7,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 10,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 10,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 10,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "null ?? undefined ?? 'ok':",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 10,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "??",
+            "left": {
+              "type": "binary",
+              "operator": "??",
+              "left": {
+                "type": "null",
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 10,
+                  "column": 43
+                }
+              },
+              "right": {
+                "type": "identifier",
+                "value": "undefined",
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 10,
+                  "column": 51
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 10,
+                "column": 48
+              }
+            },
+            "right": {
+              "type": "string",
+              "value": "ok",
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 10,
+                "column": 64
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 10,
+              "column": 61
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 10,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 13,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 13,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 13,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "(null ?? 1) + 2:",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 13,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "+",
+            "left": {
+              "type": "binary",
+              "operator": "??",
+              "left": {
+                "type": "null",
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 13,
+                  "column": 34
+                }
+              },
+              "right": {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 13,
+                  "column": 42
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 13,
+                "column": 39
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 13,
+                "column": 47
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 13,
+              "column": 45
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 13,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 14,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 14,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 14,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "(0 ?? 1) + 2:",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 14,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "+",
+            "left": {
+              "type": "binary",
+              "operator": "??",
+              "left": {
+                "type": "number",
+                "value": 0,
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 14,
+                  "column": 31
+                }
+              },
+              "right": {
+                "type": "number",
+                "value": 1,
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 14,
+                  "column": 36
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 14,
+                "column": 33
+              }
+            },
+            "right": {
+              "type": "number",
+              "value": 2,
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 14,
+                "column": 41
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 14,
+              "column": 39
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 14,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 17,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 17,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 17,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "true || (null ?? 'x'):",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 17,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "||",
+            "left": {
+              "type": "boolean",
+              "value": true,
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 17,
+                "column": 39
+              }
+            },
+            "right": {
+              "type": "binary",
+              "operator": "??",
+              "left": {
+                "type": "null",
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 17,
+                  "column": 48
+                }
+              },
+              "right": {
+                "type": "string",
+                "value": "x",
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 17,
+                  "column": 56
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 17,
+                "column": 53
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 17,
+              "column": 44
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 17,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "type": "expression",
+      "expression": {
+        "type": "call",
+        "func": {
+          "type": "member",
+          "object": {
+            "type": "identifier",
+            "value": "console",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 18,
+              "column": 1
+            }
+          },
+          "property": {
+            "type": "identifier",
+            "value": "log",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 18,
+              "column": 9
+            }
+          },
+          "computed": false,
+          "optional": false,
+          "location": {
+            "file": "./integration_tests/tests/nullishcoalescing.js",
+            "line": 18,
+            "column": 1
+          }
+        },
+        "arguments": [
+          {
+            "type": "string",
+            "value": "false && (null ?? 'x'):",
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 18,
+              "column": 13
+            }
+          },
+          {
+            "type": "binary",
+            "operator": "&&",
+            "left": {
+              "type": "boolean",
+              "value": false,
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 18,
+                "column": 40
+              }
+            },
+            "right": {
+              "type": "binary",
+              "operator": "??",
+              "left": {
+                "type": "null",
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 18,
+                  "column": 50
+                }
+              },
+              "right": {
+                "type": "string",
+                "value": "x",
+                "location": {
+                  "file": "./integration_tests/tests/nullishcoalescing.js",
+                  "line": 18,
+                  "column": 58
+                }
+              },
+              "location": {
+                "file": "./integration_tests/tests/nullishcoalescing.js",
+                "line": 18,
+                "column": 55
+              }
+            },
+            "location": {
+              "file": "./integration_tests/tests/nullishcoalescing.js",
+              "line": 18,
+              "column": 46
+            }
+          }
+        ],
+        "location": {
+          "file": "./integration_tests/tests/nullishcoalescing.js",
+          "line": 18,
+          "column": 12
+        }
+      },
+      "location": {
+        "file": "./integration_tests/tests/nullishcoalescing.js",
+        "line": 18,
+        "column": 1
+      }
+    }
+  ]
+}

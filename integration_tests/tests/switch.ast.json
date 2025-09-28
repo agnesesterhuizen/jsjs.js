@@ -136,6 +136,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/switch.js",
                         "line": 14,
@@ -213,6 +214,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/switch.js",
                         "line": 18,
@@ -298,6 +300,7 @@
                         }
                       },
                       "computed": false,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/switch.js",
                         "line": 23,
@@ -370,6 +373,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/switch.js",
               "line": 28,

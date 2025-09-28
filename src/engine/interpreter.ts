@@ -387,6 +387,10 @@ export class Interpreter {
         return this.runtime.newNumber(l & r);
       }
 
+      case "??":
+      case "in":
+        throw new Error("should never happen");
+
       default:
         assertNotReached(operator);
     }
@@ -450,6 +454,10 @@ export class Interpreter {
           (left.value ? 1 : 0) & (right.value ? 1 : 0)
         );
 
+      case "??":
+      case "in":
+        throw new Error("should never happen");
+
       default:
         assertNotReached(operator);
         throw todo("boolean operator " + operator, expression);
@@ -466,6 +474,27 @@ export class Interpreter {
 
     if (expression.operator === "&&") {
       return left.isTruthy() ? this.executeExpression(expression.right) : left;
+    }
+
+    if (expression.operator === "??") {
+      if (left.type === "null" || left.type === "undefined") {
+        return this.executeExpression(expression.right);
+      } else {
+        return left;
+      }
+    }
+
+    if (expression.operator === "in") {
+      const right = this.executeExpression(expression.right);
+      if (right.type !== "object" && right.type !== "array") {
+        throw typeError("right operand of 'in' must be an object", expression);
+      }
+
+      const key = left.type === "symbol" ? (left as JSSymbol) : left.toString();
+
+      const value = this.runtime.getProperty(right, key);
+
+      return this.runtime.newBoolean(value.type !== "undefined");
     }
 
     const right = this.executeExpression(expression.right);
@@ -865,7 +894,15 @@ export class Interpreter {
       case "identifier":
         return this.runtime.lookupVariable(expression.value);
       case "call": {
+        const calleeIsOptional =
+          expression.func.type === "member" && expression.func.optional;
         const fnVal = this.executeExpression(expression.func);
+
+        if (calleeIsOptional) {
+          if (fnVal.type === "undefined" || fnVal.type === "null") {
+            return this.runtime.newUndefined();
+          }
+        }
 
         if (fnVal.type !== "function") {
           throw todo(`${fnVal.toString()} is not a function`, expression);
@@ -918,6 +955,13 @@ export class Interpreter {
 
       case "member": {
         const object = this.executeExpression(expression.object);
+
+        if (
+          expression.optional &&
+          (object.type === "undefined" || object.type === "null")
+        ) {
+          return this.runtime.newUndefined();
+        }
 
         if (expression.computed) {
           const propertyValue = this.executeExpression(expression.property);

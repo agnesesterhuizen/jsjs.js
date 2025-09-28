@@ -93,6 +93,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/assignment.js",
             "line": 4,
@@ -223,6 +224,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/assignment.js",
             "line": 8,
@@ -353,6 +355,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/assignment.js",
             "line": 12,
@@ -483,6 +486,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/assignment.js",
             "line": 16,
@@ -718,6 +722,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/assignment.js",
             "line": 23,

@@ -26,6 +26,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 3,
@@ -182,6 +183,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 7,
@@ -245,6 +247,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 8,
@@ -329,6 +332,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/symbols.js",
                 "line": 10,
@@ -398,6 +402,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/symbols.js",
                 "line": 11,
@@ -455,6 +460,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 12,
@@ -527,6 +533,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 13,
@@ -557,6 +564,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/symbols.js",
                 "line": 13,
@@ -669,6 +677,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 16,
@@ -699,6 +708,7 @@
                 }
               },
               "computed": false,
+              "optional": false,
               "location": {
                 "file": "./integration_tests/tests/symbols.js",
                 "line": 16,
@@ -951,6 +961,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 22,
@@ -979,6 +990,7 @@
               }
             },
             "computed": true,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/symbols.js",
               "line": 22,
@@ -1023,6 +1035,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 23,
@@ -1051,6 +1064,7 @@
               }
             },
             "computed": true,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/symbols.js",
               "line": 23,
@@ -1095,6 +1109,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 24,
@@ -1136,6 +1151,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/symbols.js",
                   "line": 24,
@@ -1160,6 +1176,7 @@
               }
             },
             "computed": true,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/symbols.js",
               "line": 24,
@@ -1204,6 +1221,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/symbols.js",
             "line": 25,
@@ -1236,6 +1254,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/symbols.js",
                   "line": 25,
@@ -1269,6 +1288,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/symbols.js",
               "line": 25,

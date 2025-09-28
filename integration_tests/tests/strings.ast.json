@@ -58,6 +58,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/strings.js",
             "line": 5,
@@ -86,6 +87,7 @@
               }
             },
             "computed": false,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/strings.js",
               "line": 5,
@@ -130,6 +132,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/strings.js",
             "line": 6,
@@ -158,6 +161,7 @@
               }
             },
             "computed": true,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/strings.js",
               "line": 6,
@@ -202,6 +206,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/strings.js",
             "line": 7,
@@ -230,6 +235,7 @@
               }
             },
             "computed": true,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/strings.js",
               "line": 7,
@@ -274,6 +280,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/strings.js",
             "line": 8,
@@ -302,6 +309,7 @@
               }
             },
             "computed": true,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/strings.js",
               "line": 8,
@@ -346,6 +354,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/strings.js",
             "line": 9,
@@ -374,6 +383,7 @@
               }
             },
             "computed": true,
+            "optional": false,
             "location": {
               "file": "./integration_tests/tests/strings.js",
               "line": 9,

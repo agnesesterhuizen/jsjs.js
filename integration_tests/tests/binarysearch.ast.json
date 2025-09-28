@@ -103,6 +103,7 @@
                       }
                     },
                     "computed": false,
+                    "optional": false,
                     "location": {
                       "file": "./integration_tests/tests/binarysearch.js",
                       "line": 5,
@@ -202,6 +203,7 @@
                             }
                           },
                           "computed": false,
+                          "optional": false,
                           "location": {
                             "file": "./integration_tests/tests/binarysearch.js",
                             "line": 8,
@@ -296,6 +298,7 @@
                         }
                       },
                       "computed": true,
+                      "optional": false,
                       "location": {
                         "file": "./integration_tests/tests/binarysearch.js",
                         "line": 10,
@@ -406,6 +409,7 @@
                           }
                         },
                         "computed": true,
+                        "optional": false,
                         "location": {
                           "file": "./integration_tests/tests/binarysearch.js",
                           "line": 12,
@@ -597,6 +601,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/binarysearch.js",
             "line": 22,

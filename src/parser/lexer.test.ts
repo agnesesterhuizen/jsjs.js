@@ -176,44 +176,56 @@ Deno.test("does not mistake division for regex", () => {
   );
 });
 
-Deno.test("lexes regex literal with character classes and escapes", () => {
-  const lexer = new Lexer();
-  const src = `/[a-z\\/]+/gi;`;
+const regexTests = [
+  {
+    src: `/[a-z\\/]+/gi;`,
+    expected: {
+      type: "regex",
+      value: "[a-z\\/]+",
+      regexFlags: "gi",
+    },
+  },
+  {
+    src: `/"[^"]*"/`,
+    expected: {
+      type: "regex",
+      value: "[a-z\\/]+",
+      regexFlags: "gi",
+    },
+  },
+  {
+    src: `({ x: /\`/ })`,
+    expected: {
+      type: "regex",
+      value: "[a-z\\/]+",
+      regexFlags: "gi",
+    },
+  },
+  {
+    src: `return /foo?/i;`,
+    expected: {
+      type: "regex",
+      value: "foo?",
+      regexFlags: "i",
+    },
+  },
+  {
+    src: `if (ok) /test/.exec(str);`,
+    expected: {
+      type: "regex",
+      value: "test",
+      regexFlags: "",
+    },
+  },
+];
 
-  const tokens = lexer.run("", src);
-  const regexToken = tokens.find((t) => t.type === "regex");
-
-  assertObjectMatch(regexToken, {
-    type: "regex",
-    value: "[a-z\\/]+",
-    regexFlags: "gi",
-  });
-});
-
-Deno.test("allows regex literal after return keyword", () => {
-  const lexer = new Lexer();
-  const src = `return /foo?/i;`;
-
-  const tokens = lexer.run("", src);
-  const regexToken = tokens.find((t) => t.type === "regex");
-
-  assertObjectMatch(regexToken, {
-    type: "regex",
-    value: "foo?",
-    regexFlags: "i",
-  });
-});
-
-Deno.test("allows regex after control paren", () => {
-  const lexer = new Lexer();
-  const src = `if (ok) /test/.exec(str);`;
-
-  const tokens = lexer.run("", src);
-  const regexToken = tokens.find((t) => t.type === "regex");
-
-  assertObjectMatch(regexToken, {
-    type: "regex",
-    value: "test",
-    regexFlags: "",
-  });
+Deno.test("regex tokens", async (t) => {
+  for (const test of regexTests) {
+    await t.step(test.src, () => {
+      const lexer = new Lexer();
+      const tokens = lexer.run("", test.src);
+      const regexToken = tokens.find((t) => t.type === "regex");
+      assertObjectMatch(regexToken, test.expected);
+    });
+  }
 });

@@ -230,6 +230,7 @@
             }
           },
           "computed": false,
+          "optional": false,
           "location": {
             "file": "./integration_tests/tests/for_of.js",
             "line": 8,
@@ -324,6 +325,7 @@
           }
         },
         "computed": false,
+        "optional": false,
         "location": {
           "file": "./integration_tests/tests/for_of.js",
           "line": 11,
@@ -386,6 +388,7 @@
                   }
                 },
                 "computed": false,
+                "optional": false,
                 "location": {
                   "file": "./integration_tests/tests/for_of.js",
                   "line": 12,
@@ -414,6 +417,7 @@
                     }
                   },
                   "computed": false,
+                  "optional": false,
                   "location": {
                     "file": "./integration_tests/tests/for_of.js",
                     "line": 12,
